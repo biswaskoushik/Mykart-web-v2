@@ -1,0 +1,214 @@
+<script *ngIf="SubmitPoliciesFlag">
+  $('[data-toggle="tooltip"]').tooltip();
+</script>
+
+
+<div class="boardingpolicy">
+<!-- Shipping & Handling -->
+<div class="row p-2" *ngIf="SubmitPoliciesFlag">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-2 pr-2">
+
+    <form action="#" id="form-register" [formGroup]="policiesForm">
+      <div class="row">
+        <div class="col-12 mb-4 pl-2 pr-2">
+          <span class="font-weight-bold">Shipping & Handling</span>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-lg-7 col-md-6 col-12 pl-2 pr-2">
+          <div class="form-group">
+            <label>Carrier</label>
+            <div class="formgroupinner">
+            <i class="fa fa-angle-down"></i>
+            <select class="form-control form-control-lg inputText" name="carriers" aria-label="Default select example"
+              formControlName="carrier_service"
+              (change)="getServiceData(policiesForm.controls['carrier_service'].value)">
+              <!-- <option selected>Carrier</option> -->
+              <option *ngFor="let item of carriersData" [value]="item.friendly_name">{{item.friendly_name}}</option>
+            </select>
+          </div>
+            <p class="error-p"
+              *ngIf="policiesForm.controls['carrier_service'].touched && !policiesForm.controls['carrier_service'].valid && policiesForm.controls['carrier_service'].errors.required">
+              Carrier required.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-7 col-md-6 col-12 pl-2 pr-2 text-left">
+          <div class="form-group mb-0">
+            <label>Preferred Shipping Method</label>
+            <div class="formgroupinner">
+              <i class="fa fa-angle-down"></i>
+              <select class="form-control form-control-lg inputText" name="year" aria-label="Default select example"
+                formControlName="shipping_carrier">
+                <option selected>Preferred Shipping Method</option>
+                <option *ngFor="let item of serviceData" [value]="item.name">{{item.name}}</option>
+              </select>
+            </div>
+            <p class="error-p"
+              *ngIf="policiesForm.controls['shipping_carrier'].touched && !policiesForm.controls['shipping_carrier'].valid && policiesForm.controls['shipping_carrier'].errors.required">
+              shipping carrier required.
+            </p>
+          </div>
+            <button type="button" class="chosenbtn text-primary" data-toggle="tooltip" data-placement="bottom"
+              title="The chosen service will be used for orders with free shipping as well as any returns." style="font-size: 10pt">What is the preferred shipping method?</button>
+        </div>
+      </div>
+      <div class="row mt-1 mt-md-4 mb-2">
+        <div class="col-xl-6 col-lg-6 col-md-8 col-sm-12 col-12 pl-2 pr-2">
+          <div class="d-flex flex-row  justify-content-between ">
+            <div class="mr-2 d-flex align-items-center">
+              <label class="text-capitalize " style="color: #020433; font-size: 14px; font-weight: 500;"
+                for="handlingTime">Handling Time
+              </label>
+            </div>
+
+
+            <div class="d-flex justify-content-end qtybox">
+                <button class="btn-sm btn"
+                  (click)="decrement(policiesForm.controls['handling_time'].value,'handling_time')">
+                  <i class="fa fa-minus" aria-hidden="true"></i>
+                </button>
+                <input type="text" name="handlingTime" id="handlingTime"
+                  class="inputText"
+                  formControlName="handling_time" maxlength="2" size="3" readonly />
+                <button class="btn" (click)="increment(policiesForm.controls['handling_time'].value,'handling_time')">
+                  <i class="fa fa-plus" aria-hidden="true"></i>
+                </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="row mb-2">
+        <div class="col-8 mb-2 p-2 text-capitalize ">
+          <span class="pl-2"> Details</span>
+        </div>
+        <div class="col-lg-12 col-md-11 col-sm-11 col-11 m-auto ">
+          <div class="divInf inputText">
+            <textarea class="form-control form-control-lg inputText">
+
+           </textarea>
+          </div>
+        </div>
+        <div class="col-8 mb-2 p-2 text-capitalize ">
+          <span class="pl-2"> Additional Notes</span>
+        </div>
+        <div class="col-lg-12 col-md-11 col-sm-11 col-11 m-auto">
+          <div class="divInf inputText">
+            <textarea formControlName="shipping_additional_info" class="form-control form-control-lg inputText">
+
+            </textarea>
+          </div>
+        </div>
+      </div> -->
+
+    </form>
+
+
+
+  </div>
+</div>
+
+<hr>
+
+<!-- Return -->
+<div class="row p-2" *ngIf="SubmitPoliciesFlag">
+  <div class="col-lg-12 col-md-12 col-sm-12 pl-2 pr-2">
+    <form action="#" id="form-register" [formGroup]="policiesForm">
+      <div class="row">
+        <div class="col-12 mb-4 pl-2 pr-2">
+          <span class="font-weight-bold">Return Pocily</span>
+        </div>
+      </div>
+      <div class="row mb-2">
+        <div class="col-lg-6 col-md-6 d-flex flex-row align-items-center pl-2 pr-2">
+          <div class="row">
+            <div class="col-12 pl-2 pr-2">
+              <label class="text-capitalize " for="carrier">Accepting Returns</label>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 d-flex flex-row align-items-center pl-2 pr-2">
+          <ui-switch (change)="getAcceptValue(isChecked)" [(ngModel)]="isChecked" [ngModelOptions]="{standalone: true}"
+            color="#0f7aed" size="small"></ui-switch>
+        </div>
+      </div>
+
+      <div class="row mb-2" *ngIf="!disable_return_policies">
+        <div class="col-lg-6 col-md-6 pl-2 pr-2">
+          <div class="input-group mb-3">
+            <select class="custom-select" id="inputGroupSelect01" formControlName="return_window">
+              <option *ngFor="let data of returnPolicy;" [value]="data.value" [disabled]="disable_return_policies">
+                {{data.text}}</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mb-2" *ngIf="!disable_return_policies">
+        <div class="col-xl-6 col-lg-6 col-md-8 col-sm-12 col-12 pl-2 pr-2">
+          <div class="d-flex flex-row  justify-content-between ">
+            <div class="mr-2 d-flex align-items-center">
+              <label class="text-capitalize " style="color: #020433; font-size: 14px; font-weight: 500;"
+                for="handlingTime">Processing Time
+              </label>
+            </div>
+
+            <div class="d-flex justify-content-end qtybox">
+              <button class="btn-sm btn"
+                (click)="decrement(policiesForm.controls['processing_time'].value,'processing_time')"
+                [disabled]="disable_return_policies">
+                <i class="fa fa-minus" aria-hidden="true"></i>
+              </button>
+              <input type="text" name="handlingTime" id="handlingTime"
+                  class="inputText"
+                  formControlName="processing_time" maxlength="2" size="3" readonly />
+              <button class="btn"
+                (click)="increment(policiesForm.controls['processing_time'].value,'processing_time')"
+                [disabled]="disable_return_policies">
+                <i class="fa fa-plus" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="row mb-2">
+        <div class="col-8 mb-2 p-2 text-capitalize ">
+          <span class="pl-2"> Details</span>
+        </div>
+        <div class="col-lg-12 col-md-11 col-sm-11 col-11 m-auto ">
+          <div class="divInf inputText">
+            <textarea formControlName="custom_return_address" class="form-control form-control-lg inputText">
+            </textarea>
+          </div>
+        </div>
+
+        <div class="col-8 mb-2 p-2 text-capitalize ">
+          <span class="pl-2"> Additional Notes</span>
+        </div>
+        <div class="col-lg-12 col-md-11 col-sm-11 col-11 m-auto">
+          <div class="divInf inputText">
+            <textarea formControlName="return_additional_info" class="form-control form-control-lg inputText">
+
+            </textarea>
+          </div>
+        </div>
+      </div> -->
+
+      <div class="col-lg-12 col-md-10 text-right pl-2 pr-2 mb-4">
+
+        <button class="btn-design btn text-center mt-2  disable-submit" type="button" (click)="submitPolicies()">
+          <small class="font">SUBMIT</small>
+        </button>
+
+        <!-- <button class="btn-design btn text-center mt-2 disable-submit" type="button" (click)="skipSubmitPolicies()">
+          <small class="font">SKIP</small>
+        </button> -->
+      </div>
+
+    </form>
+  </div>
+</div>
+</div>

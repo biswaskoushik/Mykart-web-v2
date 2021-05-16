@@ -1,0 +1,116 @@
+a {
+    color: #0056b3;
+}
+.font{
+    font-family: 'Lato', sans-serif;
+}
+
+.btn-design{
+    background-image: linear-gradient(to right,#0f73ee, #1dafe8) !important;
+    color: #FFFFFF;
+    border:none;
+    border-color: transparent;
+    border-radius: 6px;
+    width: 30%;
+    
+}
+ 
+hr {
+    border: none;
+    height: 4px;
+    /* Set the hr color */
+    /* color: #F5F5F5;  */
+    background-color: #F5F5F5;  
+}
+.divInf {
+    border: 0px solid #F5F5F7;
+    background: #F5F5F7;
+}
+
+.inputText {
+    font-size: 15px;
+    height: 44px !important;
+    margin: 0 !important;
+    color: rgb(78, 77, 77)
+}
+
+
+.floating-label {
+    position: absolute;
+    pointer-events: none;
+    height: 45px;
+    line-height: 45px;
+    left: 20px;
+    top: 1px;
+    font-size: 15px !important;
+    font-weight: 300 !important;
+}
+
+input:focus ~ .floating-label,
+input:not(:focus):valid ~ .floating-label{
+    height: 15px;
+    line-height: 15px;
+    left: 20px;
+    top: 5px;
+    font-size: 9px !important;
+    opacity: 1;
+
+}
+
+.input-text-float{
+    position: absolute;
+    pointer-events: none;
+    height: 15px;
+    line-height: 15px;
+    left: 13px;
+    top: 5px;
+    font-size: 9px !important;
+    
+}
+
+.form-group-default.focused{
+    background-color: #FFFFFF;
+    border-color:  #2196F3;
+}
+
+
+textarea:focus ~ .floating-label,
+textarea:not(:focus):valid ~ .floating-label{
+    height: 15px;
+    line-height: 15px;
+    left: 13px;
+    top: 5px;
+    font-size: 9px !important;
+    opacity: 1;
+
+}
+
+.inputTextContainer {
+    border-radius: 5px;
+}
+
+.error-p {
+    color: red;
+}
+.boardingpolicy{padding: 0px 50px;}
+.boardingpolicy form .row{margin-left: -0.5rem !important; margin-right: -0.5rem !important;}
+.boardingpolicy form .row [class*=col-]:first-child {
+  padding-left: inherit;
+}
+.boardingpolicy form .row [class*=col-]:last-child {
+  padding-right: inherit;
+}
+.boardingpolicy .chosenbtn{display: inline-block; background: transparent; border: none; outline: none; margin: 10px 0px 0px 0px;}
+.boardingpolicy .form-group label{color: #020433; font-size: 14px; font-weight: 500; text-transform: none; letter-spacing: 0; margin: 0px 0px 4px 0px;}
+.boardingpolicy .form-group .formgroupinner{position: relative;}
+.boardingpolicy .form-group .formgroupinner i{position: absolute; pointer-events: none; right: 10px; top: 50%; color: #95A0B6; font-size: 14px; -webkit-transform: translateY(-50%); transform: translateY(-50%);}
+.boardingpolicy .qtybox .btn-sm.btn{border: 1px solid #ced4da; min-width: 40px; -webkit-border-radius: 0.2rem 0rem 0rem 0.2rem; border-radius: 0.2rem 0rem 0rem 0.2rem;}
+.boardingpolicy .qtybox .btn{border: 1px solid #ced4da; min-width: 40px; -webkit-border-right: 0px; border-radius: 0rem 0.2rem 0.2rem 0rem;}
+.boardingpolicy .qtybox .btn i{font-size: 11px;}
+.boardingpolicy .qtybox .inputText{border: 1px solid #ced4da; border-left: none; border-right: none; text-align: center;}
+
+
+
+@media (max-width: 575px) {
+.boardingpolicy{padding: 0px 15px;}
+}

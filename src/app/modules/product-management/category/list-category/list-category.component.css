@@ -1,0 +1,31 @@
+.font{font-family:'Montserrat',sans-serif}
+.f-w-500{font-weight:500}
+.f-w-600{font-weight:600}
+.f-s-15{font-size:15px!important}
+.f-s-16{font-size:16px!important}
+.card .card-body{padding:7px 20px}
+.add-button{background-image:linear-gradient(to right,#0f73ee,#1dafe8)!important;color:#FFF;border:none;border-color:transparent;border-radius:6px;width:80%}
+.back-button{color:#95a0b6;width:fit-content}
+.form-group-default{border-radius:5px}
+.inputText{font-size:15px;min-height:45px!important;margin:5px 0 0!important}
+.input-group{background-color:#FFF!important}
+.input-group.focused{border-color:#046cbb}
+.floating-label{position:absolute;pointer-events:none;height:45px;line-height:45px;left:20px;top:0;font-size:15px!important;font-weight:300}
+input:focus ~ .floating-label,input:not(:focus):valid ~ .floating-label{height:15px;line-height:15px;left:10px;top:5px;font-size:9px!important;opacity:1}
+.color-black{color:#000}
+.error-p{color:red}
+.buttoncls{display:flex;}
+.buttoncls .row{width: 100%;justify-content: space-between;}
+.newCategory .form-group-default .col-md-3{display: flex;align-items: center;}
+.backclass{color:#95a0b6}
+.addMorecategory{display: flex;align-items: center;flex-wrap: wrap;}
+.addMorecategory .addMoreleft{padding-left: 0;}
+.addMorecategory .addMorerightbtn{padding-right: 0;padding-left: 0;}
+.addmorecls{align-items: center;}
+
+@media (max-width: 767px) {
+.page-content-wrapper .card .card-body .align-items-center{width:100%}
+}
+@media (max-width: 480px) {
+.page-content-wrapper .card .card-body .align-items-center .col-4.buttoncls{flex:0 0 100%;max-width:100%}
+}

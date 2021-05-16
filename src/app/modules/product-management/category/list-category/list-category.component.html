@@ -1,0 +1,158 @@
+<div class="page-content-wrapper ">
+    <div class="content sm-gutter">
+        <div class="container-fluid padding-25 sm-padding-10">
+
+            <div class="container">
+                <div class="card card-borderless m-b-35">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-md-9 col-sm-12">
+                                <h4 class="font sm-text-center text-md-left m-0">
+                                    Manage Categories
+                                </h4>
+
+                                <div class="back-button cursor">
+                                    <a href="javascript:window.history.back();" class="">
+                                        <img src="assets/img/icons/back.png" alt="" /><span
+                                            class="font p-l-5 backclass">Back</span>
+                                    </a>
+                                </div>
+                            </div>
+                            <!-- <div class="col-md-3 text-center sm-m-b-20">
+                                <button class="add-button btn btn-lg" type="button">
+                                    <small class="font">Save</small>
+                                </button>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card card-borderless pt-2">
+
+                    <div class="card-body">
+
+                        <div class="row">
+
+                            <div class="col-md-12 col-sm-12" *ngFor="let row of categoryList;let i=index">
+                                <form class="m-b-10" action="#">
+
+                                    <div class="row p-b-10 p-t-10 align-items-center" *ngIf="!row.isEdit"
+                                        style="border-bottom: 1px solid #e7e7e7">
+
+                                        <div class="col-md-8 col-sm-6 col-12 text-left">
+                                            <p class="font f-s-15 m-0">{{row.name}}</p>
+                                        </div>
+
+                                        <div class="col-md-2 col-sm-2 col-6 text-left">
+                                            <p *ngIf="row.is_active" class="font f-s-15 m-0">Active</p>
+
+                                            <p *ngIf="!row.is_active" class="font f-s-15 m-0">Inactive</p>
+                                        </div>
+
+
+                                        <div class="col-md-2 col-sm-4 col-6 text-center buttoncls">
+                                            <div class="row">
+                                                <div class="text-md-right mt--25px">
+                                                    <ui-switch (change)="statusUpdate(row,i)" [(ngModel)]="row.is_active"
+                                                        [ngModelOptions]="{standalone: true}" color="#0f7aed" size="small">
+                                                    </ui-switch>
+                                                </div>
+
+                                                <div class="text-md-right">
+                                                    <img src="assets/img/icons/edit.png" class="cursor"
+                                                        (click)="editCategory(row,i)" />
+                                                </div>
+
+                                                <div class="text-md-right">
+                                                    <button type="button" class="bg-transparent border-0"
+                                                        (click)="deleteCategory(row,i)">
+
+                                                        <img src="assets/img/icons/delete.png" class="cursor" />
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row align-items-center  p-b-10 p-t-10"
+                                        *ngIf="row.isEdit !=null && row.isEdit == true">
+
+                                        <div class="col-10 form-group form-group-default input-group m-0">
+
+                                            <div class="form-input-group inputTextContainer">
+                                                <input type="text" [name]="row.code" [(ngModel)]="row.name"
+                                                    class="form-control inputText" required>
+                                                <label class="floating-label m-0 p-0">Category</label>
+                                            </div>
+
+                                            <div class="input-group-append">
+                                                <span class="input-group-text bg-transparent" style="min-width: unset;">
+                                                    <i class="material-icons cursor color-black"
+                                                        (click)="row.isEdit = !row.isEdit; row._name = row.name">
+                                                        cancel
+                                                    </i>
+                                                </span>
+                                            </div>
+
+                                        </div>
+                                        <div class="col">
+                                            <button class="fa fa-save p-l-15 bg-transparent border-0 cursor"
+                                                (click)="saveCategory(row)" style="font-size: 25px;"></button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-12 col-sm-12 addMorecategory">
+                                <div class="col-md-7 col-sm-7 col-12 addMoreleft" *ngIf="newCateogryList.length >0">
+                                    <div class="newCategory" *ngFor="let newCategory of newCateogryList; let i = index;">
+                                        <form #forms[i]="ngForm">
+                                            <div class="row align-items-center  p-b-10 p-t-10">
+                                                <div class="col-md-12 form-group form-group-default input-group m-0 addmorecls"
+                                                    [ngClass]="{'border-danger': newCategory.isError}">
+    
+                                                    <div class="form-input-group inputTextContainer">
+                                                        <input type="text" name="categoryName" id="categoryName"
+                                                            [(ngModel)]="newCategory.name" class="form-control inputText"
+                                                            required>
+                                                        <label class="floating-label m-0 p-0"
+                                                            for="categoryName">Category</label>
+                                                    </div>
+    
+                                                    <div class="input-group-append">
+                                                        <span class="input-group-text bg-transparent"
+                                                            style="min-width: unset;">
+                                                            <img src="assets/img/icons/delete.png" class="cursor"
+                                                                (click)="newCateogryList.splice(i, 1);" alt="" />
+                                                        </span>
+                                                    </div>
+    
+                                                    <div class="savebtn">
+                                                        <button
+                                                            class="fa fa-save p-l-15 bg-transparent border-0 cursor"
+                                                            (click)="saveCategory(newCategory)" type="button"
+                                                            name="categoryAddButoon" style="font-size: 25px;"></button>
+                                                    </div>
+    
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <p class="error-p" *ngIf="newCategory.name =='' && categoryNameError !=''">
+                                                    {{categoryNameError}}</p>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="col-md-5 col-sm-5 col-12 addMorerightbtn p-b-15 p-t-15 align-items-center">
+                                    <div class="cursor" (click)="addMore();">
+                                            <img src="assets/img/icons/plus_icon.png" alt="" width="20">
+                                            <span class="font m-0 f-w-500 f-s-15 align-text-top p-l-10" style="color: #2580ef">Add More</span>
+                                    </div>                                     
+                                </div>
+                            </div>     
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

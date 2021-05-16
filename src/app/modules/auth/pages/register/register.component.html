@@ -1,0 +1,167 @@
+
+<div class="signupboximg" style="background-image: url(../assets/img/bg_1.png);">
+    <div class="signupouter">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-9 col-lg-10 col-md-11 col-sm-12 col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row justify-content-center">
+                                <div class="col-12 text-center">
+                                    <div class="logoouter">
+                                        <img src="assets/img/logo.png" alt="">
+                                        <span>for sellers</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <form [formGroup]="registerForm" (ngSubmit)="registerFormSubmit()" id="example-advanced-form"
+                                class="p-t-15 m-b-30" role="form">
+
+                                <div class="row m-b-25 justify-content-center">
+                                    <div class="col-md-12 text-center" style="text-align: center;">
+                                        <h3 class="font f-w-500">Sign up</h3>
+                                    </div>
+                                </div>
+
+                                <!-- <div class="row justify-content-center m-b-15">
+
+                                    <div class="col-md-5">
+                                        <div class="form-group  ">
+                                            <input type="text" class="form-control form-control-lg  inputText"
+                                                placeholder="First name" formControlName="firstname" />
+                                            <p class="error-p"
+                                                *ngIf="registerForm.controls['firstname'].touched && !registerForm.controls['firstname'].valid && registerForm.controls['firstname'].errors.required">
+                                                First Name required.
+                                            </p>
+
+                                            <p class="error-p"
+                                                *ngIf="registerForm.controls['firstname'].touched && !registerForm.controls['firstname'].valid && registerForm.controls['firstname'].errors.maxlength">
+                                                First Name is not valid.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-5">
+                                        <div class="form-group ">
+                                            <input type="text" class="form-control form-control-lg  inputText"
+                                                placeholder="Last name" formControlName="lastname" />
+                                            <p class="error-p"
+                                                *ngIf="registerForm.controls['lastname'].touched && !registerForm.controls['lastname'].valid && registerForm.controls['lastname'].errors.required">
+                                                Last Name required.
+                                            </p>
+
+                                            <p class="error-p"
+                                                *ngIf="registerForm.controls['lastname'].touched && !registerForm.controls['lastname'].valid && registerForm.controls['lastname'].errors.maxlength">
+                                                Last Name is not valid.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div> -->
+
+                                <div class="row justify-content-center m-b-15">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group ">
+                                            <input type="email" class="form-control form-control-lg inputText" placeholder="Email"
+                                                formControlName="email" />
+                                            <p class="error-p"
+                                                *ngIf="registerForm.controls['email'].touched && !registerForm.controls['email'].valid && registerForm.controls['email'].errors.required">
+                                                Email required.
+                                            </p>
+
+                                            <p class="error-p"
+                                                *ngIf="registerForm.controls['email'].touched && !registerForm.controls['email'].valid && registerForm.controls['email'].errors.email">
+                                                Email is not valid.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+
+                                        <div class="form-group ">
+                                            <input type="text" class="form-control form-control-lg inputText"
+                                                placeholder="Store Name" formControlName="business_name" />
+                                            <p class="error-p"
+                                                *ngIf="registerForm.controls['business_name'].touched && !registerForm.controls['business_name'].valid && registerForm.controls['business_name'].errors.required">
+                                                Store name required.
+                                            </p>
+
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                                <div class="row justify-content-center">
+
+                                    <div class="col-md-6">
+                                        <div class="form-group ">
+                                            <input type="password" class="form-control form-control-lg inputText"
+                                                placeholder="Password" formControlName="password" />
+                                            <p class="error-p"
+                                                *ngIf="registerForm.controls['password'].touched && !registerForm.controls['password'].valid && registerForm.controls['password'].errors.required">
+                                                Password required.
+                                            </p>
+
+                                            <p class="error-p"
+                                                *ngIf="registerForm.controls['password'].touched && !registerForm.controls['password'].valid && registerForm.controls['password'].errors.minlength">
+                                                Password min 6 digit.
+                                            </p>
+
+                                            <p class="error-p"
+                                                *ngIf="registerForm.controls['password'].touched && !registerForm.controls['password'].valid && registerForm.controls['password'].errors.maxlength">
+                                                Password max 16 digit.
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <div class="form-group ">
+                                            <input type="password" class="form-control form-control-lg inputText"
+                                                placeholder="Confirm Password" formControlName="confirmpassword" />
+
+                                            <p class="error-p"
+                                                *ngIf="!registerForm.controls['confirmpassword'].valid && registerForm.controls['confirmpassword'].touched">
+                                                Password does not match
+                                            </p>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row m-b-25">
+                                    <div class="col-12">
+                                        <div class="checkbox check-custom checkbox-circle">
+
+                                            <input type="checkbox" value="1" id="checkbox1" name="checkbox1">
+                                            <label for="checkbox1">
+                                                I agree to the <a href="#">Privacy Policy</a> and
+                                                <a href="#">Terms & Conditions</a>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="row justify-content-center">
+                                    <div class="col-md-6">
+                                        <button role="button" class="btn btn-lg btn-block signup-btn">SIGN UP
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                            <div class="row justify-content-center">
+                                <p class="font f-w-500">Already have account? <a [routerLink]="['/auth/login']">Login</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    

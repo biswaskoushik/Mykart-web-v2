@@ -1,0 +1,52 @@
+<div class="header header-gradient row m-0">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="row align-items-center">
+          <div class="col-auto">
+            <a href="#" class="d-lg-none fa fa-align-justify toggle-sidebar"></a>
+          </div>
+          <div class="col-auto ml-auto"> 
+            <div class="onboardinguser">
+                <div class="dashuserbox" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                aria-expanded="false">
+                  <div class="dashuserboximg">
+                    <img id="profile_image" *ngIf="userData?.image_url !=null && userData?.image_url != ''"
+                  src="{{userData?.image_url}}">
+                  <img id="profile_image" *ngIf="userData?.image_url == null || userData?.image_url == ''"
+                    src="assets/img/user.png">
+                  </div>
+                  <div class="dashuserboxcontent">
+                    <span id="full_name">{{userData.full_name}}</span>
+                    <i class="fa fa-angle-down"></i>
+                  </div>
+
+                  <ul class="dropdown-menu bg-white" aria-labelledby="dropdownMenuButton">
+                    <li>
+                      <a [routerLink]="['/seller/profile']">
+                        <i class="material-icons align-middle">person</i>
+                        <span class="align-middle font">Profile</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a [routerLink]="['/seller/setting']">
+                        <i class="material-icons align-middle">settings</i>
+                        <span class="align-middle font">Settings</span>
+                      </a>
+                    </li>
+
+                    <li>
+                      <a href="javascript:void(0)" (click)="logout()">
+                        <i class="material-icons align-middle" style="transform: rotate(180deg);">exit_to_app</i>
+                        <span class="align-middle font">Log Out</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

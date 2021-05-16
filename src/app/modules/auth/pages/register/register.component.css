@@ -1,0 +1,34 @@
+.error-p{color:red}
+.font{font-family:'Montserrat',sans-serif}
+.f-w-500{font-weight:500}
+.inputTextContainer{border-radius:5px!important}
+.inputText{font-size:15px;min-height:60px!important;margin:0!important}
+.floating-label{position:absolute;pointer-events:none;height:45px;line-height:45px;left:20px;top:1px;font-size:15px!important;font-weight:300;color:#d3d3d3}
+input:focus ~ .floating-label,input:not(:focus):valid ~ .floating-label{height:15px;line-height:15px;left:10px;top:5px;font-size:9px!important;opacity:1}
+.form-group-default.focused{border-color:#2196F3!important}
+a{color:#0056b3!important}
+.checkbox.check-custom input[type=checkbox]:checked+label:before{border-color:#0056b3;border-width:1px}
+.checkbox.check-custom input[type=checkbox]:focus+label:before{background-color:#FFF}
+.checkbox.check-custom input[type=checkbox]:checked+label:after{color:#0056b3}
+.signup-btn{background-image:linear-gradient(to right,#046cbb,#0cf2fd)!important;color:#FFF;border:none;border-color:transparent;border-radius:4px}
+.signupboximg{position:absolute;left:0;right:0;top:0;bottom:0;background-size:cover;background-repeat:no-repeat;background-attachment:fixed;-webkit-object-fit:cover;object-fit:cover}
+.signupboximg > img{position:absolute;left:0;right:0;top:0;bottom:0;width:100%;height:100%;-webkit-object-fit:cover;object-fit:cover}
+.signupboximg:after{content:"";position:absolute;left:0;right:0;top:0;bottom:0}
+.signupouter{position: relative; min-height: 100vh; z-index: 1; width: 100%; background: transparent linear-gradient(120deg, rgb(0 123 255 / 65%) 0%, rgb(29 175 232 / 65%) 100%) 0% 0% no-repeat padding-box; background: transparent linear-gradient(120deg, rgb(15 115 238 / 65%) 0%, rgb(29 175 232 / 65%) 100%) 0% 0% no-repeat padding-box;}
+.logoouter{display:inline-block;position:relative;margin-bottom:15px}
+.logoouter img{max-width:100%;max-height:100%}
+.logoouter span{position:absolute;right:0;top:100%;white-space:nowrap;font-size:14px;margin-top:-13px}
+.card .card-body{padding:35px 30px}
+@media (min-width: 1200px) {
+.signupouter{min-height:100vh;max-height:100vh;display:flex;align-items:center}
+}
+@media (max-width: 1199px) {
+.signupboximg{position:relative}
+.signupouter{padding:20px 0}
+}
+@media (max-width: 767px) {
+.inputText{min-height:44px!important}
+.card .card-body{padding:20px}
+.signupouter{background:#fff}
+.signupouter .card{border:0}
+}

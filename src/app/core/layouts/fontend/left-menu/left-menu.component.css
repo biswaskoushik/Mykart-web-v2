@@ -1,0 +1,85 @@
+.font{
+    /* font-family: 'Montserrat', sans-serif; */
+    font-family: 'Lato', sans-serif;
+    size: 8em;
+}
+.header-gradient{
+    border-style: solid;
+    border-width: 3px;
+    -webkit-border-image: -webkit-linear-gradient(
+            left,
+            rgba(0,0,0,1) 1%,
+            rgba(0,255,255,1) 50%,
+            rgba(0,0,0,1) 100%
+    ) 0 0 100% 0/0 0 3px 0 stretch;
+    -moz-border-image: -moz-linear-gradient(
+            left,
+            rgba(0,0,0,1) 1%,
+            rgba(0,255,255,1) 50%,
+            rgba(0,0,0,1) 100%
+    ) 0 0 100% 0/0 0 3px 0 stretch;
+    -o-border-image: -o-linear-gradient(
+            left,
+            rgba(0,0,0,1) 1%,
+            rgba(0,255,255,1) 50%,
+            rgba(0,0,0,1) 100%
+    ) 0 0 100% 0/0 0 3px 0 stretch;
+    border-image: linear-gradient(to right, #046cbb, #0cf2fd) 0 0 100% 0/0 0 3px 0 stretch;
+
+}
+.page-sidebar .sidebar-menu .menu-items>li{
+  line-height: initial;
+}
+.sidebar-header {
+    background: #FFFFFF !important;
+}
+.sidebar-menu {
+    background: #020433;
+}
+.page-sidebar .sidebar-menu .menu-items>li>a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    color: #FFFFFF;
+    text-decoration: none;
+    line-height: initial;
+    min-height: 0px;
+    display: block;
+    margin: 0px;
+    padding: 15px 10px 15px 60px;
+    width: 100%;
+    position: relative;
+    -webkit-transition: 0.3s linear-gradient ease-in-out;
+    transition: 0.3s linear-gradient ease-in-out;
+}
+.page-sidebar .sidebar-menu .menu-items>li>a i{
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.page-sidebar .sidebar-menu .menu-items>li.logout a i{
+  -webkit-transform: translateY(-50%) rotate(-180deg);
+  transform: translateY(-50%) rotate(-180deg);
+}
+.page-sidebar .sidebar-menu .menu-items>li.open {
+    background: transparent linear-gradient(99deg, var(--primary) 0%, #1DAFE8 100%) 0% 0% no-repeat padding-box;
+    background: transparent linear-gradient(99deg, #0F73EE 0%, #1DAFE8 100%) 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+
+.cursorcls{
+    cursor: pointer;
+}
+
+.page-sidebar .sidebar-menu .menu-items>li.activeclass a{
+    background: transparent linear-gradient(99deg, var(--primary) 0%, #1DAFE8 100%) 0% 0% no-repeat padding-box;
+    background: transparent linear-gradient(99deg, #0F73EE 0%, #1DAFE8 100%) 0% 0% no-repeat padding-box;
+    opacity: 1;
+}
+.page-sidebar .sidebar-menu .menu-items>li a:hover{
+  background: transparent linear-gradient(99deg, var(--primary) 0%, #1DAFE8 100%) 0% 0% no-repeat padding-box;
+  background: transparent linear-gradient(99deg, #0F73EE 0%, #1DAFE8 100%) 0% 0% no-repeat padding-box;
+  color: #fff;
+  opacity: 1;
+}

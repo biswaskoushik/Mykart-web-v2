@@ -1,0 +1,150 @@
+.btn-design{
+    background-image: linear-gradient(to right,#0f73ee, #1dafe8) !important;
+    color: #FFFFFF;
+    border:none;
+    border-color: transparent;
+    border-radius: 6px;
+    width: 48%;
+    
+}
+
+.card_custom{
+    /* height:80vh; */
+    /* height: 50vh; */
+
+}
+.cards_container {
+
+    display: flex;
+    padding-top:10rem;
+    margin-top:0rem;
+    width:100%;
+    height:60vh;
+    min-height:50rem;
+    justify-content: center;
+    align-items: center;
+    /*flex-wrap: wrap; */
+
+}
+
+
+.card_container {
+
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width:25%;
+    height:80%;
+    min-width:15rem;
+    margin:1rem;
+    min-height:50rem;
+}
+
+.li-font{
+    font-size:0.7rem;
+}
+
+.font{
+    font-size:0.7rem
+}
+
+.card-common{
+    box-shadow: 1px 2px 5px #d9dbe1;
+}
+.inputText {
+    font-size: 15px;
+    min-height: 50px !important;
+    margin: 0 !important;
+}
+.f-w-400 {
+    font-weight: 400 !important;
+}
+input:focus ~ .floating-label,
+input:not(:focus):valid ~ .floating-label{
+    height: 15px;
+    line-height: 15px;
+    left: 10px;
+    top: 1px;
+    font-size: 9px !important;
+    opacity: 1;
+}
+.floating-label {
+    position: absolute;
+    pointer-events: none;
+    height: 45px;
+    line-height: 45px;
+    left: 20px;
+    top: 1px;
+    font-size: 15px !important;
+    font-weight: 300;
+}
+.select-label{
+    position: absolute;
+    pointer-events: none;
+    height: 15px;
+    line-height: 15px;
+    left: 10px;
+    top: 5px;
+    font-size: 9px !important;
+    opacity: 1;
+}
+
+/* img{
+    width:"10px";
+    height:"10%px"
+} */
+.onboardinguser{position: relative; float: right;}
+.onboardinguser .thumbnail-wrapper{cursor: pointer;}
+.onboardinguser .thumbnail-wrapper img{object-fit: cover;}
+.onboardinguser .dropdown-menu{border: none; position: absolute; top: 100% !important; right: 0px !important; left: auto !important; -webkit-transform: none !important; transform: none !important; padding: 4px 0px; min-width: 200px; -webkit-box-shadow: 0px -1px 10px rgb(98 98 98 / 33%); box-shadow: 0px -1px 10px rgb(98 98 98 / 33%);}
+.header .onboardinguser .dropdown-menu:before{content: ""; position: absolute; width: 0; height: 0; top: -9px; right: 10px; margin-left: -5px; border-width: 0 8px 10px; border-color: transparent; border-bottom-color: #fff; border-style: solid;}
+.onboardinguser .dropdown-menu li{line-height: auto;}
+.onboardinguser .dropdown-menu li a{display: block; font-size: 15px; padding: 6px 15px 9px 45px; line-height: initial; position: relative; -webkit-border-radius: 0px; border-radius: 0px; -webkit-transition: 0.3s ease-in-out; transition: 0.3s ease-in-out;}
+.onboardinguser .dropdown-menu li a i{position: absolute; left: 20px; top: 10px; font-size: 110%;}
+.onboardinguser .dropdown-menu li a span{font-size: inherit;}
+.onboardinguser .dropdown-menu li a:hover{background: #0f73ee; color: #fff;}
+.logocontainer{float: left;}
+.logocontainer img{max-width: 100%; max-height: 40px;}
+.header:after{content: ""; height: 3px; position: absolute; left: 0px; right: 0px; top: 100%; background-image: linear-gradient(to right, #0f73ee, #0085f1, #0094f1, #00a2ed, #1dafe8);}
+.header{padding: 0px;}
+.onboardgroupform{padding: 15px;}
+.onboardgroupform .onboardgroupleft{display: table-cell; vertical-align: top;}
+.onboardgroupform .onboardgroupleft img{ width: 55px; max-height: 100%; max-width: 55px;}
+.onboardgroupform .onboardgroupcenter{display: table-cell; vertical-align: top; width: 100%; padding: 0px 40px;}
+.onboardgroupform .onboardgroupcenter .card-title{margin: 0px 0px 7px 0px; padding: 0px; font-size: 26px;}
+.onboardgroupform .onboardgroupcenter .card-text{margin: 0px 0px 10px 0px; padding: 0px; font-size: 16px; color: #333;}
+.onboardgroupform .onboardgroupright{display: table-cell; vertical-align: top;}
+.onboardgroupform .onboardgroupright img{width: 140px; max-height: 100%; max-width: 140px;}
+.onboardgroupform .onboardgroupcenter .btn-design{font-size: 13px; width: auto; min-width: 185px;}
+.onboardgroupform .onboardgroupcenter .btn-design:active{color: #fff;}
+.onboardgroupform .onboardgroupcenter .btn-design:hover:active{color: #fff;}
+.onboardgroupform .onboardgroupcenter .btn-design .font{font-size: inherit; text-transform: capitalize;}
+
+@media(max-width:768px){
+    .font{
+        font-size:0.5rem
+    }
+    h4{
+        font-size:1rem
+    }
+    /* .img-design{
+        width:"30%";
+        height:"30%"
+    } */
+}
+
+@media (max-width: 767px) {
+  .onboardgroupform .onboardgroupcenter{padding: 0px 15px;}
+  .onboardgroupform .onboardgroupcenter .card-title{font-size: 22px;}
+  .onboardgroupform .onboardgroupcenter .card-text{font-size: 14px;}
+  .onboardgroupform .onboardgroupright img{width: 90px; max-height: 100%; max-width: 90px;}
+}
+@media (max-width: 575px) {
+.onboardgroupform .onboardgroupcenter{padding: 0px 10px;}
+.onboardgroupform .onboardgroupleft img{ width: 30px; max-width: 30px;}
+.onboardgroupform .onboardgroupcenter .card-title{font-size: 18px;}
+.onboardgroupform .onboardgroupcenter .card-text{font-size: 13px;}
+.onboardgroupform .onboardgroupright img{width: 60px; max-height: 100%; max-width: 60px;}
+.onboardgroupform .onboardgroupcenter .btn-design{min-width: 0px;}
+.onboardgroupform{padding: 10px;}
+}

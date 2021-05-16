@@ -1,0 +1,172 @@
+<div class="page-content-wrapper mainwrapper">
+    <div class="content sm-gutter">
+        <div class="container-fluid padding-0 sm-padding-0">
+            <div class="h-100">
+                <div class="container-fluid">
+                    <div class="card card-borderless m-b-20">
+                        <div class="card-body">
+
+                            <div class="row align-items-center">
+                                <div class="col-md-6 col-sm-12 textclass">
+                                    <h4 class="font text-md-left m-0 ">{{data?.header}}</h4>
+                                </div>
+                                <div class="col-md-3 text-md-right sm-text-center sm-m-b-20 sm-m-t-20">
+                                </div>
+                                <div class="col-md-3 text-center sm-m-b-20 closebtnclass">
+                                    <i class="fa fa-close" style="font-size:24px;cursor: pointer;"
+                                        (click)="closeModal()"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row m-auto d-flex ">
+                        <div class="col-10 form-group">
+                            <form>
+                                <div class="row">
+                                    <h5 class="text-mute font-weight-normal">Image <span
+                                            style="color: brown;font-size: 15px;">(max 5
+                                            photos)</span></h5>
+                                    <div class="col-md-12">
+                                        <div class="row m-b-15">
+                                            <div class="col-md-2" style="display : -webkit-inline-box">
+                                                <div onclick="document.getElementById('selectedImgFile').click();"
+                                                    class="image-container text-center cursor">
+                                                    <input type="file" id="selectedImgFile" name="selectedImgFile"
+                                                        accept="image/*" (change)="handleFileInputChange($event)"
+                                                        class="d-none" multiple />
+                                                    <img class="imageareaclass" src="assets/img/icons/plus_icon.png" />
+
+                                                </div>
+                                            </div>
+
+                                            <div *ngIf="imagesData.length > 0" style="display: flex;">
+                                                <div *ngFor="let item of imagesData;let i = index">
+                                                    <div class="col-md-2" style="display : -webkit-inline-box">
+                                                        <img form-group *ngIf="item" [src]="item.img"
+                                                            class="image-fluid p-4 imgcardclass" />
+                                                        <i class="material-icons imgcloseclass"
+                                                            (click)="clearImage(item,i,'add')">&#xe888;</i>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div *ngIf="variant.media_links.length > 0" style="display: flex;">
+                                                <div *ngFor="let item of variant.media_links;let j = index">
+                                                    <div class="col-md-2" style="display : -webkit-inline-box">
+                                                        <img form-group *ngIf="item" [src]="item"
+                                                            class="image-fluid p-4 imgcardclass" />
+                                                        <i class="material-icons imgcloseclass"
+                                                            (click)="clearImage(item,j,'edit')">&#xe888;</i>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row m-b-6 mb-2">
+                                            <div class="col-md-6">
+                                                <input placeholder="Price"
+                                                    class="form-control form-control-lg inputText"
+                                                    [(ngModel)]="variant.price" [ngModelOptions]="{standalone: true}" />
+                                                <p class="error-p" *ngIf="variant.price == null || variant.price == ''">{{fielderror?.priceerr}}</p>
+                                            </div>
+
+                                            <div class="col-md-6">
+                                                <input placeholder="Quantity"
+                                                    class="form-control form-control-lg inputText"
+                                                    [(ngModel)]="variant.qty" [ngModelOptions]="{standalone: true}" />
+                                                    <p class="error-p" *ngIf="variant.qty == null || variant.qty == ''">{{fielderror?.qtyerr}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="row m-b-6 mb-2">
+                                            <div class="col-md-6">
+                                                <input placeholder="SKU" class="form-control form-control-lg inputText"
+                                                    [(ngModel)]="variant.sku" [ngModelOptions]="{standalone: true}" />
+                                                    <p class="error-p" *ngIf="variant.sku == null || variant.sku == ''">{{fielderror?.skuerr}}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <hr />
+                                <div class="row">
+                                    <h5 class="text-mute font-weight-normal">Discount / Offer Type </h5>
+                                    <div class="col-md-12">
+                                        <div class="row m-b-6 mb-2">
+                                            <div class="col-md-2">
+                                                <input type="radio" class="mr-2" [checked]='none_flag'
+                                                    (change)="changeDiscount(0)" />None
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <input type="radio" [checked]='is_percentage' class="mr-2"
+                                                    (change)="changeDiscount(1)" />Percentage
+                                            </div>
+
+                                            <div class="col-md-2">
+                                                <input type="radio" [checked]='is_flat_amount' class="mr-2"
+                                                    (change)="changeDiscount(2)" />Flat Rate
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row" *ngIf="is_percentage || is_flat_amount">
+                                    <div class="col-md-12">
+                                        <div class="row m-b-6 mb-2">
+                                            <div class="col-md-6">
+                                                <input type="number" placeholder="Discount value"
+                                                    class="form-control form-control-lg inputText"
+                                                    [(ngModel)]="variant.discount_value"
+                                                    [ngModelOptions]="{standalone: true}" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr />
+
+                                <div class="row">
+                                    <div class="col-md-12 mt-2">
+                                        <div class="row m-b-6 mb-2">
+                                            <div class="col-md-4">
+                                                <p class="font f-s-15 m-2">Active</p>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <ui-switch color="#0f7aed" [(ngModel)]="variant.is_active" size="small"
+                                                    name="is_active" [ngModelOptions]="{standalone: true}">
+                                                </ui-switch>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+
+                            <div class="col-lg-12 col-md-10 mt-2 text-right">
+                                <!-- <button class="btn-design btn text-center mt-2 disable-submit mr-2" type="button"
+                                    (click)="removeVariant()">
+                                    <small class="font">Remove</small>
+                                </button> -->
+
+                                <button class="btn-design btn text-center mt-2 disable-submit" type="button"
+                                    (click)="updateVariant()">
+                                    <small class="font">Update</small>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,147 @@
+<div class="container-fluid p-0 h-100 ">
+    <div class="card  card-borderless m-0 h-100">
+        <div class="card-body p-0 h-100 ">
+            <div class="row ml-0 mr-0 login-row align-items-center mainwrapper">
+                <!-- Login inf -->
+                <div class="col-lg-4 col-lg-4 col-md-5 col-sm-12 col-12 pl-0 pr-0">
+                    <div class="loginbox">
+                        <div class="row justify-content-center m-t-30 m-b-30">
+                            <div class="col-12 text-center">
+                                <div class="logoouter">
+                                    <img src="assets/img/logo.png">
+                                    <span>for sellers</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form [formGroup]="loginForm" id="example-advanced-form" action="#" class="p-t-15 m-b-30">
+
+                            <div class="row ml-n2 mr-n2 justify-content-center m-b-15">
+                                <div class="col-12 pl-2 pr-2">
+                                    <div class="form-group  ">
+                                        <input type="email" class="form-control form-control-lg inputText"
+                                            placeholder="Email" formControlName="email" />
+                                        <p class="error-p"
+                                            *ngIf="loginForm.controls['email'].touched && !loginForm.controls['email'].valid && loginForm.controls['email'].errors.required">
+                                            Email required.
+                                        </p>
+
+                                        <p class="error-p"
+                                            *ngIf="loginForm.controls['email'].touched && !loginForm.controls['email'].valid && loginForm.controls['email'].errors.email">
+                                            Email is not valid.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row ml-n2 mr-n2 justify-content-center m-b-15">
+                                <div class="col-12 pl-2 pr-2">
+                                    <div class="form-group  m-0 ">
+                                        <input type="password" class="form-control form-control-lg inputText"
+                                            placeholder="Password" formControlName="password" />
+                                        <p class="error-p"
+                                            *ngIf="loginForm.controls['password'].touched && !loginForm.controls['password'].valid && loginForm.controls['password'].errors.required">
+                                            Password required.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row m-b-15 font text-center">
+                                <div class="col-lg-12 col-md-12 text-right mb-0 mb-md-3">
+                                    <a style="color:#4d5773;" class="f-w-500" routerLink="/auth/forgot-password">Forgot
+                                        Password?</a>
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-center m-b-15">
+                                <div class="col-lg-10 col-md-10">
+                                    <button class="btn btn-lg btn-block btn-login" type="button" role="button"
+                                        (click)="loginFormSubmit()">
+                                        LOG IN
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="row m-b-15 font text-md-center">
+                                <div class="col-lg-12 col-md-12">
+                                    <p>Don't have account? <a [routerLink]="['/auth/signup']" style="color: #1376ef;">Sign
+                                            up</a></p>
+                                </div>
+                            </div>
+
+                            <!-- <div class="row justify-content-center m-t-50 sm-m-t-5">
+                                <div class="col-lg-4 col-md-5 col-sm-5 sm-text-center sm-p-b-15">
+                                    <a href="https://itunes.apple.com/us/app/mykart/id1410726646?ls=1&mt=8">
+                                        <img src="assets/img/icons/app_store.png" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-lg-4 col-md-5 col-sm-5 sm-text-center">
+                                    <a href="https://play.google.com/store/apps/details?id=com.myKart">
+                                        <img src="assets/img/icons/play_store.png" alt="">
+                                    </a>
+                                </div>
+                            </div> -->
+
+                        </form>
+                    </div>
+                </div>
+                <!-- end login info -->
+
+                <!-- Bussiness Info -->
+                <div class="col-lg-4 col-lg-8 col-md-7 col-sm-12 col-12 pl-0 pr-0 gradient aling-item-strech bannercls">
+                    <div class="middleboxouter">
+                        <div class="middleboxinner">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <div class="welcomeclass">
+                                        Welcome!
+                                    </div>
+                                    <span class="socialclass">
+                                        A Social Shopping eCommerce Platform
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="row justify-content-center text-center rightinnerclass">
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-6 mt-2 mt-sm-4 pb-0 pb-sm-3">
+                                    <div class="criclebx">
+                                        <img class="img-responsive" src="assets/img/icons/store.png" alt="">
+                                    </div>
+                                    <p class="p-t-10 color-white">Personalized Store</p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-6 mt-2 mt-sm-4 pb-0 pb-sm-3">
+                                    <div class="criclebx">
+                                        <img class="img-responsive" src="assets/img/icons/sell.png" alt="">
+                                    </div>
+                                    <p class="p-t-10 color-white">Sell Directly to Customers</p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-6 mt-2 mt-sm-4"pb-0 pb-sm-3>
+                                    <div class="criclebx">
+                                        <img class="img-responsive" src="assets/img/icons/managing.png" alt="">
+                                    </div>
+                                    <p class="p-t-10 color-white">Easy Managing</p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-6 mt-2 mt-sm-4 pb-0 pb-sm-3">
+                                    <div class="criclebx">
+                                        <img class="img-responsive" src="assets/img/icons/cart.png" alt="">
+                                    </div>
+                                    <p class="p-t-10 color-white">Post New Products &
+                                        <br> Offer a Timelines
+                                    </p>
+                                </div>
+                                <div class="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-6 mt-2 mt-sm-4 pb-0 pb-sm-3">
+                                    <div class="criclebx">
+                                        <img class="img-responsive" src="assets/img/icons/bank.png" alt="">
+                                    </div>
+                                    <p class="p-t-10 color-white">Money goes directly
+                                        into <br> your bank!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

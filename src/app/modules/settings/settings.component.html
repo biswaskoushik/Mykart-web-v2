@@ -1,0 +1,223 @@
+<div class="page-content-wrapper ">
+    <div class="content">
+        <div class="dashouter">
+            <!-- <h3>setting</h3> -->
+            <div class="container" style="height: -webkit-fill-available">
+                <div class="row ">
+                    <div class="container">
+                        <div class="card card-borderless m-b-25">
+                            <div class="card-body">
+                                <div class="row align-items-center ml-n1 mr-n1">
+                                    <div class="col-auto pl-1 pr-1">
+                                        <h5 class="font m-0">
+                                            Settings
+                                        </h5>
+                                    </div>
+                                    <!-- <div class="col-auto pl-1 pr-1 ml-auto text-md-right">
+                                        <button class="update-btn btn btn-lg" type="button">
+                                            <small class="font">Update</small>
+                                        </button>
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card mb-35 card-common">
+                            <div class="card-header mb-3 card-backgroud">
+                                <div class="row">
+                                    <div class="col-md-9 col-sm-12">
+                                        <h5 class="font">SETTINGS</h5>
+                                    </div>
+
+                                    <!-- <div class="col-md-3 text-center ">
+                                        <button class="update-btn btn btn-lg" type="button">
+                                            <small class="font">Update Settings</small>
+                                        </button>
+                                    </div> -->
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-md-12 col-sm-12">
+                                        <div class="border-bottom">
+                                            <div class="row">
+                                                <div class="col-xl-4 col-lg-5 col-sm-12 col-12">
+                                                    <div class="ptttextbox">
+                                                        <div class="ptttextleft">
+                                                            <span class="font m-0">Store Offline</span>
+                                                        </div>
+                                                        <div class="ptttextright">
+                                                            <ui-switch color="#0f7aed" class="stmradio" [(ngModel)]="setting.is_offline"
+                                                                [disabled]="isLoading" (change)="setStatus()" size="small"></ui-switch>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="row align-items-center mt-2 pb-2">
+                                    <div class="col-md-12 col-sm-12">
+                                        <div class="border-none">
+                                            <div class="row">
+                                                <div class="col-xl-4 col-lg-5 col-sm-12 col-12">
+                                                    <div class="ptttextbox">
+                                                        <div class="ptttextleft">
+                                                            <span class="font m-0">Notifications</span>
+                                                        </div>
+                                                        <div class="ptttextright">
+                                                            <ui-switch color="#0f7aed" class="stmradio" [(ngModel)]="setting.is_notification"
+                                                                [disabled]="isLoading" (change)="setNotification()" size="small">
+                                                        </ui-switch>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row justify-content-center">
+                    <div class="container">
+                        <div class="card mb-35 card-common">
+                            <div class="card-header card-backgroud">
+                                <div class="row align-items-center">
+                                    <div class="col-auto">
+                                        <h5 class="font">CHANGE PASSWORD</h5>
+                                    </div>
+                                </div>
+                                <!-- <h5 class="text-mute font-weight-normal"> CHANGE PASSWORD</h5> -->
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <form [formGroup]="changePassordForm" class="p-t-15 m-b-15">
+                                            <div class="row m-b-5">
+                                                <div class="col-md-6">
+                                                    <div class="form-group inputTextContainer">
+                                                        <input type="password" name="old_password" id="old_password"
+                                                            formControlName="old_password"
+                                                            placeholder="Current Password"
+                                                            class="form-control form-control-lg inputText" />
+
+                                                        <p class="error-p"
+                                                            *ngIf="changePassordForm.controls['old_password'].touched && !changePassordForm.controls['old_password'].valid && changePassordForm.controls['old_password'].errors.required">
+                                                            Current password required.
+                                                        </p>
+
+                                                        <p class="error-p"
+                                                            *ngIf="changePassordForm.controls['old_password'].touched && !changePassordForm.controls['old_password'].valid && changePassordForm.controls['old_password'].errors.minlength">
+                                                            Current password min 6 digit.
+                                                        </p>
+
+                                                        <p class="error-p"
+                                                            *ngIf="changePassordForm.controls['old_password'].touched && !changePassordForm.controls['old_password'].valid && changePassordForm.controls['old_password'].errors.maxlength">
+                                                            Current password max 16 digit.
+                                                        </p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row m-b-15">
+                                                <div class="col-md-6">
+                                                    <div class="form-group inputTextContainer">
+                                                        <input type="password" id="new_password" name="new_password"
+                                                            formControlName="new_password"
+                                                            class="form-control form-control-lg inputText"
+                                                            placeholder="New Password" />
+
+                                                        <p class="error-p"
+                                                            *ngIf="changePassordForm.controls['new_password'].touched && !changePassordForm.controls['new_password'].valid && changePassordForm.controls['new_password'].errors.required">
+                                                            New password required.
+                                                        </p>
+
+                                                        <p class="error-p"
+                                                            *ngIf="changePassordForm.controls['new_password'].touched && !changePassordForm.controls['new_password'].valid && changePassordForm.controls['new_password'].errors.minlength">
+                                                            New password min 6 digit.
+                                                        </p>
+
+                                                        <p class="error-p"
+                                                            *ngIf="changePassordForm.controls['new_password'].touched && !changePassordForm.controls['new_password'].valid && changePassordForm.controls['new_password'].errors.maxlength">
+                                                            New password max 16 digit.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row m-b-15">
+                                                <div class="col-md-6">
+                                                    <div class="form-group inputTextContainer">
+                                                        <input type="password" id="newPassword2" name="newPassword2"
+                                                            formControlName="confirm_password"
+                                                            placeholder="Re-enter New Password"
+                                                            class="form-control form-control-lg inputText" />
+                                                        <p class="error-p"
+                                                            *ngIf="!changePassordForm.controls['confirm_password'].valid && changePassordForm.controls['confirm_password'].touched">
+                                                            New Password does not match
+                                                        </p>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-12 text-right">
+                                                    <button class="update-btn btn btn-lg" (click)="changePassword()" type="button">
+                                                            <small class="font">Save Password</small>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+                <div class="row justify-content-center">
+                    <div class="container">
+                        <div class="card mb-35 card-common">
+                            <div class="card-header mb-3 card-backgroud">
+                                <div class="row align-items-center">
+                                    <div class="col-md-9">
+                                        <h5 class="font">CONTACT SUPPORT</h5>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12 mb-3">
+                                        <div class="row align-items-center m-t-5 p-b-5">
+                                            <div class="col-md-3 col-sm-12">
+                                                <h6 class="font sm-text-left text-md-left m-0">
+                                                    Support Email
+                                                </h6>
+                                            </div>
+
+                                            <div class="col-md-6 text-left sm-m-b-20">
+                                                <p class="m-0 p-0 font f-s-15">
+                                                    <a href="mailto:support@mykartapp.com"
+                                                        style="color: #1084EC">support@mykartapp.com</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

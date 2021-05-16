@@ -1,0 +1,44 @@
+.font{
+    /* font-family: 'Montserrat', sans-serif; */
+    font-family: 'Lato', sans-serif;
+    size: 8em;
+}
+.header-gradient{
+    border-style: solid;
+    border-width: 3px;
+    -webkit-border-image: -webkit-linear-gradient(
+            left,
+            rgba(0,0,0,1) 1%,
+            rgba(0,255,255,1) 50%,
+            rgba(0,0,0,1) 100%
+    ) 0 0 100% 0/0 0 3px 0 stretch;
+    -moz-border-image: -moz-linear-gradient(
+            left,
+            rgba(0,0,0,1) 1%,
+            rgba(0,255,255,1) 50%,
+            rgba(0,0,0,1) 100%
+    ) 0 0 100% 0/0 0 3px 0 stretch;
+    -o-border-image: -o-linear-gradient(
+            left,
+            rgba(0,0,0,1) 1%,
+            rgba(0,255,255,1) 50%,
+            rgba(0,0,0,1) 100%
+    ) 0 0 100% 0/0 0 3px 0 stretch;
+    border-image: linear-gradient(to right, #046cbb, #0cf2fd) 0 0 100% 0/0 0 3px 0 stretch;
+
+}
+
+.sidebar-header {
+    background: #FFFFFF !important;
+}
+.sidebar-menu {
+    background: #020433;
+}
+.page-sidebar .sidebar-menu .menu-items>li>a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    color: #FFFFFF;
+}
+.page-sidebar .sidebar-menu .menu-items>li.open {
+    background-image: linear-gradient(to right, #046cbb, #0cf2fd);
+}

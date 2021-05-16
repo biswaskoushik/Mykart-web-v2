@@ -1,0 +1,80 @@
+a{color:#0056b3}
+.font{font-family:'Montserrat',sans-serif}
+.card{border:none}
+.card .card-body{padding:7px 20px}
+.update-button{background-image:linear-gradient(to right,#0F73EE,#1DAFE8)!important;color:#FFF;border:none;border-color:transparent;border-radius:6px;font-size:16px;padding:4px 30px;display:inline-block;margin:4px;text-align:center;min-width:160px}
+.update-btn:focus{color:#fff}
+.update-btn:active:focus{color:#fff}
+.row .f-w-400{font-weight:400}
+.row .f-w-500{font-weight:500}
+.row .f-w-600{font-weight:600}
+.row .f-s-20{font-size:20px}
+.row .f-s-16{font-size:16px}
+.color-black{color:#000}
+.card-backgroud{background-color:#f1f6fe}
+.inputTextContainer{border-radius:5px}
+.inputText{font-size:15px;min-height:50px!important;margin:0!important;color:#4e4d4d}
+.floating-label{position:absolute;pointer-events:none;height:45px;line-height:45px;left:20px;top:1px;font-size:15px!important;font-weight:300!important}
+input:focus ~ .floating-label,input:not(:focus):valid ~ .floating-label{height:15px;line-height:15px;left:13px;top:5px;font-size:9px!important;opacity:1}
+.input-text-float{position:absolute;pointer-events:none;height:15px;line-height:15px;left:13px;top:5px;font-size:9px!important}
+textarea:focus ~ .floating-label,textarea:not(:focus):valid ~ .floating-label{height:15px;line-height:15px;left:13px;top:5px;font-size:9px!important;opacity:1}
+.form-group-default.focused{background-color:#FFF;border-color:#2196F3}
+.card-common{box-shadow:1px 2px 5px #d9dbe1}
+.buttoncls{background-color:#2196F3;margin-right:5px}
+.addcardcls{margin-left:17px}
+.dashouter{padding:30px 20px}
+.dashouter .card{border:none}
+.dashouter .card .card-header{border:none;padding:6px 20px;min-height:0}
+.dashouter .card .card-header h5{margin:0}
+.dashouter .card .improbx .imgpro{width:100%;height:100%;-webkit-object-fit:cover;object-fit:cover;padding:4px;border:1px solid #ddd}
+.dashouter .card .form-group .form-control{border:1px solid #F0F0F0;height:48px;font-size:15px}
+.dashouter .card .form-group textarea.form-control{height:120px}
+.dashouter .card .form-group .error-p{margin:0}
+.dashouter form .row{margin-left:-15px;margin-right:-15px}
+.dashouter form .row [class*=col-]:first-child{padding-left:15px}
+.dashouter form .row [class*=col-]:last-child{padding-right:15px}
+.dashouter form .row [class*=col-]:not(:last-child){padding-right:15px;padding-left:15px}
+.dashouter form .row [class*=col-]:not(:first-child){padding-right:15px;padding-left:15px}
+.addvarianttext{cursor:pointer;display:inline-block;color:#0F73EE;font-size:15px;margin-bottom:15px;-webkit-transition:.3s ease-in-out;transition:.3s ease-in-out}
+.addvarianttext img{display:inline-block;vertical-align:middle;padding-right:8px;width:25px;height:18px}
+.addvarianttext span{display:inline-block;vertical-align:middle;line-height:100%}
+.removebtn{-webkit-transition:.3s ease-in-out;transition:.3s ease-in-out}
+.removebtn:hover{color:#0F73EE}
+.dashouter .form-group label{text-transform:capitalize;margin-bottom:2px;font-size:12px}
+.ptttextbox{float:left;width:100%;margin-top:0}
+.ptttextbox .ptttextleft{display:table-cell;vertical-align:middle;width:100%;padding:0 0 10px}
+.ptttextbox .ptttextleft span{color:#333;font-size:15px;font-weight:500}
+.ptttextbox .ptttextright{display:table-cell;vertical-align:top;white-space:nowrap}
+.ptttextbox .ptttextright .small{display:block}
+.ptttextbox .ptttextright .stmradio{display:block;margin-top:-5px}
+.dashouter .card .card-header h5{font-size:18px}
+.dashouter form .dimentionrow .dimentioncolumn{-ms-flex:0 0 26.6666666667%;flex:0 0 26.6666666667%;max-width:26.6666666667%}
+.dashouter form .dimentionrow .dimentioncolumnx{-ms-flex:0 0 10%;flex:0 0 10%;max-width:10%}
+.dashouter .dimnex{color:#95A0B6;font-size:16px;width:100%;height:100%;padding-bottom:15px;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;justify-content:center;align-items:center;text-align:center}
+.dashouter .card .card-body{padding:12px 20px}
+.dashouter .card .card-body .subscriptionpara{display:block}
+.dashouter .card .card-body .subscriptionpara p{color:#989DA3;font-size:14px;font-weight:400;margin-bottom:5px}
+.dashouter .card .card-body .subscriptionpara p strong{font-weight:400;padding-right:6px}
+.dashouter .card .card-body .subscriptionpara p span{color:#323C47}
+.dashouter .card .card-body .subscriptionpara p a{color:#0F73EE;text-decoration:none}
+.cardimgwrapper{width:68px;height:auto}
+.cardimgwrapper img{max-width:100%}
+.dashouter .card .card-body .mr-n2 .pr-2{margin-bottom:5px}
+.dashouter .card .card-body .mr-n2 .pr-2:last-child{margin-bottom:0}
+
+
+@media (max-width: 767px) {
+.dashouter{padding:20px 0}
+.dashouter .card .card-header h5{font-size:16px}
+.dashouter .card .card-header{padding:7px 20px 6px;min-height:44px}
+.dashouter form .dimentionrow{margin:0 -3px}
+.dashouter form .dimentionrow .dimentioncolumn{padding:0 3px!important}
+.dashouter form .dimentionrow .dimentioncolumnx{padding:0 3px!important}
+}
+@media (max-width: 575px) {
+.dashouter .card .form-group .form-control{height:40px;font-size:14px}
+.update-btn{min-width:130px;margin:20px auto;display:block}
+.update-button{min-width:0;padding:4px 10px;margin:20px auto;display:block}
+.dashouter .card .card-header h5{font-size:14px}
+.cdk-overlay-pane[style]{max-width:100vw!important;max-height:100vh!important}
+}

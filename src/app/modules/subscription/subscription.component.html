@@ -1,0 +1,156 @@
+<div class="page-content-wrapper ">
+  <div class="content">
+    <div class="dashouter">
+
+      <div class="h-100">
+        <div class="container-fluid">
+          <div class="card card-borderless m-b-35">
+            <div class="card-body">
+              <div class="row align-items-center">
+                <div class="col-md-9 col-sm-12">
+                  <h5 class="font m-0">Subscriptions</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="card h-100 card-common">
+            <div class="card-header card-backgroud">
+              <div class="row ml-n1 mr-n1">
+                <div class="col-auto pl-1 pr-1 align-self-center">
+                  <h5 class="font">
+                    SUBSCRIPTION
+                  </h5>
+                </div>
+
+                <!-- <div class="col-auto pl-1 pr-1 align-self-center ml-auto text-right">
+                  <button (click)="unsubscribe()" class="update-button btn btn-lg" type="button">
+                    <small class="font">Cancel Subscription</small>
+                  </button>
+                </div> -->
+
+              </div>
+            </div>
+            <div class="card-body">
+              <div class="row mt-1">
+                <div class="col-md-12">
+
+                  <small class="text-danger " style="font-size:10px">
+                    (Payments start after the trial period)
+                  </small>
+                </div>
+                <div class="col-md-12">
+                  <div class="subscriptionpara mb-3">
+                    <p class="inline text-muted"><strong>Subsription Fees: $25.00</strong><a
+                        href="javascript:void(0);">(auto-payment)</a>
+                    </p>
+                    <span class="color-black"></span>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="subscriptionpara">
+                    <p>
+                      <strong>Trial Period End:</strong>
+                      <span>
+                        {{
+                        acInfo?.subscription?.current_period_end * 1000
+                        | date: "MM/dd/yyyy"
+                        }}
+                      </span>
+                    </p>
+                    <p>
+                      <strong>Subsription Start Date:</strong>
+                      <span>
+
+
+                        {{
+                        acInfo?.subscription?.current_period_start * 1000
+                        | date: "MM/dd/yyyy"
+                        }}
+
+                      </span>
+                    </p>
+                    <p>
+                      <strong>Next Payment Due:</strong>
+                      <span>
+                        {{
+                        acInfo?.subscription?.current_period_end * 1000
+                        | date: "MM/dd/yyyy"
+                        }}
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-auto pl-1 pr-1 align-self-center ml-auto text-right">
+                <button (click)="unsubscribe()" class="update-button btn btn-lg" type="button">
+                  <small class="font">Cancel Subscription</small>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="card card-common">
+            <div class="card-header card-backgroud">
+              <div class="row ml-n1 mr-n1 align-items-center">
+                <div class="col-auto pl-1 pr-1 align-self-center">
+                  <h5 class="font">PAYMENT INFORMATION</h5>
+                </div>
+
+                <!-- <div class="col-auto pl-1 pr-1 align-self-center ml-auto text-right">
+                  <button class="update-button btn btn-lg" type="button" (click)="openPaymentDialog()">
+                    <small class="font">Add Card</small>
+                  </button>
+                </div> -->
+
+              </div>
+            </div>
+            <div class="card-body mb-3">
+              <div class="row ml-n2 mr-n2">
+                <!-- list Cards -->
+                <div class="col-md-12 col-sm-12 pl-2 pr-2" *ngFor="let row of cardDetails;let i =index">
+                  <form action="#">
+                    <div class="row" *ngIf="!row.isEdit">
+                      <div class="col-md-7 col-sm-6 col-7">
+                        <div class="cardimgwrapper"> 
+                          <img *ngIf="row.brand != null && row.brand == 'Visa'" src="assets/img/visa-color_large@2x.png"
+                          alt="" class="float-left pr-2" />
+                        <img *ngIf="row.brand != null && row.brand == 'MasterCard'"
+                          src="assets/img/mastercard-color_large@2x.png" alt=""
+                          class="float-left pr-2" />
+                        </div>                      
+
+                        <p class="font f-s-15">Visa ending in {{ row?.last4 }}</p>
+                      </div>
+                      <div class="col-md-2 col-sm-4 col-3 text-md-center">
+                        Default
+                        <span>
+                          <i *ngIf="row.is_default == 1" (click)="makeDefaultCard(row,i)" class='fa fa-check-circle'
+                            style='font-size:18px;color: #217ef0;cursor: pointer;'></i>
+
+                          <i *ngIf="row.is_default == 0" (click)="makeDefaultCard(row,i)" class='fa fa-circle'
+                            style='font-size:18px;color: #a7a7a7de;cursor: pointer;'></i>
+                        </span>
+                      </div>
+                      <div class="col-md-3 col-sm-2 col-2">
+                        <img src="assets/img/icons/delete.png" alt="" class="cursor"
+                          (click)="deleteCardDetails(row,i)" />
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              <div class="col-md-12 text-center text-muted" *ngIf="cardDetails.length == 0">
+                No Card Found
+              </div>
+            </div>
+            <div class="cursor aling-items-center mb-2 addcardcls" (click)="openPaymentDialog()">
+              <img src="assets/img/icons/plus_icon.png" alt="" width="20" />
+              <span style="color: #2580ef"> Add Card</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

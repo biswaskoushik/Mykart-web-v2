@@ -1,0 +1,100 @@
+<div class="page-content-wrapper ">
+    <div class="content">
+        <div class="dashouter">
+            <div class="container">
+                <div class="card m-b-35">
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-md-6 col-sm-12">
+                                <h5 class="font sm-text-center text-md-left mb-3 m-md-0">Products</h5>
+                            </div>
+                            <div class="col-md-6 text-center text-md-right">
+                                <button [routerLink]="['/seller/products/categories']"
+                                    class="category-button btn btn-md" type="button">
+                                    <small class="font f-w-500">Categories</small>
+                                </button>
+                                <button [routerLink]="['/seller/products/add']" class="update-button btn btn-md"
+                                    type="button">
+                                    <small class="font">{{button_text}}</small>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card card-borderless">
+                    <ul class="nav nav-tabs nav-tabs-simple">
+                        <li class="nav-item cursor" *ngFor="let row of categoryList"
+                            [ngStyle]="{'display' : row.is_active ? 'initial' : 'none'}">
+                            <a data-toggle="tab" [ngClass]="{'active': row.code == selectedCategory}"
+                                (click)="getProductList(row)" class="font f-w-600">
+                                {{row.name}}
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content" style=" background: #f5f5f5;"
+                        *ngIf="productList != null && productList.length > 0">
+                        <div class="tab-pane active row" id="tab">
+                            <div class="row ">
+                                <div class="col-lg-3 col-md-4 col-sm-6 col-12" *ngFor="let row of productList;let i =index">
+                                    
+                                        <div class="card card-common">
+                                            <div class="card-img-wrapper">
+                                                <img *ngIf="row.media_links != null" [src]="row.media_links[0] " class="card-img-top " alt="">
+                                            </div>
+                                            
+                                            <div class="card-body">
+                                                <p class="font f-w-600 card-title m-b-5">{{row.title}}</p>
+                                                <p class="font card-text m-b-0 f-w-500" style="color: #84859b">
+                                                    ${{row.price}}</p>
+                                                <div>
+                                                    <p class="font card-text float-left" [ngClass]="{'out-of-stock': !row.is_stock_available || !row.is_active,
+                                                       'stock': row.is_stock_available || row.is_active}">
+
+                                                        {{row.is_active ? 'Active' :
+                                                        'Inactive'}}
+
+                                                    </p>
+                                                    <div class="float-right cursor dropdownMenuButtoncls" id="dropdownMenuButton1"
+                                                        data-toggle="dropdown" aria-haspopup="true"
+                                                        aria-expanded="false">&#8942;
+
+                                                        <ul class="dropdown-menu p-0 bg-white"
+                                                            aria-labelledby="dropdownMenuButton"
+                                                            style="min-width: 150px;">
+                                                            <li class="p-t-0 cursor">
+                                                                <a class="text-center" href="#"
+                                                                    (click)="editProduct(row)">
+                                                                    Edit
+                                                                </a>
+                                                            </li>
+
+                                                            <li class="p-t-0 p-b-0 in-active cursor">
+                                                                <a class="text-center" (click)="updateProduct(row)">
+                                                                    {{row.is_active?'Inactive':'Active'}}
+                                                                </a>
+                                                            </li>
+
+                                                            <li class="p-t-0 cursor">
+                                                                <a class="text-center" href="#"
+                                                                    (click)="deleteProduct(row,i)">
+                                                                    Delete
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

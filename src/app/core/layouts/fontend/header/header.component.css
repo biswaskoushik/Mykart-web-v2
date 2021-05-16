@@ -1,0 +1,69 @@
+.font{
+    /* font-family: 'Montserrat', sans-serif; */
+    font-family: 'Lato', sans-serif;
+    size: 8em;
+}
+.header-gradient{
+    border-style: solid;
+    border-bottom-width: 3px;
+    -webkit-border-image: -webkit-linear-gradient(
+            left,
+            rgba(0,0,0,1) 1%,
+            rgba(0,255,255,1) 50%,
+            rgba(0,0,0,1) 100%
+    ) 0 0 100% 0/0 0 3px 0 stretch;
+    -moz-border-image: -moz-linear-gradient(
+            left,
+            rgba(0,0,0,1) 1%,
+            rgba(0,255,255,1) 50%,
+            rgba(0,0,0,1) 100%
+    ) 0 0 100% 0/0 0 3px 0 stretch;
+    -o-border-image: -o-linear-gradient(
+            left,
+            rgba(0,0,0,1) 1%,
+            rgba(0,255,255,1) 50%,
+            rgba(0,0,0,1) 100%
+    ) 0 0 100% 0/0 0 3px 0 stretch;
+    border-image: linear-gradient(to right, #046cbb, #0cf2fd) 0 0 100% 0/0 0 3px 0 stretch;
+
+}
+
+.sidebar-header {
+    background: #FFFFFF !important;
+}
+.sidebar-menu {
+    background: #020433;
+}
+.page-sidebar .sidebar-menu .menu-items>li>a {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    color: #FFFFFF;
+}
+.page-sidebar .sidebar-menu .menu-items>li.open {
+    background-image: linear-gradient(to right, #046cbb, #0cf2fd);
+}
+
+.onboardinguser{position: relative; float: right;}
+.onboardinguser .thumbnail-wrapper{cursor: pointer;}
+.onboardinguser .thumbnail-wrapper img{object-fit: cover;}
+.onboardinguser .dropdown-menu{border: none; position: absolute; top: 100% !important; right: 0px !important; left: auto !important; -webkit-transform: none !important; transform: none !important; padding: 4px 0px; min-width: 200px; -webkit-box-shadow: 0px -1px 10px rgb(98 98 98 / 33%); box-shadow: 0px -1px 10px rgb(98 98 98 / 33%);}
+.header .onboardinguser .dropdown-menu:before{content: ""; position: absolute; width: 0; height: 0; top: -9px; right: 10px; margin-left: -5px; border-width: 0 8px 10px; border-color: transparent; border-bottom-color: #fff; border-style: solid;}
+.onboardinguser .dropdown-menu li{line-height: auto;}
+.onboardinguser .dropdown-menu li a{display: block; font-size: 15px; padding: 6px 15px 9px 45px; line-height: initial; position: relative; -webkit-border-radius: 0px; border-radius: 0px; -webkit-transition: 0.3s ease-in-out; transition: 0.3s ease-in-out;}
+.onboardinguser .dropdown-menu li a i{position: absolute; left: 20px; top: 10px; font-size: 110%;}
+.onboardinguser .dropdown-menu li a span{font-size: inherit;}
+.onboardinguser .dropdown-menu li a:hover{background: #0f73ee; color: #fff;}
+.onboardinguser .dashuserbox{float: left; cursor: pointer;}
+.onboardinguser .dashuserbox .dashuserboximg{display: table-cell; vertical-align: middle; }
+.onboardinguser .dashuserbox .dashuserboximg img{width: 50px; height: 50px; max-width: 50px; -webkit-object-fit: cover; object-fit: cover; -webkit-border-radius: 50%; border-radius: 50%;}
+.onboardinguser .dashuserbox .dashuserboxcontent{display: table-cell; vertical-align: middle; padding-left: 6px; padding-right: 10px; position: relative;}
+.onboardinguser .dashuserbox .dashuserboxcontent span{display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 96px;}
+.onboardinguser .dashuserbox .dashuserboxcontent i{position: absolute; right: 0px; top: 50%; -webkit-transform: translateY(-50%); transform: translateY(-50%);}
+
+
+
+
+@media (max-width: 991px) {
+    .onboardinguser .dashuserbox .dashuserboximg img{width: 30px; height: 30px; max-width: 30px;}
+    .header-gradient .container-fluid{padding: 0px;}
+}

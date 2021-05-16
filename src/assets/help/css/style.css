@@ -1,0 +1,321 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    color: #2f2f2f;
+    background-color: #fff;
+}
+
+/*@media (max-width: 62em)*/
+
+/*========================start header csss================================*/
+
+.header {
+    background-color: #f4f4f4;
+}
+
+.navbar-nav {
+    padding-top: .425rem;
+    padding-left: 0.75rem;
+}
+
+.navbar-nav .nav-item {
+    float: none;
+}
+
+.navbar-brand {
+    float: right;
+}
+
+.navbar-brand, .navbar-nav .nav-item {
+    display: block;
+}
+
+.navbar-nav .nav-item+.nav-item {
+    margin-left: 0;
+}
+
+.dropdown-menu {
+    position: relative;
+    float: none;
+}
+
+.header .navbar {
+    width: 100%;
+}
+
+/*----------Banner CSS----------*/
+
+.bgimage {
+    width: 100%;
+    height: 500px;
+    background: url('../images/banner_img.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.mbr-white {
+    text-align: center;
+    padding-top: 140px;
+    padding-bottom: 40PX;
+}
+
+.mbr-white p {
+    color: #fff;
+    font-weight: 300;
+    line-height: 40px;
+    font-size: 24px;
+}
+
+.trial_btn {
+    color: #fff;
+    background-color: #4fe16c;
+    border-color: #4fe16c;
+}
+
+.mbr-section-btn {
+    margin-top: 25px;
+}
+
+.btn {
+    border-radius: 0;
+    font-weight: 600;
+    border-width: 2px;
+    font-style: normal;
+    letter-spacing: 0px;
+    margin: .4rem .8rem;
+    white-space: normal;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    word-break: break-word;
+    text-transform: uppercase;
+}
+
+.btn-ps {
+    background-image: -moz-linear-gradient( 45deg, rgba(79, 225, 108, 0.67843) 0%, rgb(79, 225, 108) 100%);
+    background-image: -webkit-linear-gradient( 45deg, rgba(79, 225, 108, 0.67843) 0%, rgb(79, 225, 108) 100%);
+    background-image: -ms-linear-gradient( 45deg, rgba(79, 225, 108, 0.67843) 0%, rgb(79, 225, 108) 100%);
+    box-shadow: 0px 7px 23px 0px rgba(79, 225, 108, 0.61);
+}
+
+.btn-ps1 {
+    border-width: 2px;
+    border-color: rgb(255, 255, 255);
+    border-style: solid;
+    color: #fff;
+    border-color: #ffffff;
+}
+
+.btn-ps1:hover {
+    border-width: 2px;
+    border-color: rgb(255, 255, 255);
+    border-style: solid;
+    color: #fff;
+    border-color: #fff;
+}
+
+/*==========================Start submenu CSS========================*/
+
+.services_tabs {
+    text-align: center;
+    border: unset;
+    background-color: #eaf4f9;
+    width: 100%;
+}
+
+.services_tabs>li {
+    display: inline-block;
+    float: unset;
+    padding: 17px 45px;
+}
+
+.services_tabs {
+    text-align: center;
+    border: unset;
+}
+
+.services_tabs>li.active {
+    border: unset;
+    border-bottom: 4px solid #4fe06c;
+}
+
+.services_tabs>li.active>a {
+    border: unset;
+    background-color: unset;
+    color: #000;
+    font-weight: 600;
+}
+
+.services_tabs>li a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.services_tabs>.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+    color: #555;
+    cursor: default;
+    background-color: #eaf4f9;
+    border: 0px solid #ddd;
+    border-bottom-color: transparent;
+}
+
+.services_text h1 {
+    text-align: center;
+    width: 100%;
+    color: #2f2f2f;
+    font-size: 24px;
+    padding: 60px 0px;
+}
+
+.service_box {
+    min-height: 445px;
+}
+
+.service_box p {
+    text-align: justify;
+    margin: 0px 69px;
+}
+
+.service_box>li>a:hover {
+    background-color: transparent;
+    border-color: none;
+}
+
+/*-----------Bootstrap 4 Update CSS------------*/
+
+.sub_header .nav {
+    display: -ms-flexbox;
+    display: inline-table;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+@media only screen and (max-width: 1024px) {
+    .service_box p {
+        text-align: justify;
+        margin: 0px 0px;
+    }
+    .service_box h3 {
+        font-size: 22px;
+        padding-bottom: 10px;
+    }
+    .services_text h1 {
+        text-align: center;
+        width: 100%;
+        color: #2f2f2f;
+        font-size: 26px;
+        padding: 6px 0px;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .mbr-white p {
+        color: #fff;
+        font-weight: 300;
+        line-height: 40px;
+        font-size: 23px;
+    }
+    .service_box p {
+        text-align: justify;
+        margin: 0px 77px;
+    }
+    .service_box {
+        min-height: 312px;
+    }
+    .header .navbar {
+        position: relative;
+        min-height: 75px;
+        margin-bottom: 0px;
+        border: 1px solid transparent;
+    }
+    .header .navbar-toggle {
+        position: relative;
+        float: right;
+        padding: 9px 10px;
+        margin-top: 21px;
+        margin-right: 15px;
+        margin-bottom: 8px;
+        background-color: transparent;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+    .header .navbar-default {
+        background-color: #ffffff;
+        border-color: #ffffff;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .header .navbar {
+        position: relative;
+        min-height: 65px;
+        /*  margin-bottom: 20px;*/
+        border: 1px solid transparent;
+    }
+    .header>a.navbar-brand img {
+        height: 42px;
+    }
+    .sub_menu {
+        text-align: center;
+    }
+    .Feature_menu ul li {
+        list-style-type: none;
+        padding: 10px 10px;
+        margin: 0 auto;
+        display: inline-block;
+    }
+    .service_box p {
+        text-align: justify;
+        margin: 0px 0px;
+        margin: 0 auto;
+        display: table;
+    }
+    .header .navbar-toggle {
+        position: relative;
+        float: right;
+        padding: 9px 10px;
+        margin-top: 28px;
+        margin-right: 15px;
+        margin-bottom: 25px;
+        background-color: transparent;
+        background-image: none;
+        border: 1px solid transparent;
+        border-radius: 4px;
+    }
+    .navbar-brand {
+        float: left;
+        height: 80px !important;
+        padding: 15px 15px;
+        font-size: 18px;
+        line-height: 20px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .mbr-white p {
+        color: #fff;
+        font-weight: 300;
+        line-height: 25px;
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .Feature_menu ul li {
+        list-style-type: none;
+        padding: 10px 5px;
+        margin: 0 auto;
+        display: inline-block;
+    }
+}

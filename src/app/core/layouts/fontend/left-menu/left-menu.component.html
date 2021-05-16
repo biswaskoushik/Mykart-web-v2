@@ -1,0 +1,82 @@
+<nav class="page-sidebar" data-pages="sidebar">
+  <div class="sidebar-header" style="border-bottom: 3px solid #0585c7;">
+    <img src="assets/img/logo.png" alt="logo" class="brand" width="100" />
+  </div>
+
+  <div class="sidebar-menu p-t-25">
+    <ul class="menu-items">
+      <li class="nav-item " [ngClass]="router.url == '/seller/dashboard' ? 'activeclass':''"
+        [routerLinkActive]="['active']">
+        <a [routerLink]="['seller/dashboard']">
+          <i class="material-icons align-middle pr-1">dashboard</i>
+          <span class="align-middle font">TRANSACTIONS</span>
+          <span class="selected"></span>
+        </a>
+      </li>
+
+      <li class="nav-item" [ngClass]="router.url == '/seller/products' ? 'activeclass':''">
+        <a [routerLink]="['seller/products']">
+          <i class="material-icons align-middle pr-1">shopping_basket</i>
+          <span class="align-middle">PRODUCTS</span>
+          <span class="selected"></span>
+        </a>
+      </li>
+
+      <li class="nav-item" [ngClass]="router.url == '/seller/profile' ? 'activeclass':''">
+        <a [routerLink]="['seller/profile']">
+          <i class="material-icons align-middle pr-1">person</i>
+          <span class="align-middle">PROFILE</span>
+          <span class="selected"></span>
+        </a>
+      </li>
+
+      <li class="nav-item" [ngClass]="router.url == '/seller/setting' ? 'activeclass':''">
+        <a [routerLink]="['seller/setting']">
+          <i class="material-icons align-middle pr-1">settings</i>
+          <span class="align-middle">SETTINGS</span>
+          <span class="selected"></span>
+        </a>
+      </li>
+
+      <li class="nav-item" [ngClass]="router.url == '/seller/subscription' ? 'activeclass':''">
+        <a [routerLink]="['seller/subscription']">
+          <i class="material-icons align-middle"> rss_feed </i>
+          <span class="align-middle">SUBSCRIPTION</span>
+          <span class="selected"></span>
+        </a>
+      </li>
+
+      <li class="nav-item" *ngIf="step_flag" [ngClass]="router.url == '/seller/payment-history' ? 'activeclass':''">
+        <a [routerLink]="['seller/payment-history']">
+          <i class="material-icons align-middle"> history </i>
+          <span class="align-middle">PAYMENT HISTORY</span>
+          <span class="selected"></span>
+        </a>
+      </li>
+
+      <li class="nav-item" *ngIf="!step_flag">
+        <a (click)="componentToStripe()">
+          <i class="material-icons align-middle pr-1">verified_user</i>
+          <span class="align-middle cursorcls">CONNECT TO STRIPE</span>
+          <span class="selected"></span>
+        </a>
+      </li>
+
+      <li class="nav-item" [ngClass]="router.url == '/seller/store-information' ? 'activeclass':''">
+        <a [routerLink]="['seller/store-information']">
+          <i class="material-icons align-middle pr-1">verified_user</i>
+          <span class="align-middle">STORE INFORMATION</span>
+          <span class="selected"></span>
+        </a>
+      </li>
+
+      <li class="nav-item logout">
+        <a href="javascript:void(0)" (click)="logout()">
+          <i class="material-icons align-middle ">exit_to_app</i>
+          <span class="align-middle pl-1">LOG OUT</span>
+        </a>
+      </li>
+    </ul>
+    <div class="clearfix"></div>
+  </div>
+</nav>

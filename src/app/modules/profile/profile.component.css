@@ -1,0 +1,55 @@
+a{color:#0056b3}
+.font{font-family:'Montserrat',sans-serif}
+.f-w-400{font-weight:400!important}
+.card{border:none}
+.card .card-body{padding:7px 20px}
+.update-button{background-image:linear-gradient(to right,#0f73ee,#1dafe8)!important;color:#FFF;border:none;border-color:transparent;border-radius:6px;font-size:16px;padding:4px 30px;display:inline-block;margin:4px}
+.update-button:hover{border:none;color:#FFF}
+.row .f-w-500{font-weight:500}
+.row .f-s-20{font-size:20px}
+.row .f-s-16{font-size:16px}
+textarea:focus ~ .floating-label,textarea:not(:focus):valid ~ .floating-label{height:15px;line-height:15px;left:13px;top:5px;opacity:1}
+.form-group-default.focused{background-color:#FFF;border-color:#2196F3}
+.card-common{box-shadow:1px 2px 5px #d9dbe1}
+.error-p{color:red}
+.dashouter{padding:30px 20px}
+.dashouter .card{border:none}
+.dashouter .card .card-header{border:none}
+.dashouter .card .card-body{padding:10px 20px}
+.boardingfo{padding:0}
+.boardingfo .boardingfoinner{padding:15px 0}
+.floating-label-group{position:relative;margin-bottom:25px}
+.floating-label-group .floating-label{font-size:13px;color:#ccc;position:absolute;pointer-events:none;top:9px;left:12px;transition:all .1s ease}
+.floating-label-group .form-control:focus ~ .floating-label{top:-15px;bottom:0;left:0;font-size:11px;opacity:1;color:#404040}
+.boardingfo form .row{margin-left:-.5rem!important;margin-right:-.5rem!important}
+.boardingfo form .row [class*=col-]:first-child{padding-left:inherit}
+.boardingfo form .row [class*=col-]:last-child{padding-right:inherit}
+.boardingfo .floating-label-group .form-control{border:1px solid #dedddd;color:#333;height:54px;font-size:16px;padding:22px 10px 4px 15px;-webkit-border-radius:6px;border-radius:6px}
+.boardingfo .floating-label-group{position:relative;margin-bottom:20px}
+.boardingfo .floating-label{font-size:14px;color:#565656;position:absolute;pointer-events:none;top:18px;left:15px;transition:all .1s ease}
+.boardingfo .form-control:focus ~ .floating-label,.boardingfo .form-control:disabled ~ .floating-label,.boardingfo .form-control[readonly] ~ .floating-label,.boardingfo .form-control:not(:focus):valid ~ .floating-label{top:4px;left:15px;font-size:12px;opacity:1;color:#565656}
+.buttoncls{width:215px;background-color:#2196F3}
+.boardingfo .floating-label-group textarea.form-control{height:110px}
+.boardingfo .form-control:disabled,.boardingfo .form-control[readonly]{background:#F0F0F0;border-color:#F0F0F0}
+.boardingfo .floating-label-group .form-control:focus{border-color:#0f73ee;-webkit-box-shadow:none;box-shadow:none}
+.boardingfo .floating-label-group .form-control:disabled:focus{border-color:#F0F0F0;-webkit-box-shadow:none;box-shadow:none}
+.boardingfo .floating-label-group .form-control[readonly]:focus{border-color:#F0F0F0;-webkit-box-shadow:none;box-shadow:none}
+.proimgbx{display:inline-block;margin-bottom:20px}
+.proimgbx .image-container{margin-bottom: 10px;width: 100px;height: 100px;border: 1px solid #eaeaea;border-radius: 100px;padding: 5px;}
+.proimgbx img{width:100%;height:100%;-webkit-object-fit:cover;object-fit:cover}
+.proimgbx .pptext{color:#1079EE;font-size:15px;font-weight:500}
+.proimgbx .pptext a{color:#1079EE;text-decoration:none}
+
+@media (max-width: 767px) {
+.buttoncls{width:100%;margin-left:0;margin-right:0;padding-left:0;padding-right:0;display:block;text-align:center}
+.profilepage .dashouter{background:#fff!important}
+.profilepage .boardingfo .text-left{text-align:center!important}
+}
+@media (max-width: 575px) {
+.dashouter{padding:20px 0}
+.boardingfo .boardingfoinner{padding:0}
+.proimgbx img{width:70px;height:70px}
+.boardingfo .floating-label-group .form-control{height:44px;font-size:14px}
+.boardingfo .floating-label{top:12px}
+.dashouter .card .card-body{padding:0 20px}
+}

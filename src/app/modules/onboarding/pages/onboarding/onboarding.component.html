@@ -1,0 +1,194 @@
+<div class="page-container">
+    <div class="header header-gradient">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row align-items-center">
+                        <div class="col-auto">
+                            <div class="logocontainer">
+                                <img src="assets/img/logo.png">
+                            </div>
+                        </div>
+                        <div class="col-auto ml-auto">
+                            <div class="onboardinguser" id="dropdownMenuButton" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <span class="thumbnail-wrapper d48 circular inline">
+                                    <img id="profile_image" *ngIf="image_url !=null && image_url != ''"
+                                        src="{{image_url}}">
+                                    <img id="profile_image" *ngIf="image_url ==null || image_url == ''"
+                                        src="assets/img/user.png">
+                                </span>
+                                <ul class="dropdown-menu bg-white" aria-labelledby="dropdownMenuButton">
+                                    <li>
+                                        <a href="javascript:void(0)" (click)="logout()">
+                                            <i class="material-icons align-middle"
+                                                style="transform: rotate(180deg)">exit_to_app</i>
+                                            <span class="align-middle font">Log Out</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <span (click)="logout()">Logout</span>
+    </div>
+
+    <!-- <div class="page-content-wrapper"> -->
+    <div class="pagecontainer">
+        <div class="container">
+            <div class="row mt-1 mt-md-5 pt-5 justify-content-center">
+                <div class="col-xl-8 col-lg-9 col-md-10 col-sm-12 col-12">
+
+                    <!-- Profile -->
+                    <div class="card card_custom card-common">
+                        <div class="onboardgroupform">
+                            <div class="onboardgroupleft">
+
+                                <img *ngIf="profileFormFlag"
+                                    src="assets/img/icons/web-icn-checkCircle-inactive-large.svg" alt="" />
+
+                                <img *ngIf="!profileFormFlag"
+                                    src="assets/img/icons/web-icn-checkCircle-active-large.png" alt="" />
+                            </div>
+                            <div class="onboardgroupcenter">
+                                <h3 class="card-title">Profile</h3>
+                                <p class="card-text">
+                                    Set up your store profile & let shoppers know about your
+                                    bussiness.
+                                </p>
+
+                                <button [disabled]='profileActiveFlag' *ngIf="!componentProfile && profileFormFlag"
+                                    class="btn-design btn text-center mt-2" type="button"
+                                    (click)="openComponents('profile')">
+                                    <small class="font">SETUP PROFILE</small>
+                                </button>
+
+                            </div>
+                            <div class="onboardgroupright">
+                                <div class="d-flex justify-content-center">
+                                    <img src="assets/img/icons/web-avatar-profile.svg" alt="" />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div *ngIf="componentProfile == true">
+                            <app-onboarding-profile (profileListener)="profileListener($event)">
+                            </app-onboarding-profile>
+                        </div>
+
+                    </div>
+                    <!-- End Profile -->
+
+
+                    <!-- Store Policies -->
+                    <div class="card card_custom card-common">
+                        <div class="onboardgroupform">
+                            <div class="onboardgroupleft">
+                                <img *ngIf="policiesFormFlag"
+                                    src="assets/img/icons/web-icn-checkCircle-inactive-large.svg" alt="" />
+                                <img *ngIf="!policiesFormFlag"
+                                    src="assets/img/icons/web-icn-checkCircle-active-large.png" alt="" />
+                            </div>
+                            <div class="onboardgroupcenter">
+                                <h3 class="card-title">Store Policies</h3>
+                                <p class="card-text">
+                                    Provide the information shoppers need to instill confidence and a
+                                    smooth shopping experience.
+                                </p>
+
+                                <button [disabled]='policiesActiveFlag' *ngIf="!componentPolicies && policiesFormFlag"
+                                    class="btn-design btn text-center mt-2" type="button"
+                                    (click)="openComponents('policies')">
+                                    <small class="font">ADD POLICIES</small>
+                                </button>
+                            </div>
+                            <div class="onboardgroupright">
+                                <div class="d-flex justify-content-center">
+                                    <img src="assets/img/icons/web-avatar-policies.svg" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="componentPolicies">
+                            <app-onboarding-policies (policiesListener)="policiesListener($event)">
+                            </app-onboarding-policies>
+                        </div>
+                    </div>
+                    <!-- End Policies -->
+
+                    <!-- Subscription -->
+                    <div class="card card_custom card-common">
+                        <div class="onboardgroupform">
+                            <div class="onboardgroupleft">
+                                <img *ngIf="ActiveFormFlag"
+                                    src="assets/img/icons/web-icn-checkCircle-inactive-large.svg" alt="" />
+                                <img *ngIf="!ActiveFormFlag" src="assets/img/icons/web-icn-checkCircle-active-large.png"
+                                    alt="" />
+                            </div>
+                            <div class="onboardgroupcenter">
+                                <h3 class="card-title">Subscription</h3>
+                                <p class="card-text">
+                                    Become a member for $25 a month and get unlimited access to all
+                                    Seller benefits. You can cancel at any time
+                                </p>
+                                <button [disabled]='stripActiveFlag' *ngIf="!componentActive && ActiveFormFlag"
+                                    class="btn-design btn text-center mt-2" type="button"
+                                    (click)="openComponents('subscription')">
+                                    <small class="font">START FREE TRAIL</small>
+                                </button>
+                            </div>
+                            <div class="onboardgroupright">
+                                <div class="d-flex justify-content-center">
+                                    <img src="assets/img/icons/web-avatar-subscribe.svg" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="" *ngIf="componentActive">
+                            <!-- <app-custom-pay-card></app-custom-pay-card> -->
+                            <app-onboarding-subscription (subscriptionListener)="subscriptionListener($event)">
+                            </app-onboarding-subscription>
+                        </div>
+                    </div>
+                    <!-- End Subscription -->
+
+
+                    <!-- Payouts -->
+                    <div class="card card_custom card-common">
+                        <div class="onboardgroupform">
+                            <div class="onboardgroupleft">
+                                <img *ngIf="stripFormFlag" src="assets/img/icons/web-icn-checkCircle-inactive-large.svg"
+                                    alt="" />
+                                <img *ngIf="!stripFormFlag" src="assets/img/icons/web-icn-checkCircle-active-large.png"
+                                    alt="" />
+                            </div>
+                            <div class="onboardgroupcenter">
+                                <h3 class="card-title">Connect To Strip</h3>
+                                <p class="card-text">
+                                    Set up your Stripe account. It's how we process your order
+                                    transactions and payouts.
+                                </p>
+                                <button [disabled]='connectActiveFlag' class="btn-design btn text-center mt-2 mr-2"
+                                    type="button" (click)="componentToStripe()"
+                                    *ngIf="!componentStrip && stripFormFlag">
+                                    <small class="font">CONNECT TO STRIPE</small>
+                                </button>
+                                <small *ngIf="!connectActiveFlag" class="font" (click)="SkipConnectToStripe()"
+                                    style="color:#0f73ee;cursor: pointer;margin-left: 12px;font-size: 13px;">SKIP</small>
+                            </div>
+                            <div class="onboardgroupright">
+                                <div class="d-flex justify-content-center">
+                                    <img src="assets/img/icons/web-avatar-stripe.svg" alt="" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- End Subscription -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

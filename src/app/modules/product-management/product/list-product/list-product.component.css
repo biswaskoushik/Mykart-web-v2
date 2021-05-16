@@ -1,0 +1,39 @@
+.font{font-family:'Montserrat',sans-serif}
+.card{border:none}
+.card .card-body{padding:7px 20px}
+.card-common{box-shadow:1px 2px 5px #d9dbe1}
+.category-button{color:#0056b3;border:1px solid #0056b3;border-radius:6px;display:inline-block;font-size:16px;padding:3px 30px;margin:4px}
+.category-button:hover{color:#0056b3;border:1px solid #0056b3;background-color:#FFF}
+.update-button{background-image:linear-gradient(to right,#0f73ee,#1dafe8)!important;color:#FFF;border:none;border-color:transparent;border-radius:6px;font-size:16px;padding:4px 30px;display:inline-block;margin:4px}
+.update-button:hover{border:none;color:#FFF}
+.nav-tabs-simple:after{border:none}
+.nav-tabs>li>a{font-weight:600;font-size:12px}
+.nav-tabs>li>a.active{color:#3087f1}
+.nav-tabs>li>a.active:hover,.nav-tabs>li>a.active:focus{color:#3087f1}
+.nav-tabs-simple>li>a:after{background-color:#0f73ee}
+.image-container{width:90%;height:135px;border:1px dotted;border-radius:5px}
+.f-w-500{font-weight:500}
+.f-w-600{font-weight:600}
+.nav-tabs~.tab-content{overflow:visible}
+.dropdown-menu li:hover{background:#f7f7f7}
+.dropdown-menu.show{top:6px!important;left:-71px!important}
+.dropdown-menu.show::before{content:'';position:absolute;width:12px;height:12px;left:50%;top:-12px;transform:translate(-50%,50%) rotate(45deg);background-color:#FFF}
+li.in-active{border-top:1px solid #f7f7f7}
+.stock{color:#1fc8a3}
+.out-of-stock{color:#fd323c}
+.card-img-wrapper{height:257px;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.card-img-wrapper img{max-width:100%;max-height:100%;height:100%;height:inherit;display:block;margin:0 auto}
+.card-img-wrapper img.card-img-top{width:inherit!important}
+.dashouter{padding:30px 20px}
+.dropdownMenuButtoncls{position:relative;font-size:24px;font-weight:600}
+.dropdown-menu.show{min-width:120px!important;border:none;box-shadow:none;position:absolute!important;top:127%!important;right:0!important;transform:none!important;font-weight:400}
+@media (min-width:768px) {
+.col-lg-3{-ms-flex:0 0 33.333333%;flex:0 0 33.333333%;max-width:33.333333%}
+}
+@media (min-width:1199px) {
+.col-lg-3{-ms-flex:0 0 25%;flex:0 0 25%;max-width:25%}
+}
+@media (max-width: 575px) {
+.category-button{padding:4px 12px;font-size:14px}
+.update-button{padding:4px 12px;font-size:14px}
+}

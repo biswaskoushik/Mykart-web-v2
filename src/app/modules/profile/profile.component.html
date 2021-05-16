@@ -1,0 +1,283 @@
+<div class="page-content-wrapper profilepage">
+    <div class="content">
+        <div class="dashouter">
+            <!-- <app-onboarding-profile></app-onboarding-profile> -->
+            <div class="container">
+                <div class="card m-b-25">
+
+                    <div class="card-body">
+                        <div class="row align-items-center">
+                            <div class="col-md-9">
+                                <h5 class="font sm-text-center text-md-left m-0">Profile</h5>
+                            </div>
+                            <!-- <div class="col-md-3 text-center text-md-right mt-2 mt-md-0">
+                                <button [disabled]="isvalid" class="update-button btn btn-sm" (click)="updateProfile()"
+                                    type="button">
+                                    <small class="font">Update</small>
+                                </button>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="row ml-n2 mr-n2" *ngIf="profileFormFlag">
+                                    <div class="col-12 pl-2 pr-2">
+                                        <div class="boardingfo">
+                                            <div class="boardingfoinner">
+                                                <form class="row ml-n2 mr-n2" id="form-register" action="#"
+                                                    [formGroup]="profileForm">
+                                                    <div class="col-12 pl-2 pr-2">
+                                                        <div class="row ml-n2 mr-n2">
+
+                                                            <div class="col-lg-12 col-md-12 col-12 pl-2 pr-2 text-left">
+                                                                <div class="proimgbx">
+                                                                    <div class="image-container">
+                                                                        <img [src]=" imageUrl || 'assets/img/user.png' "
+                                                                            class="image-fluid rounded-circle"
+                                                                            alt="User Image" />
+                                                                    </div>
+                                                                    <div class="pptext">
+                                                                        <a href="javascript:document.getElementById('selectedFile').click();"
+                                                                            class="font f-s-16 ">
+                                                                            Update photo
+                                                                        </a>
+                                                                        <input type="file" id="selectedFile"
+                                                                            name="selectedFile" accept="image/*"
+                                                                            (change)="changeImage($event)"
+                                                                            [(ngModel)]="temp"
+                                                                            [ngModelOptions]="{standalone: true}"
+                                                                            style="display: none" />
+                                                                        <p class="error-p">{{imgErrorMsg}}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row row ml-n2 mr-n2">
+                                                            <div class="col-lg-6 col-md-6 col-sm-12 col-12 pl-2 pr-2">
+                                                                <div class="floating-label-group">
+                                                                    <input type="text" name="first_name" id="first_name"
+                                                                        class="form-control inputText"
+                                                                        formControlName="first_name" autocomplete="off"
+                                                                        autofocus required />
+                                                                    <label class="floating-label">First name</label>
+                                                                    <p class="error-p"
+                                                                        *ngIf="profileForm.controls['first_name'].touched && !profileForm.controls['first_name'].valid && profileForm.controls['first_name'].errors.required">
+                                                                        First Name required.
+                                                                    </p>
+
+                                                                    <p class="error-p"
+                                                                        *ngIf="profileForm.controls['first_name'].touched && !profileForm.controls['first_name'].valid && profileForm.controls['first_name'].errors.maxlength">
+                                                                        First Name is not valid.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-12 col-12 pl-2 pr-2">
+                                                                <div class="floating-label-group">
+                                                                    <input type="text" name="last_name" id="last_name"
+                                                                        class="form-control inputText"
+                                                                        formControlName="last_name" autocomplete="off"
+                                                                        autofocus required />
+                                                                    <label class="floating-label">Last name</label>
+                                                                    <p class="error-p"
+                                                                        *ngIf="profileForm.controls['last_name'].touched && !profileForm.controls['last_name'].valid && profileForm.controls['last_name'].errors.required">
+                                                                        Last Name required.
+                                                                    </p>
+
+                                                                    <p class="error-p"
+                                                                        *ngIf="profileForm.controls['last_name'].touched && !profileForm.controls['last_name'].valid && profileForm.controls['last_name'].errors.maxlength">
+                                                                        Last Name is not valid.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row ml-n2 mr-n2">
+                                                            <div class="col-lg-6 col-md-6 col-sm-12 col-12 pl-2 pr-2">
+                                                                <div class="floating-label-group">
+                                                                    <input type="text" id="business_name"
+                                                                        name="business_name"
+                                                                        class="form-control inputText"
+                                                                        formControlName="business_name" readonly
+                                                                        autocomplete="off" autofocus required />
+                                                                    <label class="floating-label">Store name</label>
+                                                                    <p class="error-p"
+                                                                        *ngIf="profileForm.controls['business_name'].touched && !profileForm.controls['business_name'].valid && profileForm.controls['business_name'].errors.required">
+                                                                        Store name required.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-lg-6 col-md-6 col-sm-12 col-12 pl-2 pr-2">
+                                                                <div class="floating-label-group">
+                                                                    <input type="email" id="email"
+                                                                        class="form-control inputText"
+                                                                        formControlName="email" readonly
+                                                                        autocomplete="off" autofocus required />
+                                                                    <label class="floating-label">Email</label>
+                                                                    <p class="error-p"
+                                                                        *ngIf="profileForm.controls['email'].touched && !profileForm.controls['email'].valid && profileForm.controls['email'].errors.required">
+                                                                        Email required.
+                                                                    </p>
+
+                                                                    <p class="error-p"
+                                                                        *ngIf="profileForm.controls['email'].touched && !profileForm.controls['email'].valid && profileForm.controls['email'].errors.email">
+                                                                        Email is not valid.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row ml-n2 mr-n2">
+                                                            <div class="col-lg-6 col-md-6 col-sm-12 col-12 pl-2 pr-2">
+                                                                <div class="floating-label-group">
+                                                                    <input type="text" id="website" name="website"
+                                                                        class="form-control inputText"
+                                                                        formControlName="website" readonly autocomplete="off"
+                                                                        autofocus required />
+                                                                    <label class="floating-label">Website URL</label>
+                                                                    <p class="error-p"
+                                                                        *ngIf="profileForm.controls['website'].touched && !profileForm.controls['website'].valid && profileForm.controls['website'].errors.required">
+                                                                        Website URL required.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row ml-n2 mr-n2">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-12 pl-2 pr-2">
+                                                                <div class="floating-label-group">
+                                                                    <textarea rows="1" maxlength="65535" name="about_us"
+                                                                        id="about_us" formControlName="about_us"
+                                                                        class="form-control form-control-lg inputText"
+                                                                        autocomplete="off" autofocus
+                                                                        required></textarea>
+                                                                    <label class="floating-label">About Us</label>
+                                                                    <p class="error-p"
+                                                                        *ngIf="profileForm.controls['about_us'].touched && !profileForm.controls['about_us'].valid && profileForm.controls['about_us'].errors.required">
+                                                                        About Us required.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row ml-n2 mr-n2">
+                                                            <div class="col-lg-6 col-md-6 col-sm-12 col-12 pl-2 pr-2">
+                                                                <div class="floating-label-group">
+                                                                    <input type="text" id="address" name="address"
+                                                                        class="form-control form-control-lg inputText"
+                                                                        formControlName="address" autocomplete="off"
+                                                                        autofocus required />
+                                                                    <label class="floating-label">Address</label>
+                                                                    <p class="error-p"
+                                                                        *ngIf="profileForm.controls['address'].touched && !profileForm.controls['address'].valid && profileForm.controls['address'].errors.required">
+                                                                        Address required.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="col-lg-6 col-md-6 col-sm-12 col-12 pl-2 pr-2">
+                                                                <div class="floating-label-group">
+                                                                    <input type="text" id="zip" name="zip" type="number"
+                                                                        (change)="getZipCodeInf()" formControlName="zip"
+                                                                        class="form-control inputText"
+                                                                        [ngClass]="{'border-danger': isError}"
+                                                                        autocomplete="off" autofocus required />
+                                                                    <label class="floating-label">Zip</label>
+                                                                    <p class="error-p"
+                                                                        *ngIf="profileForm.controls['zip'].touched && !profileForm.controls['zip'].valid && profileForm.controls['zip'].errors.required">
+                                                                        Zip required.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="row ml-n2 mr-n2">
+                                                            <div class="col-lg-6 col-md-6 col-sm-12 col-12 pl-2 pr-2">
+                                                                <div class="floating-label-group">
+                                                                    <input type="text" id="city" name="city"
+                                                                        class="form-control inputText"
+                                                                        formControlName="city" readonly autocomplete="off"
+                                                                        autofocus required />
+                                                                    <label class="floating-label">City</label>
+                                                                    <p class="error-p"
+                                                                        *ngIf="profileForm.controls['city'].touched && !profileForm.controls['city'].valid && profileForm.controls['city'].errors.required">
+                                                                        City required.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-12 col-12 pl-2 pr-2">
+                                                                <div class="floating-label-group">
+                                                                    <input type="text" id="state" name="state"
+                                                                        class="form-control inputText"
+                                                                        formControlName="state" readonly
+                                                                        autocomplete="off" autofocus required />
+                                                                    <label class="floating-label">State</label>
+                                                                    <p class="error-p"
+                                                                        *ngIf="profileForm.controls['state'].touched && !profileForm.controls['state'].valid && profileForm.controls['state'].errors.required">
+                                                                        State required.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row ml-n2 mr-n2">
+                                                            <div class="col-lg-6 col-md-6 col-sm-12 col-12 pl-2 pr-2">
+                                                                <div class="floating-label-group">
+                                                                    <input type="text" id="country" name="country"
+                                                                        class="form-control inputText"
+                                                                        formControlName="country" readonly placeholder="Country"
+                                                                        readonly autocomplete="off" autofocus
+                                                                        required />
+                                                                    <label class="floating-label">Country</label>
+                                                                    <p class="error-p"
+                                                                        *ngIf="profileForm.controls['country'].touched && !profileForm.controls['country'].valid && profileForm.controls['country'].errors.required">
+                                                                        Country required.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-6 col-sm-12 col-12 pl-2 pr-2">
+                                                                <div class="floating-label-group">
+                                                                    <input type="number" step="0.01" min="0"
+                                                                        id="tax_value" name="tax_value"
+                                                                        class="form-control inputText"
+                                                                        formControlName="tax_value" readonly
+                                                                        autocomplete="off" autofocus required />
+                                                                    <label class="floating-label">Sale Tax</label>
+                                                                    <p class="error-p"
+                                                                        *ngIf="profileForm.controls['tax_value'].touched && !profileForm.controls['tax_value'].valid && profileForm.controls['tax_value'].errors.required">
+                                                                        Sale Tax required.
+                                                                    </p>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row ml-n2 mr-n2">
+                            <div class="col-sm-12 pl-2 pr-2">
+                                <button class="update-button btn-sm btn float-right buttoncls" type="button"
+                                    (click)="updateProfile()">
+                                    <small class="font">
+                                        Update
+                                    </small>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+            </div>
+        </div>
+    </div>

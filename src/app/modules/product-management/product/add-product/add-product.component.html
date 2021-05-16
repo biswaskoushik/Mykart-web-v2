@@ -1,0 +1,562 @@
+<div class="page-content-wrapper ">
+  <div class="content">
+    <div class="dashouter">
+
+      <div class="container">
+        <div class="card card-borderless m-b-25">
+          <div class="card-body">
+            <div class="row align-items-center">
+              <div class="col-auto">
+                <h5 class="font sm-text-center text-md-left m-0">
+                  Add Product
+                </h5>
+
+                <div class="back-button cursor">
+                  <a href="javascript:window.history.back();" class="">
+                    <img src="assets/img/icons/back.png" alt="" /><span class="font p-l-5">Back</span>
+                  </a>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="p-t-15" enctype="multipart/form-data">
+
+          <div class="row justify-content-center ">
+            <div class="col-12">
+              <div class="card mb-35 card-common">
+                <div class="card-header border-bottom mb-3 card-backgroud">
+                  <h5 class="text-mute font-weight-normal">IMAGES</h5>
+                </div>
+                <div class="card-body ml-2">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="row m-b-15">
+                        <div class="addwrapppercls" style="display : -webkit-inline-box">
+                          <div class="image-container-wrapper">
+                            <div onclick="document.getElementById('selectedFile').click();"
+                            class="image-container text-center cursor">                            
+                              <input type="file" id="selectedFile" name="selectedFile" accept="image/*" [(ngModel)]="temp"
+                                (change)="handleFileInputChange($event)" class="d-none" multiple />                              
+                              <img class="imageareaclass" src="assets/img/icons/plus_icon.png" />                        
+                          </div>
+                          </div>                          
+                        </div>
+
+                        <div *ngIf="product.media_links.length > 0" style="display: flex;" class="productlistswrapper">
+                          <div *ngFor="let item of product.media_links;let i = index" class="productlistsingle">
+                            <div class="col-md-12" style="display : -webkit-inline-box">
+                              <div class="imgcardclass-wrapper">
+                                <img form-group *ngIf="item" [src]="item" class="image-fluid p-4 imgcardclass" />
+                              </div>
+                                <i class="material-icons imgcloseclass" (click)="clearImage(item,i,'edit')">&#xe888;</i>                          
+                              
+                            </div>
+                          </div>
+                        </div>
+
+                        <div *ngIf="imagesData.length > 0" style="display: flex;" class="productlistswrapper">
+                          <div *ngFor="let item of imagesData;let i = index" class="productlistsingle">
+                            <div class="col-md-12" style="display : -webkit-inline-box">
+                              <div class="imgcardclass-wrapper">
+                                <img form-group *ngIf="item" [src]="item.img" class="image-fluid p-4 imgcardclass" />
+                              </div>
+                              <i class="material-icons imgcloseclass" (click)="clearImage(item,i,'add')">&#xe888;</i>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                      <p class="error-p" *ngIf="fielderror?.imageerr != null || fielderror?.imageerr != ''">
+                        {{fielderror?.imageerr}}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <div class="card mb-35 card-common">
+                <div class="card-header mb-3 card-backgroud">
+                  <h5>DETAILS</h5>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="row m-b-6 mb-2">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Category</label>
+                            <select class="custom-select form-control" id="inputGroupSelect01"
+                              [(ngModel)]="product.category.code" (change)="changeCategory(product.category.code)"
+                              [ngModelOptions]="{standalone: true}">
+                              <option selected>Choose category</option>
+                              <option *ngFor="let category of categoryList" [value]="category.code">
+                                {{ category.name }}</option>
+                            </select>
+                            <p class="error-p" *ngIf="product.category.code == null || 
+                      product.category.code == ''">{{fielderror?.categoryerr}}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="row m-b-6 mb-2">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <input type="text" name="productTitle" placeholder="Product Title" id="productTitle"
+                              class="form-control inputText" [(ngModel)]="product.title"
+                              [ngModelOptions]="{standalone: true}" />
+                            <p class="error-p" *ngIf="product.title == null || 
+                      product.title == ''">{{fielderror?.titleerr}}</p>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <input type="text" name="productSubtitle" placeholder="Product Subtitle"
+                              [(ngModel)]="product.subtitle" id="" #description="ngModel" class="form-control inputText"
+                              required [ngModelOptions]="{standalone: true}" />
+                            <p class="error-p" *ngIf="product.subtitle == null || 
+                            product.subtitle == ''">{{fielderror?.subtitleerr}}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="row m-b-6 mb-2">
+                        <div class="col-md-12">
+                          <div class="form-group">
+                            <textarea name="_description" placeholder="Description" [(ngModel)]="product.description"
+                              [ngModelOptions]="{standalone: true}" id="description" class="form-control inputText"
+                              rows="4">
+                        </textarea>
+                            <p class="error-p" *ngIf="product.description == null || 
+                      product.description == ''">{{fielderror?.descriptionerr}}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <div class="card mb-35 card-common">
+                <div class="card-header mb-3 card-backgroud">
+                  <h5 class="text-mute font-weight-normal">PRICING</h5>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="row m-b-6 mb-2">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <input type="number" min="0" step="0.01" id="price" name="price" placeholder="Price"
+                              [(ngModel)]="product.price" class="form-control inputText"
+                              [ngModelOptions]="{standalone: true}" />
+                            <p class="error-p" *ngIf="product.price == null || 
+                      product.price == ''">{{fielderror?.priceerr}}</p>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <input type="number" min="0" step="0.01" id="qty" name="qty" placeholder="Quantity"
+                              [(ngModel)]="product.qty" class="form-control inputText"
+                              [ngModelOptions]="{standalone: true}" />
+                            <p class="error-p" *ngIf="product.qty == null || 
+                      product.qty == ''">{{fielderror?.qtyerr}}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="row m-b-6 mb-2">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <input type="text" id="sku" name="sku" placeholder="SKU" class="form-control inputText"
+                              [(ngModel)]="product.sku" [ngModelOptions]="{standalone: true}" />
+                            <p class="error-p" *ngIf="product.sku == null || 
+                      product.sku == ''">{{fielderror?.skuerr}}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="col-12">
+
+
+              <div class="card mb-35 card-common">
+                <div class="card-header border-bottom mb-3 card-backgroud">
+                  <h5 class="text-mute font-weight-normal">VARIANTS (create up to 3 variants)</h5>
+                </div>
+                <div class="card-body ml-2">
+
+                  <div class="row">
+                    <div class="col-md-12" *ngFor="let item of product.variant;let i = index">
+                      <div class="row m-b-6 mb-2">
+                        <div class="col-md-4">
+                          <div class="inputfield">
+                              <input type="text" class="form-control form-control-lg inputText" [(ngModel)]="product.variant[i].name" [ngModelOptions]="{standalone: true}" required/>
+                              <span class="floating-label">Variant Name</span>
+                            <!-- <input type="text" [(ngModel)]="product.variant[i].name"
+                              class="form-control form-control-lg inputText" [ngModelOptions]="{standalone: true}" />
+                              <span class="floating-label">Variant Name</span> -->
+                          </div>                          
+                        </div>
+                        <div class="col-md-7">
+                          <mat-form-field class="chip-list chpcls">
+                            <mat-chip-list class="matchiplistswrapper" #chipList aria-label="Options selection">
+                                <div class="matchiplists">
+                                  <mat-chip *ngFor="let chp of product.variant[i].options;let j = index"
+                                    [selectable]="selectable" [removable]="removable" (removed)="clearChip(i,j)">{{chp}}
+                                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                                  </mat-chip>
+                                </div>
+                                <input placeholder="Options ..." [matChipInputFor]="chipList"
+                                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                                  [matChipInputAddOnBlur]="addOnBlur"
+                                  (matChipInputTokenEnd)="addVariantOptions($event,i)">
+                              
+                            </mat-chip-list>
+                          </mat-form-field>
+                        </div>
+
+                        <div class="col-md-1 deletecls">
+                          <button type="button" class="bg-transparent border-0" (click)="deleteVariant(i)">
+                            <img src="assets/img/icons/delete.png" class="cursor" />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="cursor aling-items-center" (click)="addMoreVariant()">
+                      <img src="assets/img/icons/plus_icon.png" alt="" width="20" />
+                      <span style="color: #2580ef"> Add Variant</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row justify-content-center variant">
+            <div class="col-12">
+              <div class="card mb-35 card-common">
+                <div class="card-body m-2">
+                  <h5 class="text-mute font-weight-normal mt-2">Manage Variants</h5>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="row m-b-6 mb-2">
+                        <div class="col-md-4">
+                          <select class="form-control form-control-lg inputText">
+                            <option selected>Filter by Variant</option>
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="card variantData" *ngFor="let item of variantData;let i = index">
+                      <div class="card-body">
+                        <div class="variantDatalists">
+                          <div class="imgclasswrapper">
+                            <div class="imgclass">
+                              <img *ngIf="item.media_links.length == 0" [src]="product.media_links[0]" />
+                              <span *ngIf="item.media_links != null && 
+                            item.media_links.length > 0">
+                                <img [src]="item.media_links[0]" />
+                              </span>                            
+                            </div>
+                          </div>
+                          <div class="rightbottomvarclass">
+                            <span class="variantsclass">
+                              {{item.label}}
+                            </span>
+                            <div class="variantsinfo">
+                              <span class="priceclass">
+                                <span class="grayclr">Price :</span> ${{item.price}}
+                              </span>
+                              <span class="qtyclass">
+                                <span class="grayclr">Qty :</span> {{item.quantity}}
+                              </span>
+                              <span class="skuclass">
+                                <span class="grayclr">SKU :</span> {{item.sku}}
+                              </span>
+                            </div>
+                          </div>
+                          <div class="arrowclass" (click)="openVariantsDialog(item,i)">
+                            <span style='font-size:24px'> > </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <div class="card mb-35 card-common">
+                <div class="card-header mb-3 card-backgroud">
+                  <h5>PACKAGE DETAILS</h5>
+                </div>
+                <div class="card-body">
+                  <p class="text-mute font-weight-normal mt-2">
+                    Package Dimensions
+                  </p>
+                  <hr />
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="row m-b-6 mb-2">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <input type="number" name="weight" placeholder="Weight(Lbs)" [(ngModel)]="product.weight"
+                              [ngModelOptions]="{standalone: true}" class="form-control inputText" />
+                            <p class="error-p" *ngIf="product.weight == null || 
+                            product.weight == ''">{{fielderror?.weighterr}}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="text-mute font-weight-normal mt-2">
+                    Package Dimensions
+                  </p>
+                  <hr />
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="row m-b-6 mb-2 dimentionrow">
+                        <div class="col-md-3 dimentioncolumn">
+                          <div class="form-group">
+                            <input type="number" min="0" step="0.01" id="length" name="length" placeholder="Length"
+                              [(ngModel)]="product.length" class="form-control inputText"
+                              [ngModelOptions]="{standalone: true}" />
+                            <p class="error-p" *ngIf="product.length == null || 
+                            product.length == ''">{{fielderror?.lengtherr}}</p>
+                          </div>
+                        </div>
+                        <div class="col-md-3 dimentioncolumnx">
+                          <div class="dimnex">X</div>
+                        </div>
+                        <div class="col-md-3 dimentioncolumn">
+                          <div class="form-group">
+                            <input type="number" min="0" step="0.01" id="width" name="width" placeholder="Width"
+                              [(ngModel)]="product.width" class="form-control inputText"
+                              [ngModelOptions]="{standalone: true}" />
+                            <p class="error-p" *ngIf="product.width == null || 
+                            product.width == ''">{{fielderror?.widtherr}}</p>
+                          </div>
+                        </div>
+                        <div class="col-md-3 dimentioncolumnx">
+                          <div class="dimnex">X</div>
+                        </div>
+                        <div class="col-md-3 dimentioncolumn">
+                          <div class="form-group">
+                            <input type="number" min="0" step="0.01" id="height" name="height" placeholder="Height"
+                              [(ngModel)]="product.height" class="form-control inputText"
+                              [ngModelOptions]="{standalone: true}" />
+                            <p class="error-p" *ngIf="product.height == null || 
+                            product.height == ''">{{fielderror?.heighterr}}</p>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="row m-b-6 mb-2">
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                          <div class="ptttextbox">
+                            <div class="ptttextleft">
+                              <span>Free Shipping</span>
+                            </div>
+                            <div class="ptttextright">
+                              <ui-switch color="#0f7aed" [(ngModel)]="product.is_free_shipping" size="small"
+                                name="is_free_shipping"></ui-switch>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <div class="card mb-35 card-common">
+                <div class="card-header mb-3 card-backgroud">
+                  <h5 class="text-mute font-weight-normal">DISCOUNT / OFFER TYPE</h5>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="row m-b-6 mb-2">
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                          <div class="ptttextbox">
+                            <div class="ptttextleft">
+                              <span>Percentage</span>
+                            </div>
+                            <div class="ptttextright">
+                              <ui-switch color="#0f7aed" [(ngModel)]="product.is_percentage" size="small"
+                                name="is_percentage"
+                                (change)="changeTimeLineStatus(product.is_percentage,'percentage')">
+                              </ui-switch>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12" *ngIf="product.is_percentage">
+                          <div class="form-group mb-0">
+                            <input type="number" min="0" step="0.01" id="percentage" name="percentage"
+                              placeholder="Percentage" [(ngModel)]="product.percentage"
+                              class="form-control inputText" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="row m-b-6">
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                          <div class="ptttextbox">
+                            <div class="ptttextleft">
+                              <span>Flat Amount</span>
+                            </div>
+                            <div class="ptttextright">
+                              <ui-switch color="#0f7aed" [(ngModel)]="product.is_flat_amount" size="small"
+                                (change)="changeTimeLineStatus(product.is_flat_amount,'flat_amount')"
+                                name="is_flat_amount">
+                              </ui-switch>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12" *ngIf="product.is_flat_amount">
+                          <div class="form-group mb-0">
+                            <input type="number" min="0" step="0.01" id="flat_amount" name="flat_amount"
+                              placeholder="Flat Amount" [(ngModel)]="product.flat_amount"
+                              class="form-control inputText" />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="row m-b-6 mb-2">
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                          <div class="ptttextbox">
+                            <div class="ptttextleft">
+                              <span>None</span>
+                            </div>
+                            <div class="ptttextright">
+                              <ui-switch color="#0f7aed" [(ngModel)]="product.none" size="small"
+                                (change)="changeTimeLineStatus(product.none,'none')" name="none"></ui-switch>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row justify-content-center">
+            <div class="col-12">
+              <div class="card mb-35 card-common">
+                <div class="card-header mb-3 card-backgroud">
+                  <h5 class="text-mute font-weight-normal">SETTINGS</h5>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="row m-b-6 mb-2">
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                          <div class="ptttextbox">
+                            <div class="ptttextleft">
+                              <span>Active</span>
+                            </div>
+                            <div class="ptttextright">
+                              <ui-switch color="#0f7aed" [(ngModel)]="product.is_active" size="small" name="is_active">
+                              </ui-switch>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="row m-b-6 mb-2">
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12">
+                          <div class="ptttextbox">
+                            <div class="ptttextleft">
+                              <span>Add post to timeline</span>
+                            </div>
+                            <div class="ptttextright">
+                              <ui-switch color="#0f7aed" [(ngModel)]="product.is_post" size="small" name="is_post">
+                              </ui-switch>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-12">
+              <button class="add-button btn btn-lg float-right buttoncls" type="button" (click)="saveProduct()">
+                <small class="font">
+                  {{button_text}}
+                </small>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

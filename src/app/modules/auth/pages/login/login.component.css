@@ -1,0 +1,38 @@
+.error-p{color:red}
+a.font{font-family:'Montserrat',sans-serif}
+.f-w-500{font-weight:500}
+.f-w-400{font-weight:400!important}
+.f-w-600{font-weight:600}
+.inputTextContainer{border-radius:5px}
+.inputText{font-size:15px;min-height:50px!important;margin:0!important}
+.floating-label{position:absolute;pointer-events:none;height:45px;line-height:45px;left:20px;top:1px;font-size:15px!important;font-weight:300;color:#d3d3d3}
+input:focus ~ .floating-label,input:not(:focus):valid ~ .floating-label{height:15px;line-height:15px;left:10px;top:1px;font-size:9px!important;opacity:1}
+.form-group-default.focused{border-color:#2196F3!important}
+.btn-login,.btn-login:hover{background-image:linear-gradient(to right,#046cbb,#0cf2fd)!important;color:#FFF;border:none;border-radius:4px}
+.fb-button{color:#47639e;border:1px solid #47639e}
+.gplus-button{color:#d34836;border:1px solid #d34836}
+.gradient{background:-moz-linear-gradient(to right,#3aa4e7,#1ab9bd),url(../../../../../assets/img/bg_1.png) no-repeat;background-size:cover;background:-webkit-gradient(linear,left top,left bottom,color-stop(0%,rgba(0,0,0,0)),color-stop(59%,rgba(0,0,0,0)),color-stop(100%,rgba(0,0,0,0.65))),url(https://cdn.sstatic.net/Sites/stackoverflow/company/img/logos/so/so-icon.png?v=c78bd457575a) no-repeat;background:-webkit-linear-gradient(to right,#3aa4e7,#1ab9bd),url(../../../../../assets/img/bg_1.png) no-repeat;background-size:cover;background:-o-linear-gradient(to right,#3aa4e7,#1ab9bd),url(../../../../../assets/img/bg_1.png) no-repeat;background-size:cover;background:-ms-linear-gradient(to right,#3aa4e7,#1ab9bd),url(../../../../../assets/img/bg_1.png) no-repeat;background-size:cover;background:linear-gradient(to right,#3aa4e7,#1ab9bd),url(../../../../../assets/img/bg_1.png) no-repeat;background-size:cover}
+.color-white{color:#fff}
+.color-black{color:#000}
+.login-row{min-height:100vh}
+.mainwrapper{min-height:100vh!important;background:#fff}
+.bannercls{height:100%;min-height:100vh}
+.rightinnerclass{margin-top:0!important}
+.welcomeclass{font-size:42px;color:#fff;font-weight:700;margin:30px 0 0}
+.socialclass{font-size:17px;color:#fff;margin:0 0 20px;display:block}
+.middleboxouter{float:left;width:100%;height:100%;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;justify-content:center;align-items:center;text-align:center}
+.middleboxouter .middleboxinner{display:block;width:100%;padding:20px}
+.middleboxouter .criclebx{display:inline-block}
+.middleboxouter .criclebx img{max-width:100%;max-height:100%}
+.loginbox{float:left;width:100%;padding:0 40px}
+.logoouter{display:inline-block;position:relative}
+.logoouter span{position:absolute;right:0;top:100%;white-space:nowrap;font-size:14px;margin-top:-13px}
+@media (max-width: 991px) {
+.middleboxouter .criclebx{max-width:90px}
+.middleboxouter .middleboxinner{padding:0 20px}
+.loginbox{float:left;width:100%;padding:0 20px}
+}
+@media (max-width: 767px) {
+.welcomeclass{font-size:30px}
+.bannercls{display:none}
+}

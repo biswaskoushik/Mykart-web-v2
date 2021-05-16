@@ -1,0 +1,131 @@
+<div class="page-content-wrapper ">
+    <div class="content sm-gutter">
+        <div class="container-fluid padding-25 sm-padding-10">
+
+            <div class="h-100">
+                <div class="container-fluid">
+
+                    <div class="card card-borderless m-b-35">
+                        <div class="card-body">
+
+                            <div class="row align-items-center">
+                                <div class="col-md-6 col-sm-12">
+                                    <h4 class="font text-md-left m-0">Store Information</h4>
+                                </div>
+                                <!-- <div class="col-md-3 text-md-right sm-text-center sm-m-b-20 sm-m-t-20">
+                                    <button class="add-button btn btn-lg" type="button"
+                                        (click)="openDialog('Add New Policy','custom')">
+                                        <small class="font">Add Policy</small>
+                                    </button>
+                                </div>
+
+                                <div class="col-md-3 text-center sm-m-b-20">
+                                    <button class="save-button btn btn-lg" type="button" (click)="saveTermsCondition()">
+                                        <small class="font">Save</small>
+                                    </button>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card card-borderless" style="height: -webkit-fill-available;">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 col-sm-12">
+                                    <form class=" m-b-30" action="#">
+                                        <div class="row align-items-center  p-b-2 p-t-2 mb-2">
+                                            <div class="col-10  m-0">
+                                                <div class="form-input-group p-2">
+                                                    <p class="pt-2 mt-2 mb-0 f-s-16">Shipping & Handling</p>
+                                                    <label class="floating-label m-0 p-0">Policy Name</label>
+                                                </div>
+                                            </div>                                            
+                                            <div class="col-2 text-right">
+                                                <img src="../../../assets/img/icons/edit.png"
+                                                    (click)="openDialog('Shipping & handling','shipping')" alt=""
+                                                    class="cursor">
+                                            </div>
+                                        </div>
+                                        <hr class="m-0 p-0">
+                                        <div class="row align-items-center  p-b-2 p-t-2 mb-2">
+                                            <div class="col-10  m-0">
+                                                <div class="form-input-group p-2">
+                                                    <p class="pt-2 mt-2 mb-0 f-s-16">Return Policy</p>
+                                                    <label class="floating-label m-0 p-0">Policy Name</label>
+                                                </div>
+                                            </div>                                            
+                                            <div class="col-2 text-right">
+                                                <img src="../../../assets/img/icons/edit.png"
+                                                    (click)="openDialog('Return Policy','return')" alt=""
+                                                    class="cursor">
+                                            </div>
+                                        </div>
+                                        <hr class="m-0 p-0">
+                                        <div class="row align-items-center  p-b-2 p-t-2 mb-2">
+                                            <div class="col-10  m-0">
+                                                <div class="form-input-group p-2">
+                                                    <p class="pt-2 mt-2 mb-0 f-s-16">Contact Us</p>
+                                                    <label class="floating-label m-0 p-0">Policy Name</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-2 text-right">
+                                                <img (click)="openDialog('Contact Us','contact')"
+                                                    src="../../../assets/img/icons/edit.png" alt=""
+                                                    class="cursor">
+                                            </div>
+                                        </div>
+                                        <hr class="m-0 p-0">
+                                        <div class="row align-items-center  p-b-2 p-t-2 mb-2"
+                                            *ngFor="let term of customPolicyData; let i = index">
+
+                                            <div class="col-10  m-0">
+                                                <div class="form-input-group p-2 ">
+                                                    <p class="pt-2 mt-2 mb-0 f-s-16">{{term.title}}</p>
+                                                    <label class="floating-label m-0 p-0">Policy Name</label>
+                                                </div>
+                                            </div>
+                                            <div class="col-2 text-right">
+                                                <img src="../../../assets/img/icons/delete.png" class="cursor"
+                                                (click)="deleteCustomPolicy(term,i)" alt="">
+
+                                                <img src="../../../assets/img/icons/edit.png"
+                                                    (click)="editCustomPolicy('Update Policy','custom',term,i)" alt=""
+                                                    class="cursor">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="col-md-12 text-center text-muted" *ngIf="!customPolicyData.length">
+                                    No policy Added
+                                </div>
+                                <div class="col-md-12 cursor aling-items-center mb-2"
+                                    (click)="openDialog('Add New Policy','custom')">
+                                    <img src="assets/img/icons/plus_icon.png" alt="" width="20" />
+                                    <span style="color: #2580ef"> Add Policy</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            Order Message
+                            <div class="card card-borderless m-b-35">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-12 col-sm-12">
+                                            <h6 class="font text-md-left m-0 ">
+                                                Thank you for your order!</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <small>This message will appear to a shopper after an order has been placed.</small>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

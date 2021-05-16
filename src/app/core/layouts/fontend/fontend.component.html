@@ -1,0 +1,15 @@
+<div *ngIf="!onboardStep" class="h-100">
+
+  <app-left-menu *ngIf="layout.leftMenu"></app-left-menu>
+
+  <div class="page-container ">
+
+    <app-header *ngIf="layout.header"></app-header>
+
+    <router-outlet *ngIf="layout.header"></router-outlet>
+  </div>
+</div>
+
+<ng-container *ngIf="onboardStep">
+    <router-outlet></router-outlet>
+</ng-container>
