@@ -141,7 +141,7 @@
           <div class="col-md-6 pl-2 pr-2">
             <div class="floating-label-group">
               <input type="text" id="city" name="city" class="form-control form-control-lg inputText"
-                formControlName="city" autocomplete="off" autofocus required />
+                formControlName="city" autocomplete="off" autofocus required readonly />
               <label class="floating-label">City</label>
               <p class="error-p"
                 *ngIf="profileForm.controls['city'].touched && !profileForm.controls['city'].valid && profileForm.controls['city'].errors.required">

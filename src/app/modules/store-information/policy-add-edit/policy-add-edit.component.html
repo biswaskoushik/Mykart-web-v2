@@ -1,0 +1,375 @@
+<div class="page-content-wrapper mainwrapper">
+    <div class="content sm-gutter">
+        <div class="container-fluid padding-0 sm-padding-0 mt-2">
+            <div class="h-100">
+                <div class="container-fluid">
+
+                    <div class="card card-borderless m-b-20">
+                        <div class="card-body">
+                            <div class="row align-items-center">
+                                <div class="col-md-11 col-sm-11 text-center">
+                                    <h4 class="font text-center m-0 " *ngIf="data.header != ''">
+                                        {{data?.header}}</h4>
+
+                                    <h4 class="font text-center m-0 " *ngIf="data.header == ''">
+                                        No Record Found</h4>
+
+                                    <div class="back-button cursor">
+                                        <a href="javascript:window.history.back();" class="">
+                                            <img src="assets/img/icons/back.png" alt="" /><span
+                                                class="font p-l-5 backclass">Back</span>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="card card-borderless" style="height: -webkit-fill-available;" *ngIf="data.header != ''">
+                        <div class="card-body">
+
+                            <!-- Shipping & Handling -->
+                            <div class="row w-100" *ngIf="data?.flag =='shipping'">
+                                <div class="row p-2 w-100">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto">
+                                        <form action="#" id="form-register">
+                                            <div>
+                                                Carriers
+                                            </div>
+                                            <div class="row mb-2">
+
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="form-group">
+                                                        <select class="form-control form-control-lg inputText"
+                                                            name="carriers" aria-label="Default select example"
+                                                            (change)="getServiceData(shippingCarriers.carrier_service)"
+                                                            [(ngModel)]="shippingCarriers.carrier_service"
+                                                            [ngModelOptions]="{standalone: true}">
+                                                            <option *ngFor="let item of carriersData"
+                                                                [value]="item.friendly_name">{{item.friendly_name}}
+                                                            </option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                Preferred Shipping Method
+                                            </div>
+                                            <div class="row mb-2">
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="form-group mb-0">
+                                                        <select class="form-control form-control-lg inputText"
+                                                            name="year" aria-label="Default select example"
+                                                            [(ngModel)]="shippingCarriers.shipping_carrier"
+                                                            [ngModelOptions]="{standalone: true}">
+                                                            <option *ngFor="let item of serviceData"
+                                                                [value]="item.name">{{item.name}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row mb-2 ht">
+                                                <div class="col-lg-6 col-md-6 col-12">
+                                                    <div class="d-flex flex-row  justify-content-between ">
+                                                        <div class="mr-2 d-flex align-items-center">
+                                                            <label class="text-capitalize "
+                                                                style="font-size: 15px !important; font-weight: 300 !important"
+                                                                for="handlingTime">Handling Time
+                                                            </label>
+                                                        </div>
+
+                                                        <div class="d-flex justify-content-end">
+
+                                                            <div class="border pt-2"
+                                                                style="border-radius: 5px 0px 0px 5px">
+                                                                <button class="btn-sm btn"
+                                                                    (click)="decrement(shippingCarriers.handling_time,'handling_time')">
+                                                                    <i class="fa fa-minus" aria-hidden="true"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="border">
+                                                                <input type="text" name="handlingTime" id="handlingTime"
+                                                                    class="inputText form-control-sm text-center p-0 m-0"
+                                                                    style="border: 0px solid #eeeeee" maxlength="2"
+                                                                    size="3"
+                                                                    [(ngModel)]="shippingCarriers.handling_time"
+                                                                    [ngModelOptions]="{standalone: true}" readonly />
+                                                            </div>
+                                                            <div class="border pt-2"
+                                                                style="border-radius: 0px 5px 5px 0px">
+                                                                <button class="btn"
+                                                                    (click)="increment(shippingCarriers.handling_time,'handling_time')">
+                                                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-2">
+                                                <div class="col-8 mb-2 p-0 text-capitalize ">
+                                                    <span class="pl-2"> Details</span>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto ">
+                                                    <div class="divInf inputText">
+                                                        <textarea placeholder="Details"
+                                                            class="form-control form-control-lg inputText"
+                                                            [(ngModel)]="shippingCarriers.shipping_additional_details"
+                                                            [ngModelOptions]="{standalone: true}">
+                                                        </textarea>
+                                                    </div>
+                                                </div>
+                                                <div class="col-8 mb-2 p-0 text-capitalize ">
+                                                    <span class="pl-2"> Additional Notes</span>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto">
+                                                    <div class="divInf inputText">
+                                                        <textarea placeholder="Additionals Notes"
+                                                            class="form-control  form-control-lg inputText"
+                                                            [(ngModel)]="shippingCarriers.shipping_additional_info"
+                                                            [ngModelOptions]="{standalone: true}">
+                                                        </textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="cursor col-md-12 text-center text-muted">
+                                    <button class="save-button btn btn-lg buttonclass" type="button"
+                                        (click)="updateDialogData('shipping')">
+                                        <small class="font">update</small>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Return -->
+                            <div class="row w-100" *ngIf="data?.flag =='return'">
+                                <div class="row p-2 w-100">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto">
+                                        <form action="#" id="form-register">
+                                            <div class="row mb-2">
+                                                <div class="col-lg-6 col-md-6 d-flex flex-row align-items-center">
+                                                    <div class="col-8">
+                                                        <label class="text-capitalize " for="carrier">Accepting
+                                                            Returns</label>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <ui-switch
+                                                        (change)="getAcceptValue(this.returnPolicy.accepting_returns)"
+                                                        [(ngModel)]="this.returnPolicy.accepting_returns"
+                                                        [ngModelOptions]="{standalone: true}" color="#0f7aed"
+                                                        size="small"></ui-switch>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-2" *ngIf="returnPolicy?.accepting_returns">
+                                                <div class="col-lg-6 col-md-6">
+                                                    <div class="input-group mb-4">
+                                                        <select class="custom-select" id="inputGroupSelect01"
+                                                            [(ngModel)]="returnPolicy.return_window"
+                                                            [ngModelOptions]="{standalone: true}">
+                                                            <option *ngFor="let data of returnPolicyData;"
+                                                                [value]="data.value">
+                                                                {{data.text}}</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-2" *ngIf="returnPolicy?.accepting_returns">
+                                                <div class="col-lg-6 col-md-6 col-12">
+                                                    <div class="d-flex flex-row  justify-content-between ">
+                                                        <div class="mr-2 d-flex align-items-center">
+                                                            <label class="text-capitalize "
+                                                                style="font-size: 15px !important; font-weight: 300 !important"
+                                                                for="handlingTime">Processing Time
+                                                            </label>
+                                                        </div>
+
+                                                        <div class="d-flex justify-content-end">
+
+                                                            <div class="border pt-2"
+                                                                style="border-radius: 5px 0px 0px 5px">
+                                                                <button class="btn-sm btn"
+                                                                    (click)="decrement(returnPolicy.processing_time,'processing_time')">
+                                                                    <i class="fa fa-minus" aria-hidden="true"></i>
+                                                                </button>
+                                                            </div>
+                                                            <div class="border">
+                                                                <input type="text" name="handlingTime" id="handlingTime"
+                                                                    class="inputText form-control-sm text-center p-0 m-0"
+                                                                    style="border: 0px solid #eeeeee" maxlength="2"
+                                                                    size="3" [(ngModel)]="returnPolicy.processing_time"
+                                                                    [ngModelOptions]="{standalone: true}" readonly />
+                                                            </div>
+                                                            <div class="border pt-2"
+                                                                style="border-radius: 0px 5px 5px 0px">
+                                                                <button class="btn"
+                                                                    (click)="increment(returnPolicy.processing_time,'processing_time')">
+                                                                    <i class="fa fa-plus" aria-hidden="true"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row mb-2">
+                                                <div class="col-8 mb-2 p-2 text-capitalize ">
+                                                    <span class="pl-2"> Details</span>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto ">
+                                                    <div class="divInf inputText">
+                                                        <textarea placeholder="Details"
+                                                            class="form-control form-control-lg inputText"
+                                                            [(ngModel)]="returnPolicy.return_additional_details"
+                                                            [ngModelOptions]="{standalone: true}"></textarea>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-8 mb-2 p-2 text-capitalize ">
+                                                    <span class="pl-2"> Additional Notes</span>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto">
+                                                    <div class="divInf inputText">
+                                                        <textarea class="form-control form-control-lg inputText"
+                                                            placeholder="Additionals Notes"
+                                                            [(ngModel)]="returnPolicy.return_additional_info"
+                                                            [ngModelOptions]="{standalone: true}"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="cursor col-md-12 text-center text-muted">
+                                    <button class="save-button btn btn-lg buttonclass" type="button"
+                                        (click)="updateDialogData('return')">
+                                        <small class="font">update</small>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- contact -->
+                            <div class="row w-100" *ngIf="data?.flag =='contact'">
+                                <div class="row p-2 w-100">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto">
+                                        <form action="#" id="form-register">
+                                            <div class="row ml-2">
+                                                <div class="col-12 mb-2 p-2 text-capitalize ">
+                                                    <span> The information you provide below will be
+                                                        visible the
+                                                        shoppers.</span>
+                                                </div>
+
+                                                <div class="row mb-15">
+                                                    <div class="col-md-6">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto p-0">
+                                                            <div class="divInf inputText">
+                                                                <input type="text" placeholder="Email"
+                                                                    class="form-control form-control-lg inputText"
+                                                                    [(ngModel)]="contactUs.email"
+                                                                    [ngModelOptions]="{standalone: true}" readonly />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto p-0">
+                                                            <div class="divInf inputText">
+                                                                <input type="text" placeholder="Phone Number"
+                                                                    class="form-control form-control-lg inputText"
+                                                                    [(ngModel)]="contactUs.phone_number"
+                                                                    [ngModelOptions]="{standalone: true}" />
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-8 mb-2 p-2 text-capitalize ">
+                                                    <span class="pl-0"> Store Address</span>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto">
+                                                    <div class="divInf inputText">
+                                                        <textarea [(ngModel)]="contactUs.address"
+                                                            [ngModelOptions]="{standalone: true}"
+                                                            placeholder="Store Address"
+                                                            class="form-control form-control-lg inputText textclass"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="cursor col-md-12 text-center text-muted">
+                                    <button class="save-button btn btn-lg buttonclass" type="button"
+                                        (click)="updateDialogData('contact')">
+                                        <small class="font">update</small>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- add new -->
+                            <div class="row w-100" *ngIf="data?.flag =='custom'">
+                                <div class="row p-2 w-100">
+                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto">
+                                        <form action="#" id="form-register">
+                                            <div class="row">
+                                                <div class="col-12 mb-2 p-2 text-capitalize ">
+                                                    <span class="pl-0"> Policy Name</span>
+                                                </div>
+
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto">
+                                                    <div class="divInf inputText ">
+                                                        <input [(ngModel)]="customPolicy.title"
+                                                            [ngModelOptions]="{standalone: true}"
+                                                            placeholder="Policy Name" type="text"
+                                                            class="form-control form-control-lg inputText textclass" />
+                                                        <p class="error-p" *ngIf="customPolicy.title ==''">
+                                                            {{customPolicyErr?.titleerr}}</p>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col-12 mb-2 p-2 text-capitalize ">
+                                                    <span class="pl-0"> Policy Details</span>
+                                                </div>
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto">
+                                                    <div class="divInf inputText">
+                                                        <textarea [(ngModel)]="customPolicy.detail"
+                                                            [ngModelOptions]="{standalone: true}"
+                                                            placeholder="Policy Details"
+                                                            class="form-control form-control-lg inputText textclass"></textarea>
+                                                        <p class="error-p" *ngIf="customPolicy.detail ==''">
+                                                            {{customPolicyErr?.detailerr}}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="cursor col-lg-12 col-md-12 col-sm-12 col-12 text-center text-muted">
+                                    <button class="save-button btn btn-lg buttonclass" type="button"
+                                        (click)="updateDialogData('custom')">
+                                        <small class="font">update</small>
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

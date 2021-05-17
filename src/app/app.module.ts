@@ -29,6 +29,7 @@ import { PaymentHistoryComponent } from './modules/payment-history/payment-histo
 import { CustomerPolicyComponent } from './modules/store-information/customer-policy/customer-policy.component';
 import { StoreInformationComponent } from './modules/store-information/store-information.component';
 import { AddNewCardComponent } from './modules/subscription/add-new-card/add-new-card.component';
+import { PolicyAddEditComponent } from './modules/store-information/policy-add-edit/policy-add-edit.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { AddNewCardComponent } from './modules/subscription/add-new-card/add-new
     PaymentHistoryComponent,
     CustomerPolicyComponent,
     StoreInformationComponent,
-    AddNewCardComponent
+    AddNewCardComponent,
+    PolicyAddEditComponent
   ],
   imports: [
     BrowserModule,

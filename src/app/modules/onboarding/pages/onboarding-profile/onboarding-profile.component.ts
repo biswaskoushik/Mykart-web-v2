@@ -103,7 +103,7 @@ export class OnboardingProfileComponent implements OnInit {
       }
       // console.log(data, 'data')
       this.apiService.httpViaPostLaravel('services/user/v1/profile/address-tax-validate', data).subscribe((next: any) => {
-        if (next.data != null && next.data.address_status.length > 0 && next.data.address_status[0].status != null && next.data.address_status[0].status == 'verified') {
+        if (next.data != null && next.data.address_status != null && next.data.address_status.length > 0 && next.data.address_status[0].status != null && next.data.address_status[0].status == 'verified') {
           // console.log(next.data.address_status[0])
           this.profileForm.controls['tax_value'].setValue(next.data.tax_rate);
           localStorage.setItem('uuid', 'web-' + this.profileForm.value.email);

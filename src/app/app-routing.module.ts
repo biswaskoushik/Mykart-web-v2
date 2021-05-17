@@ -2,10 +2,11 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from './core/guards/auth.guard';
 import { RouteResolveService } from './core/service/route-resolve.service';
-import { CustomerPolicyComponent } from './modules/store-information/customer-policy/customer-policy.component';
+// import { CustomerPolicyComponent } from './modules/store-information/customer-policy/customer-policy.component';
 import { PaymentHistoryComponent } from './modules/payment-history/payment-history.component';
 import { ProfileComponent } from './modules/profile/profile.component';
 import { SettingsComponent } from './modules/settings/settings.component';
+import { PolicyAddEditComponent } from './modules/store-information/policy-add-edit/policy-add-edit.component';
 import { StoreInformationComponent } from './modules/store-information/store-information.component';
 import { SubscriptionComponent } from './modules/subscription/subscription.component';
 
@@ -47,6 +48,7 @@ const routes: Routes = [
   {
     path: 'seller/subscription', component: SubscriptionComponent, canActivate: [AuthGuard]
   },
+
   {
     path: 'seller/store-information', component: StoreInformationComponent,
     canActivate: [AuthGuard],
@@ -57,7 +59,13 @@ const routes: Routes = [
       },
       endpoint: 'services/vendor/v1/policy/other/list'
     }
+  },
+
+  {
+    path: 'seller/store-information/:flag/:type', component: PolicyAddEditComponent,
+    canActivate: [AuthGuard]
   }
+
 ];
 
 @NgModule({

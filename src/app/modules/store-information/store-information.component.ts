@@ -11,7 +11,7 @@ import { environment } from '../../../environments/environment';
 
 /* Common Function */
 import { CommonFunction } from '../../core/class/common-function';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 
 @Component({
   selector: 'app-store-information',
@@ -43,7 +43,7 @@ export class StoreInformationComponent implements OnInit {
   public contactUsData: any = [];
   public loginData: any;
 
-  constructor(public dialog: MatDialog, public apiService: ApiService, public commonFunction: CommonFunction, public activatedRoute: ActivatedRoute) { }
+  constructor(public dialog: MatDialog, public apiService: ApiService, public commonFunction: CommonFunction, public activatedRoute: ActivatedRoute,public router:Router) { }
 
   ngOnInit(): void {
 
@@ -60,73 +60,78 @@ export class StoreInformationComponent implements OnInit {
   }
 
   openDialog(text, flag) {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    // dialogConfig.width = "62%";
-    dialogConfig.hasBackdrop = true;
 
-    dialogConfig.data = {
-      header: text,
-      flag: flag
-    }
+    this.router.navigate(['/seller/store-information/edit/'+flag])
 
-    if (flag == 'shipping' || flag == 'return') {
-      dialogConfig.data.carriersData = this.carriersData;
-      dialogConfig.data.data = this.policy_details;
-    }
+    // const dialogConfig = new MatDialogConfig();
+    // dialogConfig.disableClose = true;
+    // dialogConfig.autoFocus = true;
+    // // dialogConfig.width = "62%";
+    // dialogConfig.hasBackdrop = true;
 
-    //console.log(text, '++++++')
-    let dialogRef = this.dialog.open(
-      CustomerPolicyComponent,
-      dialogConfig
-    );
+    // dialogConfig.data = {
+    //   header: text,
+    //   flag: flag
+    // }
 
-    dialogRef.afterClosed().subscribe((result: any) => {
-      //console.log(result, 'result+++')
-      if (result != null && typeof (result) != 'undefined') {
+    // if (flag == 'shipping' || flag == 'return') {
+    //   dialogConfig.data.carriersData = this.carriersData;
+    //   dialogConfig.data.data = this.policy_details;
+    // }
 
-        if (flag == 'shipping' || flag == 'return') {
-          this.updateShippingCarrierReturn(result);
-        }
+    // //console.log(text, '++++++')
+    // let dialogRef = this.dialog.open(
+    //   CustomerPolicyComponent,
+    //   dialogConfig
+    // );
 
-        if (flag == 'contact') {
-          this.updateContactUs(result);
-        }
+    // dialogRef.afterClosed().subscribe((result: any) => {
+    //   //console.log(result, 'result+++')
+    //   if (result != null && typeof (result) != 'undefined') {
 
-        if (flag == 'custom') {
-          this.updateCustomPolicy(result)
-        }
-      }
-    })
+    //     if (flag == 'shipping' || flag == 'return') {
+    //       this.updateShippingCarrierReturn(result);
+    //     }
+
+    //     if (flag == 'contact') {
+    //       this.updateContactUs(result);
+    //     }
+
+    //     if (flag == 'custom') {
+    //       this.updateCustomPolicy(result)
+    //     }
+    //   }
+    // })
   }
 
   editCustomPolicy(text, flag, data, i) {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.disableClose = true;
-    dialogConfig.autoFocus = true;
-    dialogConfig.width = "62%";
-    dialogConfig.hasBackdrop = true;
+    this.router.navigate(['/seller/store-information/edit/'+flag])
 
-    dialogConfig.data = {
-      header: text,
-      flag: flag,
-      data: data
-    }
+    // const dialogConfig = new MatDialogConfig();
+    // dialogConfig.disableClose = true;
+    // dialogConfig.autoFocus = true;
+    // dialogConfig.width = "62%";
+    // dialogConfig.hasBackdrop = true;
 
-    let dialogRef = this.dialog.open(
-      CustomerPolicyComponent,
-      dialogConfig
-    );
+    // dialogConfig.data = {
+    //   header: text,
+    //   flag: flag,
+    //   data: data
+    // }
 
-    dialogRef.afterClosed().subscribe((result: any) => {
-      //console.log(result, 'result+++')
-      if (result != null && typeof (result) != 'undefined') {
-        if (flag == 'custom') {
-          this.updateCustomPolicy(result)
-        }
-      }
-    })
+    // let dialogRef = this.dialog.open(
+    //   CustomerPolicyComponent,
+    //   dialogConfig
+    // );
+
+    // dialogRef.afterClosed().subscribe((result: any) => {
+    //   //console.log(result, 'result+++')
+    //   if (result != null && typeof (result) != 'undefined') {
+    //     if (flag == 'custom') {
+    //       this.updateCustomPolicy(result)
+    //     }
+    //   }
+    // })
   }
 
   updateShippingCarrierReturn(result) {
