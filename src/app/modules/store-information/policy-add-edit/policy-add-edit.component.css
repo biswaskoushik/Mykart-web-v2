@@ -37,7 +37,16 @@ textarea:focus ~ .floating-label,textarea:not(:focus):valid ~ .floating-label{he
 .addcls1, .addcls2{width: 100%;}
 .ht .justify-content-end{align-items: stretch;}
 .ht .justify-content-end .border {display: flex;align-items: center;} 
+.headercls{display: flex;flex-direction: row-reverse;justify-content: space-between;align-items: center;}
+.back-button{position: absolute;left: 20px;}
+#form-register{padding-left: 15px;}
 
 @media (max-width: 767px) {
 #form-register .ml-2{margin-left: 0 !important;}
+.carrierreturn{flex-wrap: nowrap;}
+}
+
+@media (max-width: 540px) {
+.headercls {flex-direction: column-reverse;flex-wrap: wrap;}
+.back-button {position: inherit;left: 15px;width: 100%;text-align: left;}
 }
