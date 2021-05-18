@@ -64,7 +64,13 @@ const routes: Routes = [
   {
     path: 'seller/store-information/:flag/:type', component: PolicyAddEditComponent,
     canActivate: [AuthGuard]
+  },
+
+  {
+    path: 'seller/store-information/:flag/:type/:code', component: PolicyAddEditComponent,
+    canActivate: [AuthGuard]
   }
+
 
 ];
 
