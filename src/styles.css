@@ -11,6 +11,30 @@
   box-sizing: content-box;
 }
 
+
+
+.btn{
+  text-transform: uppercase;
+}
+.select{position: relative;}
+.select::after {
+  content: '\f078';
+    font: normal normal normal 14px/1 FontAwesome;
+    color: #9c9c9c;
+    right: 11px;
+    top: 6px;
+    padding: 10px 0px 0px 8px;
+    position: absolute;
+    pointer-events: none;
+}
+.chpcls.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding-bottom: 1.25em;
+} 
+.chpcls.mat-form-field-appearance-legacy .mat-form-field-infix {
+  padding: .2375em 0;
+}
+
+
 /* position */
 
 .toast-center-center {

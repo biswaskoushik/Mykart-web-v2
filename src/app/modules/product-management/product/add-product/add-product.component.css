@@ -37,7 +37,7 @@ textarea:focus ~ .floating-label,textarea:not(:focus):valid ~ .floating-label{he
 .image-container-wrapper{width:166px;height:134px;border:1px dashed #0f73ee;border-radius:12px;display:flex;flex-direction:column;justify-content:center;align-items:center}
 .image-container{max-width:100%;max-height:100%;height:100%;height:inherit;display:block;margin:0 auto;position:relative}
 .imgcardclass-wrapper{width:166px;height:134px;display:flex;flex-direction:column;justify-content:center;align-items:center;border:1px solid #b7b7b7;margin-right:7px;border-radius:12px}
-.imgcardclass{max-width:100%;max-height:100%;height:100%;height:inherit;display:block;margin:0 auto}
+.imgcardclass{max-width:100%;max-height:100%;object-fit: cover;}
 .productlistsingle{margin: 3px;}
 .addwrapppercls{margin-right: 7px;margin-top: 3px;}
 .productlistswrapper{flex-wrap:wrap;margin-left: -3px;margin-right: -3px;}
@@ -97,6 +97,9 @@ input.mat-chip-input {line-height: 24px;}
 .dashouter form .dimentionrow{margin:0 -3px}
 .dashouter form .dimentionrow .dimentioncolumn{padding:0 3px!important}
 .dashouter form .dimentionrow .dimentioncolumnx{padding:0 3px!important}
+.variantlists{margin-bottom: 10px;border-top: 1px solid #d7dce1;padding-top: 15px;}
+.variantlists:first-child{margin-bottom: 5px !important;border-top: none !important;padding-top: 15px !important;}
+.variantlists .inputfield {margin-bottom: 10px;}
 }
 @media (max-width: 575px) {
 .dashouter .card .form-group .form-control{height:40px;font-size:14px}
