@@ -16,7 +16,7 @@
 
                         <form [formGroup]="loginForm" id="example-advanced-form" action="#" class="p-t-15 m-b-30">
 
-                            <div class="row ml-n2 mr-n2 justify-content-center m-b-15">
+                            <div class="row ml-n2 mr-n2 justify-content-center">
                                 <div class="col-12 pl-2 pr-2">
                                     <div class="form-group  ">
                                         <input type="email" class="form-control form-control-lg inputText"
@@ -55,17 +55,18 @@
 
                             <div class="row justify-content-center m-b-15">
                                 <div class="col-lg-10 col-md-10">
-                                    <button class="btn btn-lg btn-block btn-login" type="button" role="button"
+                                    <button class="btn btn-lg btn-block btn-login txt-up" type="button" role="button"
                                         (click)="loginFormSubmit()">
                                         LOG IN
                                     </button>
                                 </div>
                             </div>
 
-                            <div class="row m-b-15 font text-md-center">
-                                <div class="col-lg-12 col-md-12">
-                                    <p>Don't have account? <a [routerLink]="['/auth/signup']" style="color: #1376ef;">Sign
-                                            up</a></p>
+                            <div class="row justify-content-center m-b-15">
+                                <div class="col-lg-10 col-md-10">
+                                    <a [routerLink]="['/auth/signup']" class="btn btn-lg btn-block btn-signup txt-up">Create Account</a>
+                                    <!-- <p>Don't have account? <a [routerLink]="['/auth/signup']" style="color: #1376ef;">Sign
+                                            up</a></p> -->
                                 </div>
                             </div>
 

@@ -11,6 +11,10 @@
   box-sizing: content-box;
 }
 
+.btn{
+  text-transform: uppercase;
+}
+
 /* position */
 
 .toast-center-center {
