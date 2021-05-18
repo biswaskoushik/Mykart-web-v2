@@ -4,7 +4,7 @@
             <div class="h-100">
                 <div class="container-fluid">
 
-                    <div class="card card-borderless m-b-20">
+                    <div class="card card-borderless m-b-0">
                         <div class="card-body">
                             <div class="row align-items-center">
                                 <div class="col-md-12 col-sm-12 text-center headercls">
@@ -35,13 +35,13 @@
                                 <div class="row p-2 w-100">
                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto">
                                         <form action="#" id="form-register">
-                                            <div>
+                                            <div class="pl-2">
                                                 Carriers
                                             </div>
                                             <div class="row mb-2">
 
                                                 <div class="col-lg-6 col-md-6">
-                                                    <div class="form-group">
+                                                    <div class="form-group pl-2">
                                                         <select class="form-control form-control-lg inputText"
                                                             name="carriers" aria-label="Default select example"
                                                             (change)="getServiceData(shippingCarriers.carrier_service)"
@@ -54,12 +54,12 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div>
+                                            <div class="pl-2">
                                                 Preferred Shipping Method
                                             </div>
                                             <div class="row mb-2">
                                                 <div class="col-lg-6 col-md-6">
-                                                    <div class="form-group mb-0">
+                                                    <div class="form-group mb-0 pl-2">
                                                         <select class="form-control form-control-lg inputText"
                                                             name="year" aria-label="Default select example"
                                                             [(ngModel)]="shippingCarriers.shipping_carrier"
@@ -72,7 +72,7 @@
                                             </div>
                                             <div class="row mb-2 ht">
                                                 <div class="col-lg-6 col-md-6 col-12">
-                                                    <div class="d-flex flex-row  justify-content-between ">
+                                                    <div class="d-flex flex-row pl-2 justify-content-between ">
                                                         <div class="mr-2 d-flex align-items-center">
                                                             <label class="text-capitalize "
                                                                 style="font-size: 15px !important; font-weight: 300 !important"
