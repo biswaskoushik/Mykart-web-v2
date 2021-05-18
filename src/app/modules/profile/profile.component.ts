@@ -209,7 +209,7 @@ export class ProfileComponent implements OnInit {
       // this.profileForm.controls['tax_value'].setValue(sell_tax_value);
       this.profileForm.controls['country'].setValue(this.zipCode.country);
       this.profileForm.controls['state'].setValue(this.zipCode.state);
-      // this.profileForm.controls['city'].setValue(this.zipCode.city);
+      this.profileForm.controls['city'].setValue(this.zipCode.city);
     }
   }
 
