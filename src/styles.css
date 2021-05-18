@@ -11,6 +11,8 @@
   box-sizing: content-box;
 }
 
+
+
 .btn{
   text-transform: uppercase;
 }
@@ -24,6 +26,12 @@
     padding: 10px 0px 0px 8px;
     position: absolute;
     pointer-events: none;
+}
+.chpcls.mat-form-field-appearance-legacy .mat-form-field-wrapper {
+  padding-bottom: 1.25em;
+} 
+.chpcls.mat-form-field-appearance-legacy .mat-form-field-infix {
+  padding: .2375em 0;
 }
 
 
