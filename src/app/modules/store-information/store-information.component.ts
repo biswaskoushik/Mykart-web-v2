@@ -11,7 +11,7 @@ import { environment } from '../../../environments/environment';
 
 /* Common Function */
 import { CommonFunction } from '../../core/class/common-function';
-import { ActivatedRoute,Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-store-information',
@@ -43,7 +43,7 @@ export class StoreInformationComponent implements OnInit {
   public contactUsData: any = [];
   public loginData: any;
 
-  constructor(public dialog: MatDialog, public apiService: ApiService, public commonFunction: CommonFunction, public activatedRoute: ActivatedRoute,public router:Router) { }
+  constructor(public dialog: MatDialog, public apiService: ApiService, public commonFunction: CommonFunction, public activatedRoute: ActivatedRoute, public router: Router) { }
 
   ngOnInit(): void {
 
@@ -53,85 +53,22 @@ export class StoreInformationComponent implements OnInit {
     })
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    this.getPolicyDetails();
-    this.getShippingCarrierData()
+    // this.getPolicyDetails();
+    // this.getShippingCarrierData()
 
     this.loginData = this.commonFunction.getLoginData();
   }
 
-  openDialog(text, flag) {
+  openPage(text, flag) {
+    this.router.navigate(['/seller/store-information/edit/' + flag])
+  }
 
-    this.router.navigate(['/seller/store-information/edit/'+flag])
-
-    // const dialogConfig = new MatDialogConfig();
-    // dialogConfig.disableClose = true;
-    // dialogConfig.autoFocus = true;
-    // // dialogConfig.width = "62%";
-    // dialogConfig.hasBackdrop = true;
-
-    // dialogConfig.data = {
-    //   header: text,
-    //   flag: flag
-    // }
-
-    // if (flag == 'shipping' || flag == 'return') {
-    //   dialogConfig.data.carriersData = this.carriersData;
-    //   dialogConfig.data.data = this.policy_details;
-    // }
-
-    // //console.log(text, '++++++')
-    // let dialogRef = this.dialog.open(
-    //   CustomerPolicyComponent,
-    //   dialogConfig
-    // );
-
-    // dialogRef.afterClosed().subscribe((result: any) => {
-    //   //console.log(result, 'result+++')
-    //   if (result != null && typeof (result) != 'undefined') {
-
-    //     if (flag == 'shipping' || flag == 'return') {
-    //       this.updateShippingCarrierReturn(result);
-    //     }
-
-    //     if (flag == 'contact') {
-    //       this.updateContactUs(result);
-    //     }
-
-    //     if (flag == 'custom') {
-    //       this.updateCustomPolicy(result)
-    //     }
-    //   }
-    // })
+  AddCustomPolicy(text, flag) {
+    this.router.navigate(['/seller/store-information/add/' + flag])
   }
 
   editCustomPolicy(text, flag, data, i) {
-    this.router.navigate(['/seller/store-information/edit/'+flag])
-
-    // const dialogConfig = new MatDialogConfig();
-    // dialogConfig.disableClose = true;
-    // dialogConfig.autoFocus = true;
-    // dialogConfig.width = "62%";
-    // dialogConfig.hasBackdrop = true;
-
-    // dialogConfig.data = {
-    //   header: text,
-    //   flag: flag,
-    //   data: data
-    // }
-
-    // let dialogRef = this.dialog.open(
-    //   CustomerPolicyComponent,
-    //   dialogConfig
-    // );
-
-    // dialogRef.afterClosed().subscribe((result: any) => {
-    //   //console.log(result, 'result+++')
-    //   if (result != null && typeof (result) != 'undefined') {
-    //     if (flag == 'custom') {
-    //       this.updateCustomPolicy(result)
-    //     }
-    //   }
-    // })
+    this.router.navigate(['/seller/store-information/edit/' + flag + '/' + data.code])
   }
 
   updateShippingCarrierReturn(result) {
@@ -139,7 +76,7 @@ export class StoreInformationComponent implements OnInit {
     this.apiService.httpViaPost("services/vendor/v1/policy/details/update", result).subscribe((next: any) => {
       this.commonFunction.loader(false);
       if (next.response != null && next.response.status != null && typeof (next.response.status.status_message) != 'undefined' && next.response.status.status_code == 200) {
-        swal("Thank You!", 'Policies ppdate successfully', "success");
+        swal("Thank You!", 'Policies update successfully', "success");
         this.getPolicyDetails()
       } else {
         swal("Sorry!", 'Somethings went wrong!', "warning");
