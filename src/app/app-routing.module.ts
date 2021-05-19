@@ -46,7 +46,7 @@ const routes: Routes = [
     path: 'seller/payment-history', component: PaymentHistoryComponent, canActivate: [AuthGuard]
   },
   {
-    path: 'seller/payment-history', component: PaymentHistoryComponent, canActivate: [AuthGuard]
+    path: 'seller/subscription', component: SubscriptionComponent, canActivate: [AuthGuard]
   },
   {
     path: 'seller/notifications', component: NotificationsComponent, canActivate: [AuthGuard]
