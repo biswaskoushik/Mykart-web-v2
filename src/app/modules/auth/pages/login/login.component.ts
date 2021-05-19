@@ -79,6 +79,9 @@ export class LoginComponent implements OnInit {
       this.commonFunction.loader(true);
       if (this.loginForm.valid) {
 
+        this.loginForm.value.email = this.loginForm.value.email.toLowerCase();
+        
+
         localStorage.setItem('uuid', 'web-' + this.loginForm.value.email);
         this.loginForm.value.is_vendor_login = true,
           this.loginForm.value.device_os_type = Constants.DEVICE_OS_TYPE

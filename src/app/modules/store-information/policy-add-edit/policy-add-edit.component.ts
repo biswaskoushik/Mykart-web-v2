@@ -78,7 +78,7 @@ export class PolicyAddEditComponent implements OnInit {
   ngOnInit(): void {
     this.loginData = this.commonFunction.getLoginData();
 
-    console.log(this.loginData, ' this.loginData')
+    // console.log(this.loginData, ' this.loginData')
     this.getPolicyDetails();
 
     this.getCustomPolicyDetails();
