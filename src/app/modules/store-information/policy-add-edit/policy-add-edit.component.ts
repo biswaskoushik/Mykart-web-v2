@@ -317,9 +317,4 @@ export class PolicyAddEditComponent implements OnInit {
     });
   }
 
-
-  /*-----------koushik added--------------*/
-  updateDialogData(flag:any) {
-  }
-
 }

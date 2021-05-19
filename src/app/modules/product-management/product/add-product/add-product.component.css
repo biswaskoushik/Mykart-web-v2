@@ -90,6 +90,9 @@ input.mat-chip-input {line-height: 24px;}
 .chpcls.mat-form-field-appearance-legacy .mat-form-field-infix {padding: .2375em 0 !important;}
 .mat-standard-chip.mat-chip-with-trailing-icon {padding-top: 2px;padding-bottom: 2px;min-height: 26px;}
 
+.headercls{display: flex;flex-direction: row-reverse;justify-content: space-between;align-items: center;}
+.back-button{position: absolute;left: 20px;}
+
 @media (max-width: 767px) {
 .dashouter{padding:20px 0}
 .dashouter .card .card-header h5{font-size:16px}
@@ -104,4 +107,9 @@ input.mat-chip-input {line-height: 24px;}
 @media (max-width: 575px) {
 .dashouter .card .form-group .form-control{height:40px;font-size:14px}
 .add-button{padding:6px 10px;font-size:14px;width: 99%;}
+}
+
+@media (max-width: 540px) {
+.headercls {flex-direction: column-reverse;flex-wrap: wrap;}
+.back-button {position: inherit;left: 15px;width: 100%;text-align: left;}
 }
