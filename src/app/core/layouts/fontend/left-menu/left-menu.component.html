@@ -9,7 +9,7 @@
         [routerLinkActive]="['active']">
         <a [routerLink]="['seller/dashboard']">
           <i class="material-icons align-middle pr-1">dashboard</i>
-          <span class="align-middle font">TRANSACTIONS</span>
+          <span class="align-middle font text-uppercase">TRANSACTIONS</span>
           <span class="selected"></span>
         </a>
       </li>
@@ -17,7 +17,7 @@
       <li class="nav-item" [ngClass]="router.url == '/seller/products' ? 'activeclass':''">
         <a [routerLink]="['seller/products']">
           <i class="material-icons align-middle pr-1">shopping_basket</i>
-          <span class="align-middle">PRODUCTS</span>
+          <span class="align-middle text-uppercase">PRODUCTS</span>
           <span class="selected"></span>
         </a>
       </li>
@@ -25,7 +25,7 @@
       <li class="nav-item" [ngClass]="router.url == '/seller/profile' ? 'activeclass':''">
         <a [routerLink]="['seller/profile']">
           <i class="material-icons align-middle pr-1">person</i>
-          <span class="align-middle">PROFILE</span>
+          <span class="align-middle text-uppercase">PROFILE</span>
           <span class="selected"></span>
         </a>
       </li>
@@ -33,7 +33,7 @@
       <li class="nav-item" [ngClass]="router.url == '/seller/setting' ? 'activeclass':''">
         <a [routerLink]="['seller/setting']">
           <i class="material-icons align-middle pr-1">settings</i>
-          <span class="align-middle">SETTINGS</span>
+          <span class="align-middle text-uppercase">SETTINGS</span>
           <span class="selected"></span>
         </a>
       </li>
@@ -41,7 +41,7 @@
       <li class="nav-item" [ngClass]="router.url == '/seller/subscription' ? 'activeclass':''">
         <a [routerLink]="['seller/subscription']">
           <i class="material-icons align-middle"> rss_feed </i>
-          <span class="align-middle">SUBSCRIPTION</span>
+          <span class="align-middle text-uppercase">SUBSCRIPTION</span>
           <span class="selected"></span>
         </a>
       </li>
@@ -49,7 +49,7 @@
       <li class="nav-item" *ngIf="step_flag" [ngClass]="router.url == '/seller/payment-history' ? 'activeclass':''">
         <a [routerLink]="['seller/payment-history']">
           <i class="material-icons align-middle"> history </i>
-          <span class="align-middle">PAYMENT HISTORY</span>
+          <span class="align-middle text-uppercase">PAYMENT HISTORY</span>
           <span class="selected"></span>
         </a>
       </li>
@@ -57,7 +57,7 @@
       <li class="nav-item" *ngIf="!step_flag">
         <a (click)="componentToStripe()">
           <i class="material-icons align-middle pr-1">verified_user</i>
-          <span class="align-middle cursorcls">CONNECT TO STRIPE</span>
+          <span class="align-middle cursorcls text-uppercase">CONNECT TO STRIPE</span>
           <span class="selected"></span>
         </a>
       </li>
@@ -65,7 +65,15 @@
       <li class="nav-item" [ngClass]="router.url == '/seller/store-information' ? 'activeclass':''">
         <a [routerLink]="['seller/store-information']">
           <i class="material-icons align-middle pr-1">verified_user</i>
-          <span class="align-middle">STORE INFORMATION</span>
+          <span class="align-middle text-uppercase">STORE INFORMATION</span>
+          <span class="selected"></span>
+        </a>
+      </li>
+
+      <li class="nav-item" [ngClass]="router.url == '/seller/notifications' ? 'activeclass':''">
+        <a [routerLink]="['seller/notifications']">
+          <i class="material-icons align-middle pr-1">notifications</i>
+          <span class="align-middle text-uppercase">notifications</span>
           <span class="selected"></span>
         </a>
       </li>
@@ -73,7 +81,7 @@
       <li class="nav-item logout">
         <a href="javascript:void(0)" (click)="logout()">
           <i class="material-icons align-middle ">exit_to_app</i>
-          <span class="align-middle pl-1">LOG OUT</span>
+          <span class="align-middle pl-1 text-uppercase">LOG OUT</span>
         </a>
       </li>
     </ul>

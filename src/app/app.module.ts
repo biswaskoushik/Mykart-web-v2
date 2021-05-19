@@ -30,6 +30,7 @@ import { CustomerPolicyComponent } from './modules/store-information/customer-po
 import { StoreInformationComponent } from './modules/store-information/store-information.component';
 import { AddNewCardComponent } from './modules/subscription/add-new-card/add-new-card.component';
 import { PolicyAddEditComponent } from './modules/store-information/policy-add-edit/policy-add-edit.component';
+import { NotificationsComponent } from './modules/notifications/notifications.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { PolicyAddEditComponent } from './modules/store-information/policy-add-e
     CustomerPolicyComponent,
     StoreInformationComponent,
     AddNewCardComponent,
-    PolicyAddEditComponent
+    PolicyAddEditComponent,
+    NotificationsComponent
   ],
   imports: [
     BrowserModule,

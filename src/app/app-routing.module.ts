@@ -9,7 +9,7 @@ import { SettingsComponent } from './modules/settings/settings.component';
 import { PolicyAddEditComponent } from './modules/store-information/policy-add-edit/policy-add-edit.component';
 import { StoreInformationComponent } from './modules/store-information/store-information.component';
 import { SubscriptionComponent } from './modules/subscription/subscription.component';
-
+import { NotificationsComponent } from './modules/notifications/notifications.component';
 
 const routes: Routes = [
   {
@@ -46,7 +46,10 @@ const routes: Routes = [
     path: 'seller/payment-history', component: PaymentHistoryComponent, canActivate: [AuthGuard]
   },
   {
-    path: 'seller/subscription', component: SubscriptionComponent, canActivate: [AuthGuard]
+    path: 'seller/payment-history', component: PaymentHistoryComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'seller/notifications', component: NotificationsComponent, canActivate: [AuthGuard]
   },
 
   {
