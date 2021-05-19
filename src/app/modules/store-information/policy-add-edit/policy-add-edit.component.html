@@ -107,7 +107,8 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>    
+                                                </div>
+    
                                                 <div class="row mb-2">
                                                     <div class="col-8 mb-2 p-0 text-capitalize ">
                                                         <span class="pl-2"> Details</span>
@@ -140,30 +141,23 @@
     
                                     <div class="cursor col-md-12 text-center text-muted">
                                         <button class="save-button btn btn-lg buttonclass" type="button"
-                                            (click)="updateDialogData('shipping')">
+                                            (click)="updateData('shipping')">
                                             <small class="font">update</small>
                                         </button>
                                     </div>
                                 </div>
-
-                                <div class="cursor col-md-12 text-center text-muted">
-                                    <button class="save-button btn btn-lg buttonclass" type="button"
-                                        (click)="updateData('shipping')">
-                                        <small class="font">update</small>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- Return -->
-                            <div class="row w-100" *ngIf="data?.flag =='return'">
-                                <div class="row p-2 w-100">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto">
-                                        <form action="#" id="form-register">
-                                            <div class="row mb-2 carrierreturn">
-                                                <div class="col-lg-6 col-md-6 flex-row align-items-center">
-                                                    <div class="col-8 pl-2">
-                                                        <label class="text-capitalize " for="carrier">Accepting
-                                                            Returns</label>
+    
+                                <!-- Return -->
+                                <div class="row w-100" *ngIf="data?.flag =='return'">
+                                    <div class="row p-2 w-100">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto">
+                                            <form action="#" id="form-register">
+                                                <div class="row mb-2 carrierreturn">
+                                                    <div class="col-lg-5 col-md-5 flex-row align-items-center">
+                                                        <div class="col-8 pl-2">
+                                                            <label class="text-capitalize " for="carrier">Accepting
+                                                                Returns</label>
+                                                        </div>
                                                     </div>
                                                     <div class="col-lg-1 col-md-1 text-right">
                                                         <ui-switch
@@ -251,44 +245,38 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </form>
+                                            </form>
+                                        </div>
                                     </div>
                                     <div class="cursor col-md-12 text-center text-muted">
                                         <button class="save-button btn btn-lg buttonclass" type="button"
-                                            (click)="updateDialogData('return')">
+                                            (click)="updateData('return')">
                                             <small class="font">update</small>
                                         </button>
                                     </div>
                                 </div>
-                                <div class="cursor col-md-12 text-center text-muted">
-                                    <button class="save-button btn btn-lg buttonclass" type="button"
-                                        (click)="updateData('return')">
-                                        <small class="font">update</small>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- contact -->
-                            <div class="row w-100" *ngIf="data?.flag =='contact'">
-                                <div class="row p-2 w-100">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto">
-                                        <form action="#" id="form-register">
-                                            <div class="row ml-2">
-                                                <div class="col-12 mb-2 p-2 text-capitalize ">
-                                                    <span> The information you provide below will be
-                                                        visible the
-                                                        shoppers.</span>
-                                                </div>
-
-                                                <div class="row mb-15">
-                                                    <div class="col-md-6">
-                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto p-0">
-                                                            <div class="divInf inputText">
-                                                                <input type="text" placeholder="Email"
-                                                                    class="form-control form-control-lg inputText"
-                                                                    [(ngModel)]="contactUs.email"
-                                                                    [ngModelOptions]="{standalone: true}" readonly />
+    
+                                <!-- contact -->
+                                <div class="row w-100" *ngIf="data?.flag =='contact'">
+                                    <div class="row p-2 w-100">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto">
+                                            <form action="#" id="form-register">
+                                                <div class="row ml-2">
+                                                    <div class="col-12 mb-2 p-2 text-capitalize ">
+                                                        <span> The information you provide below will be
+                                                            visible the
+                                                            shoppers.</span>
+                                                    </div>
+    
+                                                    <div class="row mb-15">
+                                                        <div class="col-md-6">
+                                                            <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto p-0">
+                                                                <div class="divInf inputText">
+                                                                    <input type="text" placeholder="Email"
+                                                                        class="form-control form-control-lg inputText"
+                                                                        [(ngModel)]="contactUs.email"
+                                                                        [ngModelOptions]="{standalone: true}" readonly />
+                                                                </div>
                                                             </div>
                                                         </div>
                                                         <div class="col-md-6">
@@ -317,42 +305,25 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </form>
+                                            </form>
+                                        </div>
                                     </div>
                                     <div class="cursor col-md-12 text-center text-muted">
                                         <button class="save-button btn btn-lg buttonclass" type="button"
-                                            (click)="updateDialogData('contact')">
+                                            (click)="updateData('contact')">
                                             <small class="font">update</small>
                                         </button>
                                     </div>
                                 </div>
-                                <div class="cursor col-md-12 text-center text-muted">
-                                    <button class="save-button btn btn-lg buttonclass" type="button"
-                                        (click)="updateData('contact')">
-                                        <small class="font">update</small>
-                                    </button>
-                                </div>
-                            </div>
-
-                            <!-- add new -->
-                            <div class="row w-100" *ngIf="data?.flag =='custom'">
-                                <div class="row p-2 w-100">
-                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto">
-                                        <form action="#" id="form-register">
-                                            <div class="row">
-                                                <div class="col-12 mb-2 p-2 text-capitalize ">
-                                                    <span class="pl-2"> Policy Name</span>
-                                                </div>
-
-                                                <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto">
-                                                    <div class="divInf inputText pl-2">
-                                                        <input [(ngModel)]="customPolicy.title"
-                                                            [ngModelOptions]="{standalone: true}"
-                                                            placeholder="Policy Name" type="text"
-                                                            class="form-control form-control-lg inputText textclass" />
-                                                        <p class="error-p" *ngIf="customPolicy.title ==''">
-                                                            {{customPolicyErr?.titleerr}}</p>
+    
+                                <!-- add new -->
+                                <div class="row w-100" *ngIf="data?.flag =='custom'">
+                                    <div class="row p-2 w-100">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto">
+                                            <form action="#" id="form-register">
+                                                <div class="row">
+                                                    <div class="col-12 mb-2 p-2 text-capitalize ">
+                                                        <span class="pl-2"> Policy Name</span>
                                                     </div>
     
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto">
@@ -384,22 +355,17 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </form>                                        
+                                            </form>
+                                        </div>
                                     </div>
                                     <div class="cursor col-lg-12 col-md-12 col-sm-12 col-12 text-center text-muted">
                                         <button class="save-button btn btn-lg buttonclass" type="button"
-                                            (click)="updateDialogData('custom')">
+                                            (click)="updateData('custom')">
                                             <small class="font">update</small>
                                         </button>
                                     </div>
                                 </div>
-                                <div class="cursor col-lg-12 col-md-12 col-sm-12 col-12 text-center text-muted">
-                                    <button class="save-button btn btn-lg buttonclass" type="button"
-                                        (click)="updateData('custom')">
-                                        <small class="font">update</small>
-                                    </button>
-                                </div>
+    
                             </div>
                         </div>
                     </div>
