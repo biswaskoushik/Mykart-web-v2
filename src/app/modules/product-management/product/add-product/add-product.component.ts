@@ -346,8 +346,6 @@ export class AddProductComponent implements OnInit {
           }
           this.product.productId = next.data.productId;
           this.getVariantData(next.data.productId);
-          this.router.navigate([''])
-
           // this.router.navigateByUrl('/seller/products');
         } else {
           if (next.message != null && typeof (next.message) != 'undefined') {
@@ -504,10 +502,36 @@ export class AddProductComponent implements OnInit {
     );
     dialogRef.afterClosed().subscribe(result => {
       if (result != null && typeof (result) != 'undefined') {
-        swal("Thank You!", 'Variant update successfully', "success");
+        console.log(result,'+++++++++')
 
+        if(result.flag != null && result.flag =='update'){
+          swal("Thank You!", 'Variant update successfully', "success");
+         this.getVariantData(this.product.productId);
+        }else{
+          this.removeVariant(result);
+        }
+      }
+    })
+  }
+
+  removeVariant(data){
+    this.commonFunction.loader(true);
+    this.apiService.httpViaPostLaravel('product/v1/delete/combination', {combination_id:data.variant.combinationId}).subscribe((next: any) => {
+      this.commonFunction.loader(false);
+      if(next != null && typeof (next.status_code) != 'undefined' && next.status_code == 200){
+        swal("Thank You!", 'Variant Delete successfully', "success");
         this.getVariantData(this.product.productId);
+      }
+    })
+  }
 
+  restoreVariant(data,i){
+    this.commonFunction.loader(true);
+    this.apiService.httpViaPostLaravel('product/v1/restore/combination', {combination_id:data.combinationId}).subscribe((next: any) => {
+      this.commonFunction.loader(false);
+      if(next != null && typeof (next.status_code) != 'undefined' && next.status_code == 200){
+        swal("Thank You!", 'Variant Restore successfully', "success");
+        this.getVariantData(this.product.productId);
       }
     })
   }

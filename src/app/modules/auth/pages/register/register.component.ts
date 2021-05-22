@@ -68,6 +68,8 @@ export class RegisterComponent implements OnInit {
     if (this.registerForm.valid) {
       this.commonFunction.loader(true);
 
+      this.registerForm.value.email = this.registerForm.value.email.toLowerCase();
+
       localStorage.setItem('uuid', 'web-' + this.registerForm.value.email);
       this.registerForm.value.is_vendor_login = true,
 

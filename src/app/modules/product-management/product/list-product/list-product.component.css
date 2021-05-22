@@ -27,6 +27,11 @@ li.in-active{border-top:1px solid #f7f7f7}
 .dashouter{padding:30px 20px}
 .dropdownMenuButtoncls{position:relative;font-size:24px;font-weight:600}
 .dropdown-menu.show{min-width:120px!important;border:none;box-shadow:none;position:absolute!important;top:127%!important;right:0!important;transform:none!important;font-weight:400}
+.textclass{
+  text-align: center;
+    background: #c3c3c3;
+    margin-top: 11px;
+}
 @media (min-width:768px) {
 .col-lg-3{-ms-flex:0 0 33.333333%;flex:0 0 33.333333%;max-width:33.333333%}
 }

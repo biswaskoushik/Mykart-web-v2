@@ -25,14 +25,17 @@
 
                 <div class="card card-borderless">
                     <ul class="nav nav-tabs nav-tabs-simple">
-                        <li class="nav-item cursor" *ngFor="let row of categoryList"
-                            [ngStyle]="{'display' : row.is_active ? 'initial' : 'none'}">
+                        <li class="nav-item cursor" *ngFor="let row of categoryList">
                             <a data-toggle="tab" [ngClass]="{'active': row.code == selectedCategory}"
                                 (click)="getProductList(row)" class="font f-w-600">
                                 {{row.name}}
                             </a>
                         </li>
                     </ul>
+
+                    <div class="card card-borderless" *ngIf="inactiveCategoryFlag">
+                        <span class="textclass">This category is Inactive</span>
+                    </div>
 
                     <div class="tab-content" style=" background: #f5f5f5;"
                         *ngIf="productList != null && productList.length > 0">

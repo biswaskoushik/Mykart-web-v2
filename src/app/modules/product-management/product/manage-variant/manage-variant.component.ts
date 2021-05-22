@@ -214,14 +214,22 @@ export class ManageVariantComponent implements OnInit {
       this.apiService.httpViaPostLaravel(endpoint, this.variant).subscribe(next => {
         this.commonFunction.loader(false);
         if (next.status_code != null && next.status_code == 200) {
-          this.dialogRef.close(this.variant);
+          let data={
+            variant:this.variant,
+            flag:'update'
+          }
+          this.dialogRef.close(data);
         }
       })
     }
   }
 
   removeVariant() {
-    this.dialogRef.close();
+    let data={
+      variant:this.variant,
+      flag:'remove'
+    }
+    this.dialogRef.close(data);
   }
 
   formValidation() {

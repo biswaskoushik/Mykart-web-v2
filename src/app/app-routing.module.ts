@@ -51,7 +51,6 @@ const routes: Routes = [
   {
     path: 'seller/notifications', component: NotificationsComponent, canActivate: [AuthGuard]
   },
-
   {
     path: 'seller/store-information', component: StoreInformationComponent,
     canActivate: [AuthGuard],
