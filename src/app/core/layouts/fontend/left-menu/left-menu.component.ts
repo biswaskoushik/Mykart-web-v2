@@ -46,19 +46,19 @@ export class LeftMenuComponent implements OnInit {
     window.location.href = environment['CONNECT_TO_STRIPE'] + 17;
   }
 
-  logout() {
-    var config: any = {
-      "title": "Do you want to logout ?",
-      "buttons": ["No", "Yes"]
-    };
-    this.commonFunction.confirmBox(config).then((action) => {
-      if (action == true) {
-        this.commonFunction.destroyLoginData();
-        setTimeout(() => {
-          location.reload();
-        }, 100);
-      }
-    });
-  }
+  // logout() {
+  //   var config: any = {
+  //     "title": "Do you want to logout ?",
+  //     "buttons": ["No", "Yes"]
+  //   };
+  //   this.commonFunction.confirmBox(config).then((action) => {
+  //     if (action == true) {
+  //       this.commonFunction.destroyLoginData();
+  //       setTimeout(() => {
+  //         location.reload();
+  //       }, 100);
+  //     }
+  //   });
+  // }
 
 }

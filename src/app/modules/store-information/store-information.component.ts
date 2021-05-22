@@ -42,6 +42,7 @@ export class StoreInformationComponent implements OnInit {
   public carriersData: any = [];
   public contactUsData: any = [];
   public loginData: any;
+  public orderMessage:any='';
 
   constructor(public dialog: MatDialog, public apiService: ApiService, public commonFunction: CommonFunction, public activatedRoute: ActivatedRoute, public router: Router) { }
 
@@ -57,6 +58,8 @@ export class StoreInformationComponent implements OnInit {
     // this.getShippingCarrierData()
 
     this.loginData = this.commonFunction.getLoginData();
+    
+    this.getOrderMsg();
   }
 
   openPage(text, flag) {
@@ -178,5 +181,37 @@ export class StoreInformationComponent implements OnInit {
       }).subscribe((next: any) => {
         this.contactUsData = next;
       })
+  }
+
+  updateOrderMsg(event){
+    console.log(event.target.value,'++++++')
+    this.apiService.httpViaPostLaravel('services/user/v1/profile/update/order-message',
+    {
+        "email": this.loginData.data.user.email,
+        "orderMsg":event.target.value
+    }).subscribe((next: any) => {
+      if (next != null && typeof (next.status_code) != 'undefined' && next.status_code == 200) {
+        if(next.data.order_msg != null){
+          this.orderMessage = next.data.order_msg;
+        }else{
+          this.orderMessage = 'Thank you for your order!';
+        }
+      }
+    })
+  }
+
+  getOrderMsg(){
+    this.apiService.httpViaPostLaravel('services/user/v1/profile/get/order-message',
+    {
+        "email": this.loginData.data.user.email
+    }).subscribe((next: any) => {
+      if (next != null && typeof (next.status_code) != 'undefined' && next.status_code == 200) {
+        if(next.data.order_msg != null){
+          this.orderMessage = next.data.order_msg;
+        }else{
+          this.orderMessage = 'Thank you for your order!';
+        }
+      }
+    }) 
   }
 }

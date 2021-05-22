@@ -25,6 +25,7 @@ export class ListProductComponent implements OnInit {
   public loginUserData: any = {};
   public selectedCategory: any = '';
   public button_text: any = 'Add Product';
+  public inactiveCategoryFlag :boolean = false;
 
   constructor(public activatedRoute: ActivatedRoute, public apiService: ApiService, public commonFunction: CommonFunction, public router: Router) { }
 
@@ -37,6 +38,10 @@ export class ListProductComponent implements OnInit {
       //console.log(resp, 'resp++++', this.categoryList)
       if (this.categoryList.length > 0) {
         this.getProductList(this.categoryList[0])
+        this.inactiveCategoryFlag  = false;
+        if(!this.categoryList[0].is_active){
+          this.inactiveCategoryFlag  = true;
+          }
       }
     })
   }
@@ -56,7 +61,11 @@ export class ListProductComponent implements OnInit {
       this.commonFunction.loader(false);
       if (next != null && next.status_code == 200) {
         this.productList = next.data.product;
-        console.log(this.productList, '++ p')
+        // console.log(this.productList, '++ p')
+        this.inactiveCategoryFlag  = false;
+        if(!value.is_active){
+        this.inactiveCategoryFlag  = true;
+        }
       }
     })
   }
