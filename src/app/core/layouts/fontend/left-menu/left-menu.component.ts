@@ -14,11 +14,13 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./left-menu.component.css']
 })
 
+
 export class LeftMenuComponent implements OnInit {
 
   public loginData: any = {};
   public environment: any = environment;
   public step_flag: boolean = true;
+  public prodNotification: boolean = true ;
 
 
   constructor(public commonFunction: CommonFunction, public activatedRoute: ActivatedRoute, public router: Router) { }
@@ -46,6 +48,11 @@ export class LeftMenuComponent implements OnInit {
     window.location.href = environment['CONNECT_TO_STRIPE'] + 17;
   }
 
+  close() {
+    this.prodNotification = ! this.prodNotification;
+  }
+
+  
   // logout() {
   //   var config: any = {
   //     "title": "Do you want to logout ?",

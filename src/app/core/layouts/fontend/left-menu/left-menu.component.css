@@ -51,12 +51,14 @@
     -webkit-transition: 0.3s linear-gradient ease-in-out;
     transition: 0.3s linear-gradient ease-in-out;
 }
-.page-sidebar .sidebar-menu .menu-items>li>a i{
+.page-sidebar .sidebar-menu .menu-items>li>a i, .page-sidebar .sidebar-menu .menu-items>li>a img.svg{
   position: absolute;
   left: 20px;
   top: 50%;
   -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
+  width: 24px;
+  height: auto;
 }
 .page-sidebar .sidebar-menu .menu-items>li.logout a i{
   -webkit-transform: translateY(-50%) rotate(-180deg);
@@ -83,3 +85,5 @@
   color: #fff;
   opacity: 1;
 }
+
+

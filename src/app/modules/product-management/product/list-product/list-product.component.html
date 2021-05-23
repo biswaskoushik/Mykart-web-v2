@@ -8,11 +8,20 @@
                             <div class="col-md-6 col-sm-12">
                                 <h5 class="font sm-text-center text-md-left mb-3 m-md-0">Products</h5>
                             </div>
-                            <div class="col-md-6 text-center text-md-right">
-                                <button [routerLink]="['/seller/products/categories']"
+                            <div class="col-md-6 text-center text-md-right newclsadd">
+                                <div class="tooltip1">
+                                    <button [routerLink]="['/seller/products/categories']"
                                     class="category-button btn btn-md" type="button">
-                                    <small class="font f-w-500">Categories</small>
+                                    <small class="font f-w-500">Categories</small>                                    
                                 </button>
+                                <div *ngIf="categoryNotification" class="tooltip1text tooltip1textaddcategory">           
+                                    <button type="button" class="close" (click)="close()">&times;</button>
+                                    <p class="title">Add a category to add product</p>
+                                    <p>Click here to add and manage categories</p>
+                                </div>
+                                </div>
+                                
+                               
                                 <button [routerLink]="['/seller/products/add']" class="update-button btn btn-md"
                                     type="button">
                                     <small class="font">{{button_text}}</small>

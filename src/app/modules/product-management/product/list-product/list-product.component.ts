@@ -26,6 +26,7 @@ export class ListProductComponent implements OnInit {
   public selectedCategory: any = '';
   public button_text: any = 'Add Product';
   public inactiveCategoryFlag :boolean = false;
+  public categoryNotification: boolean = true ;
 
   constructor(public activatedRoute: ActivatedRoute, public apiService: ApiService, public commonFunction: CommonFunction, public router: Router) { }
 
@@ -108,6 +109,10 @@ export class ListProductComponent implements OnInit {
 
   editProduct(data) {
     this.router.navigateByUrl('/seller/products/edit/' + data.id);
+  }
+
+  close() {
+    this.categoryNotification = ! this.categoryNotification;
   }
 
   deleteProduct(data, i) {

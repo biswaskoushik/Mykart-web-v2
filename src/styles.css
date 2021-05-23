@@ -11,8 +11,6 @@
   box-sizing: content-box;
 }
 
-
-
 .btn{
   text-transform: uppercase;
 }
@@ -420,3 +418,22 @@ a, img {
 .swal-footer .swal-button--cancel {width: 100%;background-color: transparent;border: 1px solid #1077ee; color:#189AEA}
 .swal-footer .swal-button--cancel:hover{background-color: transparent;}
 .swal-footer .swal-button--confirm {width: 100%;background:-moz-linear-gradient(90deg,rgba(16,118,238,1) 0%,rgba(24,154,234,1) 100%)!important;background:-webkit-linear-gradient(90deg,rgba(16,118,238,1) 0%,rgba(24,154,234,1) 100%)!important;background:-o-linear-gradient(90deg,rgba(16,118,238,1) 0%,rgba(24,154,234,1) 100%)!important;filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#189AEA',endColorstr='#1076EE',GradientType=0)!important;background:-ms-linear-gradient(90deg,rgba(16,118,238,1) 0%,rgba(24,154,234,1) 100%)!important;background:linear-gradient(90deg,rgba(16,118,238,1) 0%,rgba(24,154,234,1) 100%)!important;border-color:#fff}
+
+
+.newclsadd{display:flex;justify-content:flex-end}
+.tooltip1{position:relative}
+.tooltip1 .tooltip1text{background-color:#1075ee;color:#fff;text-align:center;border-radius:3px;padding:3px 9px;z-index:9;margin:0;visibility:visible;opacity:1;transition:opacity .3s;position:absolute}
+.tooltip1 .tooltip1text.tooltip1textleftmenu{width:215px;right:-120%;top:50%;transform:translate(-50%,-50%)}
+.tooltip1 .tooltip1text.tooltip1textaddcategory{width:280px;top:110%;left:50%;transform:translate(-50%,0%)}
+.tooltip1 .tooltip1text h4{margin:0}
+.tooltip1 .tooltip1text.tooltip1textleftmenu::after{content:"";position:absolute;top:50%;right:99%;border-width:9px;border-style:solid;border-color:transparent #1075ee transparent transparent;transform:translateY(-50%)}
+.tooltip1 .tooltip1text.tooltip1textaddcategory::after{content:"";position:absolute;top:-8px;left:50%;border-width:9px;border-style:solid;border-color:transparent transparent #1075ee;transform:translateY(-50%)}
+.tooltip1 .tooltip1text .close{opacity:1}
+.tooltip1 .tooltip1text .close:not(:disabled):not(.disabled){cursor:pointer;color:#fff;text-shadow:none;position:absolute;top:-3px;right:3px}
+.tooltip1 .tooltip1text p{margin-top:0;margin-bottom:0;text-align:left}
+.page-sidebar .sidebar-menu .menu-items{overflow:inherit}
+.page-sidebar{overflow:inherit}
+@media (max-width:991px) {
+.app-left-menu{position:relative;z-index:99}
+.page-container{z-index:9}
+}

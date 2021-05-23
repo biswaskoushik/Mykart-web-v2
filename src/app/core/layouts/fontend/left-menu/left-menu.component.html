@@ -8,23 +8,38 @@
       <li class="nav-item " [ngClass]="router.url == '/seller/dashboard' ? 'activeclass':''"
         [routerLinkActive]="['active']">
         <a [routerLink]="['seller/dashboard']">
-          <i class="material-icons align-middle pr-1">dashboard</i>
+          <img class="svg" src="assets/images/icn-transactions.png">
           <span class="align-middle font text-uppercase">TRANSACTIONS</span>
           <span class="selected"></span>
         </a>
       </li>
 
-      <li class="nav-item" [ngClass]="router.url == '/seller/products' ? 'activeclass':''">
+      <li class="nav-item tooltip1" [ngClass]="router.url == '/seller/products' ? 'activeclass':''">
         <a [routerLink]="['seller/products']">
-          <i class="material-icons align-middle pr-1">shopping_basket</i>
+          <!-- <i class="material-icons align-middle pr-1">shopping_basket</i> -->
+          <img class="svg" src="assets/images/icn-product.png">
           <span class="align-middle text-uppercase">PRODUCTS</span>
           <span class="selected"></span>
         </a>
+
+        <div *ngIf="prodNotification" class="tooltip1text tooltip1textleftmenu">           
+             <button type="button" class="close" (click)="close()">&times;</button>
+             <p class="title">Add your first product</p>
+             <p>Click here to add a product</p>
+        </div>
+     
+     
+
+
+        <!-- <span class="">
+          <i class="fa fa-close" style="font-size:24px;cursor: pointer;" (click)="closeModal()"></i>
+          Tooltip text
+        </span> -->
       </li>
 
       <li class="nav-item" [ngClass]="router.url == '/seller/profile' ? 'activeclass':''">
         <a [routerLink]="['seller/profile']">
-          <i class="material-icons align-middle pr-1">person</i>
+          <img class="svg" src="assets/images/icn-profile.png">
           <span class="align-middle text-uppercase">PROFILE</span>
           <span class="selected"></span>
         </a>
@@ -32,7 +47,8 @@
 
       <li class="nav-item" [ngClass]="router.url == '/seller/setting' ? 'activeclass':''">
         <a [routerLink]="['seller/setting']">
-          <i class="material-icons align-middle pr-1">settings</i>
+          <!-- <i class="material-icons align-middle pr-1">settings</i> -->
+          <img class="svg" src="assets/images/icn-settings.png">
           <span class="align-middle text-uppercase">SETTINGS</span>
           <span class="selected"></span>
         </a>
@@ -40,7 +56,7 @@
 
       <li class="nav-item" [ngClass]="router.url == '/seller/subscription' ? 'activeclass':''">
         <a [routerLink]="['seller/subscription']">
-          <i class="material-icons align-middle"> rss_feed </i>
+          <img class="svg" src="assets/images/icn-subscription.png">
           <span class="align-middle text-uppercase">SUBSCRIPTION</span>
           <span class="selected"></span>
         </a>
@@ -48,7 +64,7 @@
 
       <li class="nav-item" *ngIf="step_flag" [ngClass]="router.url == '/seller/payment-history' ? 'activeclass':''">
         <a [routerLink]="['seller/payment-history']">
-          <i class="material-icons align-middle"> history </i>
+          <img class="svg" src="assets/images/icn-payment.png">
           <span class="align-middle text-uppercase">PAYMENT HISTORY</span>
           <span class="selected"></span>
         </a>
@@ -56,7 +72,7 @@
 
       <li class="nav-item" *ngIf="!step_flag">
         <a (click)="componentToStripe()">
-          <i class="material-icons align-middle pr-1">verified_user</i>
+          <img class="svg" src="assets/images/icn-connecttostripe.png">
           <span class="align-middle cursorcls text-uppercase">CONNECT TO STRIPE</span>
           <span class="selected"></span>
         </a>
@@ -64,7 +80,7 @@
 
       <li class="nav-item" [ngClass]="router.url == '/seller/store-information' ? 'activeclass':''">
         <a [routerLink]="['seller/store-information']">
-          <i class="material-icons align-middle pr-1">verified_user</i>
+          <img class="svg" src="assets/images/icn-store.png">
           <span class="align-middle text-uppercase">STORE INFORMATION</span>
           <span class="selected"></span>
         </a>
@@ -72,7 +88,7 @@
 
       <li class="nav-item" [ngClass]="router.url == '/seller/notifications' ? 'activeclass':''">
         <a [routerLink]="['seller/notifications']">
-          <i class="material-icons align-middle pr-1">notifications</i>
+          <img class="svg" src="assets/images/icn-notification.png">
           <span class="align-middle text-uppercase">notifications</span>
           <span class="selected"></span>
         </a>
