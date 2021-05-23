@@ -184,7 +184,7 @@ export class StoreInformationComponent implements OnInit {
   }
 
   updateOrderMsg(event){
-    console.log(event.target.value,'++++++')
+    // console.log(event.target.value,'++++++')
     this.apiService.httpViaPostLaravel('services/user/v1/profile/update/order-message',
     {
         "email": this.loginData.data.user.email,

@@ -100,7 +100,7 @@ export class AddProductComponent implements OnInit {
 
     this.product.vendor.id = this.loginUserData.data.user.id;
 
-    console.log(this.product.vendor, this.loginUserData.data.user)
+    //console.log(this.product.vendor, this.loginUserData.data.user)
 
     this.getCategoryList();
 
@@ -121,25 +121,25 @@ export class AddProductComponent implements OnInit {
       for (let i = 0; i < event.target.files.length; i++) {
         imageArray.push({ img: event.target.files[i] })
       }
-      // console.log(imageArray, 'imageArray')
+      // //console.log(imageArray, 'imageArray')
       this.readAllFiles(imageArray)
     }
   }
 
   //use promise to read all files
   async readAllFiles(AllFiles) {
-    // console.log(AllFiles, 'AllFiles')
+    // //console.log(AllFiles, 'AllFiles')
     const results = await Promise.all(AllFiles.map(async (file) => {
       const fileContents = await this.handleFileChosen(file);
       return fileContents;
     }));
-    // console.log(results, '++++++++++');
+    // //console.log(results, '++++++++++');
     return results;
   }
 
   //resolve all files with base64
   async handleFileChosen(file) {
-    // console.log(file, 'file')
+    // //console.log(file, 'file')
     return new Promise((resolve, reject) => {
       let fileReader = new FileReader();
       fileReader.onload = () => {
@@ -172,7 +172,7 @@ export class AddProductComponent implements OnInit {
         if (flag == 'add') {
           this.imagesData.splice(i, 1);
         }
-        console.log(this.imagesData)
+        //console.log(this.imagesData)
       }
     })
   }
@@ -187,7 +187,7 @@ export class AddProductComponent implements OnInit {
 
     this.apiService.httpViaPost('services/vendor/v1/category/list', vendor_data).subscribe((data) => {
       this.commonFunction.loader(false);
-      //console.log(" component getCategoryList", data);
+      ////console.log(" component getCategoryList", data);
       if (data != null && data.response != null) {
         this.categoryList = data.response.category;
       }
@@ -203,10 +203,10 @@ export class AddProductComponent implements OnInit {
 
     this.apiService.httpViaPostLaravel('product/v1/get', product_data).subscribe((data) => {
       this.commonFunction.loader(false);
-      //console.log(" component getCategoryList", data);
+      ////console.log(" component getCategoryList", data);
       if (data != null && data.status_code != null) {
         let productData = data.data.product;
-        console.log(productData, '++productData')
+        //console.log(productData, '++productData')
         // this.product.code = productData.code;
         this.product.category = productData.category;
         this.product.title = productData.title;
@@ -268,14 +268,14 @@ export class AddProductComponent implements OnInit {
         if(this.variantData.length > 0){
          this.filterVariantArray = productCombinationArr.filter((v, i, a) => a.indexOf(v) === i);
         }
-        // console.log(this.variantData, 'this.variantData',this.filterVariantArray,productCombinationArr)
+        // //console.log(this.variantData, 'this.variantData',this.filterVariantArray,productCombinationArr)
       }
     })
   }
 
 
   changeTimeLineStatus(value, flag) {
-    console.log(value, flag, '=============')
+    //console.log(value, flag, '=============')
     switch (flag) {
       case 'none':
         this.product.percentage = 0.0;
@@ -310,7 +310,7 @@ export class AddProductComponent implements OnInit {
 
   saveProduct() {
     let isFormValid = this.formValidation();
-    //console.log(isFormValid, '+++ formValid')
+    ////console.log(isFormValid, '+++ formValid')
     if (isFormValid) {
 
       if (this.product.is_percentage == true) {
@@ -355,7 +355,7 @@ export class AddProductComponent implements OnInit {
         this.commonFunction.loader(false);
         if (next != null && typeof (next.status_code) != 'undefined' && next.status_code == 200) {
           this.button_text = 'Update Product';
-          console.log(next, '+++++++++++++')
+          //console.log(next, '+++++++++++++')
 
           if (this.product.productId == null) {
             swal("Thank You!", 'Product added successfully', "success");
@@ -464,7 +464,7 @@ export class AddProductComponent implements OnInit {
     } else {
       swal("Sorry!", 'You can only add up to 3 variants', "warning");
     }
-    console.log(this.product.variant)
+    //console.log(this.product.variant)
   }
 
   addVariantOptions(event: MatChipInputEvent, i) {
@@ -480,7 +480,7 @@ export class AddProductComponent implements OnInit {
   }
 
   clearChip(i, j) {
-    //console.log(i, j)
+    ////console.log(i, j)
     this.product.variant[i].options.splice(j, 1)
   }
 
@@ -497,7 +497,7 @@ export class AddProductComponent implements OnInit {
   }
 
   openVariantsDialog(value, i) {
-    console.log(value, i)
+    //console.log(value, i)
     // swal("Sorry!", 'Comming soon', "warning");
     // ManageVariantComponent
     const dialogConfig = new MatDialogConfig();
@@ -520,7 +520,7 @@ export class AddProductComponent implements OnInit {
     );
     dialogRef.afterClosed().subscribe(result => {
       if (result != null && typeof (result) != 'undefined') {
-        console.log(result,'+++++++++')
+        //console.log(result,'+++++++++')
 
         if(result.flag != null && result.flag =='update'){
           swal("Thank You!", 'Variant update successfully', "success");
@@ -555,7 +555,7 @@ export class AddProductComponent implements OnInit {
   }
 
   changevariantFilter(data,flag){
-    console.log(data,flag,'+++++++>>')
+    //console.log(data,flag,'+++++++>>')
     let is_active = 0;
     let filterVal='';
     if(flag == 'status'){
@@ -569,10 +569,10 @@ export class AddProductComponent implements OnInit {
 
     this.getVariantFilterData(this.variantFilter);
 
-    console.log(is_active,filterVal,this.variantFilter,data,this.variantData)
+    //console.log(is_active,filterVal,this.variantFilter,data,this.variantData)
     // for(let i in this.variantData){
     //   if( filterVal !='' && this.variantData[i].name ==filterVal){
-    //     console.log(this.variantData[i],'+++++++++++++++++++++++')
+    //     //console.log(this.variantData[i],'+++++++++++++++++++++++')
     //     dataArray.push(this.variantData[i])
     //   }
 
@@ -598,7 +598,7 @@ export class AddProductComponent implements OnInit {
           data.data.productCombination[i].name = (data.data.productCombination[i].combination).split('-')[0];
         }
         this.variantData = data.data.productCombination;
-        // console.log(this.variantData, 'this.variantData',this.filterVariantArray,productCombinationArr)
+        // //console.log(this.variantData, 'this.variantData',this.filterVariantArray,productCombinationArr)
       }
     })
   }

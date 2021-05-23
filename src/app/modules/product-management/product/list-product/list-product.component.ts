@@ -88,7 +88,7 @@ export class ListProductComponent implements OnInit {
           "is_active": data.is_active
         };
 
-        console.log(data.is_active, '+++++++')
+        // console.log(data.is_active, '+++++++')
         this.apiService
           .httpViaPostLaravel('product/v1/update/status', product_data)
           .subscribe((next) => {
@@ -117,7 +117,7 @@ export class ListProductComponent implements OnInit {
   }
 
   deleteProduct(data, i) {
-    console.log(data, i)
+    // console.log(data, i)
     var config: any = {
       "title": "Do you want to delete product?",
       "buttons": ["No", "Yes"]
