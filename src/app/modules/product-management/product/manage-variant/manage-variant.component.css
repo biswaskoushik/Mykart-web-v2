@@ -30,11 +30,8 @@ textarea:focus ~ .floating-label,textarea:not(:focus):valid ~ .floating-label{he
 .inputText{font-size:15px;min-height:45px!important;margin:5px 0 0!important}
 .floating-label{position:absolute;height:15px;line-height:15px;left:12px;top:5px;font-size:9px!important;opacity:1}
 .color-black{color:#000}
-.closebtnclass{position:absolute;top:6px;margin-left:610px}
-/* .textclass{margin-left:245px} */
 .buttonclass{width:228px}
 .mainwrapper{max-height:500px}
-/* .textclass{width:480px} */
 .StripeElement{background-color:#fff;height:40px;padding:10px 12px;border-radius:4px;border:1px solid transparent;box-shadow:0 1px 3px 0 #e6ebf1;-webkit-transition:box-shadow 150ms ease;transition:box-shadow 150ms ease;width:100%}
 .StripeElement--focus{box-shadow:0 1px 3px 0 #cfd7df}
 .StripeElement--invalid{border-color:#fa755a}
