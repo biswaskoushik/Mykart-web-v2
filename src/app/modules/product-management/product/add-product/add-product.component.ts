@@ -83,6 +83,14 @@ export class AddProductComponent implements OnInit {
   public separatorKeysCodes: number[] = [ENTER, COMMA];
   public button_text: any = 'Save Product';
 
+  public variantFilter:any={
+    status:false,
+    selectVal:'',
+    is_active:0
+  }
+
+  public filterVariantArray:any=[];
+
   constructor(public activatedRoute: ActivatedRoute, public apiService: ApiService, public commonFunction: CommonFunction, public router: Router, public dialog: MatDialog) { }
 
   ngOnInit(): void {
@@ -102,6 +110,8 @@ export class AddProductComponent implements OnInit {
 
     if (this.activatedRoute.snapshot.params.product_id != null) {
       this.getVariantData(this.activatedRoute.snapshot.params.product_id);
+      this.button_text = 'Update Product';
+
     }
   }
 
@@ -245,12 +255,20 @@ export class AddProductComponent implements OnInit {
 
     this.apiService.httpViaPostLaravel('product/v1/get/combination', combination_data).subscribe((data) => {
       if (data.status_code == 200) {
+
+        let productCombinationArr=[];
+
         for (let i in data.data.productCombination) {
           data.data.productCombination[i].label = (data.data.productCombination[i].combination).split('-').join(' | ');
+          data.data.productCombination[i].name = (data.data.productCombination[i].combination).split('-')[0];
+          productCombinationArr[i] = (data.data.productCombination[i].combination).split('-')[0];
         }
-
         this.variantData = data.data.productCombination;
-        console.log(this.variantData, 'this.variantData')
+
+        if(this.variantData.length > 0){
+         this.filterVariantArray = productCombinationArr.filter((v, i, a) => a.indexOf(v) === i);
+        }
+        // console.log(this.variantData, 'this.variantData',this.filterVariantArray,productCombinationArr)
       }
     })
   }
@@ -532,6 +550,55 @@ export class AddProductComponent implements OnInit {
       if(next != null && typeof (next.status_code) != 'undefined' && next.status_code == 200){
         swal("Thank You!", 'Variant Restore successfully', "success");
         this.getVariantData(this.product.productId);
+      }
+    })
+  }
+
+  changevariantFilter(data,flag){
+    console.log(data,flag,'+++++++>>')
+    let is_active = 0;
+    let filterVal='';
+    if(flag == 'status'){
+      is_active = data==true ? 0 :1 ;
+      this.variantFilter.is_active = is_active;
+    }
+
+    if(flag == 'select' && data !=''){
+      filterVal = data
+    }
+
+    this.getVariantFilterData(this.variantFilter);
+
+    console.log(is_active,filterVal,this.variantFilter,data,this.variantData)
+    // for(let i in this.variantData){
+    //   if( filterVal !='' && this.variantData[i].name ==filterVal){
+    //     console.log(this.variantData[i],'+++++++++++++++++++++++')
+    //     dataArray.push(this.variantData[i])
+    //   }
+
+    //   if( this.variantData[i].is_active ==this.variantFilter.is_active){
+    //     dataArray.push(this.variantData[i])
+    //   }
+    // }
+    // this.variantData = dataArray;
+  }
+
+  getVariantFilterData(data) {
+    let combination_data: any = {
+      product_id: this.product.productId,
+      email: this.loginUserData.data.user.email,
+      is_active:data.is_active,
+      filter_val:data.selectVal
+    }
+
+    this.apiService.httpViaPostLaravel('product/v1/filter/combination', combination_data).subscribe((data) => {
+      if (data.status_code == 200) {
+        for (let i in data.data.productCombination) {
+          data.data.productCombination[i].label = (data.data.productCombination[i].combination).split('-').join(' | ');
+          data.data.productCombination[i].name = (data.data.productCombination[i].combination).split('-')[0];
+        }
+        this.variantData = data.data.productCombination;
+        // console.log(this.variantData, 'this.variantData',this.filterVariantArray,productCombinationArr)
       }
     })
   }

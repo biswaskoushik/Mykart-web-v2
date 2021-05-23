@@ -5,6 +5,7 @@ import { CommonFunction } from '../../../../core/class/common-function';
 
 import { environment } from '../../../../../environments/environment';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ApiService } from '../../../../core/service/api.service';
 
 
 
@@ -21,15 +22,18 @@ export class LeftMenuComponent implements OnInit {
   public environment: any = environment;
   public step_flag: boolean = true;
   public prodNotification: boolean = true ;
+  public productList :any= [];
+  public categoryList:any=[];
 
-
-  constructor(public commonFunction: CommonFunction, public activatedRoute: ActivatedRoute, public router: Router) { }
+  constructor(public commonFunction: CommonFunction, public activatedRoute: ActivatedRoute, public router: Router,public apiService:ApiService) { }
 
   ngOnInit(): void {
     let loginData: any = this.commonFunction.getLoginData();
     if (loginData.status == true) {
       this.loginData = loginData.data;
     }
+
+    console.log(this.loginData,'+++>>>>>>>>>>>>>>>> this.loginData')
 
     if (localStorage.getItem('step_stripe') != null &&
       localStorage.getItem('step_creadit_card_details') != null) {
@@ -42,17 +46,44 @@ export class LeftMenuComponent implements OnInit {
         this.step_flag = false;
       }
     }
+    this.getCategoryList();
+  }
+
+  getCategoryList() {
+    let vendor_data: any = 
+      {"source":"","Vendor_detail":{"email": this.loginData.user.email}}
+  
+    this.apiService.httpViaPost('services/vendor/v1/category/list', vendor_data).subscribe((next) => {
+        this.categoryList = next.response.category;
+        if (this.categoryList.length > 0) {
+          this.getProductList(this.categoryList[0])
+        }
+    })
+  }
+
+  getProductList(value) {
+    let vendor_data: any = {
+      category_code: value.code,
+      email: this.loginData.user.email
+    }
+    this.apiService.httpViaPostLaravel('product/v1/get/by-category', vendor_data).subscribe((next) => {
+      if (next != null && next.status_code == 200) {
+        this.productList = next.data.product;
+        if(this.productList.length>0){
+          this.prodNotification = false;
+        }
+      }
+    })
   }
 
   componentToStripe() {
-    window.location.href = environment['CONNECT_TO_STRIPE'] + 17;
+    window.location.href = environment['CONNECT_TO_STRIPE'] + this.loginData.user.id;
   }
 
   close() {
     this.prodNotification = ! this.prodNotification;
   }
 
-  
   // logout() {
   //   var config: any = {
   //     "title": "Do you want to logout ?",

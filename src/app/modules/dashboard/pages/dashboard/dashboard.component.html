@@ -194,15 +194,15 @@
                                         <div class="no_record d-none">
                                             <div class="no_record_title text-center txt-gray">no record found</div>
                                         </div>
-                                        <div class="no_stripe d-none">
+
+                                        <div class="no_stripe " *ngIf="!step_flag">
                                             <div class="text-center">
-                                                <button type="button" class="btn text-center btn-light btn-bluegrad txt-white">
+                                                <button type="button" (click)="componentToStripe()" class="btn text-center btn-light btn-bluegrad txt-white">
                                                     Connect to Stripe
                                                 </button>
                                             </div>
                                         </div>
-                                        <tbody>
-
+                                        <tbody *ngIf="step_flag">
                                             <tr class="text-muted" (click)="showMyList=!showMyList">
                                                 <td data-label="ID #"><a class="tdid" href="javascript:void(0);">4565432</a></td>
                                                 <td data-label="Date">16/12/2018</td>

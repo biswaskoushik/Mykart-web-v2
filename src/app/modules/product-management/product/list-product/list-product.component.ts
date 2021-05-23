@@ -38,6 +38,7 @@ export class ListProductComponent implements OnInit {
       this.categoryList = resp.categoryList.response.category;
       //console.log(resp, 'resp++++', this.categoryList)
       if (this.categoryList.length > 0) {
+        this.categoryNotification = false;
         this.getProductList(this.categoryList[0])
         this.inactiveCategoryFlag  = false;
         if(!this.categoryList[0].is_active){

@@ -208,7 +208,7 @@ export class ManageVariantComponent implements OnInit {
       let endpoint = 'variant/v1/create';
 
       if (this.variant.product_id != null) {
-        endpoint = 'product/v1/get/combination/update';
+        endpoint = 'product/v1/update/combination';
       }
 
       this.apiService.httpViaPostLaravel(endpoint, this.variant).subscribe(next => {

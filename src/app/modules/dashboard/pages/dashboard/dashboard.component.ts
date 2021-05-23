@@ -3,6 +3,7 @@ import { ApiService } from '../../../../core/service/api.service';
 import { CommonFunction } from '../../../../core/class/common-function';
 import { Router } from '@angular/router';
 import { timer ,  Subscription } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-dashboard',
@@ -41,6 +42,7 @@ export class DashboardComponent implements OnInit {
 
   pageNo: number = 1;
   count: number = 0;
+  public step_flag: boolean = true;
 
   constructor(public apiService: ApiService, public commonFunction: CommonFunction, public router: Router) {
   }
@@ -50,6 +52,18 @@ export class DashboardComponent implements OnInit {
 
     this.loggedInUserData = this.commonFunction.getLoginData();
     // console.log(this.loggedInUserData,'loggedInUserData++')
+
+    if (localStorage.getItem('step_stripe') != null &&
+    localStorage.getItem('step_creadit_card_details') != null) {
+    //console.log(this.step_flag, '+==============')
+
+    let step_stripe: any = localStorage.getItem('step_stripe');
+    let step_creadit_card_details: any = localStorage.getItem('step_creadit_card_details');
+
+    if (step_stripe == 0 && step_creadit_card_details == 0) {
+      this.step_flag = false;
+    }
+  }
 
   }
 
@@ -76,6 +90,10 @@ export class DashboardComponent implements OnInit {
       this.commonFunction.loader(false);
       this.router.navigate(['/auth/login']);
     }, 2000);
+  }
+
+  componentToStripe() {
+    window.location.href = environment['CONNECT_TO_STRIPE'] + this.loggedInUserData.data.user.id;
   }
 
 }

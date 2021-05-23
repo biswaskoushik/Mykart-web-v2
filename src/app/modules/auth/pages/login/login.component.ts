@@ -90,6 +90,7 @@ export class LoginComponent implements OnInit {
           this.commonFunction.loader(false);
 
           if (next.response != null && typeof (next.response.access_token) != 'undefined') {
+            if(next.response.is_email_verified == true){
             this.loginForm.reset();
             for (let x in this.loginForm.controls) {
               this.loginForm.controls[x].markAsUntouched();
@@ -110,10 +111,9 @@ export class LoginComponent implements OnInit {
               localStorage.setItem('last_name', this.userLoginData.user.last_name);
             }
             this.onBoardingSteps();
-            // setTimeout(() => {
-            //   location.reload();
-            //   this.router.navigate(['seller/onboarding']);
-            // }, 500);
+          }else{
+            swal("Sorry!", 'This is inactive user', "warning");
+          }
           } else {
             if (next.response.fault != null && typeof (next.response.fault) != 'undefined') {
               swal("Sorry!", next.response.fault.fault_message, "warning");
