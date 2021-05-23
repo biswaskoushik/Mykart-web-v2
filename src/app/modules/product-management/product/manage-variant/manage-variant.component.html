@@ -21,7 +21,7 @@
                     </div>
 
                     <div class="row m-auto d-flex ">
-                        <div class="col-10 form-group">
+                        <div class="col-12 form-group">
                             <form>
                                 <div class="row">
                                     <h5 class="text-mute font-weight-normal">Image <span
@@ -29,19 +29,31 @@
                                             photos)</span></h5>
                                     <div class="col-md-12">
                                         <div class="row m-b-15">
-                                            <div class="col-md-2" style="display : -webkit-inline-box">
-                                                <div onclick="document.getElementById('selectedImgFile').click();"
-                                                    class="image-container text-center cursor">
-                                                    <input type="file" id="selectedImgFile" name="selectedImgFile"
-                                                        accept="image/*" (change)="handleFileInputChange($event)"
-                                                        class="d-none" multiple />
-                                                    <img class="imageareaclass" src="assets/img/icons/plus_icon.png" />
-
+                                            <div class="addwrapppercls" style="display : -webkit-inline-box">
+                                                <div class="image-container-wrapper">
+                                                    <div onclick="document.getElementById('selectedImgFile').click();"
+                                                        class="image-container text-center cursor">
+                                                        <input type="file" id="selectedImgFile" name="selectedImgFile"
+                                                            accept="image/*" (change)="handleFileInputChange($event)"
+                                                            class="d-none" multiple />
+                                                        <img class="imageareaclass" src="assets/img/icons/plus_icon.png" />
+                                                    </div>
                                                 </div>
                                             </div>
 
-                                            <div *ngIf="imagesData.length > 0" style="display: flex;">
-                                                <div *ngFor="let item of imagesData;let i = index">
+                                            <div *ngIf="imagesData.length > 0" style="display: flex;" class="productlistswrapper">
+                                                <div *ngFor="let item of imagesData;let i = index" class="productlistsingle">
+
+                                                    <div class="col-md-12" style="display : -webkit-inline-box">
+                                                        <div class="imgcardclass-wrapper">
+                                                          <img form-group *ngIf="item" [src]="item" class="image-fluid p-4 imgcardclass" />
+                                                        </div>
+                                                          <i class="material-icons imgcloseclass" (click)="clearImage(item,i,'add')">&#xe888;</i>                          
+                                                        
+                                                      </div>
+
+
+
                                                     <div class="col-md-2" style="display : -webkit-inline-box">
                                                         <img form-group *ngIf="item" [src]="item.img"
                                                             class="image-fluid p-4 imgcardclass" />
@@ -51,11 +63,13 @@
                                                 </div>
                                             </div>
 
-                                            <div *ngIf="variant.media_links.length > 0" style="display: flex;">
-                                                <div *ngFor="let item of variant.media_links;let j = index">
-                                                    <div class="col-md-2" style="display : -webkit-inline-box">
+                                            <div *ngIf="variant.media_links.length > 0" style="display: flex;" class="productlistswrapper">
+                                                <div *ngFor="let item of variant.media_links;let j = index" class="productlistsingle">
+                                                    <div class="col-md-12" style="display : -webkit-inline-box">
+                                                        <div class="imgcardclass-wrapper">
                                                         <img form-group *ngIf="item" [src]="item"
                                                             class="image-fluid p-4 imgcardclass" />
+                                                        </div>
                                                         <i class="material-icons imgcloseclass"
                                                             (click)="clearImage(item,j,'edit')">&#xe888;</i>
                                                     </div>
@@ -153,7 +167,7 @@
                             </form>
 
                             <div class="col-lg-12 col-md-10 mt-2 text-right">
-                                <button class="btn-design btn text-center mt-2 disable-submit mr-2" type="button"
+                                <button class="btn-ouline-design btn text-center mt-2 disable-submit mr-2 " type="button"
                                     (click)="removeVariant()">
                                     <small class="font">Remove</small>
                                 </button>

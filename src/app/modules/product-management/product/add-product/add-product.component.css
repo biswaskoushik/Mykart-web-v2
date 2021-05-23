@@ -93,6 +93,8 @@ input.mat-chip-input {line-height: 24px;}
 .headercls{display: flex;flex-direction: row-reverse;justify-content: space-between;align-items: center;}
 .back-button{position: absolute;left: 20px;}
 
+
+
 @media (max-width: 767px) {
 .dashouter{padding:20px 0}
 .dashouter .card .card-header h5{font-size:16px}
