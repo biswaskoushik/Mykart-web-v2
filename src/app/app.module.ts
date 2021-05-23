@@ -31,6 +31,7 @@ import { StoreInformationComponent } from './modules/store-information/store-inf
 import { AddNewCardComponent } from './modules/subscription/add-new-card/add-new-card.component';
 import { PolicyAddEditComponent } from './modules/store-information/policy-add-edit/policy-add-edit.component';
 import { NotificationsComponent } from './modules/notifications/notifications.component';
+import { TransactionDetailsComponent } from './modules/transaction-details/transaction-details.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { NotificationsComponent } from './modules/notifications/notifications.co
     StoreInformationComponent,
     AddNewCardComponent,
     PolicyAddEditComponent,
-    NotificationsComponent
+    NotificationsComponent,
+    TransactionDetailsComponent
   ],
   imports: [
     BrowserModule,

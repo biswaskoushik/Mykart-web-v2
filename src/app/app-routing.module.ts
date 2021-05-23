@@ -10,6 +10,7 @@ import { PolicyAddEditComponent } from './modules/store-information/policy-add-e
 import { StoreInformationComponent } from './modules/store-information/store-information.component';
 import { SubscriptionComponent } from './modules/subscription/subscription.component';
 import { NotificationsComponent } from './modules/notifications/notifications.component';
+import { TransactionDetailsComponent } from './modules/transaction-details/transaction-details.component';
 
 const routes: Routes = [
   {
@@ -71,8 +72,10 @@ const routes: Routes = [
   {
     path: 'seller/store-information/:flag/:type/:code', component: PolicyAddEditComponent,
     canActivate: [AuthGuard]
-  }
-
+  },
+  {
+    path: 'seller/transaction-details', component: TransactionDetailsComponent, canActivate: [AuthGuard]
+  },
 
 ];
 
