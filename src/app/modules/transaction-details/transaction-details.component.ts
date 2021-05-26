@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-transaction-details',
@@ -7,7 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TransactionDetailsComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('myRejectModal') myRejectModal;
+
+  constructor() {}
+
+    onRejectModalOpen() {
+    //  this.myRejectModal.nativeElement.className = 'modal show';
+    }
+    onRejectModalClose() {
+    //  this.myRejectModal.nativeElement.className = 'modal hide';
+    }
+    onRejectModalSubmit() {
+    //  this.myRejectModal.nativeElement.className = 'modal hide';
+    }
+
 
   ngOnInit(): void {
   }
