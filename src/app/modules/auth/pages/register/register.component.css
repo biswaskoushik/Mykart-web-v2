@@ -3,8 +3,15 @@
 .f-w-500{font-weight:500}
 .inputTextContainer{border-radius:5px!important}
 .inputText{font-size:15px;min-height:60px!important;margin:0!important}
-.floating-label{position:absolute;pointer-events:none;height:45px;line-height:45px;left:20px;top:1px;font-size:15px!important;font-weight:300;color:#d3d3d3}
-input:focus ~ .floating-label,input:not(:focus):valid ~ .floating-label{height:15px;line-height:15px;left:10px;top:5px;font-size:9px!important;opacity:1}
+/* .floating-label{position:absolute;pointer-events:none;height:45px;line-height:45px;left:20px;top:1px;font-size:15px!important;font-weight:300;color:#d3d3d3}
+input:focus ~ .floating-label,input:not(:focus):valid ~ .floating-label{height:15px;line-height:15px;left:10px;top:5px;font-size:9px!important;opacity:1} */
+
+textarea:focus ~ .floating-label,textarea:not(:focus):valid ~ .floating-label{height:15px;line-height:15px;left:10px;top:5px;font-size:9px!important;opacity:1}
+.inputfield input:focus ~ .floating-label, .inputfield input:not(:focus):valid ~ .floating-label{top:10px;bottom:10px;left:10px;font-size:13px;opacity:1;color:rgba(0,0,0,.54)}
+.floating-label{pointer-events:none;position:absolute;pointer-events:none;left:20px;top:50%;transition:.5s ease all;height:inherit;transform:translateY(-50%);color: #828282}
+
+
+
 .form-group-default.focused{border-color:#2196F3!important}
 a{color:#0056b3!important}
 .checkbox.check-custom input[type=checkbox]:checked+label:before{border-color:#0056b3;border-width:1px}

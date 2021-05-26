@@ -24,8 +24,20 @@ input:focus ~ .floating-label,input:not(:focus):valid ~ .floating-label{height:1
 .addmorecls{align-items: center;}
 
 @media (max-width: 767px) {
-.page-content-wrapper .card .card-body .align-items-center{width:100%}
+.page-content-wrapper .card .card-body .align-items-center{width:100%;}
 }
+
+@media (max-width:600px) {
+.page-content-wrapper .card .card-body .align-items-center{flex-direction: row-reverse;}
+.page-content-wrapper .card .card-body .align-items-center .col-md-8.col-sm-6.col-6.text-left{order: 1;}
+.page-content-wrapper .card .card-body .align-items-center .col-md-2.col-sm-2.col-6.text-left{order: 2;text-align: right !important;}
+.page-content-wrapper .card .card-body .align-items-center .col-md-2.col-sm-4.col-6.text-center.buttoncls{order: 3;}
+.buttoncls .row {flex-direction: row-reverse;justify-content: flex-end;}
+.buttoncls .row .text-md-right.mt--25px{position: absolute;top: -30px;right: 0;}
+.page-content-wrapper .card .card-body .align-items-center .col-md-2.col-sm-2.col-6.text-left .font.f-s-15.m-0{position: absolute;right: 0;bottom: 0;}
+.page-content-wrapper .card .card-body .align-items-center .col-md-8.col-sm-6.col-12.text-left .font.f-s-15.m-0{padding-right: 52px;}
+}
+
 @media (max-width: 480px) {
 .page-content-wrapper .card .card-body .align-items-center .col-4.buttoncls{flex:0 0 100%;max-width:100%}
 }
