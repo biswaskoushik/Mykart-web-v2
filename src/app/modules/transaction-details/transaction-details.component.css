@@ -104,6 +104,8 @@ img {vertical-align: middle;border-style: none;}
 .dashouter form .dimentionrow .dimentioncolumn{padding:0 3px!important}
 .dashouter form .dimentionrow .dimentioncolumnx{padding:0 3px!important}
 .padding-whole {padding: 15px;}
+.single-photo-wrapper{overflow-x: scroll;flex-wrap: nowrap;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-flex-flow: row nowrap;justify-content: flex-start;}
+.single-photo-wrapper .single-photo{margin-bottom: 30px;width: 152px;min-width: 152px;height: 152px;flex-shrink: 0;line-height: 152px;padding-right: 5px;padding-left: 5px;}
 }
 @media (max-width: 575px) {
 .dashouter .card .form-group .form-control{height:40px;font-size:14px}
