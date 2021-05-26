@@ -112,13 +112,13 @@ export class DashboardComponent implements OnInit {
 
 
     onCreatLabelsModalOpen() {
-      //  this.myRejectModal.nativeElement.className = 'modal show';
+      //  this.myCreatLabelsModal.nativeElement.className = 'modal show';
       }
       onCreatLabelsModalClose() {
-      //  this.myRejectModal.nativeElement.className = 'modal hide';
+      //  this.myCreatLabelsModal.nativeElement.className = 'modal hide';
       }
       onCreatLabelsModalSubmit() {
-      //  this.myRejectModal.nativeElement.className = 'modal hide';
+      //  this.myCreatLabelsModal.nativeElement.className = 'modal hide';
       }
 
 

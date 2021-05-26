@@ -8,7 +8,6 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 export class TransactionDetailsComponent implements OnInit {
 
   @ViewChild('myRejectModal') myRejectModal;
-  @ViewChild('myCreatLabelsModal') myCreatLabelsModal;
 
   constructor() {}
 
@@ -22,16 +21,6 @@ export class TransactionDetailsComponent implements OnInit {
     //  this.myRejectModal.nativeElement.className = 'modal hide';
     }
 
-
-    onCreatLabelsModalOpen() {
-      //  this.myRejectModal.nativeElement.className = 'modal show';
-      }
-      onCreatLabelsModalClose() {
-      //  this.myRejectModal.nativeElement.className = 'modal hide';
-      }
-      onCreatLabelsModalSubmit() {
-      //  this.myRejectModal.nativeElement.className = 'modal hide';
-      }
 
 
   ngOnInit(): void {
