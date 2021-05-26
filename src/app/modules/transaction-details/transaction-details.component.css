@@ -87,17 +87,7 @@ img {vertical-align: middle;border-style: none;}
 
 .d-none{display: none;}
 .common-modal .modal-title{text-align: center;font-family: 'Lato';font-size: 20px;letter-spacing: 0.1px;color: #020433;font-weight: bold;margin-bottom: 30px;}
-.common-modal .close {
-    position: absolute;
-    right: 5px;
-    top: 0px;
-    padding: 0;
-    margin: 0;
-    color: #020433;
-    opacity: 1;
-    font-size: 30px;
-}
-
+.common-modal .close {position: absolute;right: 5px;top: 0px;padding: 0;margin: 0;color: #020433;opacity: 1;font-size: 30px;}
 /*---------Order css------------*/
 .backclass{color:#95a0b6}
 .back-button{color:#95a0b6;padding-top:4px}
