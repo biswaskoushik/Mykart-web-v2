@@ -86,8 +86,14 @@ img {vertical-align: middle;border-style: none;}
 .refund-amount-block h5 span{text-align: left;font-family:'Lato';font-size: 20px; letter-spacing: 0.07px;font-weight: bold;}
 
 .d-none{display: none;}
+.common-modal .modal-dialog{width: auto;}
 .common-modal .modal-title{text-align: center;font-family: 'Lato';font-size: 20px;letter-spacing: 0.1px;color: #020433;font-weight: bold;margin-bottom: 30px;}
+.common-modal .product-title{text-align: center;font-family: 'Lato';font-size: 20px;letter-spacing: 0.1px;color: #020433;font-weight: normal;margin-bottom: 30px;}
 .common-modal .close {position: absolute;right: 5px;top: 0px;padding: 0;margin: 0;color: #020433;opacity: 1;font-size: 30px;}
+.common-modal .bluebgtxt{font-family: 'Lato';font-size: 20px;letter-spacing: 0.1px;color: #020433;background-color: #E3EDFC;display: inline-block;padding: 5px 10px 10px;border-radius: 8px;}
+.common-modal .bluetxt{color: #0F73EE;}
+.common-modal .addpack{text-transform: inherit;}
+
 /*---------Order css------------*/
 .backclass{color:#95a0b6}
 .back-button{color:#95a0b6;padding-top:4px}

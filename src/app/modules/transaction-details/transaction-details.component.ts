@@ -22,6 +22,17 @@ export class TransactionDetailsComponent implements OnInit {
     }
 
 
+    onCreatLabelsModalOpen() {
+      //  this.myRejectModal.nativeElement.className = 'modal show';
+      }
+      onCreatLabelsModalClose() {
+      //  this.myRejectModal.nativeElement.className = 'modal hide';
+      }
+      onCreatLabelsModalSubmit() {
+      //  this.myRejectModal.nativeElement.className = 'modal hide';
+      }
+
+
   ngOnInit(): void {
   }
 

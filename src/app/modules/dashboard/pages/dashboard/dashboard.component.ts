@@ -11,7 +11,9 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  @ViewChild('myRejectModal') myRejectModal;
+  @ViewChild('myReadyCreatLabelsModal') myReadyCreatLabelsModal;
+  // @ViewChild('myCreatLabelsModal') myCreatLabelsModal;
+
   public loggedInUserData:any;
   keywordDebounce: Subscription;
 
@@ -98,16 +100,26 @@ export class DashboardComponent implements OnInit {
 
 
 
-  onCreatLabelsModalOpen() {
-    //  this.myRejectModal.nativeElement.className = 'modal show';
+    onReadyCreatLabelsModalOpen() {
+    //  this.myReadyCreatLabelsModal.nativeElement.className = 'modal show';
     }
-    onCreatLabelsModalClose() {
-    //  this.myRejectModal.nativeElement.className = 'modal hide';
+    onReadyCreatLabelsModalClose() {
+    //  this.myReadyCreatLabelsModal.nativeElement.className = 'modal hide';
     }
-    onCreatLabelsModalSubmit() {
-    //  this.myRejectModal.nativeElement.className = 'modal hide';
+    onReadyCreatLabelsModalSubmit() {
+    //  this.myReadyCreatLabelsModal.nativeElement.className = 'modal hide';
     }
 
+
+    myCreatLabelsModalOpen() {
+    //  this.myCreatLabelsModal.nativeElement.className = 'modal show';
+    }
+    onCreatLabelsModalClose() {
+    //  this.myCreatLabelsModal.nativeElement.className = 'modal hide';
+    }
+    onCreatLabelsModalSubmit() {
+    //  this.myCreatLabelsModal.nativeElement.className = 'modal hide';
+    }
 
 
 }

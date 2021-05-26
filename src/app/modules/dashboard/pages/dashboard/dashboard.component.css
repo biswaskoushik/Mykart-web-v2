@@ -82,9 +82,14 @@
 .showMyListcls .rejected_item .align-items-center{align-items:flex-start!important}
 .showMyListcls .rejected_item .rejected_item_title{margin-bottom:10px;text-transform:capitalize}
 
-.common-modal .modal-title{text-align: center;font-family: 'Lato';font-size: 20px;letter-spacing: 0.1px;color: #020433;font-weight: bold;margin-bottom: 30px;}
-.common-modal .close {position: absolute;right: 5px;top: 0px;padding: 0;margin: 0;color: #020433;opacity: 1;font-size: 30px;}
 
+.common-modal .modal-dialog{width: auto;}
+.common-modal .modal-title{text-align: center;font-family: 'Lato';font-size: 20px;letter-spacing: 0.1px;color: #020433;font-weight: bold;margin-bottom: 30px;}
+.common-modal .product-title{text-align: center;font-family: 'Lato';font-size: 20px;letter-spacing: 0.1px;color: #020433;font-weight: normal;margin-bottom: 30px;}
+.common-modal .close {position: absolute;right: 5px;top: 0px;padding: 0;margin: 0;color: #020433;opacity: 1;font-size: 30px;}
+.common-modal .bluebgtxt{font-family: 'Lato';font-size: 20px;letter-spacing: 0.1px;color: #020433;background-color: #E3EDFC;display: inline-block;padding: 5px 10px 10px;border-radius: 8px;}
+.common-modal .bluetxt{color: #0F73EE;}
+.common-modal .addpack{text-transform: inherit;}
 
 @media (max-width: 767px) {
 .dashouter{padding:20px 0}
