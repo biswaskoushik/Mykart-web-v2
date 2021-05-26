@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ApiService } from '../../../../core/service/api.service';
 import { CommonFunction } from '../../../../core/class/common-function';
 import { Router } from '@angular/router';
@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+  @ViewChild('myRejectModal') myRejectModal;
   public loggedInUserData:any;
   keywordDebounce: Subscription;
 
@@ -95,5 +95,19 @@ export class DashboardComponent implements OnInit {
   componentToStripe() {
     window.location.href = environment['CONNECT_TO_STRIPE'] + this.loggedInUserData.data.user.id;
   }
+
+
+
+  onCreatLabelsModalOpen() {
+    //  this.myRejectModal.nativeElement.className = 'modal show';
+    }
+    onCreatLabelsModalClose() {
+    //  this.myRejectModal.nativeElement.className = 'modal hide';
+    }
+    onCreatLabelsModalSubmit() {
+    //  this.myRejectModal.nativeElement.className = 'modal hide';
+    }
+
+
 
 }

@@ -469,7 +469,7 @@
                                                     <!------Action Buttons-->
                                                     <div class="cart_buttons"> 
                                                         <!------Create Shipping Labels Button-->
-                                                        <button type="button" class="btn btn-light btn-gray btn-bluegrad d-none">Create Shipping Labels</button> 
+                                                        <button type="button" class="btn btn-light btn-gray btn-bluegrad d-none" data-target="#myCreatLabelsModal" (click)="onCreatLabelsModalOpen()">Create Shipping Labels</button> 
                                                         <!------Refund Button-->
                                                         <button type="button" class="btn btn-light btn-gray btn-bluegrad d-none">Refund</button> 
                                                         <!------Confirm Button blue-->
@@ -555,3 +555,36 @@
             </div>
         </div>
     </div>
+
+
+
+
+    
+  <!-- Ready To Create Labels Modal -->
+  <div class="modal fade common-modal" id="myCreatLabelsModal" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" (click)="onCreatLabelsModalClose()">&times;</button>          
+        </div>
+        <div class="modal-body">
+          <div class="container-fluid">
+            <div class="row align-items-center mt-15">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center">
+                <h4 class="modal-title">Ready to create shipping labels?</h4>                
+              </div>
+            </div>
+            <!---Action Button--->
+            <div class="row align-items-center button-block mt-30">
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center">  
+                <button class="category-button btn btn-md btnnotyet" type="button" data-dismiss="modal" (click)="onCreatLabelsModalSubmit()"><small class="font f-w-500">not yet</small></button>  
+                <button class="update-button btn btn-md btncreatelabels" type="button" data-dismiss="modal" (click)="onCreatLabelsModalSubmit()"><small class="font f-w-500">create labels</small></button>                   
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
