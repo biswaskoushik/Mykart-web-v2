@@ -71,6 +71,15 @@
       $('.page-sidebar').toggleClass('visible');
       return false
     });
+
+    $(document).on('click', '.nav-item', function (e) {
+      $('body').toggleClass('sidebar-open');
+      $('.page-sidebar').toggleClass('visible');
+      return false
+    });
+
+
+
   </script>
 
   <script src="https://js.stripe.com/v3/"></script>
