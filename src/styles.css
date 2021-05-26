@@ -441,3 +441,7 @@ textarea { resize: none; }
 .app-left-menu{position:relative;z-index:99}
 .page-container{z-index:9}
 }
+
+@media (max-width:768px) {
+.newclsadd {justify-content: center;}
+}

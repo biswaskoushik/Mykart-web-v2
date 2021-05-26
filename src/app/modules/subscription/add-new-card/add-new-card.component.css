@@ -94,4 +94,5 @@ form.checkout button:active{background:#a54c2b}
 @media (max-width: 575px) {
 .btn-design{margin:0 auto;display:block}
 .cdk-overlay-pane[style]{max-width:100vw!important;max-height:100vh!important}
+.headcls{font-size: 18px;}
 }
