@@ -589,7 +589,7 @@
     </div>
   </div>
 
-   <!-- Create Labels Modal -->
+   <!-- Create Labels Modal -->  
    <div class="modal fade common-modal" id="myCreatLabelsModal" role="dialog">
     <div class="modal-dialog modal-dialog-centered modal-lg">
     
@@ -601,14 +601,41 @@
         <div class="modal-body">
           <div class="container-fluid">
             <div class="row align-items-center mt-15">
-              <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center">
-                <h4 class="modal-title">Create Labels</h4>     
-                <p>Drag & drop items to a shipping label based on how you’ll ship them to customers.</p>           
+              <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+                <h4 class="modal-title text-center">Create Labels</h4>     
+                <p class="text-left">Drag & drop items to a shipping label based on how you’ll ship them to customers.</p>           
+              </div>
+            </div>
+            <div class="row align-items-center mt-15">
+              <div class="col-md-8 offset-md-4 col-sm-12 col-12">
+                <h4 class="product-title text-left">Package 1</h4>     
+                <h6 class="bluebgtxt">Golden Goose - Superstar Sneaker</h6>           
+              </div>
+            </div>
+            <div class="row align-items-center mt-15">
+              <div class="col-md-8 offset-md-4 col-sm-12 col-12">    
+                <button class="btn bluetxt addpack"><i class="fa fa-plus"></i> Add Package</button>         
+              </div>
+            </div>
+            <div class="row align-items-center mt-15">
+              <div class="col-md-4 offset-md-8 col-sm-12 col-12">
+                <div class="row d-flex justify-content-between px-4">
+                  <p class="mb-1 text-left">Total Labels:</p>
+                  <h6 class="mb-1 text-right">1</h6>
+                </div>
+                <div class="row d-flex justify-content-between px-4">
+                    <p class="mb-1 text-left">Label(s) Fee:</p>
+                    <h6 class="mb-1 text-right"></h6>
+                </div>
+                <div class="row d-flex justify-content-between px-4">
+                    <p class="mb-1 text-left">Total Shipping Cost</p>
+                    <h6 class="mb-1 text-right">$8.50</h6>
+                </div>
               </div>
             </div>
             <!---Action Button--->
             <div class="row align-items-center button-block mt-30">
-              <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center">  
+              <div class="col-md-8 offset-md-4 col-sm-12 col-12 text-right">  
                 <button class="update-button btn btn-md btncreatelabels" type="button" data-dismiss="modal" (click)="onCreatLabelsModalSubmit()"><small class="font f-w-500">label Checkout</small></button>                   
               </div>
             </div> 
@@ -617,3 +644,4 @@
       </div>
     </div>
   </div>
+

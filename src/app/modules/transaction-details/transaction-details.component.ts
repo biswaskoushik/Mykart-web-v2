@@ -8,6 +8,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 export class TransactionDetailsComponent implements OnInit {
 
   @ViewChild('myRejectModal') myRejectModal;
+  @ViewChild('myCreatLabelsModal') myCreatLabelsModal;
 
   constructor() {}
 

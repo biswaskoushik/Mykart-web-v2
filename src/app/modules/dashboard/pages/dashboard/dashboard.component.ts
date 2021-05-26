@@ -12,7 +12,7 @@ import { environment } from 'src/environments/environment';
 })
 export class DashboardComponent implements OnInit {
   @ViewChild('myReadyCreatLabelsModal') myReadyCreatLabelsModal;
-  // @ViewChild('myCreatLabelsModal') myCreatLabelsModal;
+  @ViewChild('myCreatLabelsModal') myCreatLabelsModal;
 
   public loggedInUserData:any;
   keywordDebounce: Subscription;
@@ -111,15 +111,15 @@ export class DashboardComponent implements OnInit {
     }
 
 
-    myCreatLabelsModalOpen() {
-    //  this.myCreatLabelsModal.nativeElement.className = 'modal show';
-    }
-    onCreatLabelsModalClose() {
-    //  this.myCreatLabelsModal.nativeElement.className = 'modal hide';
-    }
-    onCreatLabelsModalSubmit() {
-    //  this.myCreatLabelsModal.nativeElement.className = 'modal hide';
-    }
+    onCreatLabelsModalOpen() {
+      //  this.myRejectModal.nativeElement.className = 'modal show';
+      }
+      onCreatLabelsModalClose() {
+      //  this.myRejectModal.nativeElement.className = 'modal hide';
+      }
+      onCreatLabelsModalSubmit() {
+      //  this.myRejectModal.nativeElement.className = 'modal hide';
+      }
 
 
 }
