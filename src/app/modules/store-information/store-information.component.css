@@ -96,3 +96,6 @@ input:not(:focus):valid ~ .floating-label{
 .color-black{
     color: black;
 }
+
+.ordermsg .card .card-body {padding: 0;}
+.m-t-5{margin-top:5px}

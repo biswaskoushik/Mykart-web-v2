@@ -50,7 +50,6 @@ textarea:focus ~ .floating-label,textarea:not(:focus):valid ~ .floating-label{he
 .variantsinfo span .grayclr{color: #ababab;margin-right: 3px;}
 .variantData{margin-bottom: 0;}
 .variantData:nth-child(even){background-color:#eef6ff}
-.variant .card-body{padding: 7px 10px 7px !important;}
 .arrowclass{display: flex;justify-content: flex-start;align-items: center;}
 .imgclass{display:block}
 .imgclass .variantsclass{height:25px}
@@ -93,7 +92,7 @@ input.mat-chip-input {line-height: 24px;}
 .headercls{display: flex;flex-direction: row-reverse;justify-content: space-between;align-items: center;}
 .back-button{position: absolute;left: 20px;}
 
-
+.variantlists{    padding-left: 0 !important;}
 
 @media (max-width: 767px) {
 .dashouter{padding:20px 0}
