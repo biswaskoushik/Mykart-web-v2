@@ -437,9 +437,68 @@ a, img {
 textarea { resize: none; }
 
 
+.image-upload {
+  width: 100%;
+  height: 145px;
+  border: 1px dashed #7070705F;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  position: relative;
+  text-align: center;
+  background: #f8f8f9;
+  color: #7070705F;
+  overflow: hidden;
+  display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.item-wrapper form img {
+  margin-bottom: 20px;
+  width: auto;
+  height: auto;
+  max-height: 400px;
+  width: auto;
+  border-radius: 5px;
+  overflow: hidden
+}
+
+.image-upload img {
+  height: 100% !important;
+  width: auto !important;
+  border-radius: 0px;
+  margin: 0 auto
+}
+
+.image-upload i {
+  color: #ccc;
+  font-size: 20px;
+}
+
+.image-upload input {
+  cursor: pointer;
+  opacity: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  left: 0
+}
+
+.item-wrapper input {
+  height: 43px;
+  line-height: 43px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 20px
+}
+
+
+
 @media (max-width:991px) {
 .app-left-menu{position:relative;z-index:99}
-.page-container{z-index:9}
+/* .page-container{z-index:9} */
 
 /* .hide{display: none !important;}
 .sidebar-close{display: none !important;} */

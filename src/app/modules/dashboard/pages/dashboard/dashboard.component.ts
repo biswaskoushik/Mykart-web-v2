@@ -11,8 +11,8 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  @ViewChild('myReadyCreatLabelsModal') myReadyCreatLabelsModal;
-  @ViewChild('myCreatLabelsModal') myCreatLabelsModal;
+  @ViewChild('myReadyCreatLabels') myReadyCreatLabels;
+  @ViewChild('myCreatLabels') myCreatLabels;
 
   public loggedInUserData:any;
   keywordDebounce: Subscription;
@@ -48,6 +48,29 @@ export class DashboardComponent implements OnInit {
 
   constructor(public apiService: ApiService, public commonFunction: CommonFunction, public router: Router) {
   }
+
+  
+  onReadyCreatLabelsOpen() {
+    //  this.myReadyCreatLabels.nativeElement.className = 'modal show';
+    }
+    onReadyCreatLabelsClose() {
+    //  this.myReadyCreatLabels.nativeElement.className = 'modal hide';
+    }
+    onReadyCreatLabelsSubmit() {
+    //  this.myReadyCreatLabels.nativeElement.className = 'modal hide';
+    }
+
+
+    onCreatLabelsOpen() {
+      //  this.myCreatLabels.nativeElement.className = 'modal show';
+      }
+      onCreatLabelsClose() {
+      //  this.myCreatLabels.nativeElement.className = 'modal hide';
+      }
+      onCreatLabelsSubmit() {
+      //  this.myCreatLabels.nativeElement.className = 'modal hide';
+      }
+
 
   ngOnInit(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -99,27 +122,6 @@ export class DashboardComponent implements OnInit {
   }
 
 
-
-    onReadyCreatLabelsModalOpen() {
-    //  this.myReadyCreatLabelsModal.nativeElement.className = 'modal show';
-    }
-    onReadyCreatLabelsModalClose() {
-    //  this.myReadyCreatLabelsModal.nativeElement.className = 'modal hide';
-    }
-    onReadyCreatLabelsModalSubmit() {
-    //  this.myReadyCreatLabelsModal.nativeElement.className = 'modal hide';
-    }
-
-
-    onCreatLabelsModalOpen() {
-      //  this.myCreatLabelsModal.nativeElement.className = 'modal show';
-      }
-      onCreatLabelsModalClose() {
-      //  this.myCreatLabelsModal.nativeElement.className = 'modal hide';
-      }
-      onCreatLabelsModalSubmit() {
-      //  this.myCreatLabelsModal.nativeElement.className = 'modal hide';
-      }
 
 
 }
