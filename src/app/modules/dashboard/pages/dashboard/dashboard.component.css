@@ -95,7 +95,10 @@
 }
 .update-btn:focus{color:#fff}
 .update-btn:active:focus{color:#fff}
-
+.mt-50{margin-top: 50px;}
+.mt-30{margin-top: 30px;}
+.mt-15{margin-top: 15px;}
+.mb-30{margin-bottom: 30px;}
 .bdr-red{border: 1px solid #FC2F39;color:#FC2F39}
 .txt-red{color:#FC2F39 !important}
 .txt-blue{color:#0F73EE !important}

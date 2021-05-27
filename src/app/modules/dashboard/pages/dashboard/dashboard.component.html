@@ -613,21 +613,59 @@
                   </div>
                 <div class="col-md-8 col-sm-12 col-12">
                     <div class="row">
-                      <div class="col-md-12 col-sm-12 col-12">
-                        <h4 class="product-title text-left">Package 1</h4>    
-                      </div>
+                        <!------package loop block-------->
+                        <div class="col-md-12 col-sm-12 col-12 packageblock">
+                            <div class="row">
+                                <button type="button" class="close">&times;</button>
+                                <div class="col-md-10 col-sm-10 col-10">
+                                    <h4 class="product-title text-left">Package 1</h4>       
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-12 d-none">
+                                    <h6 class="bluebgtxt">Golden Goose - Superstar Sneaker</h6>     
+                                </div>
+                                <div class="col-md-12 col-sm-12 col-12">
+                                    <div class="item-wrapper one">
+                                        <div class="item">
+                                            <form data-validation="true" action="#" method="post" enctype="multipart/form-data">
+                                                <div class="item-inner">
+                                                    <div class="item-content">
+                                                        <div class="image-upload"> 
+                                                            <label style="cursor: pointer;" for="file_upload"> 
+                                                                <img src="" alt="" class="uploaded-image">
+                                                                <div class="h-100">
+                                                                    <div class="dplay-tbl">
+                                                                        <div class="dplay-tbl-cell"> 
+                                                                            <i class="fa fa-plus fa-sm" aria-hidden="true"></i>
+                                                                            <p><b>Drop items that will be shipped in this package</b></p>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <!--upload-content--> 
+                                                                <input data-required="image" type="file" name="image_name" id="file_upload" class="image-input" data-traget-resolution="image_resolution" value="">
+
+                                                            </label> 
+                                                        </div>
+                                                    </div>
+                                                    <!--item-content-->
+                                                </div>
+                                                <!--item-inner-->
+                                            </form>
+                                        </div>
+                                        <!--item-->
+                                    </div>                                   
+                                </div>
+                            </div>
+                        </div>
+                        <!------package loop block-------->
                     </div> 
-                    <div class="row">
-                      <div class="col-md-12 col-sm-12 col-12">
-                        <h6 class="bluebgtxt">Golden Goose - Superstar Sneaker</h6>     
-                      </div>
-                    </div>                    
+                                       
                     <div class="row">
                       <div class="col-md-12 col-sm-12 col-12">
                         <button class="btn bluetxt addpack"><i class="fa fa-plus"></i> Add Package</button> 
                       </div> 
                     </div>
-                    <div class="row">
+                    
+                    <div class="row mt-30">
                       <div class="col-md-10 offset-md-2 col-sm-12 col-12">
                           <div class="row d-flex justify-content-between px-4">
                             <p class="mb-1 text-left">Total Labels:</p>
@@ -647,6 +685,13 @@
                           </div>
                       </div>
                     </div>
+                    <div class="row mt-15">
+                        <div class="col-md-10 offset-md-2 col-sm-12 col-12">
+                            <div class="row d-flex justify-content-between px-4">
+                                <p class="mb-1 text-left">You keep $2.50 on this shipping transaction.</p>  
+                            </div>
+                        </div> 
+                      </div>
                     <div class="row">
                     <div class="col-md-8 offset-md-4 col-sm-12 col-12 text-right">  
                         <button class="update-button btn btn-md btncreatelabels" type="button" data-dismiss="modal" (click)="onCreatLabelsSubmit()"><small class="font f-w-500">label Checkout</small></button>                   
