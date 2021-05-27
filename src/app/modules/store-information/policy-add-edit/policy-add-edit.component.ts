@@ -91,19 +91,39 @@ export class PolicyAddEditComponent implements OnInit {
         this.data.flag = 'shipping';
 
         this.getShippingCarrierData();
+
+        this.apiService.httpViaPostLaravel("services/user/v1/get-shipping", { policy_type_id: 1, vendor_id: this.loginData.data.user.id }).subscribe((next: any) => {
+          this.commonFunction.loader(false);
+          if (next.status_code == 200) {
+            this.shippingCarriers.shipping_additional_details = next.data;
+          }
+        });
         break;
       case 'return':
         this.data.header = 'Return Policy';
         this.data.flag = 'return';
+
+        this.apiService.httpViaPostLaravel("services/user/v1/get-shipping", { policy_type_id: 2, vendor_id: this.loginData.data.user.id }).subscribe((next: any) => {
+          this.commonFunction.loader(false);
+          if (next.status_code == 200) {
+            this.returnPolicy.return_additional_details = next.data;
+          }
+        });
         break;
       case 'contact':
         this.data.header = 'Contact Us';
         this.data.flag = 'contact';
 
-        this.contactUs.email = this.loginData.data.user.email;
-        this.contactUs.address = this.loginData.data.user.address;
-        this.contactUs.vendor_id = this.loginData.data.user.id;
-
+        this.apiService.httpViaPostLaravel("services/user/v1/get-contact-us", { vendor_id: this.loginData.data.user.id }).subscribe((next: any) => {
+          this.commonFunction.loader(false);
+          if (next.status_code == 200) {
+            this.contactUs.email = next.data.email;
+            this.contactUs.address = next.data.address;
+            this.contactUs.vendor_id = next.data.vendor_id;
+            this.contactUs.phone_number = next.data.phone_number;
+          }
+        });
+        
         break;
       case 'custom':
         this.data.header = 'New Policy';
@@ -214,6 +234,7 @@ export class PolicyAddEditComponent implements OnInit {
     this.apiService.httpViaPost('services/vendor/v1/policy/details/get', {}).subscribe(next => {
       this.policy_details = next.response.policy_details;
 
+      console.log("this.policy_details ", this.policy_details);
 
       if (this.activatedRoute.snapshot.params.type == "shipping") {
         this.shippingCarriers = {
@@ -221,19 +242,25 @@ export class PolicyAddEditComponent implements OnInit {
           shipping_carrier: this.policy_details.shipping_carrier,
           handling_time: this.policy_details.handling_time,
           id: this.policy_details.id,
+
+          shipping_additional_details: '',
           shipping_additional_info: this.policy_details.shipping_additional_info,
+          
           vendor_id: this.policy_details.vendor_id
         }
         this.getServiceData(this.shippingCarriers.carrier_service)
       }
 
       if (this.activatedRoute.snapshot.params.type == "return") {
+
         this.returnPolicy = {
           accepting_returns: this.policy_details.accepting_returns,
           processing_time: this.policy_details.processing_time,
           id: this.policy_details.id,
-          return_additional_info: this.policy_details.return_additional_info,
+
           return_additional_details: '',
+          return_additional_info: this.policy_details.return_additional_info,
+
           vendor_id: this.policy_details.vendor_id,
           return_window: this.policy_details.return_window
         }
@@ -246,6 +273,17 @@ export class PolicyAddEditComponent implements OnInit {
     this.apiService.httpViaPost('services/vendor/v1/policy/other/list',
       { "vendor": { "email": this.loginData.data.user.email } }).subscribe(next => {
         this.customPolicyData = next.response.vendor_policy_other;
+
+        for (let i in this.customPolicyData) {
+          if (this.customPolicyData[i].code == this.activatedRoute.snapshot.params.code) {
+            this.customPolicy = {
+              title: this.customPolicyData[i].title,
+              detail: this.customPolicyData[i].detail,
+              code: this.customPolicyData[i].code,
+              type: 'Other'
+            }
+          }
+        }
 
 
         if (this.activatedRoute.snapshot.params.code != null && this.activatedRoute.snapshot.params.code != '') {
@@ -269,12 +307,20 @@ export class PolicyAddEditComponent implements OnInit {
   updateShippingCarrierReturn(result) {
     this.commonFunction.loader(true);
     this.apiService.httpViaPost("services/vendor/v1/policy/details/update", result).subscribe((next: any) => {
-      this.commonFunction.loader(false);
       if (next.response != null && next.response.status != null && typeof (next.response.status.status_message) != 'undefined' && next.response.status.status_code == 200) {
-        swal("Thank You!", 'Policies update successfully', "success");
-        setTimeout(() => {
-          this.router.navigateByUrl('/seller/store-information')
-        }, 1000);
+        
+        this.apiService.httpViaPostLaravel("services/user/v1/update-shipping", result).subscribe((next: any) => {
+          this.commonFunction.loader(false);
+          if (next.status_code == 200) {
+            swal("Thank You!", 'Policies update successfully', "success");
+            setTimeout(() => {
+              this.router.navigateByUrl('/seller/store-information')
+            }, 1000);
+          } else {
+            swal("Sorry!", 'Somethings went wrong!', "warning");
+          }
+        });
+
       } else {
         swal("Sorry!", 'Somethings went wrong!', "warning");
       }
@@ -305,12 +351,20 @@ export class PolicyAddEditComponent implements OnInit {
   updateContactUs(result) {
     this.commonFunction.loader(true);
     this.apiService.httpViaPost("services/vendor/v1/policy/contactus/update", { vendor_policy_contactus: result }).subscribe((next: any) => {
-      this.commonFunction.loader(false);
       if (next.response != null && next.response.status != null && typeof (next.response.status.status_message) != 'undefined' && next.response.status.status_code == 200) {
-        swal("Thank You!", 'Contact update successfully', "success");
-        setTimeout(() => {
-          this.router.navigateByUrl('/seller/store-information')
-        }, 1000);
+        
+        this.apiService.httpViaPostLaravel("services/user/v1/update/contact-us", result).subscribe((next: any) => {
+          this.commonFunction.loader(false);
+          if (next.status_code == 200) {
+            swal("Thank You!", 'Contact update successfully', "success");
+            setTimeout(() => {
+              this.router.navigateByUrl('/seller/store-information')
+            }, 1000);
+          } else {
+            swal("Sorry!", 'Somethings went wrong!', "warning");
+          }
+        });
+
       } else {
         swal("Sorry!", 'Somethings went wrong!', "warning");
       }

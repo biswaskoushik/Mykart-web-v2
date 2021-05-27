@@ -34,7 +34,7 @@
 
                 <div class="card card-borderless">
                     <ul class="nav nav-tabs nav-tabs-simple">
-                        <li class="nav-item cursor" *ngFor="let row of categoryList">
+                        <li class=" cursor" *ngFor="let row of categoryList">
                             <a data-toggle="tab" [ngClass]="{'active': row.code == selectedCategory}"
                                 (click)="getProductList(row)" class="font f-w-600">
                                 {{row.name}}

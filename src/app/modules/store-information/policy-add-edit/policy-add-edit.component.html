@@ -115,11 +115,11 @@
                                                     </div>
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto ">
                                                         <div class="divInf inputText">
-                                                            <textarea placeholder="Details"
-                                                                class="form-control form-control-lg inputText"
-                                                                [(ngModel)]="shippingCarriers.shipping_additional_details"
-                                                                [ngModelOptions]="{standalone: true}">
-                                                            </textarea>
+                                                            <div class="col-lg-12" style="border: 1px solid #e3e3e3;border-radius: 5px;
+                                                                padding: 6px;
+                                                                resize: both;
+                                                                overflow: auto;">{{ shippingCarriers.shipping_additional_details }}
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-8 mb-2 p-0 text-capitalize ">
@@ -128,7 +128,7 @@
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto">
                                                         <div class="divInf inputText">
                                                             <textarea placeholder="Additionals Notes"
-                                                                class="form-control  form-control-lg inputText"
+                                                                class="form-control form-control-lg inputText"
                                                                 [(ngModel)]="shippingCarriers.shipping_additional_info"
                                                                 [ngModelOptions]="{standalone: true}">
                                                             </textarea>
@@ -226,10 +226,11 @@
                                                     </div>
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto ">
                                                         <div class="divInf inputText">
-                                                            <textarea placeholder="Details"
-                                                                class="form-control form-control-lg inputText"
-                                                                [(ngModel)]="returnPolicy.return_additional_details"
-                                                                [ngModelOptions]="{standalone: true}"></textarea>
+                                                                <div class="col-lg-12" style="border: 1px solid #e3e3e3;border-radius: 5px;
+                                                                padding: 6px;
+                                                                resize: both;
+                                                                overflow: auto;">{{ returnPolicy.return_additional_details }}
+                                                            </div>
                                                         </div>
                                                     </div>
     

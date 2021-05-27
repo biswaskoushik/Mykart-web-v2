@@ -56,7 +56,7 @@ export class ManageVariantComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<ManageVariantComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any, public formBuilder: FormBuilder, public apiService: ApiService, public commonFunction: CommonFunction) {
-    // console.log(data.data, '++++++++++data')
+    console.log(data.data, '++++++++++data')
 
 
     this.variant.price = data.data.price,
@@ -156,20 +156,20 @@ export class ManageVariantComponent implements OnInit {
     this.commonFunction.confirmBox(config).then((action) => {
       if (action == true) {
         if (flag == 'edit') {
-          // console.log(this.variant.media_links[i], i)
+          console.log(this.variant.media_links[i], i)
           this.variant.delete_img.push(this.variant.media_links[i]);
           this.variant.media_links.splice(i, 1);
         }
         if (flag == 'add') {
           this.imagesData.splice(i, 1);
         }
-        // console.log(this.imagesData)
+        console.log(this.imagesData)
       }
     })
   }
 
   changeDiscount(flag) {
-    // console.log(flag)
+    console.log(flag)
     this.is_percentage = false;
     this.is_flat_amount = false;
     this.none_flag = false;
@@ -203,7 +203,7 @@ export class ManageVariantComponent implements OnInit {
       this.commonFunction.loader(true);
 
       this.variant.images = this.imagesData;
-      // console.log(this.variant)
+      console.log(this.variant)
 
       let endpoint = 'variant/v1/create';
 

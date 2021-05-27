@@ -31,9 +31,10 @@ export class LeftMenuComponent implements OnInit {
     let loginData: any = this.commonFunction.getLoginData();
     if (loginData.status == true) {
       this.loginData = loginData.data;
+
     }
 
-    // console.log(this.loginData,'+++>>>>>>>>>>>>>>>> this.loginData')
+    console.log(this.loginData,'+++>>>>>>>>>>>>>>>> this.loginData')
 
     if (localStorage.getItem('step_stripe') != null &&
       localStorage.getItem('step_creadit_card_details') != null) {
@@ -46,6 +47,14 @@ export class LeftMenuComponent implements OnInit {
         this.step_flag = false;
       }
     }
+
+    this.apiService.httpViaPostLaravel('services/user/v1/get-onboarding', { vendor_id: this.loginData.user.id }).subscribe((next) => {
+      if(next.data.step_stripe == 0 && next.data.step_creadit_card_details == 0) {
+        this.step_flag = false;
+      } else {
+        this.step_flag = true;
+      }
+    })
     this.getCategoryList();
   }
 
@@ -82,6 +91,13 @@ export class LeftMenuComponent implements OnInit {
 
   close() {
     this.prodNotification = ! this.prodNotification;
+  }
+
+  stripeDashboard() {
+    let j = confirm("Do you want to redirect to Stripe dashboard ?");
+    if(j) {
+      window.location.href = "http://18.222.168.203/api-mykart/stripe/onboarding/get-dashboard-link/" + this.loginData.user.id;
+    }
   }
 
   // logout() {

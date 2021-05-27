@@ -233,8 +233,6 @@ export class OnboardingProfileComponent implements OnInit {
           img.src = next.data.vendor.image_url;
           localStorage.setItem('image_url', next.data.vendor.image_url);
         }
-          localStorage.setItem('first_name', this.profileForm.value.first_name);
-          localStorage.setItem('last_name', this.profileForm.value.last_name);
 
         if (this.router.url == '/seller/onboarding') {
           this.profileFormFlag = false;

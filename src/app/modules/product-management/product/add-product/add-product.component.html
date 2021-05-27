@@ -8,7 +8,8 @@
             <div class="row align-items-center">
               <div class="col-md-12 col-sm-12 text-center headercls">
                 <h5 class="col-md-12 col-sm-12 font text-center m-0">
-                  Add Product
+                  <ng-container *ngIf="this.activatedRoute.snapshot.params.product_id != null">Update Product</ng-container>
+                  <ng-container *ngIf="this.activatedRoute.snapshot.params.product_id == null">Create Product</ng-container>
                 </h5>
 
                 <div class="back-button cursor">
@@ -112,6 +113,7 @@
                     <div class="col-md-12">
                       <div class="row m-b-6 mb-2">
                         <div class="col-md-6">
+                          
                           <div class="form-group">
                             <input type="text" name="productTitle" placeholder="Product Title" id="productTitle"
                               class="form-control inputText" [(ngModel)]="product.title"
@@ -119,6 +121,7 @@
                             <p class="error-p" *ngIf="product.title == null || 
                       product.title == ''">{{fielderror?.titleerr}}</p>
                           </div>
+
                         </div>
                         <div class="col-md-6">
                           <div class="form-group">
@@ -206,10 +209,9 @@
             </div>
           </div>
 
+
           <div class="row justify-content-center">
             <div class="col-12">
-
-
               <div class="card mb-35 card-common">
                 <div class="card-header border-bottom mb-3 card-backgroud">
                   <h5 class="text-mute font-weight-normal">VARIANTS (create up to 3 variants)</h5>
@@ -264,10 +266,10 @@
             </div>
           </div>
 
-          <div class="row justify-content-center variant">
+          <div class="row justify-content-center variant" *ngIf="button_text == 'Update Product' && filterVariantArray.length > 0">
             <div class="col-12">
               <div class="card mb-35 card-common">
-                <div class="card-body">
+                <div class="card-body m-2">
                   <h5 class="text-mute font-weight-normal mt-2">Manage Variants</h5>
 
                   <div class="row">
@@ -275,8 +277,9 @@
                       <div class="row m-b-6 mb-2">
                         <div class="col-md-4">
                           <select class="form-control form-control-lg inputText"  id="variantFilterSelect01" [(ngModel)]="variantFilter.selectVal" (change)="changevariantFilter(variantFilter.selectVal,'select')"  [ngModelOptions]="{standalone: true}">
-                            <option selected value=''>Filter by Variant</option>
+                            <option selected value='all'>View all variant</option>
                             <option *ngFor="let val of filterVariantArray" [value]="val">{{val}}</option>
+                            <option value="removed">Removed</option>
                           </select>
                         </div>
 
@@ -572,3 +575,12 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+

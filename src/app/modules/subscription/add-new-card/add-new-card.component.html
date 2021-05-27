@@ -1,58 +1,58 @@
 <div class="page-content-wrapper mainwrapper">
-    <div class="content sm-gutter">
-        <div class="container-fluid padding-0 sm-padding-0">
-            <div class="h-100">
-                <div class="container-fluid sm-padding-0">
-                    <div class="card card-borderless m-b-20">
-                        <div class="card-body">
+  <div class="content sm-gutter">
+      <div class="container-fluid padding-0 sm-padding-0">
+          <div class="h-100">
+              <div class="container-fluid sm-padding-0">
+                  <div class="card card-borderless m-b-20">
+                      <div class="card-body">
 
-                            <div class="row align-items-center">
-                                <div class="col-md-11 col-sm-11 col-11 text-center">
-                                    <h4 class="font text-center m-0 headcls">{{data?.header}}</h4>
-                                </div>
-                                <!-- <div class="col-md-3 text-md-right sm-text-center sm-m-b-20 sm-m-t-20">
-                                </div> -->
-                                <div class="col-md-1 col-sm-1 col-1 text-center">
-                                    <i class="fa fa-close" style="font-size:24px;cursor: pointer;"
-                                        (click)="closeModal()"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                          <div class="row align-items-center">
+                              <div class="col-md-11 col-sm-11 col-11 text-center">
+                                  <h4 class="font text-center m-0 headcls">{{data?.header}}</h4>
+                              </div>
+                              <!-- <div class="col-md-3 text-md-right sm-text-center sm-m-b-20 sm-m-t-20">
+                              </div> -->
+                              <div class="col-md-1 col-sm-1 col-1 text-center">
+                                  <i class="fa fa-close" style="font-size:24px;cursor: pointer;"
+                                      (click)="closeModal()"></i>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
 
-                    <div class="row m-auto d-flex justify-content-center">
-                        <div class="col-12 form-group">
-                          <form [formGroup]="subscriptionForm">
-                            <div class="form-row checkout">
-                              <label for="card-info">Card Info</label>
-                              <div id="card-info" #cardInfo></div>
-                              <p id="card-errors" role="alert" *ngIf="error">{{ error }}</p>
-                            </div>
-                      
-                            <div class="row mb-15">
-                              <div class="col-md-12 mt-2">
-                                <div class="form-group">
-                                  <input type="radio" name="is_default" id="is_default" formControlName="is_default" [checked]="false"
-                                    (change)="onItemChange($event)" />
-                                  Make this my default card
-                                </div>
+                  <div class="row m-auto d-flex justify-content-center">
+                      <div class="col-12 form-group">
+                        <form [formGroup]="subscriptionForm">
+                          <div class="form-row checkout">
+                            <label for="card-info">Card Info</label>
+                            <div id="card-info" #cardInfo></div>
+                            <p id="card-errors" role="alert" *ngIf="error">{{ error }}</p>
+                          </div>
+                    
+                          <div class="row mb-15">
+                            <div class="col-md-12 mt-2">
+                              <div class="form-group">
+                                <input type="radio" name="is_default" id="is_default" formControlName="is_default" [checked]="false"
+                                  (change)="onItemChange($event)" />
+                                Make this my default card
                               </div>
                             </div>
-                          </form>
-                      
-                          <div class="col-lg-12 col-md-12 mt-2 text-right">
-                            <button class="btn-design btn text-center mt-2 disable-submit" (click)="subscribe()">
-                              <small class="font">SUBSCRIBE</small>
-                            </button>
-                      
                           </div>
-                      
+                        </form>
+                    
+                        <div class="col-lg-12 col-md-12 mt-2 text-right">
+                          <button class="btn-design btn text-center mt-2 disable-submit" (click)="subscribe()">
+                            <small class="font">SUBSCRIBE</small>
+                          </button>
+                    
                         </div>
+                    
                       </div>
+                    </div>
 
 
-                </div>
-            </div>
-        </div>
-    </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </div>

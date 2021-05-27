@@ -25,11 +25,17 @@ export class RouteResolveService implements Resolve<any> {
     let activatedRoute: any = activatedRouteSnapshot.data;
     let params: any = activatedRouteSnapshot.params;
     let loginUserData = this.commonFunction.getLoginData()
+    let flag: any = "spring";
 
 
     //console.log(activatedRoute, 'activatedRoute++')
     if (activatedRoute.endpoint == 'services/vendor/v1/category/list') {
       activatedRoute.requestcondition.Vendor_detail.email = loginUserData.data.user.email;
+    }
+
+    if (activatedRoute.endpoint == 'product/v1/get/category') {
+      activatedRoute.requestcondition.email = loginUserData.data.user.email;
+      flag = "laravel"
     }
 
     if (activatedRoute.endpoint == 'services/vendor/v1/product/get') {
@@ -41,25 +47,31 @@ export class RouteResolveService implements Resolve<any> {
     }
 
 
-    return new Promise((resolve) => {
-      var data: any = activatedRoute.requestcondition;
+    if(flag == "spring") {
+      return new Promise((resolve) => {
+        var data: any = activatedRoute.requestcondition;
 
-      // Route Params
-      // var params: any = activatedRouteSnapshot.params;
-      // if (Object.keys(params).length > 0) {
-      //   if (params.hasOwnProperty('slug')) {
-      //     data.condition = Object.assign(data.condition, params);
-      //   }
-      // }
-
-      this.apiService.httpViaPost(activatedRoute.endpoint, data).subscribe(response => {
-        if (response) {
-          return resolve(response);
-        } else {
-          return true;
-        }
+        this.apiService.httpViaPost(activatedRoute.endpoint, data).subscribe(response => {
+          if (response) {
+            return resolve(response);
+          } else {
+            return true;
+          }
+        });
       });
-    });
+    } else {
+      return new Promise((resolve) => {
+        var data: any = activatedRoute.requestcondition;
+  
+        this.apiService.httpViaPostLaravel(activatedRoute.endpoint, data).subscribe(response => {
+          if (response) {
+            return resolve(response);
+          } else {
+            return true;
+          }
+        });
+      });
+    }
   }
 
 }

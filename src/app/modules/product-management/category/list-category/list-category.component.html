@@ -57,14 +57,14 @@
                                                 </div>
 
                                                 <div class="text-md-right">
-                                                    <img src="assets/img/icons/edit.png" class="cursor"
-                                                        (click)="editCategory(row,i)" />
+                                                    <button type="button" class="bg-transparent border-0" (click)="editCategory(row,i)">
+                                                        <img src="assets/img/icons/edit.png" class="cursor"/>
+                                                    </button>
                                                 </div>
 
-                                                <div class="text-md-right">
+                                                <div class="text-md-right" *ngIf="row.is_product_avilable == 0">
                                                     <button type="button" class="bg-transparent border-0"
                                                         (click)="deleteCategory(row,i)">
-
                                                         <img src="assets/img/icons/delete.png" class="cursor" />
                                                     </button>
                                                 </div>

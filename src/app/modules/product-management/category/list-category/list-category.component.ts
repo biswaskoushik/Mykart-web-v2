@@ -61,13 +61,16 @@ export class ListCategoryComponent implements OnInit {
       "title": "Do you want to delete category?",
       "buttons": ["No", "Yes"]
     };
+
+    console.log("category: ", category);
+
     this.commonFunction.confirmBox(config).then((action) => {
       if (action == true) {
         this.isLoading = true;
         this.apiService
-          .httpViaPost('services/vendor/v1/category/delete', { category: category })
+          .httpViaPostLaravel('product/v1/delete/category', { category_id: category.id })
           .subscribe((next) => {
-            if (next.response != null && next.response.status != null && typeof (next.response.status.status_message) != 'undefined' && next.response.status.status_code == 200) {
+            if (next.status_code == 200) {
               this.getCategoryList();
               this.categoryList.splice(i, 1);
             }
@@ -138,9 +141,9 @@ export class ListCategoryComponent implements OnInit {
       source: "",
       Vendor_detail: { email: this.loginUserData.data.user.email }
     }
-    this.apiService.httpViaPost('services/vendor/v1/category/list', vendor_data).subscribe((data) => {
+    this.apiService.httpViaPostLaravel('product/v1/get/category', vendor_data).subscribe((data) => {
       this.commonFunction.loader(false);
-      //console.log(" component getCategoryList", data);
+      console.log(" component getCategoryList", data);
       if (data != null && data.response != null) {
         this.categoryList = data.response.category;
       }

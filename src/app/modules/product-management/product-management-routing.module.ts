@@ -54,11 +54,9 @@ const routes: Routes = [
     data: {
       requestcondition: {
         source: '',
-        "Vendor_detail": {
-          "email": ""
-        }
+        "email": ""
       },
-      endpoint: 'services/vendor/v1/category/list'
+      endpoint: 'product/v1/get/category'
     }
   },
 

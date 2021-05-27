@@ -65,7 +65,7 @@
       </li>
 
       <li class="nav-item" *ngIf="step_flag" [ngClass]="router.url == '/seller/payment-history' ? 'activeclass':''">
-        <a [routerLink]="['seller/payment-history']">
+        <a (click)="stripeDashboard();" style="cursor: pointer;">
           <img class="svg" src="assets/images/icn-payment.png">
           <span class="align-middle text-uppercase">PAYMENT HISTORY</span>
           <span class="selected"></span>
