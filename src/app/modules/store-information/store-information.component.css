@@ -70,7 +70,7 @@ form .row [class*=col-]:last-child img{margin-left: 10px;}
     font-size: 15px !important;
     font-weight: 300;
 }*/
-
+/* 
 .floating-label {
     position: absolute;
     height: 15px;
@@ -79,7 +79,7 @@ form .row [class*=col-]:last-child img{margin-left: 10px;}
     top: 5px;
     font-size: 9px !important;
     opacity: 1;
-}
+} */
 
 /*input:focus ~ .floating-label,
 input:not(:focus):valid ~ .floating-label{

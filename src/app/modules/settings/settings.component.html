@@ -93,11 +93,12 @@
                                         <form [formGroup]="changePassordForm" class="p-t-15 m-b-15">
                                             <div class="row m-b-5">
                                                 <div class="col-md-6">
-                                                    <div class="form-group inputTextContainer">
+                                                    <div class="form-group inputTextContainer floatwrap">
                                                         <input type="password" name="old_password" id="old_password"
                                                             formControlName="old_password"
                                                             placeholder="Current Password"
                                                             class="form-control form-control-lg inputText" />
+                                                        <label class="matlabel" for="old_password">Current Password</label>
 
                                                         <p class="error-p"
                                                             *ngIf="changePassordForm.controls['old_password'].touched && !changePassordForm.controls['old_password'].valid && changePassordForm.controls['old_password'].errors.required">
@@ -120,11 +121,12 @@
 
                                             <div class="row m-b-15">
                                                 <div class="col-md-6">
-                                                    <div class="form-group inputTextContainer">
+                                                    <div class="form-group inputTextContainer floatwrap">
                                                         <input type="password" id="new_password" name="new_password"
                                                             formControlName="new_password"
                                                             class="form-control form-control-lg inputText"
                                                             placeholder="New Password" />
+                                                            <label class="matlabel" for="new_password">New Password</label>
 
                                                         <p class="error-p"
                                                             *ngIf="changePassordForm.controls['new_password'].touched && !changePassordForm.controls['new_password'].valid && changePassordForm.controls['new_password'].errors.required">
@@ -146,11 +148,13 @@
 
                                             <div class="row m-b-15">
                                                 <div class="col-md-6">
-                                                    <div class="form-group inputTextContainer">
+                                                    <div class="form-group inputTextContainer floatwrap">
                                                         <input type="password" id="newPassword2" name="newPassword2"
                                                             formControlName="confirm_password"
                                                             placeholder="Re-enter New Password"
                                                             class="form-control form-control-lg inputText" />
+                                                            <label class="matlabel" for="confirm_password">Re-enter New Password</label>
+
                                                         <p class="error-p"
                                                             *ngIf="!changePassordForm.controls['confirm_password'].valid && changePassordForm.controls['confirm_password'].touched">
                                                             New Password does not match

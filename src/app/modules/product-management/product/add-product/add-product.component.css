@@ -16,6 +16,10 @@ textarea:focus ~ .floating-label,textarea:not(:focus):valid ~ .floating-label{he
 .inputfield input:focus ~ .floating-label, .inputfield input:not(:focus):valid ~ .floating-label{top:10px;bottom:10px;left:10px;font-size:13px;opacity:1;color:rgba(0,0,0,.54)}
 .floating-label{pointer-events:none;position:absolute;pointer-events:none;left:20px;top:50%;transition:.5s ease all;height:inherit;transform:translateY(-50%);color: #828282}
 
+
+.floatwrap .matlabel {left: 10px;}
+
+
 .card-backgroud{background-color:#f1f6fe}
 .card-common{box-shadow:1px 2px 5px #d9dbe1}
 .dropdown-menu.show{left:-75px!important}

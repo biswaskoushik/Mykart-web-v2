@@ -114,20 +114,24 @@
                       <div class="row m-b-6 mb-2">
                         <div class="col-md-6">
                           
-                          <div class="form-group">
+                          <div class="form-group floatwrap">
                             <input type="text" name="productTitle" placeholder="Product Title" id="productTitle"
                               class="form-control inputText" [(ngModel)]="product.title"
                               [ngModelOptions]="{standalone: true}" />
+
+                              <label class="matlabel" for="productTitle">Product Title</label>
+
                             <p class="error-p" *ngIf="product.title == null || 
                       product.title == ''">{{fielderror?.titleerr}}</p>
                           </div>
 
                         </div>
                         <div class="col-md-6">
-                          <div class="form-group">
+                          <div class="form-group floatwrap">
                             <input type="text" name="productSubtitle" placeholder="Product Subtitle"
                               [(ngModel)]="product.subtitle" id="" #description="ngModel" class="form-control inputText"
                               required [ngModelOptions]="{standalone: true}" />
+                              <label class="matlabel" for="productSubtitle">Product Subtitle</label>
                             <p class="error-p" *ngIf="product.subtitle == null || 
                             product.subtitle == ''">{{fielderror?.subtitleerr}}</p>
                           </div>
@@ -141,11 +145,12 @@
                     <div class="col-md-12">
                       <div class="row m-b-6 mb-2">
                         <div class="col-md-12">
-                          <div class="form-group">
+                          <div class="form-group floatwrap">
                             <textarea name="_description" placeholder="Description" [(ngModel)]="product.description"
                               [ngModelOptions]="{standalone: true}" id="description" class="form-control inputText"
                               rows="4">
                         </textarea>
+                        <label class="matlabel" for="_description">Description</label>
                             <p class="error-p" *ngIf="product.description == null || 
                       product.description == ''">{{fielderror?.descriptionerr}}</p>
                           </div>
@@ -194,9 +199,12 @@
                     <div class="col-md-12">
                       <div class="row m-b-6 mb-2">
                         <div class="col-md-6">
-                          <div class="form-group">
+                          <div class="form-group floatwrap">
                             <input type="text" id="sku" name="sku" placeholder="SKU" class="form-control inputText"
                               [(ngModel)]="product.sku" [ngModelOptions]="{standalone: true}" />
+
+                              <label class="matlabel" for="sku">SKU</label>
+
                             <p class="error-p" *ngIf="product.sku == null || 
                       product.sku == ''">{{fielderror?.skuerr}}</p>
                           </div>
@@ -222,7 +230,7 @@
                     <div class="col-md-12 variantlists" *ngFor="let item of product.variant;let i = index">
                       <div class="row m-b-6 mb-2">
                         <div class="col-md-4">
-                          <div class="inputfield">
+                          <div class="inputfield floatwrap">
                               <input type="text" class="form-control form-control-lg inputText" [(ngModel)]="product.variant[i].name" [ngModelOptions]="{standalone: true}" required/>
                               <span class="floating-label">Variant Name</span>
                             <!-- <input type="text" [(ngModel)]="product.variant[i].name"

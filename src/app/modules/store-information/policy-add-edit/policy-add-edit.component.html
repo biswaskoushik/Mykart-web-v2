@@ -113,25 +113,32 @@
                                                     <div class="col-8 mb-2 p-0 text-capitalize ">
                                                         <span class="pl-2"> Details</span>
                                                     </div>
-                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto ">
-                                                        <div class="divInf inputText">
-                                                            <div class="col-lg-12" style="border: 1px solid #e3e3e3;border-radius: 5px;
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto">
+                                                        <div class="divInf inputText floatwrap">
+                                                            <!-- <div class="col-lg-12" style="border: 1px solid #e3e3e3;border-radius: 5px;
                                                                 padding: 6px;
                                                                 resize: both;
                                                                 overflow: auto;">{{ shippingCarriers.shipping_additional_details }}
-                                                            </div>
+                                                            </div> -->
+                                                            <textarea  rows="3" placeholder="Details" id="additional_details" name="additional_details"
+                                                                class="form-control form-control-lg inputText"
+                                                                [(ngModel)]="shippingCarriers.shipping_additional_details"
+                                                                [ngModelOptions]="{standalone: true}">
+                                                            </textarea>
+                                                            <label class="matlabel" for="additional_details">Details</label>
                                                         </div>
                                                     </div>
-                                                    <div class="col-8 mb-2 p-0 text-capitalize ">
+                                                    <div class="col-8 mb-2 p-0 mt-2 text-capitalize ">
                                                         <span class="pl-2"> Additional Notes</span>
                                                     </div>
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto">
-                                                        <div class="divInf inputText">
-                                                            <textarea placeholder="Additionals Notes"
+                                                        <div class="divInf inputText floatwrap">
+                                                            <textarea rows="3" placeholder="Additionals Notes" id="additional_info" name="additional_info"
                                                                 class="form-control form-control-lg inputText"
                                                                 [(ngModel)]="shippingCarriers.shipping_additional_info"
                                                                 [ngModelOptions]="{standalone: true}">
                                                             </textarea>
+                                                            <label class="matlabel" for="additional_info">Additionals Notes</label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -225,24 +232,31 @@
                                                         <span class="pl-0"> Details</span>
                                                     </div>
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto ">
-                                                        <div class="divInf inputText">
-                                                                <div class="col-lg-12" style="border: 1px solid #e3e3e3;border-radius: 5px;
+                                                        <div class="divInf inputText floatwrap">
+                                                                <!-- <div class="col-lg-12" style="border: 1px solid #e3e3e3;border-radius: 5px;
                                                                 padding: 6px;
                                                                 resize: both;
-                                                                overflow: auto;">{{ returnPolicy.return_additional_details }}
-                                                            </div>
+                                                                overflow: auto;">{{ returnPolicy.return_additional_details }} -->
+                                                                <textarea  rows="3" placeholder="Details" id="additional_details" name="additional_details"
+                                                                class="form-control form-control-lg inputText"
+                                                                [(ngModel)]="returnPolicy.return_additional_details"
+                                                                [ngModelOptions]="{standalone: true}">
+                                                            </textarea>
+                                                            <label class="matlabel" for="additional_details">Details</label>
                                                         </div>
                                                     </div>
     
-                                                    <div class="col-8 mb-2 p-2 text-capitalize ">
+                                                    <div class="col-8 mb-2 p-2 mt-2 text-capitalize ">
                                                         <span class="pl-0"> Additional Notes</span>
                                                     </div>
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto">
-                                                        <div class="divInf inputText">
-                                                            <textarea class="form-control form-control-lg inputText"
+                                                        <div class="divInf inputText floatwrap">
+                                                            <textarea class="form-control form-control-lg inputText" id="additional_info" name="additional_info"
                                                                 placeholder="Additionals Notes"
                                                                 [(ngModel)]="returnPolicy.return_additional_info"
                                                                 [ngModelOptions]="{standalone: true}"></textarea>
+
+                                                                <label class="matlabel" for="additional_info">Additional Notes</label>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -298,12 +312,23 @@
                                                         <span class="pl-0"> Store Address</span>
                                                     </div>
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto">
-                                                        <div class="divInf inputText">
+                                                        <!-- <div class="divInf inputText">
                                                             <textarea [(ngModel)]="contactUs.address"
                                                                 [ngModelOptions]="{standalone: true}"
                                                                 placeholder="Store Address"
                                                                 class="form-control form-control-lg inputText textclass"></textarea>
+                                                        </div> -->
+
+                                                        <div class="divInf inputText floatwrap">
+                                                            <textarea class="form-control form-control-lg inputText textclass" id="store_address" name="store_address"
+                                                                placeholder="Store Address"
+                                                                [(ngModel)]="contactUs.address"
+                                                                [ngModelOptions]="{standalone: true}"></textarea>
+
+                                                                <label class="matlabel" for="store_address">Store Address</label>
                                                         </div>
+
+
                                                     </div>
                                                 </div>
                                             </form>
@@ -328,11 +353,14 @@
                                                     </div>
     
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto">
-                                                        <div class="divInf inputText pl-2">
-                                                            <input [(ngModel)]="customPolicy.title"
+                                                        <div class="divInf inputText pl-2 floatwrap">
+                                                            <input [(ngModel)]="customPolicy.title" id="customPolicytitle" name="customPolicytitle"
                                                                 [ngModelOptions]="{standalone: true}"
                                                                 placeholder="Policy Name" type="text"
                                                                 class="form-control form-control-lg inputText textclass" />
+
+                                                                <label class="matlabel" for="customPolicytitle">Policy Name</label>
+
                                                             <p class="error-p" *ngIf="customPolicy.title ==''">
                                                                 {{customPolicyErr?.titleerr}}</p>
                                                         </div>
@@ -346,11 +374,14 @@
                                                         <span class="pl-2"> Policy Details</span>
                                                     </div>
                                                     <div class="col-lg-12 col-md-12 col-sm-12 col-12 m-auto">
-                                                        <div class="divInf inputText pl-2">
-                                                            <textarea [(ngModel)]="customPolicy.detail"
+                                                        <div class="divInf inputText pl-2 floatwrap">
+                                                            <textarea [(ngModel)]="customPolicy.detail" id="customPolicydetail" name="customPolicydetail"
                                                                 [ngModelOptions]="{standalone: true}"
                                                                 placeholder="Policy Details"
                                                                 class="form-control form-control-lg inputText textclass"></textarea>
+
+                                                                <label class="matlabel" for="customPolicydetail">Policy Details</label>
+
                                                             <p class="error-p" *ngIf="customPolicy.detail ==''">
                                                                 {{customPolicyErr?.detailerr}}</p>
                                                         </div>

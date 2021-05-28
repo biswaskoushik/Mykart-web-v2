@@ -113,10 +113,12 @@
                             <div class="card card-borderless m-b-35 m-t-5">
                                 <div class="card-body">
                                     <div class="row align-items-center">
-                                        <div class="col-md-12 col-sm-12">
+                                        <div class="col-md-12 col-sm-12 floatwrap">
                                             <!-- <h6 class="font text-md-left m-0 ">
                                                 Thank you for your order!</h6> -->
-                                                <textarea class="form-control" rows="3" (keyup)="updateOrderMsg($event)">{{orderMessage}}</textarea>
+                                                <textarea class="form-control" rows="3" id="order_message" name="order_message" placeholder="Order Message" formControlName="order_message" (keyup)="updateOrderMsg($event)">{{orderMessage}}</textarea>
+                                                <label class="matlabel" for="order_message">Order Message</label>
+                                                
                                         </div>
                                     </div>
                                 </div>

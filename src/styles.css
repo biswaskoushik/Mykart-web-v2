@@ -528,3 +528,24 @@ textarea { resize: none; }
 
 
 }
+
+
+/* .floating-label-group{position:relative;margin-bottom:25px} */
+/* .floating-label-group .floating-label{font-size:13px;color:#ccc;position:absolute;pointer-events:none;top:9px;left:12px;transition:all .1s ease} */
+/* .floating-label-group .form-control:focus ~ .floating-label{top:-15px;bottom:0;left:0;font-size:11px;opacity:1;color:#404040} */
+/* .floating-label-group .form-control{border:1px solid #dedddd;color:#333;height:54px;font-size:16px;padding:22px 10px 4px 15px;-webkit-border-radius:6px;border-radius:6px}
+.floating-label-group{position:relative;margin-bottom:20px}
+.floating-label{font-size:14px;color:#565656;position:absolute;pointer-events:none;top:18px;left:15px;transition:all .1s ease}
+.form-control:focus ~ .floating-label,.boardingfo .form-control:disabled ~ .floating-label,.boardingfo .form-control[readonly] ~ .floating-label,.boardingfo .form-control:not(:focus):valid ~ .floating-label{top:4px;left:15px;font-size:12px;opacity:1;color:#565656} */
+
+
+.floatwrap {box-sizing:border-box;position: relative;width: 100%;}
+.floatwrap input, .floatwrap textarea{width: 100%;}
+.floatwrap input:focus, .floatwrap textarea:focus{outline:none;}
+.floatwrap::before{content:'';display:block;position:absolute;bottom:0;height:1px;width:100%;left:17px;}
+.floatwrap label.matlabel{display:none}
+.floatwrap input:not(:placeholder-shown) + label.matlabel, .floatwrap textarea:not(:placeholder-shown) + label.matlabel{display:block}
+.floatwrap .matlabel{color:rgba(0,0,0,.6);font-size:10px;position:absolute;top:2px;left:17px;transition: all .1s ease;-moz-transition: all .1s ease;-webkit-transition: all .1s ease;}
+.floatwrap textarea{ padding: 18px 15px;line-height: 20px;}
+
+.floatwrap textarea:not(:placeholder-shown) + label.matlabel {font-size: 10.5px;letter-spacing: .06em;text-transform: uppercase;font-weight: 500;}

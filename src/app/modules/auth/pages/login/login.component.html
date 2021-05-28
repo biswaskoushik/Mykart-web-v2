@@ -18,9 +18,11 @@
 
                             <div class="row ml-n2 mr-n2 justify-content-center">
                                 <div class="col-12 pl-2 pr-2">
-                                    <div class="form-group  ">
+                                    <div class="form-group floatwrap">
                                         <input type="email" class="form-control form-control-lg inputText"
                                             placeholder="Email" formControlName="email" />
+                                        <label class="matlabel" for="email">Email</label>
+
                                         <p class="error-p"
                                             *ngIf="loginForm.controls['email'].touched && !loginForm.controls['email'].valid && loginForm.controls['email'].errors.required">
                                             Email required.
@@ -35,9 +37,10 @@
                             </div>
                             <div class="row ml-n2 mr-n2 justify-content-center m-b-15">
                                 <div class="col-12 pl-2 pr-2">
-                                    <div class="form-group  m-0 ">
+                                    <div class="form-group m-0 floatwrap">
                                         <input type="password" class="form-control form-control-lg inputText"
                                             placeholder="Password" formControlName="password" />
+                                            <label class="matlabel" for="password">Password</label>
                                         <p class="error-p"
                                             *ngIf="loginForm.controls['password'].touched && !loginForm.controls['password'].valid && loginForm.controls['password'].errors.required">
                                             Password required.

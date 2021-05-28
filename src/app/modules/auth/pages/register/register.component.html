@@ -62,9 +62,10 @@
                                 <div class="row justify-content-center">
 
                                     <div class="col-md-6">
-                                        <div class="form-group ">
-                                            <input type="email" class="form-control form-control-lg inputText" placeholder="Email"
-                                                formControlName="email" />
+                                        <div class="form-group floatwrap">
+                                            <input type="email" class="form-control form-control-lg inputText" placeholder="Email" formControlName="email" />
+                                            <label class="matlabel" for="email">Email</label>
+
                                             <p class="error-p"
                                                 *ngIf="registerForm.controls['email'].touched && !registerForm.controls['email'].valid && registerForm.controls['email'].errors.required">
                                                 Email required.
@@ -79,9 +80,11 @@
 
                                     <div class="col-md-6">
 
-                                        <div class="form-group ">
+                                        <div class="form-group floatwrap">
                                             <input type="text" class="form-control form-control-lg inputText"
                                                 placeholder="Store Name" formControlName="business_name" />
+                                            <label class="matlabel" for="business_name">Store Name</label>
+
                                             <p class="error-p"
                                                 *ngIf="registerForm.controls['business_name'].touched && !registerForm.controls['business_name'].valid && registerForm.controls['business_name'].errors.required">
                                                 Store name required.
@@ -96,9 +99,11 @@
                                 <div class="row justify-content-center">
 
                                     <div class="col-md-6">
-                                        <div class="form-group ">
+                                        <div class="form-group floatwrap">
                                             <input type="password" class="form-control form-control-lg inputText"
                                                 placeholder="Password" formControlName="password" />
+                                            <label class="matlabel" for="password">Password</label>
+
                                             <p class="error-p"
                                                 *ngIf="registerForm.controls['password'].touched && !registerForm.controls['password'].valid && registerForm.controls['password'].errors.required">
                                                 Password required.
@@ -117,9 +122,10 @@
                                     </div>
 
                                     <div class="col-md-6">
-                                        <div class="form-group ">
+                                        <div class="form-group floatwrap">
                                             <input type="password" class="form-control form-control-lg inputText"
                                                 placeholder="Confirm Password" formControlName="confirmpassword" />
+                                                <label class="matlabel" for="confirmpassword">Confirm Password</label>
 
                                             <p class="error-p"
                                                 *ngIf="!registerForm.controls['confirmpassword'].valid && registerForm.controls['confirmpassword'].touched">
