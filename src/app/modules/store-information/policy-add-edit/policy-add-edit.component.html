@@ -320,7 +320,7 @@
                                                         </div> -->
 
                                                         <div class="divInf inputText floatwrap">
-                                                            <textarea class="form-control form-control-lg inputText textclass" id="store_address" name="store_address"
+                                                            <textarea class="form-control form-control-lg inputText" id="store_address" name="store_address"
                                                                 placeholder="Store Address"
                                                                 [(ngModel)]="contactUs.address"
                                                                 [ngModelOptions]="{standalone: true}"></textarea>
@@ -378,8 +378,7 @@
                                                             <textarea [(ngModel)]="customPolicy.detail" id="customPolicydetail" name="customPolicydetail"
                                                                 [ngModelOptions]="{standalone: true}"
                                                                 placeholder="Policy Details"
-                                                                class="form-control form-control-lg inputText textclass"></textarea>
-
+                                                                class="form-control form-control-lg inputText"></textarea>
                                                                 <label class="matlabel" for="customPolicydetail">Policy Details</label>
 
                                                             <p class="error-p" *ngIf="customPolicy.detail ==''">

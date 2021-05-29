@@ -146,13 +146,10 @@
                       <div class="row m-b-6 mb-2">
                         <div class="col-md-12">
                           <div class="form-group floatwrap">
-                            <textarea name="_description" placeholder="Description" [(ngModel)]="product.description"
-                              [ngModelOptions]="{standalone: true}" id="description" class="form-control inputText"
-                              rows="4">
+                            <textarea name="description" placeholder="Description" [(ngModel)]="product.description" [ngModelOptions]="{standalone: true}" id="description" class="form-control inputText" rows="4">
                         </textarea>
-                        <label class="matlabel" for="_description">Description</label>
-                            <p class="error-p" *ngIf="product.description == null || 
-                      product.description == ''">{{fielderror?.descriptionerr}}</p>
+                        <label class="matlabel" for="description">Description</label>
+                            <p class="error-p" *ngIf="product.description == null || product.description == ''">{{fielderror?.descriptionerr}}</p>
                           </div>
                         </div>
                       </div>
