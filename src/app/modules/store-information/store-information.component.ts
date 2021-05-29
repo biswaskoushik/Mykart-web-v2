@@ -42,7 +42,9 @@ export class StoreInformationComponent implements OnInit {
   public carriersData: any = [];
   public contactUsData: any = [];
   public loginData: any;
-  public orderMessage:any='';
+  public orderMessage: any = '';
+  public orderMsgStatus: any = '';
+  public timer: any = null;
 
   constructor(public dialog: MatDialog, public apiService: ApiService, public commonFunction: CommonFunction, public activatedRoute: ActivatedRoute, public router: Router) { }
 
@@ -58,7 +60,7 @@ export class StoreInformationComponent implements OnInit {
     // this.getShippingCarrierData()
 
     this.loginData = this.commonFunction.getLoginData();
-    
+
     this.getOrderMsg();
   }
 
@@ -183,35 +185,48 @@ export class StoreInformationComponent implements OnInit {
       })
   }
 
-  updateOrderMsg(event){
-    console.log(event.target.value,'++++++')
-    this.apiService.httpViaPostLaravel('services/user/v1/profile/update/order-message',
-    {
-        "email": this.loginData.data.user.email,
-        "orderMsg":event.target.value
-    }).subscribe((next: any) => {
-      if (next != null && typeof (next.status_code) != 'undefined' && next.status_code == 200) {
-        if(next.data.order_msg != null){
-          this.orderMessage = next.data.order_msg;
-        }else{
-          this.orderMessage = 'Thank you for your order!';
-        }
-      }
-    })
+  updateOrderMsg(event) {
+    this.orderMsgStatus = 'Typing...';
+
+    clearTimeout(this.timer);
+
+    this.timer = setTimeout(() => {
+      this.orderMsgStatus = 'Saving...';
+
+      this.apiService.httpViaPostLaravel('services/user/v1/profile/update/order-message',
+        {
+          "email": this.loginData.data.user.email,
+          "orderMsg": event.target.value
+        }).subscribe((next: any) => {
+          this.orderMsgStatus = 'Saved.';
+
+          if (next != null && typeof (next.status_code) != 'undefined' && next.status_code == 200) {
+            if (next.status == true) {
+              this.orderMessage = event.target.value;
+            } else {
+              this.orderMessage = 'Thank you for your order!';
+            }
+          }
+
+          setTimeout(() => {
+            this.orderMsgStatus = '';
+          }, 1500);
+        })
+    }, 1000);
   }
 
-  getOrderMsg(){
+  getOrderMsg() {
     this.apiService.httpViaPostLaravel('services/user/v1/profile/get/order-message',
-    {
+      {
         "email": this.loginData.data.user.email
-    }).subscribe((next: any) => {
-      if (next != null && typeof (next.status_code) != 'undefined' && next.status_code == 200) {
-        if(next.data.order_msg != null){
-          this.orderMessage = next.data.order_msg;
-        }else{
-          this.orderMessage = 'Thank you for your order!';
+      }).subscribe((next: any) => {
+        if (next != null && typeof (next.status_code) != 'undefined' && next.status_code == 200) {
+          if (next.data.order_msg != null) {
+            this.orderMessage = next.data.order_msg;
+          } else {
+            this.orderMessage = 'Thank you for your order!';
+          }
         }
-      }
-    }) 
+      })
   }
 }
