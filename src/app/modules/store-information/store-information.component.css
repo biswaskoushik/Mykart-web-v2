@@ -41,6 +41,10 @@ form .row [class*=col-]:last-child img{margin-left: 10px;}
 .form-group-default{
     border-radius: 5px;
 }
+
+.floatwrap {
+padding: 0 !important;
+}
 /*.inputText {
     font-size: 15px;
     min-height: 45px !important;
