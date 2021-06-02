@@ -55,12 +55,23 @@ export class AddNewCardComponent implements OnInit {
   subscription: any = {}
   public subscriptionForm: any;
   public loginData: any;
+  public buttonText: any = "";
 
 
   ngOnInit(): void {
     this.subscriptionForm = FormGroup;
     this.loginData = this.commonFunction.getLoginData();
     this.generateScriptionForm();
+
+    this.apiService.httpViaPostLaravel('services/user/v1/customer/card/list',
+      { email: this.loginData.data.user.email }).subscribe(next => {
+        this.commonFunction.loader(false);
+        if(next.response.status.data.length > 0) {
+          this.buttonText = "Add Card";
+        } else {
+          this.buttonText = "SUBSCRIBE";
+        }
+      })
   }
 
   generateScriptionForm() {
@@ -74,6 +85,10 @@ export class AddNewCardComponent implements OnInit {
 
 
   async subscribe() {
+    let buttonText = this.buttonText;
+    this.buttonText = '';
+    this.commonFunction.loader(true);
+
     const { token, error } = await this.stripe.createToken(this.card);
 
     if (error) {
@@ -81,20 +96,16 @@ export class AddNewCardComponent implements OnInit {
     } else {
       this.subscriptionForm.value.source = token.id;
       this.subscriptionForm.value.email = this.loginData.data.user.email;
-      // this.subscriptionForm.value.card_id = token.card.id;
-
-      //console.log(this.subscriptionForm.value, 'Success!', token);
-      //console.log(this.subscriptionForm.value, '+++++++++ val')
-
-      this.commonFunction.loader(true);
+      
 
       this.apiService.httpViaPostLaravel("services/user/v1/customer/card/create", this.subscriptionForm.value).subscribe((next: any) => {
         this.commonFunction.loader(false);
         //console.log(next, 'next++ sign up')
 
+        this.buttonText = buttonText;
         if (next.response != null && next.response.status != null && typeof (next.response.status.status_code) != 'undefined' && next.response.status.status_code == 200) {
           this.subscriptionForm.reset();
-          swal("Thank You!", 'Card Added successfully', "success");
+          swal("Thank You!", 'You’ve successfully added card.', "success");
           this.dialogRef.close(next.response);
         } else {
           if (next.response.fault != null && typeof (next.response.fault) != 'undefined') {

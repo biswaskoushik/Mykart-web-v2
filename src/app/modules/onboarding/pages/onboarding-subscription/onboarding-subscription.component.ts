@@ -93,7 +93,7 @@ export class OnboardingSubscriptionComponent implements OnInit {
 
         if (next.response != null && next.response.status != null && typeof (next.response.status.status_code) != 'undefined' && next.response.status.status_code == 200) {
           this.subscriptionForm.reset();
-          swal("Thank You!", 'Card Added successfully', "success");
+          swal("Thank You!", 'You’ve successfully added Card.', "success");
           this.subscriptionFormFlag = false;
           this.subscriptionListener.emit({ action: 'subscription', flag: 'add-subscription', subscriptionFormFlag: this.subscriptionFormFlag, value: 1 })
 

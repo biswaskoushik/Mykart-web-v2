@@ -34,6 +34,8 @@ export class ListCategoryComponent implements OnInit {
       this.categoryList = resp.categoryList.response.category;
       //console.log(resp, 'resp++++', this.categoryList)
     })
+
+    console.log("this.loginUserData >>>", this.loginUserData);
   }
 
   addMore() {
@@ -57,26 +59,36 @@ export class ListCategoryComponent implements OnInit {
   }
 
   deleteCategory(category, i) {
-    var config: any = {
-      "title": "Do you want to delete category?",
-      "buttons": ["No", "Yes"]
-    };
+    if(this.categoryList[i].is_product_avilable == 0) {
+      var config: any = {
+        "title": "Do you want to delete category?",
+        "buttons": ["No", "Yes"]
+      };
 
-    console.log("category: ", category);
+      console.log("category: ", category);
 
-    this.commonFunction.confirmBox(config).then((action) => {
-      if (action == true) {
-        this.isLoading = true;
-        this.apiService
-          .httpViaPostLaravel('product/v1/delete/category', { category_id: category.id })
-          .subscribe((next) => {
-            if (next.status_code == 200) {
-              this.getCategoryList();
-              this.categoryList.splice(i, 1);
-            }
-          })
-      }
-    })
+      this.commonFunction.confirmBox(config).then((action) => {
+        if (action == true) {
+          this.isLoading = true;
+          this.apiService
+            .httpViaPostLaravel('product/v1/delete/category', { category_id: category.id })
+            .subscribe((next) => {
+              if (next.status_code == 200) {
+                this.getCategoryList();
+                this.categoryList.splice(i, 1);
+              }
+            })
+        }
+      })
+    } else {
+      var config: any = {
+        "title": "You must remove all products assigned to this category before you can delete.",
+        "buttons": "Got it"
+      };
+
+      this.commonFunction.confirmBox(config).then((action) => {
+      });
+    }
   }
 
   statusUpdate(category, i) {
@@ -92,7 +104,7 @@ export class ListCategoryComponent implements OnInit {
           .httpViaPost('services/vendor/v1/category/update', { category: category })
           .subscribe((next) => {
             if (next.response != null && next.response.status != null && typeof (next.response.status.status_message) != 'undefined' && next.response.status.status_code == 200) {
-              swal("Thank You!", 'status update successfully', "success");
+              swal("Thank You!", 'You’ve successfully updated status.', "success");
               this.getCategoryList();
             }
           })
@@ -121,7 +133,7 @@ export class ListCategoryComponent implements OnInit {
               1
             );
             this.getCategoryList();
-            swal("Thank You!", 'Category saved successfully', "success");
+            swal("Thank You!", 'You’ve successfully added category.', "success");
           } else {
             if (next.response.fault != null && typeof (next.response.fault) != 'undefined') {
               swal("Sorry!", next.response.fault.fault_message, "warning");
@@ -139,7 +151,7 @@ export class ListCategoryComponent implements OnInit {
     this.commonFunction.loader(true);
     let vendor_data: any = {
       source: "",
-      Vendor_detail: { email: this.loginUserData.data.user.email }
+      email: this.loginUserData.data.user.email
     }
     this.apiService.httpViaPostLaravel('product/v1/get/category', vendor_data).subscribe((data) => {
       this.commonFunction.loader(false);

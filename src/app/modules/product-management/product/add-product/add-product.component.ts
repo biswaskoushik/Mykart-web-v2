@@ -83,10 +83,11 @@ export class AddProductComponent implements OnInit {
   public separatorKeysCodes: number[] = [ENTER, COMMA];
   public button_text: any = 'Save Product';
 
-  public variantFilter:any={
-    status:false,
-    selectVal:'',
-    is_active:0
+  public variantFilter:any = {
+    is_active: true,
+    product_id: 0,
+    email: '',
+    filter_val: 'all'
   }
 
   public filterVariantArray:any=[];
@@ -99,12 +100,14 @@ export class AddProductComponent implements OnInit {
     this.loginUserData = this.commonFunction.getLoginData();
 
     this.product.vendor.id = this.loginUserData.data.user.id;
+    this.variantFilter.email = this.loginUserData.data.user.email;
 
     console.log(this.product.vendor, this.loginUserData.data.user)
 
     this.getCategoryList();
 
     if (this.activatedRoute.snapshot.params.product_id != null) {
+      this.variantFilter.product_id = this.activatedRoute.snapshot.params.product_id;
       this.getProductData();
     }
 
@@ -356,9 +359,9 @@ export class AddProductComponent implements OnInit {
           console.log(next, '+++++++++++++')
 
           if (this.product.productId == null) {
-            swal("Thank You!", 'Product added successfully', "success");
+            swal("Thank You!", 'You’ve successfully added product.', "success");
           } else {
-            swal("Thank You!", 'Product update successfully', "success");
+            swal("Thank You!", 'You’ve successfully updated product.', "success");
           }
           this.product.productId = next.data.productId;
           this.getVariantData(next.data.productId);
@@ -467,11 +470,19 @@ export class AddProductComponent implements OnInit {
 
   addVariantOptions(event: MatChipInputEvent, i) {
     let input = event.input;
-    let value = event.value;
+    let value = event.value.toLowerCase();
+    
     if (!event.value) {
       return;
     }
-    this.product.variant[i].options.push(value);
+
+    if ((value || '').trim()) {
+      let index =   this.product.variant[i].options.indexOf(value.trim())
+      if(index == -1) {
+        this.product.variant[i].options.push(value);
+      }
+    }
+
     if (input) {
       input.value = '';
     }
@@ -521,7 +532,7 @@ export class AddProductComponent implements OnInit {
         console.log(result,'+++++++++')
 
         if(result.flag != null && result.flag =='update'){
-          swal("Thank You!", 'Variant update successfully', "success");
+          swal("Thank You!", 'You’ve successfully updated variant.', "success");
          this.getVariantData(this.product.productId);
         }else{
           this.removeVariant(result);
@@ -535,66 +546,37 @@ export class AddProductComponent implements OnInit {
     this.apiService.httpViaPostLaravel('product/v1/delete/combination', {combination_id:data.variant.combinationId}).subscribe((next: any) => {
       this.commonFunction.loader(false);
       if(next != null && typeof (next.status_code) != 'undefined' && next.status_code == 200){
-        swal("Thank You!", 'Variant Delete successfully', "success");
+        swal("Thank You!", 'You’ve successfully deleted variant.', "success");
         this.getVariantData(this.product.productId);
       }
     })
   }
 
-  restoreVariant(data,i){
+  restoreVariant(data, i){
     this.commonFunction.loader(true);
     this.apiService.httpViaPostLaravel('product/v1/restore/combination', {combination_id:data.combinationId}).subscribe((next: any) => {
       this.commonFunction.loader(false);
       if(next != null && typeof (next.status_code) != 'undefined' && next.status_code == 200){
-        swal("Thank You!", 'Variant Restore successfully', "success");
+        swal("Thank You!", 'You’ve successfully restore variant.', "success");
         this.getVariantData(this.product.productId);
       }
     })
   }
 
-  changevariantFilter(data, flag){
-    let is_active = 0;
-    let filterVal = '';
-
-    console.log(">>>>>>.", data);
-
-    if(data != 'all') {
-      if(data == 'removed') {
-        this.getVariantData(this.activatedRoute.snapshot.params.product_id, true);
-      } else {
-        if(flag == 'status'){
-          is_active = data==true ? 0 :1 ;
-          this.variantFilter.is_active = is_active;
+  getVariantFilterData() {
+    this.commonFunction.loader(true);
+    setTimeout(() => {
+      this.apiService.httpViaPostLaravel('product/v1/filter/combination', this.variantFilter).subscribe((data) => {
+        if (data.status_code == 200) {
+          this.commonFunction.loader(false);
+          for (let i in data.data.productCombination) {
+            data.data.productCombination[i].label = (data.data.productCombination[i].combination).split('-').join(' | ');
+            data.data.productCombination[i].name = (data.data.productCombination[i].combination).split('-')[0];
+          }
+          this.variantData = data.data.productCombination;
+          // console.log(this.variantData, 'this.variantData',this.filterVariantArray,productCombinationArr)
         }
-
-        if(flag == 'select' && data !=''){
-          filterVal = data
-        }
-
-        this.getVariantFilterData(this.variantFilter);
-      }
-    } else {
-      this.getVariantData(this.activatedRoute.snapshot.params.product_id);
-    }
-  }
-
-  getVariantFilterData(data) {
-    let combination_data: any = {
-      product_id: this.product.productId,
-      email: this.loginUserData.data.user.email,
-      is_active:data.is_active,
-      filter_val:data.selectVal
-    }
-
-    this.apiService.httpViaPostLaravel('product/v1/filter/combination', combination_data).subscribe((data) => {
-      if (data.status_code == 200) {
-        for (let i in data.data.productCombination) {
-          data.data.productCombination[i].label = (data.data.productCombination[i].combination).split('-').join(' | ');
-          data.data.productCombination[i].name = (data.data.productCombination[i].combination).split('-')[0];
-        }
-        this.variantData = data.data.productCombination;
-        // console.log(this.variantData, 'this.variantData',this.filterVariantArray,productCombinationArr)
-      }
-    })
+      })
+    }, 500);
   }
 }

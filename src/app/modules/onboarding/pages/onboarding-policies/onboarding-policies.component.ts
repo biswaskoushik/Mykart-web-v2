@@ -143,7 +143,7 @@ export class OnboardingPoliciesComponent implements OnInit {
 
         if (next.response != null && next.response.status != null && typeof (next.response.status.status_message) != 'undefined' && next.response.status.status_message == 'SUCCESS') {
           this.policiesForm.reset();
-          swal("Thank You!", 'Policies Added successfully', "success");
+          swal("Thank You!", 'You’ve successfully Added Policies.', "success");
 
           this.SubmitPoliciesFlag = false;
           this.policiesListener.emit({ action: 'policies', flag: 'update-policies', policiesFormFlag: this.SubmitPoliciesFlag, value: 1 })

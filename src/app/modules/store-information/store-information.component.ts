@@ -44,7 +44,8 @@ export class StoreInformationComponent implements OnInit {
   public loginData: any;
   public orderMessage: any = '';
   public orderMsgStatus: any = '';
-  public timer: any = null;
+  public timer1: any = null;
+  public timer2: any = null;
 
   constructor(public dialog: MatDialog, public apiService: ApiService, public commonFunction: CommonFunction, public activatedRoute: ActivatedRoute, public router: Router) { }
 
@@ -81,7 +82,7 @@ export class StoreInformationComponent implements OnInit {
     this.apiService.httpViaPost("services/vendor/v1/policy/details/update", result).subscribe((next: any) => {
       this.commonFunction.loader(false);
       if (next.response != null && next.response.status != null && typeof (next.response.status.status_message) != 'undefined' && next.response.status.status_code == 200) {
-        swal("Thank You!", 'Policies update successfully', "success");
+        swal("Thank You!", 'You’ve successfully updated policies.', "success");
         this.getPolicyDetails()
       } else {
         swal("Sorry!", 'Somethings went wrong!', "warning");
@@ -100,7 +101,7 @@ export class StoreInformationComponent implements OnInit {
       }).subscribe((next: any) => {
         this.commonFunction.loader(false);
         if (next.response != null && next.response.status != null && typeof (next.response.status.status_message) != 'undefined' && next.response.status.status_code == 200) {
-          swal("Thank You!", 'Policies update successfully', "success");
+          swal("Thank You!", 'You’ve successfully updated policies.', "success");
           this.getPolicyDetails();
           this.getCustomPolicyDetails();
           // this.customPolicyData.push(result);
@@ -128,7 +129,7 @@ export class StoreInformationComponent implements OnInit {
           .subscribe((next) => {
             this.commonFunction.loader(false);
             if (next.response != null && next.response.status != null && typeof (next.response.status.status_message) != 'undefined' && next.response.status.status_code == 200) {
-              swal("Thank You!", 'Policies delete successfully', "success");
+              swal("Thank You!", 'You’ve successfully deleted policies.', "success");
               this.getPolicyDetails()
             } else {
               swal("Sorry!", 'Somethings went wrong!', "warning");
@@ -167,7 +168,7 @@ export class StoreInformationComponent implements OnInit {
     this.apiService.httpViaPost("services/vendor/v1/policy/contactus/update", { vendor_policy_contactus: result }).subscribe((next: any) => {
       this.commonFunction.loader(false);
       if (next.response != null && next.response.status != null && typeof (next.response.status.status_message) != 'undefined' && next.response.status.status_code == 200) {
-        swal("Thank You!", 'Contact update successfully', "success");
+        swal("Thank You!", 'You’ve successfully updated contact.', "success");
       } else {
         swal("Sorry!", 'Somethings went wrong!', "warning");
       }
@@ -188,9 +189,10 @@ export class StoreInformationComponent implements OnInit {
   updateOrderMsg(event) {
     this.orderMsgStatus = 'Typing...';
 
-    clearTimeout(this.timer);
+    clearTimeout(this.timer1);
+    clearTimeout(this.timer2);
 
-    this.timer = setTimeout(() => {
+    this.timer1 = setTimeout(() => {
       this.orderMsgStatus = 'Saving...';
 
       this.apiService.httpViaPostLaravel('services/user/v1/profile/update/order-message',
@@ -198,19 +200,16 @@ export class StoreInformationComponent implements OnInit {
           "email": this.loginData.data.user.email,
           "orderMsg": event.target.value
         }).subscribe((next: any) => {
-          this.orderMsgStatus = 'Saved.';
+          if (next.status_code == 200) {
+            this.orderMsgStatus = 'Saved.';
+            this.orderMessage = event.target.value;
 
-          if (next != null && typeof (next.status_code) != 'undefined' && next.status_code == 200) {
-            if (next.status == true) {
-              this.orderMessage = event.target.value;
-            } else {
-              this.orderMessage = 'Thank you for your order!';
-            }
+            this.timer2 = setTimeout(() => {
+              this.orderMsgStatus = '';
+            }, 3000);
+          } else {
+            this.orderMsgStatus = next.message;
           }
-
-          setTimeout(() => {
-            this.orderMsgStatus = '';
-          }, 1500);
         })
     }, 1000);
   }

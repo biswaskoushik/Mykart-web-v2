@@ -135,7 +135,7 @@ export class ListProductComponent implements OnInit {
           .subscribe((next) => {
             this.commonFunction.loader(false);
             if (next != null && typeof (next.status_code) != 'undefined' && next.status_code == 200) {
-              swal("Thank You!", `Product delete successfully`, "success");
+              swal("Thank You!", 'You’ve successfully deleted product.', "success");
               this.productList.splice(i, 1);
             } else {
               if (next != null && typeof (next.message) != 'undefined') {

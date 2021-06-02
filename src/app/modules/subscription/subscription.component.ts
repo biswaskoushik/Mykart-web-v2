@@ -100,7 +100,7 @@ export class SubscriptionComponent implements OnInit {
           { email: this.userData.data.user.email, cardId: value.id }).subscribe(next => {
             this.commonFunction.loader(false);
             if (next.response != null && next.response.status != null && typeof (next.response.status.status_code) != 'undefined' && next.response.status.status_code == 200) {
-              swal("Thank You!", 'Card Delete successfully', "success");
+              swal("Thank You!", 'You’ve successfully deleted card.', "success");
               this.cardDetails.splice(i, 1);
 
               // id default card is delete
@@ -116,6 +116,8 @@ export class SubscriptionComponent implements OnInit {
                       swal("Sorry!", 'Somethings went wrong!', "warning");
                     }
                   })
+              } else {
+                this.getCardDetails();
               }
             } else {
               swal("Sorry!", 'Somethings went wrong!', "warning");

@@ -62,7 +62,7 @@
                                                     </button>
                                                 </div>
 
-                                                <div class="text-md-right" *ngIf="row.is_product_avilable == 0">
+                                                <div class="text-md-right">
                                                     <button type="button" class="bg-transparent border-0"
                                                         (click)="deleteCategory(row,i)">
                                                         <img src="assets/img/icons/delete.png" class="cursor" />
@@ -119,16 +119,19 @@
                                                     <div class="input-group-append">
                                                         <span class="input-group-text bg-transparent"
                                                             style="min-width: unset;">
-                                                            <img src="assets/img/icons/delete.png" class="cursor"
-                                                                (click)="newCateogryList.splice(i, 1);" alt="" />
+                                                            <img src="assets/img/icons/icn-trash-small@2x.png" class="cursor"
+                                                                (click)="newCateogryList.splice(i, 1);" alt="" height="25px" width="25px" />
                                                         </span>
                                                     </div>
     
                                                     <div class="savebtn">
-                                                        <button
+                                                        <!-- <button
                                                             class="fa fa-save p-l-15 bg-transparent border-0 cursor"
                                                             (click)="saveCategory(newCategory)" type="button"
-                                                            name="categoryAddButoon" style="font-size: 25px;"></button>
+                                                            name="categoryAddButoon" style="font-size: 25px;"></button> -->
+
+                                                            <img src="assets/img/icons/Icon feather-save@2x.png" class="cursor"
+                                                                (click)="saveCategory(newCategory);" alt="" height="25px" width="25px" style="padding-right: 4px;" />
                                                     </div>
     
                                                 </div>

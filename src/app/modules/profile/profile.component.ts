@@ -246,7 +246,7 @@ export class ProfileComponent implements OnInit {
       this.commonFunction.loader(false);
 
       if (next.status == true) {
-        swal("Thank You!", 'Profile update successfully', "success");
+        swal("Thank You!", 'You’ve successfully updated profile.', "success");
         let headerData: any = {};
         if (this.profileImage != null && typeof (this.profileImage) != "undefined") {
           headerData.image_url = next.data.vendor.image_url;
@@ -255,6 +255,13 @@ export class ProfileComponent implements OnInit {
         headerData.first_name = this.profileForm.controls['first_name'].value;
         headerData.last_name = this.profileForm.controls['last_name'].value;
         this.headerComponent.setHeaderData(headerData);
+
+        let localStroageData: any = JSON.parse(localStorage.getItem('login_data'));
+        localStroageData.user.tax_value = this.profileForm.controls['tax_value'].value;
+        localStroageData.user.first_name = this.profileForm.controls['first_name'].value;
+        localStroageData.user.last_name = this.profileForm.controls['last_name'].value;
+        localStorage.removeItem('login_data');
+        localStorage.setItem('login_data', JSON.stringify(localStroageData));
         // console.log(headerData, 'headerData ======= ')
 
         for (let x in this.profileForm.controls) {

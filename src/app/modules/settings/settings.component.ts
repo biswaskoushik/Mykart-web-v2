@@ -95,7 +95,7 @@ export class SettingsComponent implements OnInit {
 
         if (next.response != null && next.response.status != null && typeof (next.response.status.status_message) != 'undefined' && next.response.status.status_message == 'SUCCESS') {
           this.changePassordForm.reset();
-          swal("Thank You!", 'Password changed successfully', "success");
+          swal("Thank You!", 'You’ve successfully changed password.', "success");
 
           for (let x in this.changePassordForm.controls) {
             this.changePassordForm.controls[x].markAsUntouched();
@@ -119,7 +119,7 @@ export class SettingsComponent implements OnInit {
     this.apiService.httpViaPost("services/user/v1/notification/status/update", { status: this.setting.is_notification }).subscribe((next: any) => {
       this.commonFunction.loader(false);
       if (next.response != null && next.response.status != null && typeof (next.response.status.status_message) != 'undefined' && next.response.status.status_message == 'SUCCESS') {
-        swal("Thank You!", 'Setting updated successfully', "success");
+        swal("Thank You!", 'You’ve successfully updated setting.', "success");
 
       } else {
         if (next.response.fault != null && typeof (next.response.fault) != 'undefined') {
@@ -139,7 +139,7 @@ export class SettingsComponent implements OnInit {
     this.apiService.httpViaPost("services/vendor/v1/offline/status/update", { status: this.setting.is_offline }).subscribe((next: any) => {
       this.commonFunction.loader(false);
       if (next.response != null && next.response.status != null && typeof (next.response.status.status_message) != 'undefined' && next.response.status.status_message == 'SUCCESS') {
-        swal("Thank You!", 'Setting updated successfully', "success");
+        swal("Thank You!", 'You’ve successfully updated setting.', "success");
 
       } else {
         if (next.response.fault != null && typeof (next.response.fault) != 'undefined') {

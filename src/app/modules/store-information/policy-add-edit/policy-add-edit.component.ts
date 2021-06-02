@@ -282,6 +282,8 @@ export class PolicyAddEditComponent implements OnInit {
               code: this.customPolicyData[i].code,
               type: 'Other'
             }
+
+            this.data.header = 'Update';
           }
         }
 
@@ -312,7 +314,7 @@ export class PolicyAddEditComponent implements OnInit {
         this.apiService.httpViaPostLaravel("services/user/v1/update-shipping", result).subscribe((next: any) => {
           this.commonFunction.loader(false);
           if (next.status_code == 200) {
-            swal("Thank You!", 'Policies update successfully', "success");
+            swal("Thank You!", 'You’ve successfully updated policies.', "success");
             setTimeout(() => {
               this.router.navigateByUrl('/seller/store-information')
             }, 1000);
@@ -338,7 +340,7 @@ export class PolicyAddEditComponent implements OnInit {
       }).subscribe((next: any) => {
         this.commonFunction.loader(false);
         if (next.response != null && next.response.status != null && typeof (next.response.status.status_message) != 'undefined' && next.response.status.status_code == 200) {
-          swal("Thank You!", 'Policies update successfully', "success");
+          swal("Thank You!", 'You’ve successfully updated policies.', "success");
           setTimeout(() => {
             this.router.navigateByUrl('/seller/store-information')
           }, 1000);
@@ -356,7 +358,7 @@ export class PolicyAddEditComponent implements OnInit {
         this.apiService.httpViaPostLaravel("services/user/v1/update/contact-us", result).subscribe((next: any) => {
           this.commonFunction.loader(false);
           if (next.status_code == 200) {
-            swal("Thank You!", 'Contact update successfully', "success");
+            swal("Thank You!", 'You’ve successfully updated contact.', "success");
             setTimeout(() => {
               this.router.navigateByUrl('/seller/store-information')
             }, 1000);

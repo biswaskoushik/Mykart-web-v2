@@ -86,7 +86,7 @@ export class LeftMenuComponent implements OnInit {
   }
 
   componentToStripe() {
-    window.location.href = environment['CONNECT_TO_STRIPE'] + this.loginData.user.id;
+    window.open(environment['CONNECT_TO_STRIPE'] + this.loginData.user.id, '_blank');
   }
 
   close() {
@@ -96,7 +96,7 @@ export class LeftMenuComponent implements OnInit {
   stripeDashboard() {
     let j = confirm("Do you want to redirect to Stripe dashboard ?");
     if(j) {
-      window.location.href = "http://18.222.168.203/api-mykart/stripe/onboarding/get-dashboard-link/" + this.loginData.user.id;
+      window.open("http://18.222.168.203/api-mykart/stripe/onboarding/get-dashboard-link/" + this.loginData.user.id, '_blank');
     }
   }
 

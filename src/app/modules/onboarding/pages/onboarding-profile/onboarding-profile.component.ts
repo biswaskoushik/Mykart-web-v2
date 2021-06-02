@@ -226,7 +226,7 @@ export class OnboardingProfileComponent implements OnInit {
       this.commonFunction.loader(false);
 
       if (next.status == true) {
-        swal("Thank You!", 'Profile update successfully', "success");
+        swal("Thank You!", 'You’ve successfully updated Profile.', "success");
 
         if (this.profileImage != null && typeof (this.profileImage) != "undefined") {
           let img: any = document.getElementById('profile_image');
