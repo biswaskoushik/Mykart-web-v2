@@ -43,7 +43,9 @@
 
                                                     <div class="col-md-12" style="display : -webkit-inline-box">
                                                         <div class="imgcardclass-wrapper">
-                                                          <img form-group *ngIf="item" [src]="item" class="image-fluid p-4 imgcardclass" />
+                                                            <div class="imgcardclass-wrapper-inner">
+                                                                <img form-group *ngIf="item" [src]="item" class="image-fluid imgcardclass" />
+                                                            </div>
                                                         </div>
                                                           <i class="material-icons imgcloseclass" (click)="clearImage(item,i,'add')">&#xe888;</i>                          
                                                         
@@ -64,8 +66,9 @@
                                                 <div *ngFor="let item of variant.media_links;let j = index" class="productlistsingle">
                                                     <div class="col-md-12" style="display : -webkit-inline-box">
                                                         <div class="imgcardclass-wrapper">
-                                                        <img form-group *ngIf="item" [src]="item"
-                                                            class="image-fluid p-4 imgcardclass" />
+                                                            <div class="imgcardclass-wrapper-inner">
+                                                                <img form-group *ngIf="item" [src]="item" class="image-fluid imgcardclass" />
+                                                            </div>
                                                         </div>
                                                         <i class="material-icons imgcloseclass"
                                                             (click)="clearImage(item,j,'edit')">&#xe888;</i>
