@@ -77,10 +77,10 @@
 
                                         <div class="col-10 form-group form-group-default input-group m-0">
 
-                                            <div class="form-input-group inputTextContainer">
-                                                <input type="text" [name]="row.code" [(ngModel)]="row.name"
+                                            <div class="form-input-group floatwrap">
+                                                <input type="text" [name]="row.code" [(ngModel)]="row.name" id="catname" name="catname" placeholder="Category"
                                                     class="form-control inputText" required>
-                                                <label class="floating-label m-0 p-0">Category</label>
+                                                <label class="matlabel mt-0 pl-0" for="catname">Category</label>
                                             </div>
 
                                             <div class="input-group-append">
@@ -108,12 +108,14 @@
                                                 <div class="col-md-12 form-group form-group-default input-group m-0 addmorecls"
                                                     [ngClass]="{'border-danger': newCategory.isError}">
     
-                                                    <div class="form-input-group inputTextContainer">
-                                                        <input type="text" name="categoryName" id="categoryName"
+                                                    <div class="form-input-group floatwrap">
+                                                        <input type="text" name="categoryName" id="categoryName" placeholder="Category"
                                                             [(ngModel)]="newCategory.name" class="form-control inputText"
                                                             required>
-                                                        <label class="floating-label m-0 p-0"
-                                                            for="categoryName">Category</label>
+                                                        <!-- <label class="floating-label m-0 p-0"
+                                                            for="categoryName">Category</label> -->
+
+                                                            <label class="matlabel mt-0 pl-0" for="categoryName">Category</label>
                                                     </div>
     
                                                     <div class="input-group-append">

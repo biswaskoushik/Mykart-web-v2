@@ -228,8 +228,9 @@
                       <div class="row m-b-6 mb-2">
                         <div class="col-md-4">
                           <div class="inputfield floatwrap">
-                              <input type="text" class="form-control form-control-lg inputText" [(ngModel)]="product.variant[i].name" [ngModelOptions]="{standalone: true}" required/>
-                              <span class="floating-label">Variant Name</span>
+                              <input type="text" name="variantname" placeholder="Variant Name" id="variantname" class="form-control form-control-lg inputText" [(ngModel)]="product.variant[i].name" [ngModelOptions]="{standalone: true}" required/>
+                              <label class="matlabel" for="variantname">Variant Name</label>
+                              <!-- <span class="floating-label"></span> -->
                             <!-- <input type="text" [(ngModel)]="product.variant[i].name"
                               class="form-control form-control-lg inputText" [ngModelOptions]="{standalone: true}" />
                               <span class="floating-label">Variant Name</span> -->
