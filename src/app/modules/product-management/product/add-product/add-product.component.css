@@ -12,12 +12,12 @@ hr.divider{border:3px solid #e9e8e8}
 .back-button a img{display:inline-block;vertical-align:middle}
 .back-button a span{display:inline-block;vertical-align:middle}
 .select-label{position:absolute;pointer-events:none;height:15px;line-height:15px;left:10px;top:5px;font-size:9px!important;opacity:1}
-textarea:focus ~ .floating-label,textarea:not(:focus):valid ~ .floating-label{height:15px;line-height:15px;left:10px;top:5px;font-size:9px!important;opacity:1}
+/* textarea:focus ~ .floating-label,textarea:not(:focus):valid ~ .floating-label{height:15px;line-height:15px;left:10px;top:5px;font-size:9px!important;opacity:1}
 .inputfield input:focus ~ .floating-label, .inputfield input:not(:focus):valid ~ .floating-label{top:10px;bottom:10px;left:10px;font-size:13px;opacity:1;color:rgba(0,0,0,.54)}
-.floating-label{pointer-events:none;position:absolute;pointer-events:none;left:20px;top:50%;transition:.5s ease all;height:inherit;transform:translateY(-50%);color: #828282}
+.floating-label{pointer-events:none;position:absolute;pointer-events:none;left:20px;top:50%;transition:.5s ease all;height:inherit;transform:translateY(-50%);color: #828282} */
 
 
-.floatwrap .matlabel {left: 10px;}
+/* .floatwrap .matlabel {left: 10px;} */
 
 
 .card-backgroud{background-color:#f1f6fe}
@@ -76,7 +76,7 @@ textarea:focus ~ .floating-label,textarea:not(:focus):valid ~ .floating-label{he
 .addvarianttext span{display:inline-block;vertical-align:middle;line-height:100%}
 .removebtn{-webkit-transition:.3s ease-in-out;transition:.3s ease-in-out}
 .removebtn:hover{color:#0F73EE}
-.dashouter .form-group label{text-transform:capitalize;margin-bottom:2px;font-size:12px}
+/* .dashouter .form-group label{text-transform:capitalize;margin-bottom:2px;font-size:12px} */
 .ptttextbox{float:left;width:100%;margin-top:8px}
 .ptttextbox .ptttextleft{display:table-cell;vertical-align:middle;width:100%}
 .ptttextbox .ptttextleft span{color:#333;font-size:15px;font-weight:400}
@@ -90,7 +90,7 @@ textarea:focus ~ .floating-label,textarea:not(:focus):valid ~ .floating-label{he
 .chpcls .mat-form-field-label-wrapper .mat-form-field-label{display: none;}
 .inputfield{position: relative;}
 
-.inputText{font-size:14px;width:100%;height:45px;padding:0 8px}
+.inputText{font-size:14px;width:100%;height:45px;padding:0 17px}
 input.mat-chip-input {line-height: 24px;}
 .chpcls.mat-form-field-appearance-legacy .mat-form-field-infix {padding: .2375em 0 !important;}
 .mat-standard-chip.mat-chip-with-trailing-icon {padding-top: 2px;padding-bottom: 2px;min-height: 26px;}
