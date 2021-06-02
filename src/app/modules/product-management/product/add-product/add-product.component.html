@@ -95,15 +95,16 @@
                     <div class="col-md-12">
                       <div class="row m-b-6 mb-2">
                         <div class="col-md-6">
-                          <div class="form-group floatwrap">
-                            <label>Category</label>
-                            <select class="form-control" id="inputGroupSelect01"
+                          <div class="form-group floatwrap floatwrapnew">
+                            
+                            <select class="floating-select-new" id="inputGroupSelect01"
                               [(ngModel)]="product.category.code" (change)="changeCategory(product.category.code)"
                               [ngModelOptions]="{standalone: true}">
                               <option selected>Choose category</option>
                               <option *ngFor="let category of categoryList" [value]="category.code">
                                 {{ category.name }}</option>
                             </select>
+                            <label class="matsllabel">Category</label>
 
                             <!-- <label class="matlabel" for="category">Category</label> -->
 
