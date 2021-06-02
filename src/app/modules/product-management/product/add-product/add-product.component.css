@@ -48,7 +48,7 @@ hr.divider{border:3px solid #e9e8e8}
     max-height: 100%;
     -o-object-fit: cover;
     object-fit: cover;
-    height: 100%;
+    width: 100%;
     height: 100%;}
 .productlistsingle{margin: 3px;}
 .addwrapppercls{margin-right: 7px;margin-top: 3px;}
