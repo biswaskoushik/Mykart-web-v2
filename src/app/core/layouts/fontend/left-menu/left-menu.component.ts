@@ -34,11 +34,8 @@ export class LeftMenuComponent implements OnInit {
 
     }
 
-    console.log(this.loginData,'+++>>>>>>>>>>>>>>>> this.loginData')
-
     if (localStorage.getItem('step_stripe') != null &&
       localStorage.getItem('step_creadit_card_details') != null) {
-      //console.log(this.step_flag, '+==============')
 
       let step_stripe: any = localStorage.getItem('step_stripe');
       let step_creadit_card_details: any = localStorage.getItem('step_creadit_card_details');

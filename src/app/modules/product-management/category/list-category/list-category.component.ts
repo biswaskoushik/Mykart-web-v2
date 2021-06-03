@@ -32,15 +32,10 @@ export class ListCategoryComponent implements OnInit {
     this.loginUserData = this.commonFunction.getLoginData()
     this.activatedRoute.data.forEach(resp => {
       this.categoryList = resp.categoryList.response.category;
-      //console.log(resp, 'resp++++', this.categoryList)
     })
-
-    console.log("this.loginUserData >>>", this.loginUserData);
   }
 
   addMore() {
-    //console.log("Categori", this.newCateogryList);
-
     if (this.newCateogryList.length === 0) {
       this.newCateogryList = [{ name: "", is_active: true }];
       return;
@@ -54,8 +49,6 @@ export class ListCategoryComponent implements OnInit {
 
   editCategory(category, i) {
     category.isEdit = true;
-    //console.log(category, i)
-
   }
 
   deleteCategory(category, i) {
@@ -64,8 +57,6 @@ export class ListCategoryComponent implements OnInit {
         "title": "Do you want to delete category?",
         "buttons": ["No", "Yes"]
       };
-
-      console.log("category: ", category);
 
       this.commonFunction.confirmBox(config).then((action) => {
         if (action == true) {
@@ -115,7 +106,6 @@ export class ListCategoryComponent implements OnInit {
   }
 
   saveCategory(category) {
-    //console.log(category)
     this.categoryNameError = '';
     if (category.name != null && category.name != '') {
       this.commonFunction.loader(true);
@@ -126,7 +116,6 @@ export class ListCategoryComponent implements OnInit {
         .subscribe((next) => {
           this.isLoading = false;
           this.commonFunction.loader(false);
-          ////console.log(next, 'next++ sign up')
           if (next.response != null && next.response.status != null && typeof (next.response.status.status_message) != 'undefined' && next.response.status.status_message == 'SUCCESS') {
             this.newCateogryList.splice(
               this.newCateogryList.indexOf(category),
@@ -155,7 +144,6 @@ export class ListCategoryComponent implements OnInit {
     }
     this.apiService.httpViaPostLaravel('product/v1/get/category', vendor_data).subscribe((data) => {
       this.commonFunction.loader(false);
-      console.log(" component getCategoryList", data);
       if (data != null && data.response != null) {
         this.categoryList = data.response.category;
       }

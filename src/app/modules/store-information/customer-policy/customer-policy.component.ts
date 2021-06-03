@@ -66,8 +66,6 @@ export class CustomerPolicyComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: any, public commonFunction: CommonFunction) {
     this.loginData = this.commonFunction.getLoginData();
 
-    //console.log(data, 'data++++')
-
     if (data.flag == "shipping") {
       this.carriersData = data.carriersData;
       this.shippingCarriers = {
@@ -130,10 +128,11 @@ export class CustomerPolicyComponent implements OnInit {
     if (countVal <= 1) {
       return;
     }
-    ////console.log("decrement===", countVal)
+
     if (flag == 'handling_time') {
       this.shippingCarriers.handling_time = countVal - 1;
     }
+
     if (flag == 'processing_time') {
       this.returnPolicy.processing_time = countVal - 1;
     }
@@ -145,7 +144,6 @@ export class CustomerPolicyComponent implements OnInit {
     }
 
     if (flag == 'handling_time') {
-      ////console.log("increment", countVal)
       this.shippingCarriers.handling_time = countVal + 1;
     }
     if (flag == 'processing_time') {
@@ -168,7 +166,6 @@ export class CustomerPolicyComponent implements OnInit {
 
     if (flag == 'custom') {
       let isValid = this.customPolicyValidation();
-      //console.log(isValid, 'isValid')
       if (isValid) {
         this.dialogRef.close(this.customPolicy);
       }
@@ -192,7 +189,7 @@ export class CustomerPolicyComponent implements OnInit {
 
   getAcceptValue(value) {
     this.returnPolicy.accepting_returns = value ? false : true;
-    // console.log(value, '+++flag', this.returnPolicy.accepting_returns)
+    
     if (this.returnPolicy.accepting_returns == false) {
       this.returnPolicy.return_window = '15';
       this.returnPolicy.processing_time = 1;

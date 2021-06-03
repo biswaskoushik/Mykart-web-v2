@@ -105,10 +105,9 @@ export class ProfileComponent implements OnInit {
         "postal_code": this.profileForm.controls['zip'].value,
         "country_code": this.profileForm.controls['country'].value
       }
-      console.log(data, 'data')
+
       this.apiService.httpViaPostLaravel('services/user/v1/profile/address-tax-validate', data).subscribe((next: any) => {
         if (next.data != null && next.data.address_status != null && next.data.address_status.length > 0 && next.data.address_status[0].status != null && next.data.address_status[0].status == 'verified') {
-          console.log(next.data.address_status[0])
           this.profileForm.controls['tax_value'].setValue(next.data.tax_rate);
 
           this.profileForm.value.is_vendor_login = true;
@@ -129,14 +128,12 @@ export class ProfileComponent implements OnInit {
   getProfileData() {
     this.commonFunction.loader(true);
     this.userData = this.commonFunction.getLoginData();
-    //console.log(this.userData, 'userData========>>')
 
     this.profileForm.controls['email'].setValue(this.userData.data.user.email);
     this.profileForm.controls['business_name'].setValue(this.userData.data.user.business_name);
 
     this.apiService.httpViaPost('services/user/v1/profile/get', {}).subscribe((next: any) => {
       let profileData = next.response.user;
-      // console.log(profileData, 'next+++')
       this.commonFunction.loader(false);
 
       if (profileData != null && profileData.first_name != null && typeof (profileData.first_name) != 'undefined' && profileData.first_name != '') {
@@ -177,7 +174,6 @@ export class ProfileComponent implements OnInit {
 
       if (profileData != null && profileData.tax_value != null) {
         this.profileForm.controls['tax_value'].setValue(profileData.tax_value);
-        // console.log(profileData.tax_value, 'profileData.tax_value++++++++=')
       }
 
       if (profileData != null && profileData.image_url != null && typeof (profileData.image_url) != 'undefined' && profileData.image_url != '') {
@@ -187,9 +183,7 @@ export class ProfileComponent implements OnInit {
   }
 
   changeImage(event: any) {
-    //console.log(this.temp, '+++', event.target.files[0])
     this.profileImage = event.target.files[0];
-    //console.log("profileImage == ", this.profileImage)
     var reader = new FileReader();
     reader.onload = (event: any) => {
       this.imageUrl = event.target.result;
@@ -200,44 +194,15 @@ export class ProfileComponent implements OnInit {
 
   getZipCodeInf() {
     this.zipCode = zipcode.lookup(this.profileForm.value.zip);
-    console.log(this.zipCode, '++++++++++=  this.zipCode', this.profileForm.value.zip)
 
     if (typeof (this.zipCode) == 'undefined') {
       swal("Sorry!", 'Zip Code is not valid', "warning");
     } else {
-      // let sell_tax_value = this.getSaleTaxes(this.zipCode.state).sell_state_taxes;
-      // this.profileForm.controls['tax_value'].setValue(sell_tax_value);
       this.profileForm.controls['country'].setValue(this.zipCode.country);
       this.profileForm.controls['state'].setValue(this.zipCode.state);
       this.profileForm.controls['city'].setValue(this.zipCode.city);
     }
   }
-
-  // getSaleTaxes(stateName2: any): StateTaxes {
-  //   return this.salesStateTaxes.find(s => s.stateName2 == stateName2)
-  // }
-
-  // getAddressVaildInf() {
-  //   console.log('address++++++++++++', this.profileForm.value.address)
-  //   this.commonFunction.loader(true);
-  //   let data: any = {
-  //     "address_line1": this.profileForm.controls['address'].value,
-  //     "city_locality": this.profileForm.controls['city'].value,
-  //     "state_province": this.profileForm.controls['state'].value,
-  //     "postal_code": this.profileForm.controls['zip'].value,
-  //     "country_code": this.profileForm.controls['country'].value
-  //   }
-  //   console.log(data, 'data')
-  //   this.apiService.httpViaPostLaravel('services/user/v1/profile/address-tax-validate', data).subscribe((next: any) => {
-  //     this.commonFunction.loader(false);
-  //     if (next.data != null && next.data.address_status.length > 0 && next.data.address_status[0].status != null && next.data.address_status[0].status == 'verified') {
-  //       console.log(next.data.address_status[0])
-  //       this.profileForm.controls['tax_value'].setValue(next.data.tax_rate);
-  //     } else {
-  //       swal("Sorry!", 'Address is not valid', "warning");
-  //     }
-  //   });
-  // }
 
   updateProfileData(formData) {
     this.commonFunction.loader(true);
@@ -262,7 +227,6 @@ export class ProfileComponent implements OnInit {
         localStroageData.user.last_name = this.profileForm.controls['last_name'].value;
         localStorage.removeItem('login_data');
         localStorage.setItem('login_data', JSON.stringify(localStroageData));
-        // console.log(headerData, 'headerData ======= ')
 
         for (let x in this.profileForm.controls) {
           this.profileForm.controls[x].markAsUntouched();

@@ -75,7 +75,7 @@ export class OnboardingPoliciesComponent implements OnInit {
     if (countVal <= 1) {
       return;
     }
-    //console.log("decrement===", countVal)
+    
     if (flag == 'handling_time') {
       this.policiesForm.controls['handling_time'].value = countVal - 1;
       this.policiesForm.controls['handling_time'].setValue(this.policiesForm.controls['handling_time'].value);
@@ -93,7 +93,6 @@ export class OnboardingPoliciesComponent implements OnInit {
     }
 
     if (flag == 'handling_time') {
-      //console.log("increment", countVal)
       this.policiesForm.controls['handling_time'].value = countVal + 1;
       this.policiesForm.controls['handling_time'].setValue(this.policiesForm.controls['handling_time'].value);
     }
@@ -103,21 +102,6 @@ export class OnboardingPoliciesComponent implements OnInit {
     }
 
   }
-
-  // skip Submit Policies
-  // skipSubmitPolicies() {
-  //   this.SubmitPoliciesFlag = false;
-  //   //console.log(this.SubmitPoliciesFlag, 'SubmitPoliciesFlag')
-  //   this.policiesListener.emit({ action: 'policies', flag: 'update-policies', SubmitPoliciesFlag: this.SubmitPoliciesFlag, value: 0 })
-  // }
-
-  // getCarrierData() {
-  //   this.apiService.getJsonObject('assets/data/carriers.json').subscribe((next: any) => {
-  //     //console.log(next, 'next++++')
-  //     this.carriersData = next.carriers;
-  //   })
-  // }
-
 
   getServiceData(value) {
     for (let i in this.carriersData) {
@@ -134,12 +118,8 @@ export class OnboardingPoliciesComponent implements OnInit {
     if (this.policiesForm.valid) {
       this.commonFunction.loader(true);
 
-      //console.log(this.policiesForm.value)
-
       this.apiService.httpViaPost("services/vendor/v1/policy/details/update", this.policiesForm.value).subscribe((next: any) => {
         this.commonFunction.loader(false);
-
-        //console.log(next, 'next++ sign up')
 
         if (next.response != null && next.response.status != null && typeof (next.response.status.status_message) != 'undefined' && next.response.status.status_message == 'SUCCESS') {
           this.policiesForm.reset();
@@ -174,19 +154,10 @@ export class OnboardingPoliciesComponent implements OnInit {
       this.policiesForm.controls['processing_time'].setValue(0);
       this.policiesForm.controls['return_window'].setValue('');
     }
-    //console.log(value, '=++++++++++', this.policiesForm.controls['accepting_returns'].value)
   }
-
-  // getCarrierData() {
-  //   this.apiService.getShipCarrierData('services/vendor/v1/shipengine/carriers').subscribe((next: any) => {
-  //     this.carriersData = next.carriers;
-  //     console.log(next, 'next++++', this.carriersData)
-  //   })
-  // }
 
   getCarrierData() {
     this.apiService.getJsonObject('assets/data/carriers.json').subscribe((next: any) => {
-      //console.log(next, 'next++++')
       this.carriersData = next.carriers;
     })
   }

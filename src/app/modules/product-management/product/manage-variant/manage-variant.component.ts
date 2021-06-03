@@ -56,8 +56,7 @@ export class ManageVariantComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<ManageVariantComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any, public formBuilder: FormBuilder, public apiService: ApiService, public commonFunction: CommonFunction) {
-    console.log(data.data, '++++++++++data')
-
+    
 
     this.variant.price = data.data.price,
       this.variant.qty = data.data.quantity,
@@ -114,19 +113,18 @@ export class ManageVariantComponent implements OnInit {
       for (let i = 0; i < event.target.files.length; i++) {
         imageArray.push({ img: event.target.files[i] })
       }
-      // console.log(imageArray, 'imageArray')
+
       this.readAllFiles(imageArray)
     }
   }
 
   //use promise to read all files
   async readAllFiles(AllFiles) {
-    // console.log(AllFiles, 'AllFiles')
     const results = await Promise.all(AllFiles.map(async (file) => {
       const fileContents = await this.handleFileChosen(file);
       return fileContents;
     }));
-    // console.log(results, '++++++++++');
+
     return results;
   }
 
@@ -156,20 +154,17 @@ export class ManageVariantComponent implements OnInit {
     this.commonFunction.confirmBox(config).then((action) => {
       if (action == true) {
         if (flag == 'edit') {
-          console.log(this.variant.media_links[i], i)
           this.variant.delete_img.push(this.variant.media_links[i]);
           this.variant.media_links.splice(i, 1);
         }
         if (flag == 'add') {
           this.imagesData.splice(i, 1);
         }
-        console.log(this.imagesData)
       }
     })
   }
 
   changeDiscount(flag) {
-    console.log(flag)
     this.is_percentage = false;
     this.is_flat_amount = false;
     this.none_flag = false;
@@ -203,7 +198,6 @@ export class ManageVariantComponent implements OnInit {
       this.commonFunction.loader(true);
 
       this.variant.images = this.imagesData;
-      console.log(this.variant)
 
       let endpoint = 'variant/v1/create';
 

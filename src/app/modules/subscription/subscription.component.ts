@@ -89,7 +89,6 @@ export class SubscriptionComponent implements OnInit {
     };
     this.commonFunction.confirmBox(config).then((action) => {
       if (action == true) {
-        // console.log(value)
         this.commonFunction.loader(true);
 
         if (value.is_default == 1) {
@@ -128,7 +127,6 @@ export class SubscriptionComponent implements OnInit {
   }
 
   makeDefaultCard(value, i) {
-    // console.log(value, i)
     this.cardDetails[i].is_default = 1;
     var config: any = {
       "title": "Do you want to change your default card?",

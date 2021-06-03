@@ -78,7 +78,6 @@ export class PolicyAddEditComponent implements OnInit {
   ngOnInit(): void {
     this.loginData = this.commonFunction.getLoginData();
 
-    // console.log(this.loginData, ' this.loginData')
     this.getPolicyDetails();
 
     this.getCustomPolicyDetails();
@@ -147,10 +146,11 @@ export class PolicyAddEditComponent implements OnInit {
     if (countVal <= 1) {
       return;
     }
-    ////console.log("decrement===", countVal)
+
     if (flag == 'handling_time') {
       this.shippingCarriers.handling_time = countVal - 1;
     }
+    
     if (flag == 'processing_time') {
       this.returnPolicy.processing_time = countVal - 1;
     }
@@ -162,7 +162,6 @@ export class PolicyAddEditComponent implements OnInit {
     }
 
     if (flag == 'handling_time') {
-      ////console.log("increment", countVal)
       this.shippingCarriers.handling_time = countVal + 1;
     }
     if (flag == 'processing_time') {
@@ -185,7 +184,7 @@ export class PolicyAddEditComponent implements OnInit {
 
     if (flag == 'custom') {
       let isValid = this.customPolicyValidation();
-      //console.log(isValid, 'isValid')
+
       if (isValid) {
 
         this.updateCustomPolicy(this.customPolicy);
@@ -211,7 +210,7 @@ export class PolicyAddEditComponent implements OnInit {
 
   getAcceptValue(value) {
     this.returnPolicy.accepting_returns = value ? false : true;
-    // console.log(value, '+++flag', this.returnPolicy.accepting_returns)
+
     if (this.returnPolicy.accepting_returns == false) {
       this.returnPolicy.return_window = '15';
       this.returnPolicy.processing_time = 1;
@@ -220,12 +219,7 @@ export class PolicyAddEditComponent implements OnInit {
 
 
   getShippingCarrierData() {
-    // this.apiService.getShipCarrierData('services/vendor/v1/shipengine/carriers').subscribe((next: any) => {
-    //   this.carriersData = next.carriers;
-    //   //console.log(next, 'next++++', this.carriersData)
-    // })
     this.apiService.getJsonObject('assets/data/carriers.json').subscribe((next: any) => {
-      //console.log(next, 'next++++')
       this.carriersData = next.carriers;
     })
   }
@@ -233,8 +227,6 @@ export class PolicyAddEditComponent implements OnInit {
   getPolicyDetails() {
     this.apiService.httpViaPost('services/vendor/v1/policy/details/get', {}).subscribe(next => {
       this.policy_details = next.response.policy_details;
-
-      console.log("this.policy_details ", this.policy_details);
 
       if (this.activatedRoute.snapshot.params.type == "shipping") {
         this.shippingCarriers = {

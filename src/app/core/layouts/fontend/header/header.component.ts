@@ -29,7 +29,6 @@ export class HeaderComponent implements OnInit {
     this.loginData = this.commonFunction.getLoginData();
     this.userData.image_url = localStorage.getItem('image_url');
     this.userData.full_name = localStorage.getItem('first_name') + ' ' + localStorage.getItem('last_name');
-    // console.log(this.userData, 'this.userData++')
   }
 
   logout() {

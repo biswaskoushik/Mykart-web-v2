@@ -27,8 +27,6 @@ export class RouteResolveService implements Resolve<any> {
     let loginUserData = this.commonFunction.getLoginData()
     let flag: any = "spring";
 
-
-    //console.log(activatedRoute, 'activatedRoute++')
     if (activatedRoute.endpoint == 'services/vendor/v1/category/list') {
       activatedRoute.requestcondition.Vendor_detail.email = loginUserData.data.user.email;
     }

@@ -24,7 +24,7 @@ export class FontendComponent implements OnInit {
 
   constructor(public router: Router, public commonFunction: CommonFunction, public activatedRoute: ActivatedRoute) {
     this.activatedRoute.queryParams.subscribe(params => {
-      //console.log(params);
+      // code
     })
   }
 
@@ -34,7 +34,6 @@ export class FontendComponent implements OnInit {
       if (event instanceof NavigationStart) {
         this.layout.header = false;
         this.layout.leftMenu = false;
-        //console.log(this.router.url,'++++++++++++++++')
 
         let link = event['url'];
         let linkArr = link.split('/');

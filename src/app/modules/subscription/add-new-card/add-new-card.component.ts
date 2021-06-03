@@ -92,7 +92,7 @@ export class AddNewCardComponent implements OnInit {
     const { token, error } = await this.stripe.createToken(this.card);
 
     if (error) {
-      //console.log('Error:', error);
+      console.log('Error: ', error);
     } else {
       this.subscriptionForm.value.source = token.id;
       this.subscriptionForm.value.email = this.loginData.data.user.email;
@@ -100,7 +100,6 @@ export class AddNewCardComponent implements OnInit {
 
       this.apiService.httpViaPostLaravel("services/user/v1/customer/card/create", this.subscriptionForm.value).subscribe((next: any) => {
         this.commonFunction.loader(false);
-        //console.log(next, 'next++ sign up')
 
         this.buttonText = buttonText;
         if (next.response != null && next.response.status != null && typeof (next.response.status.status_code) != 'undefined' && next.response.status.status_code == 200) {
@@ -120,7 +119,6 @@ export class AddNewCardComponent implements OnInit {
 
   onItemChange(event: any) {
     this.subscriptionForm.value.is_default = true;
-    //console.log(this.subscriptionForm.value.is_default, " Value is : ", event.target.value);
   }
 
   onChange({ error }) {

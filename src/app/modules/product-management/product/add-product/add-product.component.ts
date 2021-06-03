@@ -102,8 +102,6 @@ export class AddProductComponent implements OnInit {
     this.product.vendor.id = this.loginUserData.data.user.id;
     this.variantFilter.email = this.loginUserData.data.user.email;
 
-    console.log(this.product.vendor, this.loginUserData.data.user)
-
     this.getCategoryList();
 
     if (this.activatedRoute.snapshot.params.product_id != null) {
@@ -124,25 +122,21 @@ export class AddProductComponent implements OnInit {
       for (let i = 0; i < event.target.files.length; i++) {
         imageArray.push({ img: event.target.files[i] })
       }
-      // console.log(imageArray, 'imageArray')
       this.readAllFiles(imageArray)
     }
   }
 
   //use promise to read all files
   async readAllFiles(AllFiles) {
-    // console.log(AllFiles, 'AllFiles')
     const results = await Promise.all(AllFiles.map(async (file) => {
       const fileContents = await this.handleFileChosen(file);
       return fileContents;
     }));
-    // console.log(results, '++++++++++');
     return results;
   }
 
   //resolve all files with base64
   async handleFileChosen(file) {
-    // console.log(file, 'file')
     return new Promise((resolve, reject) => {
       let fileReader = new FileReader();
       fileReader.onload = () => {
@@ -175,7 +169,6 @@ export class AddProductComponent implements OnInit {
         if (flag == 'add') {
           this.imagesData.splice(i, 1);
         }
-        console.log(this.imagesData)
       }
     })
   }
@@ -190,7 +183,6 @@ export class AddProductComponent implements OnInit {
 
     this.apiService.httpViaPost('services/vendor/v1/category/list', vendor_data).subscribe((data) => {
       this.commonFunction.loader(false);
-      //console.log(" component getCategoryList", data);
       if (data != null && data.response != null) {
         this.categoryList = data.response.category;
       }
@@ -206,11 +198,8 @@ export class AddProductComponent implements OnInit {
 
     this.apiService.httpViaPostLaravel('product/v1/get', product_data).subscribe((data) => {
       this.commonFunction.loader(false);
-      //console.log(" component getCategoryList", data);
       if (data != null && data.status_code != null) {
         let productData = data.data.product;
-        console.log(productData, '++productData')
-        // this.product.code = productData.code;
         this.product.category = productData.category;
         this.product.title = productData.title;
         this.product.subtitle = productData.subtitle;
@@ -276,7 +265,6 @@ export class AddProductComponent implements OnInit {
 
 
   changeTimeLineStatus(value, flag) {
-    console.log(value, flag, '=============')
     switch (flag) {
       case 'none':
         this.product.percentage = 0.0;
@@ -311,7 +299,6 @@ export class AddProductComponent implements OnInit {
 
   saveProduct() {
     let isFormValid = this.formValidation();
-    //console.log(isFormValid, '+++ formValid')
     if (isFormValid) {
 
       if (this.product.is_percentage == true) {
@@ -324,7 +311,6 @@ export class AddProductComponent implements OnInit {
         this.product.discount_value = this.product.flat_amount;
       }
 
-      // delete this.product.variant;
       delete this.product.percentage;
       delete this.product.is_percentage;
       delete this.product.is_flat_amount;
@@ -333,11 +319,6 @@ export class AddProductComponent implements OnInit {
 
       this.commonFunction.loader(true);
       let fd = new FormData()
-
-      // let imageArray: any = [];
-      // imageArray.push(this.productImage)
-      // fd.append('image', imageArray);
-      // fd.append('product_update', JSON.stringify(this.product))
 
       this.product.email = this.loginUserData.data.user.email;
       if (this.imagesData.length > 0) {
@@ -356,7 +337,6 @@ export class AddProductComponent implements OnInit {
         this.commonFunction.loader(false);
         if (next != null && typeof (next.status_code) != 'undefined' && next.status_code == 200) {
           this.button_text = 'Update Product';
-          console.log(next, '+++++++++++++')
 
           if (this.product.productId == null) {
             swal("Thank You!", 'You’ve successfully added product.', "success");
@@ -365,7 +345,6 @@ export class AddProductComponent implements OnInit {
           }
           this.product.productId = next.data.productId;
           this.getVariantData(next.data.productId);
-          // this.router.navigateByUrl('/seller/products');
         } else {
           if (next.message != null && typeof (next.message) != 'undefined') {
             swal("Sorry!", next.message, "warning");
@@ -465,7 +444,6 @@ export class AddProductComponent implements OnInit {
     } else {
       swal("Sorry!", 'You can only add up to 3 variants', "warning");
     }
-    console.log(this.product.variant)
   }
 
   addVariantOptions(event: MatChipInputEvent, i) {
@@ -489,7 +467,6 @@ export class AddProductComponent implements OnInit {
   }
 
   clearChip(i, j) {
-    //console.log(i, j)
     this.product.variant[i].options.splice(j, 1)
   }
 
@@ -506,9 +483,6 @@ export class AddProductComponent implements OnInit {
   }
 
   openVariantsDialog(value, i) {
-    console.log(value, i)
-    // swal("Sorry!", 'Comming soon', "warning");
-    // ManageVariantComponent
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
@@ -529,7 +503,6 @@ export class AddProductComponent implements OnInit {
     );
     dialogRef.afterClosed().subscribe(result => {
       if (result != null && typeof (result) != 'undefined') {
-        console.log(result,'+++++++++')
 
         if(result.flag != null && result.flag =='update'){
           swal("Thank You!", 'You’ve successfully updated variant.', "success");
@@ -574,7 +547,6 @@ export class AddProductComponent implements OnInit {
             data.data.productCombination[i].name = (data.data.productCombination[i].combination).split('-')[0];
           }
           this.variantData = data.data.productCombination;
-          // console.log(this.variantData, 'this.variantData',this.filterVariantArray,productCombinationArr)
         }
       })
     }, 500);

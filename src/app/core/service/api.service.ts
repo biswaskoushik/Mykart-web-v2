@@ -84,7 +84,6 @@ export class ApiService {
   /* call api via post method */
   updateProfile(data: FormData): Observable<any> {
     let loginUserData: any = this.commonFunction.getLoginData();
-    // console.log(loginUserData,'loginUserData++')
     /* set common header */
     const httpOptions = {
       headers: new HttpHeaders({

@@ -77,21 +77,15 @@ export class SettingsComponent implements OnInit {
       this.changePassordForm.controls[x].markAsTouched();
     }
 
-    //console.log(this.changePassordForm.valid, 'this.changePassordForm.valid++')
-
     if (this.changePassordForm.valid) {
 
       this.commonFunction.loader(true);
       this.changePassordForm.value.is_vendor = true,
 
-        //console.log(this.changePassordForm.value, 'next++ sign up')
-
       delete this.changePassordForm.value.confirm_password;
 
       this.apiService.httpViaPost("services/user/v1/password/change", this.changePassordForm.value).subscribe((next: any) => {
         this.commonFunction.loader(false);
-
-        //console.log(next, 'next++ sign up')
 
         if (next.response != null && next.response.status != null && typeof (next.response.status.status_message) != 'undefined' && next.response.status.status_message == 'SUCCESS') {
           this.changePassordForm.reset();
@@ -115,7 +109,7 @@ export class SettingsComponent implements OnInit {
   setNotification() {
     this.commonFunction.loader(true);
     this.setting.is_notification = !this.setting.is_notification;
-    //console.log(this.setting.is_notification, '++++++++')
+    
     this.apiService.httpViaPost("services/user/v1/notification/status/update", { status: this.setting.is_notification }).subscribe((next: any) => {
       this.commonFunction.loader(false);
       if (next.response != null && next.response.status != null && typeof (next.response.status.status_message) != 'undefined' && next.response.status.status_message == 'SUCCESS') {

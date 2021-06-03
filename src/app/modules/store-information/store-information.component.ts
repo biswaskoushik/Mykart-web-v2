@@ -153,12 +153,7 @@ export class StoreInformationComponent implements OnInit {
   }
 
   getShippingCarrierData() {
-    // this.apiService.getShipCarrierData('services/vendor/v1/shipengine/carriers').subscribe((next: any) => {
-    //   this.carriersData = next.carriers;
-    //   //console.log(next, 'next++++', this.carriersData)
-    // })
     this.apiService.getJsonObject('assets/data/carriers.json').subscribe((next: any) => {
-      //console.log(next, 'next++++')
       this.carriersData = next.carriers;
     })
   }

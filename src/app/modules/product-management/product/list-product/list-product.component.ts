@@ -36,7 +36,7 @@ export class ListProductComponent implements OnInit {
     this.loginUserData = this.commonFunction.getLoginData()
     this.activatedRoute.data.forEach(resp => {
       this.categoryList = resp.categoryList.response.category;
-      //console.log(resp, 'resp++++', this.categoryList)
+
       if (this.categoryList.length > 0) {
         this.categoryNotification = false;
         this.getProductList(this.categoryList[0])
@@ -49,7 +49,6 @@ export class ListProductComponent implements OnInit {
   }
 
   getProductList(value) {
-    //console.log(value, 'value++++')
     this.commonFunction.loader(true);
 
     this.selectedCategory = this.selectedCategory || this.categoryList[0].code;
@@ -63,7 +62,7 @@ export class ListProductComponent implements OnInit {
       this.commonFunction.loader(false);
       if (next != null && next.status_code == 200) {
         this.productList = next.data.product;
-        // console.log(this.productList, '++ p')
+
         this.inactiveCategoryFlag  = false;
         if(!value.is_active){
         this.inactiveCategoryFlag  = true;
@@ -88,7 +87,6 @@ export class ListProductComponent implements OnInit {
           "is_active": data.is_active
         };
 
-        console.log(data.is_active, '+++++++')
         this.apiService
           .httpViaPostLaravel('product/v1/update/status', product_data)
           .subscribe((next) => {
@@ -117,7 +115,6 @@ export class ListProductComponent implements OnInit {
   }
 
   deleteProduct(data, i) {
-    console.log(data, i)
     var config: any = {
       "title": "Do you want to delete product?",
       "buttons": ["No", "Yes"]

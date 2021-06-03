@@ -76,7 +76,7 @@ export class RegisterComponent implements OnInit {
         this.apiService.signup("user/v1/signup", { user: this.registerForm.value },
           'web-' + this.registerForm.value.email).subscribe((next: any) => {
             this.commonFunction.loader(false);
-            //console.log(next, 'next++ sign up')
+            
             if (next.response != null && next.response.status != null && typeof (next.response.status.status_message) != 'undefined' && next.response.status.status_message == 'SUCCESS') {
               this.registerForm.reset();
               swal("Thank You!", 'Check your Inbox Verify email to finish signing up.', "success");

@@ -203,7 +203,17 @@
                                             </div>
                                         </div>
                                         <tbody *ngIf="step_flag">
-                                            <tr class="text-muted" (click)="showMyList=!showMyList">
+                                            
+                                            <tr class="text-muted" *ngFor="let order of ordersData;">
+                                                <td data-label="ID #"><a class="tdid" href="javascript:void(0);">{{ order.order_code }}</a></td>
+                                                <td data-label="Date">{{ order.created_at | date }}</td>
+                                                <td data-label="Customer Name">{{ order.get_order.get_user.first_name + ' ' + order.get_order.get_user.last_name }}</td>
+                                                <td data-label="Items">{{ order.quantity }}</td>
+                                                <td data-label="Amount">$ {{ order.pay_amount }}</td>
+                                                <td data-label="Status"><a class="neworder" href="javascript:void(0);">New Order</a></td>
+                                            </tr>
+
+                                            <!-- <tr class="text-muted" (click)="showMyList=!showMyList">
                                                 <td data-label="ID #"><a class="tdid" href="javascript:void(0);">4565432</a></td>
                                                 <td data-label="Date">16/12/2018</td>
                                                 <td data-label="Customer Name">Beatrice Patel</td>
@@ -250,7 +260,7 @@
                                                 <td data-label="Items">1</td>
                                                 <td data-label="Amount">$100</td>
                                                 <td data-label="Status"><a class="canceledshoppertext" href="javascript:void(0);">Canceled By Shopper</a></td>
-                                            </tr>
+                                            </tr> -->
                                             
                                         </tbody>
                                         

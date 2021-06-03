@@ -138,8 +138,7 @@ export class LoginComponent implements OnInit {
         this.onBoarding.step_creadit_card_details = next.onboardingStepsDataJson.stepCreaditCardDetails;
         this.onBoarding.step_stripe = next.onboardingStepsDataJson.stepStripe;
 
-        //console.log(this.onBoarding, 'this.onBoarding==??')
-
+        
         if (this.onBoarding.step_creadit_card_details != null && typeof (this.onBoarding.step_creadit_card_details) != 'undefined' && this.onBoarding.step_creadit_card_details != 2) {
           this.ActiveFormFlag = false;
           localStorage.setItem('step_creadit_card_details', this.onBoarding.step_creadit_card_details);

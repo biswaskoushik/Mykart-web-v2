@@ -52,8 +52,6 @@ export class OnboardingComponent implements OnInit {
     this.loginData = this.commonFunction.getLoginData();
     this.image_url = localStorage.getItem('image_url');
 
-    console.log(this.image_url, 'image_url++')
-
     if (this.router.url == '/seller/onboarding/stripe') {
       this.getConnectStripeData(1);
     }
@@ -75,13 +73,11 @@ export class OnboardingComponent implements OnInit {
 
   // profile Listener from profile component
   profileListener(event: any) {
-    //console.log(event, 'event')
     this.updateOnboardingSteps(event);
   }
 
   // policies Listener from policies component
   policiesListener(event: any) {
-    //console.log(event, 'event')
     this.policiesFormFlag = false;
     this.updateOnboardingSteps(event);
 
@@ -89,7 +85,6 @@ export class OnboardingComponent implements OnInit {
 
   // subscription Listener from subscription component
   subscriptionListener(event) {
-    //console.log(event, 'event')
     this.ActiveFormFlag = false;
     this.updateOnboardingSteps(event);
   }
@@ -159,8 +154,6 @@ export class OnboardingComponent implements OnInit {
         this.onBoarding.step_creadit_card_details = next.onboardingStepsDataJson.stepCreaditCardDetails;
         this.onBoarding.step_stripe = next.onboardingStepsDataJson.stepStripe;
 
-        //console.log(this.onBoarding, 'this.onBoarding==??')
-
         if (this.onBoarding.step_creadit_card_details != null && typeof (this.onBoarding.step_creadit_card_details) != 'undefined' && this.onBoarding.step_creadit_card_details != 2) {
           this.ActiveFormFlag = false;
           this.connectActiveFlag = false;
@@ -200,10 +193,6 @@ export class OnboardingComponent implements OnInit {
   updateOnboardingSteps(val) {
     this.commonFunction.loader(true);
 
-    //console.log(val, '>>>>>>>>.???????????')
-    // let cond: any = {};
-    // cond = this.onBoarding;
-
     if (val.action != null) {
       switch (val.action) {
         case 'profile':
@@ -223,7 +212,7 @@ export class OnboardingComponent implements OnInit {
 
     this.apiService.httpViaPost('services/vendor/v1/appdata/onboarding-steps/update', this.onBoarding).subscribe((next: any) => {
       this.commonFunction.loader(false);
-      // //console.log(cond, 'cond+++')
+      
       if (next.status != null && next.status.status_code == 200) {
         this.onboardingStepsCond();
 
@@ -256,11 +245,8 @@ export class OnboardingComponent implements OnInit {
   }
 
   getConnectStripeData(value) {
-    console.log(value, '+++++++++ val')
     this.apiService.httpViaPost('services/vendor/v1/get-onboarding-data', {}).subscribe((next: any) => {
-      // console.log(next, '+++++')
       if (next != null && next.OnboardingDataJson != null && typeof (next.OnboardingDataJson) != 'undefined' && next.OnboardingDataJson.stripeUserId != null && typeof (next.OnboardingDataJson.stripeUserId) != 'undefined' && next.OnboardingDataJson.stripeUserId != '') {
-        console.log(next.OnboardingDataJson.stripeUserId, '++===========')
         this.componentStrip = true;
         this.stripFormFlag = false;
         let connectStripData = { action: 'strip', flag: 'skip-connect', stripFormFlag: this.stripFormFlag, value: 1 }
