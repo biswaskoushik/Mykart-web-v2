@@ -35,7 +35,7 @@ textarea:focus ~ .floating-label,textarea:not(:focus):valid ~ .floating-label{he
 .boardingfo .floating-label-group .form-control:disabled:focus{border-color:#F0F0F0;-webkit-box-shadow:none;box-shadow:none}
 .boardingfo .floating-label-group .form-control[readonly]:focus{border-color:#F0F0F0;-webkit-box-shadow:none;box-shadow:none}
 .proimgbx{display:inline-block;margin-bottom:20px}
-.proimgbx .image-container{margin-bottom: 10px;width: 100px;height: 100px;border: 1px solid #eaeaea;border-radius: 100px;padding: 5px;}
+.proimgbx .image-container{margin-bottom: 10px;width: 100px;height: 100px;border: 1px solid #eaeaea;border-radius: 100px;padding: 5px;display: flex; justify-content: center;align-items: center;}
 .proimgbx img{width:100%;height:100%;-webkit-object-fit:cover;object-fit:cover}
 .proimgbx .pptext{color:#1079EE;font-size:15px;font-weight:500}
 .proimgbx .pptext a{color:#1079EE;text-decoration:none}

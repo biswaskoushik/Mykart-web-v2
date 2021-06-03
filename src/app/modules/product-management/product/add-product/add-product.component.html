@@ -50,7 +50,9 @@
                           <div *ngFor="let item of product.media_links;let i = index" class="productlistsingle">
                             <div class="col-md-12" style="display : -webkit-inline-box">
                               <div class="imgcardclass-wrapper">
-                                <img form-group *ngIf="item" [src]="item" class="image-fluid p-4 imgcardclass" />
+                                <div class="imgcardclass-wrapper-inner">
+                                  <img form-group *ngIf="item" [src]="item" class="image-fluid imgcardclass" />
+                                </div>
                               </div>
                                 <i class="material-icons imgcloseclass" (click)="clearImage(item,i,'edit')">&#xe888;</i>                          
                               
@@ -62,7 +64,9 @@
                           <div *ngFor="let item of imagesData;let i = index" class="productlistsingle">
                             <div class="col-md-12" style="display : -webkit-inline-box">
                               <div class="imgcardclass-wrapper">
-                                <img form-group *ngIf="item" [src]="item.img" class="image-fluid p-4 imgcardclass" />
+                                <div class="imgcardclass-wrapper-inner">
+                                  <img form-group *ngIf="item" [src]="item.img" class="image-fluid imgcardclass" />
+                                </div>
                               </div>
                               <i class="material-icons imgcloseclass" (click)="clearImage(item,i,'add')">&#xe888;</i>
                             </div>
@@ -91,15 +95,19 @@
                     <div class="col-md-12">
                       <div class="row m-b-6 mb-2">
                         <div class="col-md-6">
-                          <div class="form-group">
-                            <label>Category</label>
-                            <select class="custom-select form-control" id="inputGroupSelect01"
+                          <div class="form-group floatwrap floatwrapnew">
+                            
+                            <select class="floating-select-new" id="inputGroupSelect01"
                               [(ngModel)]="product.category.code" (change)="changeCategory(product.category.code)"
                               [ngModelOptions]="{standalone: true}">
                               <option selected>Choose category</option>
                               <option *ngFor="let category of categoryList" [value]="category.code">
                                 {{ category.name }}</option>
                             </select>
+                            <label class="matsllabel">Category</label>
+
+                            <!-- <label class="matlabel" for="category">Category</label> -->
+
                             <p class="error-p" *ngIf="product.category.code == null || 
                       product.category.code == ''">{{fielderror?.categoryerr}}</p>
                           </div>
@@ -172,19 +180,27 @@
                     <div class="col-md-12">
                       <div class="row m-b-6 mb-2">
                         <div class="col-md-6">
-                          <div class="form-group">
+                          <div class="form-group floatwrap">
                             <input type="number" min="0" step="0.01" id="price" name="price" placeholder="Price"
                               [(ngModel)]="product.price" class="form-control inputText"
                               [ngModelOptions]="{standalone: true}" />
+
+                              <label class="matlabel" for="price">Price</label>
+
+
                             <p class="error-p" *ngIf="product.price == null || 
                       product.price == ''">{{fielderror?.priceerr}}</p>
                           </div>
                         </div>
                         <div class="col-md-6">
-                          <div class="form-group">
+                          <div class="form-group floatwrap">
                             <input type="number" min="0" step="0.01" id="qty" name="qty" placeholder="Quantity"
                               [(ngModel)]="product.qty" class="form-control inputText"
                               [ngModelOptions]="{standalone: true}" />
+
+                              <label class="matlabel" for="qty">Quantity</label>
+
+
                             <p class="error-p" *ngIf="product.qty == null || 
                       product.qty == ''">{{fielderror?.qtyerr}}</p>
                           </div>
@@ -361,9 +377,11 @@
                     <div class="col-md-12">
                       <div class="row m-b-6 mb-2">
                         <div class="col-md-6">
-                          <div class="form-group">
+                          <div class="form-group floatwrap">
                             <input type="number" name="weight" placeholder="Weight(Lbs)" [(ngModel)]="product.weight"
                               [ngModelOptions]="{standalone: true}" class="form-control inputText" />
+
+                              <label class="matlabel" for="weight">Weight(Lbs)</label>
                             <p class="error-p" *ngIf="product.weight == null || 
                             product.weight == ''">{{fielderror?.weighterr}}</p>
                           </div>
@@ -380,10 +398,13 @@
                     <div class="col-md-12">
                       <div class="row m-b-6 mb-2 dimentionrow">
                         <div class="col-md-3 dimentioncolumn">
-                          <div class="form-group">
+                          <div class="form-group floatwrap">
                             <input type="number" min="0" step="0.01" id="length" name="length" placeholder="Length"
                               [(ngModel)]="product.length" class="form-control inputText"
                               [ngModelOptions]="{standalone: true}" />
+
+                              <label class="matlabel" for="length">Length</label>
+
                             <p class="error-p" *ngIf="product.length == null || 
                             product.length == ''">{{fielderror?.lengtherr}}</p>
                           </div>
@@ -392,10 +413,12 @@
                           <div class="dimnex">X</div>
                         </div>
                         <div class="col-md-3 dimentioncolumn">
-                          <div class="form-group">
+                          <div class="form-group floatwrap">
                             <input type="number" min="0" step="0.01" id="width" name="width" placeholder="Width"
                               [(ngModel)]="product.width" class="form-control inputText"
                               [ngModelOptions]="{standalone: true}" />
+
+                              <label class="matlabel" for="width">Width</label>
                             <p class="error-p" *ngIf="product.width == null || 
                             product.width == ''">{{fielderror?.widtherr}}</p>
                           </div>
@@ -404,10 +427,12 @@
                           <div class="dimnex">X</div>
                         </div>
                         <div class="col-md-3 dimentioncolumn">
-                          <div class="form-group">
+                          <div class="form-group floatwrap">
                             <input type="number" min="0" step="0.01" id="height" name="height" placeholder="Height"
                               [(ngModel)]="product.height" class="form-control inputText"
                               [ngModelOptions]="{standalone: true}" />
+
+                              <label class="matlabel" for="height">Height</label>
                             <p class="error-p" *ngIf="product.height == null || 
                             product.height == ''">{{fielderror?.heighterr}}</p>
                           </div>

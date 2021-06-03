@@ -16,7 +16,7 @@
                                 </button>
                                 <div *ngIf="categoryNotification" class="tooltip1text tooltip1textaddcategory">           
                                     <button type="button" class="close" (click)="close()">&times;</button>
-                                    <p class="title">Add a category to add product</p>
+                                    <p class="title"><strong>Add a category to add product</strong></p>
                                     <p>Click here to add and manage categories</p>
                                 </div>
                                 </div>
@@ -30,9 +30,17 @@
                         </div>
                     </div>
                 </div>
-
-
-                <div class="card card-borderless">
+                <div class="row align-items-center searchdiv">
+                    <div class="col-md-6 col-sm-12 m-auto">
+                        <div class="form-group has-search">                            
+                            <input type="text" class="form-control" placeholder="Search">
+                            <button class="btn searchbtn" type="button">
+                                <i class="fa fa-search"></i>
+                              </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="card card-borderless searchlistsproduct">
                     <ul class="nav nav-tabs nav-tabs-simple">
                         <li class=" cursor" *ngFor="let row of categoryList">
                             <a data-toggle="tab" [ngClass]="{'active': row.code == selectedCategory}"
