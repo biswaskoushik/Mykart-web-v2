@@ -44,8 +44,8 @@
                                                         <div class="form-group pl-2">
                                                             <select class="form-control form-control-lg inputText"
                                                                 name="carriers" aria-label="Default select example"
-                                                                (change)="getServiceData(shippingCarriers.carrier_service)"
-                                                                [(ngModel)]="shippingCarriers.carrier_service"
+                                                                (change)="getServiceData(shippingCarriers.shipping_carrier)"
+                                                                [(ngModel)]="shippingCarriers.shipping_carrier"
                                                                 [ngModelOptions]="{standalone: true}">
                                                                 <option *ngFor="let item of carriersData"
                                                                     [value]="item.friendly_name">{{item.friendly_name}}
@@ -62,7 +62,7 @@
                                                         <div class="form-group mb-0 pl-2">
                                                             <select class="form-control form-control-lg inputText"
                                                                 name="year" aria-label="Default select example"
-                                                                [(ngModel)]="shippingCarriers.shipping_carrier"
+                                                                [(ngModel)]="shippingCarriers.carrier_service"
                                                                 [ngModelOptions]="{standalone: true}">
                                                                 <option *ngFor="let item of serviceData"
                                                                     [value]="item.name">{{item.name}}</option>

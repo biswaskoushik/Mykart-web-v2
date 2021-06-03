@@ -78,6 +78,8 @@ export class PolicyAddEditComponent implements OnInit {
   ngOnInit(): void {
     this.loginData = this.commonFunction.getLoginData();
 
+    this.getShippingCarrierData();
+
     this.getPolicyDetails();
 
     this.getCustomPolicyDetails();
@@ -88,8 +90,6 @@ export class PolicyAddEditComponent implements OnInit {
       case 'shipping':
         this.data.header = 'Shipping & handling';
         this.data.flag = 'shipping';
-
-        this.getShippingCarrierData();
 
         this.apiService.httpViaPostLaravel("services/user/v1/get-shipping", { policy_type_id: 1, vendor_id: this.loginData.data.user.id }).subscribe((next: any) => {
           this.commonFunction.loader(false);
@@ -229,18 +229,21 @@ export class PolicyAddEditComponent implements OnInit {
       this.policy_details = next.response.policy_details;
 
       if (this.activatedRoute.snapshot.params.type == "shipping") {
+        
+        this.getServiceData(next.response.policy_details.shipping_carrier);
+
+        console.log("this.serviceData : ", this.serviceData);
+
         this.shippingCarriers = {
-          carrier_service: 'Stamps.com',
-          shipping_carrier: this.policy_details.shipping_carrier,
+          shipping_carrier: next.response.policy_details.shipping_carrier,
+          carrier_service: next.response.policy_details.carrier_service,
           handling_time: this.policy_details.handling_time,
           id: this.policy_details.id,
-
-          shipping_additional_details: '',
           shipping_additional_info: this.policy_details.shipping_additional_info,
-          
           vendor_id: this.policy_details.vendor_id
         }
-        this.getServiceData(this.shippingCarriers.carrier_service)
+
+        console.log("this.shippingCarriers : ", this.shippingCarriers);
       }
 
       if (this.activatedRoute.snapshot.params.type == "return") {

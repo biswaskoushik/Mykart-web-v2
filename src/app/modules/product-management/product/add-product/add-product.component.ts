@@ -208,6 +208,7 @@ export class AddProductComponent implements OnInit {
         this.product.qty = productData.qty;
         this.product.sku = productData.sku;
         this.product.discount_type = productData.discount_type;
+
         this.product.discount_value = productData.discount_value;
         this.product.height = productData.height;
         this.product.is_free_shipping = productData.is_free_shipping;
@@ -311,11 +312,11 @@ export class AddProductComponent implements OnInit {
         this.product.discount_value = this.product.flat_amount;
       }
 
-      delete this.product.percentage;
-      delete this.product.is_percentage;
-      delete this.product.is_flat_amount;
-      delete this.product.flat_amount;
-      delete this.product.none;
+      // delete this.product.percentage;
+      // delete this.product.is_percentage;
+      // delete this.product.is_flat_amount;
+      // delete this.product.flat_amount;
+      // delete this.product.none;
 
       this.commonFunction.loader(true);
       let fd = new FormData()
@@ -333,6 +334,10 @@ export class AddProductComponent implements OnInit {
         endpoint = 'product/v1/update';
       }
 
+      this.commonFunction.loader(false);
+      // console.log("this.product: ", this.product);
+      // return;
+
       this.apiService.httpViaPostLaravel(endpoint, this.product).subscribe((next: any) => {
         this.commonFunction.loader(false);
         if (next != null && typeof (next.status_code) != 'undefined' && next.status_code == 200) {
@@ -344,6 +349,7 @@ export class AddProductComponent implements OnInit {
             swal("Thank You!", 'You’ve successfully updated product.', "success");
           }
           this.product.productId = next.data.productId;
+          this.router.navigateByUrl('/seller/products/edit/' + next.data.productId);
           this.getVariantData(next.data.productId);
         } else {
           if (next.message != null && typeof (next.message) != 'undefined') {

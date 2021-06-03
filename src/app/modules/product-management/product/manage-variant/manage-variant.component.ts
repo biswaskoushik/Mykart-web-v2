@@ -71,7 +71,7 @@ export class ManageVariantComponent implements OnInit {
       this.variant.is_active = true;
     }
 
-    if (data.data.media_links != null) {
+    if (data.data.media_links.length > 0) {
       this.variant.media_links = data.data.media_links;
     }
 
@@ -114,7 +114,8 @@ export class ManageVariantComponent implements OnInit {
         imageArray.push({ img: event.target.files[i] })
       }
 
-      this.readAllFiles(imageArray)
+      let imagesData = this.readAllFiles(imageArray);
+      console.log("imagesData", imagesData);
     }
   }
 
@@ -135,7 +136,7 @@ export class ManageVariantComponent implements OnInit {
       fileReader.onload = () => {
         if (this.imagesData.length < 5) {
           resolve({ img: fileReader.result });
-          this.imagesData.push({ img: fileReader.result });
+          this.imagesData.push(fileReader.result);
           this.fielderror.imageerr = '';
         } else {
           swal("Sorry!", 'You can only add 5 images!', "warning");
