@@ -118,10 +118,14 @@ export class OnboardingPoliciesComponent implements OnInit {
     if (this.policiesForm.valid) {
       this.commonFunction.loader(true);
 
-      this.apiService.httpViaPost("services/vendor/v1/policy/details/update", this.policiesForm.value).subscribe((next: any) => {
-        this.commonFunction.loader(false);
+      let loginData: any = this.commonFunction.getLoginData();
+      let sendData: any = this.policiesForm.value;
+      sendData.shipping_additional_info = '';
+      sendData.vendor_id = loginData.data.user.id;
 
-        if (next.response != null && next.response.status != null && typeof (next.response.status.status_message) != 'undefined' && next.response.status.status_message == 'SUCCESS') {
+      this.apiService.httpViaPostLaravel("services/user/v1/create-shipping", this.policiesForm.value).subscribe((next: any) => {
+        this.commonFunction.loader(false);
+        if (next.status_code == 200) {
           this.policiesForm.reset();
           swal("Thank You!", 'You’ve successfully Added Policies.', "success");
 
@@ -132,12 +136,7 @@ export class OnboardingPoliciesComponent implements OnInit {
             this.policiesForm.controls[x].markAsUntouched();
           }
         } else {
-          if (next.response.fault != null && typeof (next.response.fault) != 'undefined') {
-            swal("Sorry!", next.response.fault.fault_message, "warning");
-
-          } else {
-            swal("Sorry!", 'Somethings went wrong!', "warning");
-          }
+          swal("Sorry!", 'Somethings went wrong!', "warning");
         }
       });
     }

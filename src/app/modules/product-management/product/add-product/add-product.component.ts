@@ -301,6 +301,8 @@ export class AddProductComponent implements OnInit {
   saveProduct() {
     let isFormValid = this.formValidation();
     if (isFormValid) {
+      let button_text = this.button_text;
+      this.button_text = '';
 
       if (this.product.is_percentage == true) {
         this.product.discount_type = 1;
@@ -334,15 +336,16 @@ export class AddProductComponent implements OnInit {
         endpoint = 'product/v1/update';
       }
 
-      this.commonFunction.loader(false);
       // console.log("this.product: ", this.product);
       // return;
 
       this.apiService.httpViaPostLaravel(endpoint, this.product).subscribe((next: any) => {
         this.commonFunction.loader(false);
-        if (next != null && typeof (next.status_code) != 'undefined' && next.status_code == 200) {
-          this.button_text = 'Update Product';
 
+        this.button_text = button_text;
+
+        if (next != null && typeof (next.status_code) != 'undefined' && next.status_code == 200) {
+          
           if (this.product.productId == null) {
             swal("Thank You!", 'You’ve successfully added product.', "success");
           } else {
@@ -492,7 +495,7 @@ export class AddProductComponent implements OnInit {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
-    dialogConfig.width = "62%";
+    // dialogConfig.width = "62%";
     dialogConfig.hasBackdrop = true;
 
     let header = (value.combination).split('-').join(' | ')

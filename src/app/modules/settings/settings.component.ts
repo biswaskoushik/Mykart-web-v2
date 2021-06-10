@@ -45,6 +45,18 @@ export class SettingsComponent implements OnInit {
   ngOnInit(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
+    this.commonFunction.loader(true);
+    let loginData: any = this.commonFunction.getLoginData();
+    this.apiService.httpViaPostLaravel("services/user/v1/get-offline", { "vendor_id": loginData.data.user.id }).subscribe((next: any) => {
+      this.commonFunction.loader(false);
+
+      console.log("next ", next);
+      if (next.status == true) {
+        console.log("next.data ", next.data);
+        this.setting.is_offline = next.data.is_offline;
+      }
+    });
+
     this.changePassordForm = FormGroup;
     this.generateForm();
   }
@@ -129,21 +141,23 @@ export class SettingsComponent implements OnInit {
 
   setStatus() {
     this.commonFunction.loader(true);
-    this.setting.is_offline = !this.setting.is_offline;
-    this.apiService.httpViaPost("services/vendor/v1/offline/status/update", { status: this.setting.is_offline }).subscribe((next: any) => {
-      this.commonFunction.loader(false);
-      if (next.response != null && next.response.status != null && typeof (next.response.status.status_message) != 'undefined' && next.response.status.status_message == 'SUCCESS') {
-        swal("Thank You!", 'You’ve successfully updated setting.', "success");
 
-      } else {
-        if (next.response.fault != null && typeof (next.response.fault) != 'undefined') {
-          swal("Sorry!", next.response.fault.fault_message, "warning");
-
+    setTimeout(() => {
+      this.apiService.httpViaPost("services/vendor/v1/offline/status/update", { status: this.setting.is_offline }).subscribe((next: any) => {
+        this.commonFunction.loader(false);
+        if (next.response != null && next.response.status != null && typeof (next.response.status.status_message) != 'undefined' && next.response.status.status_message == 'SUCCESS') {
+          swal("Thank You!", 'You’ve successfully updated setting.', "success");
+  
         } else {
-          swal("Sorry!", 'Somethings went wrong!', "warning");
+          if (next.response.fault != null && typeof (next.response.fault) != 'undefined') {
+            swal("Sorry!", next.response.fault.fault_message, "warning");
+  
+          } else {
+            swal("Sorry!", 'Somethings went wrong!', "warning");
+          }
         }
-      }
-    })
+      })
+    }, 500);
   }
 
 }

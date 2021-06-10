@@ -79,7 +79,7 @@ export class RegisterComponent implements OnInit {
             
             if (next.response != null && next.response.status != null && typeof (next.response.status.status_message) != 'undefined' && next.response.status.status_message == 'SUCCESS') {
               this.registerForm.reset();
-              swal("Thank You!", 'Check your Inbox Verify email to finish signing up.', "success");
+              swal("Thank You!", 'A verification mail has been sent to your email account.', "success");
               setTimeout(() => {
                 this.router.navigate(['/auth/login']);
               }, 2000);

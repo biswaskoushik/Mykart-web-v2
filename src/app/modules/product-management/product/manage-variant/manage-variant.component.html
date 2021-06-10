@@ -5,11 +5,11 @@
                 <div class="container-fluid">
                     <div class="card card-borderless m-b-20">
                         <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col-md-9 col-sm-9">
+                            <div class="row">
+                                <div class="col-md-11">
                                     <h4 class="font text-center m-0 ">{{data?.header}}</h4>
                                 </div>
-                                <div class="col-md-3 col-sm-3 text-center sm-m-b-20 closebtnclass">
+                                <div class="col-md-1 text-left sm-m-b-20 closebtnclass">
                                     <i class="fa fa-close" style="font-size:24px;cursor: pointer;"
                                         (click)="closeModal()"></i>
                                 </div>
@@ -26,7 +26,7 @@
                                             photos)</span></h5>
                                     <div class="col-md-12">
                                         <div class="row m-b-15">
-                                            <div class="addwrapppercls" style="display : -webkit-inline-box">
+                                            <div *ngIf="imagesData.length < 5" class="addwrapppercls" style="display : -webkit-inline-box">
                                                 <div class="image-container-wrapper">
                                                     <div onclick="document.getElementById('selectedImgFile').click();"
                                                         class="image-container text-center cursor">
@@ -53,12 +53,12 @@
 
 
 
-                                                    <div class="col-md-2" style="display : -webkit-inline-box">
+                                                    <!-- <div class="col-md-2" style="display : -webkit-inline-box">
                                                         <img form-group *ngIf="item" [src]="item.img"
                                                             class="image-fluid p-4 imgcardclass" />
                                                         <i class="material-icons imgcloseclass"
                                                             (click)="clearImage(item,i,'add')">&#xe888;</i>
-                                                    </div>
+                                                    </div> -->
                                                 </div>
                                             </div>
 
@@ -111,7 +111,7 @@
                                                 <input placeholder="SKU" class="form-control form-control-lg inputText" name="variant" id="variant"
                                                     [(ngModel)]="variant.sku" [ngModelOptions]="{standalone: true}" />
 
-                                                    <label class="matlabel mt-0 pl-0" for="variant">Category</label>
+                                                    <label class="matlabel mt-0 pl-0" for="variant">SKU</label>
 
                                                     <p class="error-p" *ngIf="variant.sku == null || variant.sku == ''">{{fielderror?.skuerr}}</p>
                                             </div>
@@ -124,17 +124,17 @@
                                     <h5 class="text-mute font-weight-normal">Discount / Offer Type </h5>
                                     <div class="col-md-12">
                                         <div class="row m-b-6 mb-2">
-                                            <div class="col-md-2">
+                                            <div class="col-md-4">
                                                 <input type="radio" class="mr-2" [checked]='none_flag'
                                                     (change)="changeDiscount(0)" />None
                                             </div>
 
-                                            <div class="col-md-3">
+                                            <div class="col-md-4">
                                                 <input type="radio" [checked]='is_percentage' class="mr-2"
                                                     (change)="changeDiscount(1)" />Percentage
                                             </div>
 
-                                            <div class="col-md-2">
+                                            <div class="col-md-4">
                                                 <input type="radio" [checked]='is_flat_amount' class="mr-2"
                                                     (change)="changeDiscount(2)" />Flat Rate
                                             </div>

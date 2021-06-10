@@ -112,11 +112,11 @@ export class LoginComponent implements OnInit {
             }
             this.onBoardingSteps();
           }else{
-            swal("Sorry!", 'This is inactive user', "warning");
+            swal("Sorry!", 'Please verify your email address before completing your Registration process.', "warning");
           }
           } else {
             if (next.response.fault != null && typeof (next.response.fault) != 'undefined') {
-              swal("Sorry!", next.response.fault.fault_message, "warning");
+              swal("Sorry!", 'Sorry! Your password and email don’t match.', "warning");
             } else {
               swal("Sorry!", 'Somethings went wrong!', "warning");
             }

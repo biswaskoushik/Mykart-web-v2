@@ -8,8 +8,10 @@
             <div class="row align-items-center">
               <div class="col-md-12 col-sm-12 text-center headercls">
                 <h5 class="col-md-12 col-sm-12 font text-center m-0">
-                  <ng-container *ngIf="this.activatedRoute.snapshot.params.product_id != null">Update Product</ng-container>
-                  <ng-container *ngIf="this.activatedRoute.snapshot.params.product_id == null">Create Product</ng-container>
+                  <ng-container *ngIf="this.activatedRoute.snapshot.params.product_id != null">Update Product
+                  </ng-container>
+                  <ng-container *ngIf="this.activatedRoute.snapshot.params.product_id == null">Create Product
+                  </ng-container>
                 </h5>
 
                 <div class="back-button cursor">
@@ -38,12 +40,12 @@
                         <div class="addwrapppercls" style="display : -webkit-inline-box">
                           <div class="image-container-wrapper">
                             <div onclick="document.getElementById('selectedFile').click();"
-                            class="image-container text-center cursor">                            
-                              <input type="file" id="selectedFile" name="selectedFile" accept="image/*" [(ngModel)]="temp"
-                                (change)="handleFileInputChange($event)" class="d-none" multiple />                              
-                              <img class="imageareaclass" src="assets/img/icons/plus_icon.png" />                        
+                              class="image-container text-center cursor">
+                              <input type="file" id="selectedFile" name="selectedFile" accept="image/*"
+                                [(ngModel)]="temp" (change)="handleFileInputChange($event)" class="d-none" multiple />
+                              <img class="imageareaclass" src="assets/img/icons/plus_icon.png" />
+                            </div>
                           </div>
-                          </div>                          
                         </div>
 
                         <div *ngIf="product.media_links.length > 0" style="display: flex;" class="productlistswrapper">
@@ -54,8 +56,8 @@
                                   <img form-group *ngIf="item" [src]="item" class="image-fluid imgcardclass" />
                                 </div>
                               </div>
-                                <i class="material-icons imgcloseclass" (click)="clearImage(item,i,'edit')">&#xe888;</i>                          
-                              
+                              <i class="material-icons imgcloseclass" (click)="clearImage(item,i,'edit')">&#xe888;</i>
+
                             </div>
                           </div>
                         </div>
@@ -96,7 +98,7 @@
                       <div class="row m-b-6 mb-2">
                         <div class="col-md-6">
                           <div class="form-group floatwrap floatwrapnew">
-                            
+
                             <select class="floating-select-new" id="inputGroupSelect01"
                               [(ngModel)]="product.category.code" (change)="changeCategory(product.category.code)"
                               [ngModelOptions]="{standalone: true}">
@@ -121,13 +123,13 @@
                     <div class="col-md-12">
                       <div class="row m-b-6 mb-2">
                         <div class="col-md-6">
-                          
+
                           <div class="form-group floatwrap">
                             <input type="text" name="productTitle" placeholder="Product Title" id="productTitle"
                               class="form-control inputText" [(ngModel)]="product.title"
                               [ngModelOptions]="{standalone: true}" />
 
-                              <label class="matlabel" for="productTitle">Product Title</label>
+                            <label class="matlabel" for="productTitle">Product Title</label>
 
                             <p class="error-p" *ngIf="product.title == null || 
                       product.title == ''">{{fielderror?.titleerr}}</p>
@@ -139,7 +141,7 @@
                             <input type="text" name="productSubtitle" placeholder="Product Subtitle"
                               [(ngModel)]="product.subtitle" id="" #description="ngModel" class="form-control inputText"
                               required [ngModelOptions]="{standalone: true}" />
-                              <label class="matlabel" for="productSubtitle">Product Subtitle</label>
+                            <label class="matlabel" for="productSubtitle">Product Subtitle</label>
                             <p class="error-p" *ngIf="product.subtitle == null || 
                             product.subtitle == ''">{{fielderror?.subtitleerr}}</p>
                           </div>
@@ -154,10 +156,13 @@
                       <div class="row m-b-6 mb-2">
                         <div class="col-md-12">
                           <div class="form-group floatwrap">
-                            <textarea name="description" placeholder="Description" [(ngModel)]="product.description" [ngModelOptions]="{standalone: true}" id="description" class="form-control inputText" rows="4">
+                            <textarea name="description" placeholder="Description" [(ngModel)]="product.description"
+                              [ngModelOptions]="{standalone: true}" id="description" class="form-control inputText"
+                              rows="4">
                         </textarea>
                             <label class="matlabel" for="description">Description</label>
-                            <p class="error-p" *ngIf="product.description == null || product.description == ''">{{fielderror?.descriptionerr}}</p>
+                            <p class="error-p" *ngIf="product.description == null || product.description == ''">
+                              {{fielderror?.descriptionerr}}</p>
                           </div>
                         </div>
                       </div>
@@ -185,7 +190,7 @@
                               [(ngModel)]="product.price" class="form-control inputText"
                               [ngModelOptions]="{standalone: true}" />
 
-                              <label class="matlabel" for="price">Price</label>
+                            <label class="matlabel" for="price">Price</label>
 
 
                             <p class="error-p" *ngIf="product.price == null || 
@@ -198,7 +203,7 @@
                               [(ngModel)]="product.qty" class="form-control inputText"
                               [ngModelOptions]="{standalone: true}" />
 
-                              <label class="matlabel" for="qty">Quantity</label>
+                            <label class="matlabel" for="qty">Quantity</label>
 
 
                             <p class="error-p" *ngIf="product.qty == null || 
@@ -216,7 +221,7 @@
                             <input type="text" id="sku" name="sku" placeholder="SKU" class="form-control inputText"
                               [(ngModel)]="product.sku" [ngModelOptions]="{standalone: true}" />
 
-                              <label class="matlabel" for="sku">SKU</label>
+                            <label class="matlabel" for="sku">SKU</label>
 
                             <p class="error-p" *ngIf="product.sku == null || 
                       product.sku == ''">{{fielderror?.skuerr}}</p>
@@ -244,25 +249,26 @@
                       <div class="row m-b-6 mb-2">
                         <div class="col-md-4">
                           <div class="inputfield floatwrap">
-                              <input type="text" name="variantname" placeholder="Variant Name" id="variantname" class="form-control form-control-lg inputText" [(ngModel)]="product.variant[i].name" [ngModelOptions]="{standalone: true}" required/>
-                              <label class="matlabel" for="variantname">Variant Name</label>
-                          </div>                          
+                            <input type="text" name="variantname" placeholder="Variant Name" id="variantname"
+                              class="form-control form-control-lg inputText" [(ngModel)]="product.variant[i].name"
+                              [ngModelOptions]="{standalone: true}" required />
+                            <label class="matlabel" for="variantname">Variant Name</label>
+                          </div>
                         </div>
-                        
+
                         <div class="col-md-7">
                           <mat-form-field class="chip-list chpcls">
                             <mat-chip-list class="matchiplistswrapper" #chipList aria-label="Options selection">
-                                <div class="matchiplists">
-                                  <mat-chip *ngFor="let chp of product.variant[i].options;let j = index"
-                                    [selectable]="selectable" [removable]="removable" (removed)="clearChip(i,j)">{{chp}}
-                                    <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
-                                  </mat-chip>
-                                </div>
-                                <input placeholder="Options ..." [matChipInputFor]="chipList"
-                                  [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
-                                  [matChipInputAddOnBlur]="addOnBlur"
-                                  (matChipInputTokenEnd)="addVariantOptions($event,i)">
-                              
+                              <div class="matchiplists">
+                                <mat-chip *ngFor="let chp of product.variant[i].options;let j = index"
+                                  [selectable]="selectable" [removable]="removable" (removed)="clearChip(i,j)">{{chp}}
+                                  <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                                </mat-chip>
+                              </div>
+                              <input placeholder="Options ..." [matChipInputFor]="chipList"
+                                [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="addOnBlur"
+                                (matChipInputTokenEnd)="addVariantOptions($event,i)">
+
                             </mat-chip-list>
                           </mat-form-field>
                         </div>
@@ -285,7 +291,8 @@
             </div>
           </div>
 
-          <div class="row justify-content-center variant" *ngIf="button_text == 'Update Product' && filterVariantArray.length > 0">
+          <div class="row justify-content-center variant"
+            *ngIf="button_text == 'Update Product' && filterVariantArray.length > 0">
             <div class="col-12">
               <div class="card mb-35 card-common">
                 <div class="card-body m-2">
@@ -295,7 +302,9 @@
                     <div class="col-md-12">
                       <div class="row m-b-6 mb-2">
                         <div class="col-md-4">
-                          <select class="form-control form-control-lg inputText"  id="variantFilterSelect01" [(ngModel)]="variantFilter.filter_val" (change)="getVariantFilterData();"  [ngModelOptions]="{standalone: true}">
+                          <select class="form-control form-control-lg inputText" id="variantFilterSelect01"
+                            [(ngModel)]="variantFilter.filter_val" (change)="getVariantFilterData();"
+                            [ngModelOptions]="{standalone: true}">
                             <option selected value='all'>View all variants</option>
                             <option *ngFor="let val of filterVariantArray" [value]="val">{{val}}</option>
                             <option value="removed">Removed</option>
@@ -303,8 +312,9 @@
                         </div>
 
                         <div class="col-md-4">
-                          <ui-switch color="#0f7aed" [checked]="variantFilter.is_active" [(ngModel)]="variantFilter.is_active" size="small"
-                          (change)="getVariantFilterData();" name="status"></ui-switch>
+                          <ui-switch color="#0f7aed" [checked]="variantFilter.is_active"
+                            [(ngModel)]="variantFilter.is_active" size="small" (change)="getVariantFilterData();"
+                            name="status"></ui-switch>
                         </div>
                       </div>
                     </div>
@@ -320,7 +330,7 @@
                               <span *ngIf="item.media_links != null && 
                             item.media_links.length > 0">
                                 <img [src]="item.media_links[0]" />
-                              </span>                            
+                              </span>
                             </div>
                           </div>
                           <div class="rightbottomvarclass">
@@ -339,7 +349,7 @@
                               </span>
                             </div>
                           </div>
-                          
+
                           <div *ngIf="item.is_delete" class="arrowclass mr-2" (click)="restoreVariant(item,i)">
                             <span style='font-size:24px'><i class="fa fa-undo" aria-hidden="true"></i>
                             </span>
@@ -378,7 +388,7 @@
                             <input type="number" name="weight" placeholder="Weight(Lbs)" [(ngModel)]="product.weight"
                               [ngModelOptions]="{standalone: true}" class="form-control inputText" />
 
-                              <label class="matlabel" for="weight">Weight(Lbs)</label>
+                            <label class="matlabel" for="weight">Weight(Lbs)</label>
                             <p class="error-p" *ngIf="product.weight == null || 
                             product.weight == ''">{{fielderror?.weighterr}}</p>
                           </div>
@@ -400,7 +410,7 @@
                               [(ngModel)]="product.length" class="form-control inputText"
                               [ngModelOptions]="{standalone: true}" />
 
-                              <label class="matlabel" for="length">Length</label>
+                            <label class="matlabel" for="length">Length</label>
 
                             <p class="error-p" *ngIf="product.length == null || 
                             product.length == ''">{{fielderror?.lengtherr}}</p>
@@ -415,7 +425,7 @@
                               [(ngModel)]="product.width" class="form-control inputText"
                               [ngModelOptions]="{standalone: true}" />
 
-                              <label class="matlabel" for="width">Width</label>
+                            <label class="matlabel" for="width">Width</label>
                             <p class="error-p" *ngIf="product.width == null || 
                             product.width == ''">{{fielderror?.widtherr}}</p>
                           </div>
@@ -423,17 +433,19 @@
                         <div class="col-md-3 dimentioncolumnx">
                           <div class="dimnex">X</div>
                         </div>
+
                         <div class="col-md-3 dimentioncolumn">
                           <div class="form-group floatwrap">
                             <input type="number" min="0" step="0.01" id="height" name="height" placeholder="Height"
                               [(ngModel)]="product.height" class="form-control inputText"
                               [ngModelOptions]="{standalone: true}" />
 
-                              <label class="matlabel" for="height">Height</label>
+                            <label class="matlabel" for="height">Height</label>
                             <p class="error-p" *ngIf="product.height == null || 
                             product.height == ''">{{fielderror?.heighterr}}</p>
                           </div>
                         </div>
+
                       </div>
                     </div>
                   </div>
@@ -485,9 +497,21 @@
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12" *ngIf="product.is_percentage">
                           <div class="form-group mb-0">
-                            <input type="number" min="0" step="0.01" id="percentage" name="percentage"
-                              placeholder="Percentage" [(ngModel)]="product.percentage"
-                              class="form-control inputText" />
+
+                            <div class="col-md-12 dimentioncolumn">
+                              <div class="form-group floatwrap">
+
+                                <input type="number" min="0" step="0.01" id="percentage" name="percentage"
+                                  placeholder="Percentage" [(ngModel)]="product.percentage"
+                                  class="form-control inputText" />
+
+                                <label class="matlabel" for="percentage">Percentage</label>
+
+                              </div>
+                            </div>
+
+
+
                           </div>
                         </div>
                       </div>
@@ -512,9 +536,19 @@
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12" *ngIf="product.is_flat_amount">
                           <div class="form-group mb-0">
-                            <input type="number" min="0" step="0.01" id="flat_amount" name="flat_amount"
-                              placeholder="Flat Amount" [(ngModel)]="product.flat_amount"
-                              class="form-control inputText" />
+
+                            <div class="col-md-12 dimentioncolumn">
+
+                              <div class="form-group floatwrap">
+                                <input type="number" min="0" step="0.01" id="flat_amount" name="flat_amount"
+                                  placeholder="Flat Amount" [(ngModel)]="product.flat_amount"
+                                  class="form-control inputText" />
+
+                                <label class="matlabel" for="flat_amount">Flat Amount</label>
+                              </div>
+
+                            </div>
+
                           </div>
                         </div>
                       </div>
@@ -592,11 +626,17 @@
 
           <div class="row">
             <div class="col-sm-12">
-              <button class="add-button btn btn-lg float-right buttoncls" type="button" (click)="saveProduct()">
+              <button *ngIf="button_text != ''" class="add-button btn btn-lg float-right buttoncls" type="button"
+                (click)="saveProduct()">
                 <small class="font">
                   {{button_text}}
                 </small>
               </button>
+
+              <button *ngIf="button_text == ''" class="add-button btn float-right" type="button">
+                <small class="font">Please wait...</small>
+              </button>
+
             </div>
           </div>
         </form>
@@ -604,12 +644,3 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-
-
-

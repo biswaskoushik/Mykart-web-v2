@@ -65,7 +65,7 @@ export class ForgotPasswordComponent implements OnInit {
             for (let x in this.forgetPasswordForm.controls) {
               this.forgetPasswordForm.controls[x].markAsUntouched();
             }
-            swal("Thank You!", 'Email has been sent.Please check mails', "success");
+            swal("Thank You!", 'A verification mail has been sent to your email account.', "success");
             setTimeout(() => {
               this.router.navigate(['/auth/login']);
             }, 2000);

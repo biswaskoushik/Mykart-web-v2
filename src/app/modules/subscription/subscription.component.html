@@ -113,10 +113,20 @@
                     <div class="row" *ngIf="!row.isEdit">
                       <div class="col-md-7 col-sm-6 col-7">
                         <div class="cardimgwrapper"> 
+                          
                           <img *ngIf="row.brand != null && row.brand == 'Visa'" src="assets/img/visa-color_large@2x.png"
                           alt="" class="float-left pr-2" />
-                        <img *ngIf="row.brand != null && row.brand == 'MasterCard'"
+                        
+                          <img *ngIf="row.brand != null && row.brand == 'MasterCard'"
                           src="assets/img/mastercard-color_large@2x.png" alt=""
+                          class="float-left pr-2" />
+
+                          <img *ngIf="row.brand != null && row.brand == 'American Express'"
+                          src="assets/img/americanexpress-color-large@2x.png" alt=""
+                          class="float-left pr-2" />
+
+                          <img *ngIf="row.brand != null && row.brand == 'Discover'"
+                          src="assets/img/discover-color-large@2x.png" alt=""
                           class="float-left pr-2" />
                         </div>                      
 

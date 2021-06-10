@@ -45,7 +45,7 @@ export class SubscriptionComponent implements OnInit {
   }
 
   unsubscribe() {
-    swal("Sorry!", 'Comming Soon', "warning");
+    swal("Sorry!", 'Coming soon.', "warning");
   }
 
   openPaymentDialog() {
